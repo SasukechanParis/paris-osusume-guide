@@ -38,7 +38,7 @@ export function renderRankingGroups(results, shops, contests) {
         .join('');
       return `
     <div class="ranking-group">
-      <p class="ranking-group-label">${contest.name}</p>
+      <a class="ranking-group-label" href="contest.html?id=${contest.id}">${contest.name}</a>
       ${rows}
     </div>`;
     })
@@ -73,4 +73,32 @@ export function renderNearbyResults(sorted) {
     </div>`
     )
     .join('');
+}
+
+export function renderContestDetail(contest, results, shops) {
+  const shopById = new Map(shops.map((s) => [s.id, s]));
+  const contestResults = results
+    .filter((r) => r.contest_id === contest.id)
+    .sort((a, b) => b.year - a.year);
+
+  const yearBlocks = contestResults
+    .map((result) => {
+      const rows = result.rankings
+        .map((r) => {
+          const shop = shopById.get(r.shop_id);
+          return `<li>${r.rank}位: ${shop.name}(${shop.arrondissement})</li>`;
+        })
+        .join('');
+      return `
+    <div class="contest-year-block">
+      <p class="ranking-group-label">${result.year}年</p>
+      <ul>${rows}</ul>
+      <a class="ranking-source" href="${result.source_url}">出典 ↗</a>
+    </div>`;
+    })
+    .join('');
+
+  return `
+    <p class="program-meta">主催: ${contest.organizer} ・ 開催頻度: ${contest.frequency}</p>
+    ${yearBlocks}`;
 }
