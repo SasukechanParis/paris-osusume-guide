@@ -1,4 +1,4 @@
-import { renderProgramList, renderRankingGroups } from './render.js';
+import { renderProgramList, renderRankingGroups, renderShopList } from './render.js';
 
 async function loadJson(path) {
   const res = await fetch(path);
@@ -14,6 +14,7 @@ async function init() {
 
   document.getElementById('program-list').innerHTML = renderProgramList(contests);
   document.getElementById('ranking-groups').innerHTML = renderRankingGroups(results, shops, contests);
+  document.getElementById('shop-list').innerHTML = renderShopList(shops);
 }
 
 init();

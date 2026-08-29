@@ -42,3 +42,17 @@ export function renderRankingGroups(results, shops, contests) {
     })
     .join('');
 }
+
+export function renderShopList(shops) {
+  return shops
+    .map(
+      (shop) => `
+    <div class="shop-card">
+      <p class="shop-name">${shop.name}</p>
+      <p class="shop-meta">${shop.arrondissement} ・ ${shop.address}</p>
+      ${shop.description ? `<p class="shop-desc">${shop.description}</p>` : ''}
+      <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+    </div>`
+    )
+    .join('');
+}
