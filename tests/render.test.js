@@ -5,6 +5,11 @@ import { renderProgramList, renderRankingGroups, renderShopList, renderNearbyRes
 const contests = [
   { id: 'baguette', name: 'Grand Prix de la Baguette', organizer: 'パリ市', category: 'baguette', next_edition_date: null }
 ];
+
+test('renderProgramList includes contest icon image', () => {
+  const html = renderProgramList(contests);
+  assert.match(html, /baguette\.jpg/);
+});
 const shops = [
   { id: 'fournil-didot', name: 'Fournil Didot', arrondissement: '14e' }
 ];

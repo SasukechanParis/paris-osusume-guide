@@ -1,10 +1,15 @@
 import { formatDistance } from './distance.js';
 
 export function renderProgramList(contests) {
+  const iconByCategory = {
+    baguette: 'assets/illustrations/baguette.jpg',
+    croissant: 'assets/illustrations/croissant.jpg'
+  };
   return contests
     .map(
       (c) => `
     <div class="program-row">
+      <img class="program-icon" src="${iconByCategory[c.category] ?? ''}" alt="${c.category}">
       <div>
         <p class="program-name">${c.name}</p>
         <p class="program-meta">主催: ${c.organizer}</p>

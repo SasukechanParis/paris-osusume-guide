@@ -29,13 +29,14 @@ h1.title .accent { color: var(--red); }
 
 .program-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 44px 1fr auto;
   gap: 12px;
   align-items: center;
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
 }
 .program-row:first-child { padding-top: 0; }
+.program-icon { width: 44px; height: 44px; object-fit: cover; border-radius: 50%; }
 .program-name { font-weight: 700; font-size: 14.5px; margin: 0 0 4px; }
 .program-meta { font-size: 12px; color: var(--gray); margin: 0; }
 .program-date { text-align: right; font-size: 11px; color: var(--gray); white-space: nowrap; }
