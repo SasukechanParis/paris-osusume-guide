@@ -8,8 +8,9 @@
 
 ## スコープ
 
-- 大会情報(主催、開催頻度、審査基準、次回開催予定、歴代結果)
-- 受賞店の地図・訪問ガイド
+- 大会情報(主催、開催頻度、審査基準、次回開催予定、歴代ランキング)
+- 受賞店の地図・訪問ガイド・説明文
+- 現在地/宿泊先住所から近い受賞店を検索する機能
 - 対象言語: 日本語のみ
 - 対象コンクール: バゲット部門・クロワッサン部門から開始。将来的に他部門(pain au chocolat等)を追加できる構造にする
 
@@ -22,14 +23,24 @@
 
 補助的なメディア(sortiraparis, lebonbon, parismag等)は裏取り用途で参照し、一次情報は必ず公式サイトを優先する。
 
+## ビジュアルデザイン
+
+- 白ベース + フランス国旗のトリコロール(青・赤)をそのまま使う。中間色でぼかさない
+- タイポグラフィ: 見出しは明朝(Zen Old Mincho)、本文はゴシック(Zen Kaku Gothic New)、英字ラベルはセリフ(Libre Caslon Display)
+- イラストは印象派タッチ(筆致・色の重なりが見える絵画調)。ChatGPTで生成し、`assets/illustrations/` に格納する
+  - 白背景で統一生成し、必要に応じて背景除去して使用
+- テンプレ的な装飾(円形スタンプ、点線囲み、ベタなゴールド×クリームの配色)は避ける
+- モックアップ: [Artifact](https://claude.ai/code/artifact/41ab42f2-706f-4c5a-b9d2-6ac5e2c535ba) で方向性を確認済み
+
 ## サイト構成(フロントエンド)
 
 - vanilla HTML/CSS/JS。フレームワーク不使用(既存Pholio系プロジェクトと統一)
 - ページ構成:
   - トップページ: 直近の更新・今後の開催予定
   - コンクール一覧(部門ごと)
-  - コンクール詳細ページ: 歴代受賞者、審査基準、次回開催予定
+  - コンクール詳細ページ: 歴代ランキング(公式発表された順位分)、審査基準、次回開催予定
   - 受賞店マップ: Leaflet.js + OpenStreetMapタイル(APIキー不要)、地図とリストを連動表示
+  - 近くのパン屋さん検索: 現在地(GPS)または住所/ホテル名を入力し、受賞店を近い順に一覧表示
 - ホスティング: GitHub Pages(無料、既存プロジェクトと同じ運用)
 
 ## データ構造
@@ -39,12 +50,22 @@ data/
   contests.json   # コンクール定義
     { id, name, organizer, category, frequency, official_url, next_edition_date }
   results.json    # 開催年ごとの結果履歴(追記のみ、過去分は残す)
-    { contest_id, year, winner_shop_id, date, source_url }
+    { contest_id, year, rankings: [{ rank, shop_id }], date, source_url }
+    # rankings は公式発表された順位分だけを格納する(発表が優勝者のみの年は1件だけになる)
   shops.json      # 受賞店マスタ
-    { id, name, address, lat, lng, arrondissement, wins: [{contest_id, year}] }
+    { id, name, address, lat, lng, arrondissement, description, google_maps_url, photo_url, wins: [{contest_id, year, rank}] }
+    # description: 店の紹介文(任意)
+    # photo_url: 著作権が確認できた画像のみ設定。無ければ null(Googleマップへのリンクで代替)
 ```
 
 - 各エントリに `source_url` を必須とし、サイト上にも出典リンクを表示する(未確認情報を断定しないため)
+
+## 近くのパン屋さん検索
+
+- 位置情報の入力: ブラウザのGeolocation API(現在地の自動取得)と、住所/ホテル名の手入力の両方に対応
+- 住所→座標変換(ジオコーディング): OpenStreetMapのNominatim API(無料・APIキー不要)を使用。利用ポリシーに従い、User-Agentを設定しリクエスト頻度を抑える
+- 距離計算: 取得した座標とshops.jsonの緯度経度からHaversine公式でクライアントサイドJSにより算出し、近い順にソートして一覧表示
+- 店舗写真: 無断使用を避け、`photo_url`が確認済みの場合のみ表示。無い場合はGoogleマップへのリンクで店構えを確認できるようにする
 
 ## 自動更新ワークフロー
 
@@ -68,3 +89,4 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - iOSアプリ化(将来検討の余地はあるが今回はWebのみ)
 - 英語・フランス語対応
 - プッシュ通知などのネイティブ機能
+- 著作権未確認の店舗写真の掲載
