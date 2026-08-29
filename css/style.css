@@ -68,11 +68,33 @@ h1.title .accent { color: var(--red); }
 .ranking-arr { font-size: 11px; color: var(--gray); margin: 0; }
 .ranking-source { font-size: 10px; color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
 
-.shop-card { padding: 18px 0; border-bottom: 1px solid var(--line); }
-.shop-card:first-child { padding-top: 0; }
-.shop-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
-.shop-meta { font-size: 11.5px; color: var(--gray); margin: 0 0 8px; }
-.shop-desc { font-size: 13px; line-height: 1.8; margin: 0 0 12px; }
+.year-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+}
+.tab-btn {
+  flex-shrink: 0;
+  font-family: 'Libre Caslon Display', serif;
+  font-size: 13px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--gray);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tab-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.year-panel .ranking-row {
+  grid-template-columns: 32px 1fr;
+  row-gap: 10px;
+}
+.year-panel .ranking-row .shop-map-link { grid-column: 1 / -1; justify-self: start; }
+.year-panel .ranking-source { display: block; margin-top: 16px; }
 
 .btn {
   display: inline-block;
@@ -108,7 +130,15 @@ h1.title .accent { color: var(--red); }
 .nearby-card-meta { font-size: 11px; color: var(--gray); margin: 0; }
 .nearby-distance { font-family: 'Libre Caslon Display', serif; font-size: 16px; color: var(--blue); }
 
+.site-footer {
+  margin-top: 56px;
+  padding: 20px 20px 40px;
+  border-top: 1px solid var(--line);
+}
+.site-footer p { font-size: 11px; color: var(--gray); line-height: 1.8; margin: 0; }
+
 @media (min-width: 480px) {
   header.hero { padding: 56px 32px 0; }
   .nearby-card { grid-template-columns: 1fr auto auto; align-items: center; }
+  .site-footer { padding: 24px 32px 40px; }
 }

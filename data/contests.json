@@ -1,7 +1,8 @@
 [
   {
     "id": "baguette",
-    "name": "Grand Prix de la Meilleure Baguette de Paris",
+    "name": "パリ最優秀バゲット賞",
+    "official_name": "Grand Prix de la Meilleure Baguette de Paris",
     "organizer": "パリ市",
     "category": "baguette",
     "frequency": "年1回(例年2月頃)",
@@ -10,8 +11,9 @@
   },
   {
     "id": "croissant",
-    "name": "Meilleur Croissant au Beurre du Grand Paris",
-    "organizer": "Syndicat des Boulangers du Grand Paris",
+    "name": "グラン・パリ最優秀クロワッサン賞",
+    "official_name": "Meilleur Croissant au Beurre du Grand Paris",
+    "organizer": "グラン・パリ製パン組合",
     "category": "croissant",
     "frequency": "年1回(例年4月頃)",
     "official_url": "https://boulangersdugrandparis.com/",

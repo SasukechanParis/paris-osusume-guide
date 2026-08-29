@@ -1,4 +1,4 @@
-import { renderProgramList, renderRankingGroups, renderShopList, renderNearbyResults } from './render.js';
+import { renderProgramList, renderRankingGroups, renderNearbyResults } from './render.js';
 import { sortShopsByDistance } from './nearby.js';
 import { geocodeAddress } from './geocode.js';
 
@@ -20,7 +20,6 @@ async function init() {
 
   document.getElementById('program-list').innerHTML = renderProgramList(contests);
   document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests);
-  document.getElementById('shop-list').innerHTML = renderShopList(results, shops, contests);
   setupNearbySearch(shops);
 }
 

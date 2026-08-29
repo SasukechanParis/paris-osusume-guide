@@ -256,11 +256,11 @@
     "id": "artisan-des-gourmands",
     "name": "L'Artisan des Gourmands",
     "address": "60 rue de la Convention, 75015 Paris",
-    "lat": 48.8431297,
-    "lng": 2.2832008,
+    "lat": 48.8430432,
+    "lng": 2.2833284,
     "arrondissement": "15e",
     "description": null,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8431297,2.2832008",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8430432,2.2833284",
     "photo_url": null
   },
   {
