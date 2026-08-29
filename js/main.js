@@ -14,9 +14,13 @@ async function init() {
     loadJson('data/shops.json')
   ]);
 
+  const latestResults = contests
+    .map((c) => results.filter((r) => r.contest_id === c.id).sort((a, b) => b.year - a.year)[0])
+    .filter(Boolean);
+
   document.getElementById('program-list').innerHTML = renderProgramList(contests);
-  document.getElementById('ranking-groups').innerHTML = renderRankingGroups(results, shops, contests);
-  document.getElementById('shop-list').innerHTML = renderShopList(shops);
+  document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests);
+  document.getElementById('shop-list').innerHTML = renderShopList(results, shops, contests);
   setupNearbySearch(shops);
 }
 

@@ -14,14 +14,18 @@ test('contests.json is valid and has required fields', () => {
   }
 });
 
-test('results.json rankings reference shop ids that exist in shops.json', () => {
+test('results.json rankings reference known shop ids, or carry a winner_name when the shop is unidentified', () => {
   const results = loadJson('../data/results.json');
   const shops = loadJson('../data/shops.json');
   const shopIds = new Set(shops.map((s) => s.id));
   for (const r of results) {
     assert.ok(r.source_url, `result for ${r.contest_id} ${r.year} missing source_url`);
     for (const ranking of r.rankings) {
-      assert.ok(shopIds.has(ranking.shop_id), `unknown shop_id ${ranking.shop_id}`);
+      if (ranking.shop_id === null) {
+        assert.ok(ranking.winner_name, `ranking with no shop_id must have winner_name (${r.contest_id} ${r.year} rank ${ranking.rank})`);
+      } else {
+        assert.ok(shopIds.has(ranking.shop_id), `unknown shop_id ${ranking.shop_id}`);
+      }
     }
   }
 });

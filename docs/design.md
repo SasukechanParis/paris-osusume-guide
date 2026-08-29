@@ -40,7 +40,9 @@
   - トップページ: 直近の更新・今後の開催予定
   - コンクール一覧(部門ごと)
   - コンクール詳細ページ: 歴代ランキング(公式発表された順位分)、審査基準、次回開催予定
-  - 受賞店一覧: アロンディスマン別のリスト表示。各店に「Googleマップで開く」ボタン(独自の地図描画はしない)
+  - 受賞店一覧: 全コンクール・全年度の受賞歴を年代降順で一覧表示。各店に「Googleマップで開く」ボタン(独自の地図描画はしない)。店舗不明の年は個人名のみ表示
+  - バゲット部門: 2011〜2026年は店舗・住所を特定済み。1994〜2010年は情報源(Wikipedia)と他資料の間で受賞者名に食い違いがあり、正確な店舗特定ができなかったため今回は未収録
+  - クロワッサン部門: 2018, 2019, 2021〜2026年を収録(2002年開始だが、2020年は開催有無を含め確認できず、2017年以前は店舗が特定できる記録が見つからなかった)
   - 近くのパン屋さん検索: 現在地(GPS)または住所/ホテル名を入力し、受賞店を近い順に一覧表示。各結果にも「Googleマップで経路を見る」ボタンを付ける
 - 地図の扱い: Google Maps JavaScript APIは使わない(APIキー・課金設定が必要なため)。代わりに `https://www.google.com/maps/search/?api=1&query={lat},{lng}` 形式のリンクで、タップ時にユーザーの使い慣れたGoogleマップアプリ/サイトを開く
 - ホスティング: GitHub Pages(無料、既存プロジェクトと同じ運用)
@@ -52,15 +54,19 @@ data/
   contests.json   # コンクール定義
     { id, name, organizer, category, frequency, official_url, next_edition_date }
   results.json    # 開催年ごとの結果履歴(追記のみ、過去分は残す)
-    { contest_id, year, rankings: [{ rank, shop_id }], date, source_url }
+    { contest_id, year, rankings: [{ rank, shop_id, winner_name }], date, source_url }
     # rankings は公式発表された順位分だけを格納する(発表が優勝者のみの年は1件だけになる)
-  shops.json      # 受賞店マスタ
-    { id, name, address, lat, lng, arrondissement, description, google_maps_url, photo_url, wins: [{contest_id, year, rank}] }
+    # shop_id: 店舗が特定できた場合のshops.json参照。特定できない場合は null
+    # winner_name: 個人名(受賞者)。店舗不明の年でもこれだけは表示する
+  shops.json      # 受賞店マスタ(店舗が特定できたエントリのみ)
+    { id, name, address, lat, lng, arrondissement, description, google_maps_url, photo_url }
     # description: 店の紹介文(任意)
     # photo_url: 著作権が確認できた画像のみ設定。無ければ null(Googleマップへのリンクで代替)
 ```
 
 - 各エントリに `source_url` を必須とし、サイト上にも出典リンクを表示する(未確認情報を断定しないため)
+- `shop_id` が `null` の年は、画面上「店舗情報は未確認です」と表示し、Googleマップリンクも出さない(住所不明のまま地図に乗せない)
+- 古い年の情報はネット上の一次情報が乏しく、二次資料間で受賞者名の食い違いが見つかることがあった(例: 同一人物の受賞年がサイトによってずれている)。店名・住所は複数資料で裏取りしたものを優先し、個人名は主要参照元の表記をそのまま採用している。完全な正確性は保証できないため、出典リンクを必ず併記する
 
 ## 近くのパン屋さん検索
 

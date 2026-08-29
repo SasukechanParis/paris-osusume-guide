@@ -2,15 +2,448 @@
   {
     "contest_id": "baguette",
     "year": 2026,
-    "rankings": [{ "rank": 1, "shop_id": "fournil-didot" }],
-    "date": "2026-02-26",
-    "source_url": "https://presse.paris.fr/agenda/grand-prix-de-la-meilleure-baguette-de-la-ville-de-paris-2026"
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "fournil-didot",
+        "winner_name": null
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2025,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "la-parisienne-fbg-poissonniere",
+        "winner_name": "Mickaël Reydellet"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2024,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-utopie",
+        "winner_name": "Xavier Netry"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2023,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "au-levain-des-pyrenees",
+        "winner_name": "Tharshan Selvarajah"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2022,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-frederic-comyn",
+        "winner_name": "Damien Dedun"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2021,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "les-boulangers-de-reuilly",
+        "winner_name": "Karim Akrout"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2020,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "les-saveurs-de-pierre-demours",
+        "winner_name": "Taieb Sahal"
+      }
+    ],
+    "date": null,
+    "source_url": "https://www.sortiraparis.com/en/lieux/70346-the-flavours-of-pierre-demours"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2019,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-leroy-monti",
+        "winner_name": "Sami Bouattour"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2018,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-2m",
+        "winner_name": "Mahmoud M'seddi"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2017,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-brun",
+        "winner_name": "Ridha Khadher"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2016,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "la-parisienne-rue-madame",
+        "winner_name": "Mickaël Reydellet"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2015,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "grenier-a-pain-abbesses",
+        "winner_name": "Djibril Bodian"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2014,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "aux-delices-du-palais",
+        "winner_name": "Tonin Angevin"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2013,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "au-paradis-du-gourmand",
+        "winner_name": "Anthony Bosson"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2012,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-mauvieux",
+        "winner_name": "Philippe Mauvieux"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+  },
+  {
+    "contest_id": "baguette",
+    "year": 2011,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "au-levain-dantan",
+        "winner_name": "Christophe Vasseur"
+      }
+    ],
+    "date": null,
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
   },
   {
     "contest_id": "croissant",
     "year": 2026,
-    "rankings": [{ "rank": 1, "shop_id": "boulangerie-du-sentier" }],
-    "date": "2026-05-12",
-    "source_url": "https://boulangersdugrandparis.com/concours-du-meilleur-croissant-du-grand-paris-au-beurre-charentes-poitou-aop-7-avril-2026/"
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "boulangerie-du-sentier",
+        "winner_name": "Alexia Berreby"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boom-boulangerie-omnivore",
+        "winner_name": "Catherine Oulé"
+      },
+      {
+        "rank": 3,
+        "shop_id": "thevenin-saint-placide",
+        "winner_name": "Véronique Thevenin"
+      },
+      {
+        "rank": 4,
+        "shop_id": "gosselin-saint-germain",
+        "winner_name": "Philippe Gosselin"
+      },
+      {
+        "rank": 5,
+        "shop_id": "chez-flo",
+        "winner_name": "Florence Boileau"
+      },
+      {
+        "rank": 6,
+        "shop_id": "la-mandrine",
+        "winner_name": "Auguste Moulière"
+      },
+      {
+        "rank": 7,
+        "shop_id": "au-castelblangeois",
+        "winner_name": "Olivier Pottier"
+      },
+      {
+        "rank": 8,
+        "shop_id": "artisan-des-gourmands",
+        "winner_name": "Filipe Fernandes"
+      },
+      {
+        "rank": 9,
+        "shop_id": "maison-sohier",
+        "winner_name": "Baptiste et Maxime Sohier"
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulangerie-pain-ce",
+        "winner_name": "Franck et Elie Harcaut et Chaaya"
+      }
+    ],
+    "date": null,
+    "source_url": "https://boulangersdugrandparis.com/2026-classement-meilleur-croissant-aop-charentes-poitou/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2025,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "des-racines-et-du-pain",
+        "winner_name": "Basile Fourmont"
+      },
+      {
+        "rank": 2,
+        "shop_id": "la-parisienne-fbg-poissonniere",
+        "winner_name": "Mickael Reydellet"
+      },
+      {
+        "rank": 3,
+        "shop_id": "mille-et-un",
+        "winner_name": "Yongsang Seo"
+      },
+      {
+        "rank": 4,
+        "shop_id": "boulangerie-moderne-rabineau",
+        "winner_name": "Thierry Rabineau"
+      },
+      {
+        "rank": 5,
+        "shop_id": "boulangerie-lorette",
+        "winner_name": "Cédric Arsac"
+      },
+      {
+        "rank": 6,
+        "shop_id": "moulin-de-la-croix-nivert",
+        "winner_name": "Jean-Yves Boullier"
+      },
+      {
+        "rank": 7,
+        "shop_id": "magali-charonne",
+        "winner_name": "Nicolas et Magali Roquais"
+      },
+      {
+        "rank": 8,
+        "shop_id": "maison-pailliette",
+        "winner_name": "Grégory Pailliette"
+      },
+      {
+        "rank": 9,
+        "shop_id": "fabrique-aux-gourmandises",
+        "winner_name": "Lionel Bonnamy"
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulangerie-bleue-elio-franck",
+        "winner_name": "Elio Chaya"
+      }
+    ],
+    "date": null,
+    "source_url": "https://boulangersdugrandparis.com/2025-resultats-meilleur-croissant-du-grand-paris-au-beurre-charentes-poitou-aop/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2024,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": null,
+        "winner_name": "Georges Doucet"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-victoire",
+        "winner_name": "Victoire Dary"
+      },
+      {
+        "rank": 3,
+        "shop_id": "moulin-de-la-croix-nivert",
+        "winner_name": "Jean-Yves Boullier"
+      },
+      {
+        "rank": 4,
+        "shop_id": "vibrations-gourmandes",
+        "winner_name": "Eric Thevenot"
+      },
+      {
+        "rank": 5,
+        "shop_id": "saveurs-de-parmentier",
+        "winner_name": "Hédi Ouarda"
+      },
+      {
+        "rank": 6,
+        "shop_id": null,
+        "winner_name": "Ludovic Lherault"
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-moderne-rabineau",
+        "winner_name": "Thierry Rabineau"
+      },
+      {
+        "rank": 8,
+        "shop_id": "mildo",
+        "winner_name": "Inchul Shin"
+      },
+      {
+        "rank": 9,
+        "shop_id": "la-tradition-bondy",
+        "winner_name": "Rafik Ben Bakkar"
+      },
+      {
+        "rank": 10,
+        "shop_id": "mille-et-un",
+        "winner_name": "Yongsang Seo"
+      }
+    ],
+    "date": null,
+    "source_url": "https://boulangersdugrandparis.com/2024-trophee-du-meilleur-croissant-du-grand-paris-au-beurre-charentes-poitou-aop-les-resultats/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2023,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "chez-meunier",
+        "winner_name": "Eric Teboul"
+      }
+    ],
+    "date": null,
+    "source_url": "https://www.chezmeunier.com/blog/concours-chez-meunier-vainqueur-du-concours-du-grand-paris-pour-le-meilleur-croissant-au-beurre-2023/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2022,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "carton-paris",
+        "winner_name": "Jean-Michel Carton"
+      }
+    ],
+    "date": null,
+    "source_url": "https://doeatbetterexperience.com/blog/best-croissants-paris-boulangerie-crawl/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2021,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "patisserie-colbert-comyn",
+        "winner_name": "Frédéric Comyn"
+      }
+    ],
+    "date": null,
+    "source_url": "https://www.patisseriecolbert.fr/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2019,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "fabrique-aux-gourmandises",
+        "winner_name": "Lionel Bonnamy"
+      }
+    ],
+    "date": null,
+    "source_url": "https://impacteuropean.fr/le-meilleur-croissant-au-beurre-aop-de-charentes-poitou-se-trouve-dans-le-14eme-arrondissement-de-paris/"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2018,
+    "rankings": [
+      {
+        "rank": 1,
+        "shop_id": "maison-disabelle",
+        "winner_name": "Isabelle Leday et Geoffrey Pichard"
+      }
+    ],
+    "date": null,
+    "source_url": "https://tabiparislax.com/en/la-maison-disabelle-paris/"
   }
 ]

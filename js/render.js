@@ -20,6 +20,24 @@ export function renderProgramList(contests) {
     .join('');
 }
 
+function rankingRowLabel(r, shopById) {
+  const shop = r.shop_id ? shopById.get(r.shop_id) : null;
+  if (shop) {
+    return {
+      name: shop.name,
+      meta: shop.arrondissement,
+      mapLink: shop.google_maps_url
+        ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>`
+        : ''
+    };
+  }
+  return {
+    name: r.winner_name ?? '受賞者不明',
+    meta: '店舗情報は未確認です',
+    mapLink: ''
+  };
+}
+
 export function renderRankingGroups(results, shops, contests) {
   const shopById = new Map(shops.map((s) => [s.id, s]));
   const contestById = new Map(contests.map((c) => [c.id, c]));
@@ -29,13 +47,13 @@ export function renderRankingGroups(results, shops, contests) {
       const contest = contestById.get(result.contest_id);
       const rows = result.rankings
         .map((r) => {
-          const shop = shopById.get(r.shop_id);
+          const label = rankingRowLabel(r, shopById);
           return `
         <div class="ranking-row${r.rank === 1 ? ' is-first' : ''}">
           <span class="rank-num">${r.rank}</span>
           <div>
-            <p class="ranking-shop-name">${shop.name}</p>
-            <p class="ranking-arr">${shop.arrondissement}</p>
+            <p class="ranking-shop-name">${label.name}</p>
+            <p class="ranking-arr">${label.meta}</p>
           </div>
           <a class="ranking-source" href="${result.source_url}">出典 ↗</a>
         </div>`;
@@ -50,17 +68,28 @@ export function renderRankingGroups(results, shops, contests) {
     .join('');
 }
 
-export function renderShopList(shops) {
-  return shops
-    .map(
-      (shop) => `
-    <div class="shop-card">
-      <p class="shop-name">${shop.name}</p>
-      <p class="shop-meta">${shop.arrondissement} ・ ${shop.address}</p>
-      ${shop.description ? `<p class="shop-desc">${shop.description}</p>` : ''}
-      <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
-    </div>`
-    )
+export function renderShopList(results, shops, contests) {
+  const shopById = new Map(shops.map((s) => [s.id, s]));
+  const contestById = new Map(contests.map((c) => [c.id, c]));
+
+  const sorted = [...results].sort((a, b) => b.year - a.year);
+
+  return sorted
+    .map((result) => {
+      const contest = contestById.get(result.contest_id);
+      const rows = result.rankings
+        .map((r) => {
+          const label = rankingRowLabel(r, shopById);
+          return `
+      <div class="shop-card">
+        <p class="shop-name">${label.name}</p>
+        <p class="shop-meta">${result.year}年 ${contest.name} ${r.rank}位 ・ ${label.meta}</p>
+        ${label.mapLink}
+      </div>`;
+        })
+        .join('');
+      return rows;
+    })
     .join('');
 }
 
@@ -90,8 +119,8 @@ export function renderContestDetail(contest, results, shops) {
     .map((result) => {
       const rows = result.rankings
         .map((r) => {
-          const shop = shopById.get(r.shop_id);
-          return `<li>${r.rank}位: ${shop.name}(${shop.arrondissement})</li>`;
+          const label = rankingRowLabel(r, shopById);
+          return `<li>${r.rank}位: ${label.name}(${label.meta})</li>`;
         })
         .join('');
       return `
