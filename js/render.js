@@ -1,3 +1,5 @@
+import { formatDistance } from './distance.js';
+
 export function renderProgramList(contests) {
   return contests
     .map(
@@ -52,6 +54,22 @@ export function renderShopList(shops) {
       <p class="shop-meta">${shop.arrondissement} ・ ${shop.address}</p>
       ${shop.description ? `<p class="shop-desc">${shop.description}</p>` : ''}
       <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+    </div>`
+    )
+    .join('');
+}
+
+export function renderNearbyResults(sorted) {
+  return sorted
+    .map(
+      ({ shop, distanceKm }) => `
+    <div class="nearby-card">
+      <div>
+        <p class="nearby-card-name">${shop.name}</p>
+        <p class="nearby-card-meta">${shop.arrondissement}</p>
+      </div>
+      <div class="nearby-distance">${formatDistance(distanceKm)}</div>
+      <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで経路を見る</a>
     </div>`
     )
     .join('');

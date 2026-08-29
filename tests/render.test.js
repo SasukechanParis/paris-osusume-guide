@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderProgramList, renderRankingGroups, renderShopList } from '../js/render.js';
+import { renderProgramList, renderRankingGroups, renderShopList, renderNearbyResults } from '../js/render.js';
 
 const contests = [
   { id: 'baguette', name: 'Grand Prix de la Baguette', organizer: 'パリ市', category: 'baguette', next_edition_date: null }
@@ -44,5 +44,22 @@ test('renderShopList includes shop name, address, and google maps link', () => {
   const html = renderShopList(shops);
   assert.match(html, /Fournil Didot/);
   assert.match(html, /低温発酵/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8272,2\.3129"/);
+});
+
+test('renderNearbyResults shows shop name, formatted distance, and maps link', () => {
+  const sorted = [
+    {
+      shop: {
+        name: 'Fournil Didot',
+        arrondissement: '14e',
+        google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8272,2.3129'
+      },
+      distanceKm: 0.65
+    }
+  ];
+  const html = renderNearbyResults(sorted);
+  assert.match(html, /Fournil Didot/);
+  assert.match(html, /650m/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8272,2\.3129"/);
 });
