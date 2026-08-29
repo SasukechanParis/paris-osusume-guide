@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 760px; margin: 0 auto; padding-bottom: 72px; }
+img { max-width: 100%; display: block; }
+
+.tricolore-rail { display: flex; height: 6px; }
+.tricolore-rail span { flex: 1; }
+.tricolore-rail span:nth-child(1) { background: var(--blue); }
+.tricolore-rail span:nth-child(2) { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tricolore-rail span:nth-child(3) { background: var(--red); }
+
+.flag-dot { display: flex; gap: 4px; }
+.flag-dot i { width: 7px; height: 7px; border-radius: 50%; display: block; }
+.flag-dot i:nth-child(1) { background: var(--blue); }
+.flag-dot i:nth-child(2) { background: var(--ink); }
+.flag-dot i:nth-child(3) { background: var(--red); }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 26px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+}
+.section-head h2 { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 20px; margin: 0; }
+.section-note { font-size: 12px; color: var(--gray); margin: -14px 0 24px; }
+
+section { padding: 52px 20px 0; }
+@media (min-width: 480px) {
+  section { padding: 52px 32px 0; }
+}
