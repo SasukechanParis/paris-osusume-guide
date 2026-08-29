@@ -56,6 +56,7 @@ function rankingRowLabel(r, shopById) {
     return {
       name: shop.name,
       meta: arrondissementLabel(shop.arrondissement),
+      note: shop.description ? `<p class="shop-note">${shop.description}</p>` : '',
       mapLink: shop.google_maps_url
         ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>`
         : ''
@@ -64,6 +65,7 @@ function rankingRowLabel(r, shopById) {
   return {
     name: r.winner_name ?? '受賞者不明',
     meta: '店舗情報は未確認です',
+    note: '',
     mapLink: ''
   };
 }
@@ -84,6 +86,7 @@ export function renderRankingGroups(results, shops, contests) {
           <div>
             <p class="ranking-shop-name">${label.name}</p>
             <p class="ranking-arr">${label.meta}</p>
+            ${label.note}
           </div>
           <a class="ranking-source" href="${result.source_url}">出典 ↗</a>
         </div>`;
@@ -106,6 +109,7 @@ export function renderNearbyResults(sorted) {
       <div>
         <p class="nearby-card-name">${shop.name}</p>
         <p class="nearby-card-meta">${arrondissementLabel(shop.arrondissement)}</p>
+        ${shop.description ? `<p class="shop-note">${shop.description}</p>` : ''}
       </div>
       <div class="nearby-distance">${formatDistance(distanceKm)}</div>
       <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで経路を見る</a>
@@ -136,6 +140,7 @@ export function renderYearPanel(result, shops) {
       <div>
         <p class="ranking-shop-name">${label.name}</p>
         <p class="ranking-arr">${label.meta}</p>
+        ${label.note}
       </div>
       ${label.mapLink}
     </div>`;
