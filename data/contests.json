@@ -1,0 +1,20 @@
+[
+  {
+    "id": "baguette",
+    "name": "Grand Prix de la Meilleure Baguette de Paris",
+    "organizer": "パリ市",
+    "category": "baguette",
+    "frequency": "年1回(例年2月頃)",
+    "official_url": "https://presse.paris.fr/agenda/grand-prix-de-la-meilleure-baguette-de-la-ville-de-paris-2026",
+    "next_edition_date": null
+  },
+  {
+    "id": "croissant",
+    "name": "Meilleur Croissant au Beurre du Grand Paris",
+    "organizer": "Syndicat des Boulangers du Grand Paris",
+    "category": "croissant",
+    "frequency": "年1回(例年4月頃)",
+    "official_url": "https://boulangersdugrandparis.com/",
+    "next_edition_date": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fournil-didot",
+    "name": "Fournil Didot",
+    "address": "103 rue Didot, 75014 Paris",
+    "lat": 48.8272,
+    "lng": 2.3129,
+    "arrondissement": "14e",
+    "description": "2026年グランプリを受賞したバゲット専門店。14時間の低温発酵が特徴。",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8272,2.3129",
+    "photo_url": null,
+    "wins": [{ "contest_id": "baguette", "year": 2026, "rank": 1 }]
+  },
+  {
+    "id": "boulangerie-du-sentier",
+    "name": "Boulangerie du Sentier",
+    "address": "2e arrondissement, Paris",
+    "lat": 48.8677,
+    "lng": 2.3453,
+    "arrondissement": "2e",
+    "description": "2026年のMeilleur Croissant du Grand Parisで1位を獲得。",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8677,2.3453",
+    "photo_url": null,
+    "wins": [{ "contest_id": "croissant", "year": 2026, "rank": 1 }]
+  }
+]

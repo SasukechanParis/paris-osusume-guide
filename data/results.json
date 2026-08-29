@@ -1,0 +1,16 @@
+[
+  {
+    "contest_id": "baguette",
+    "year": 2026,
+    "rankings": [{ "rank": 1, "shop_id": "fournil-didot" }],
+    "date": "2026-02-26",
+    "source_url": "https://presse.paris.fr/agenda/grand-prix-de-la-meilleure-baguette-de-la-ville-de-paris-2026"
+  },
+  {
+    "contest_id": "croissant",
+    "year": 2026,
+    "rankings": [{ "rank": 1, "shop_id": "boulangerie-du-sentier" }],
+    "date": "2026-05-12",
+    "source_url": "https://boulangersdugrandparis.com/concours-du-meilleur-croissant-du-grand-paris-au-beurre-charentes-poitou-aop-7-avril-2026/"
+  }
+]
