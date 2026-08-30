@@ -30,11 +30,16 @@ test('results.json rankings reference known shop ids, or carry a winner_name whe
   }
 });
 
-test('shops.json entries have coordinates and google maps link', () => {
+test('shops.json entries either have coordinates with a matching google maps link, or both are null when unresolved', () => {
   const shops = loadJson('../data/shops.json');
   for (const s of shops) {
-    assert.equal(typeof s.lat, 'number');
-    assert.equal(typeof s.lng, 'number');
-    assert.ok(s.google_maps_url.includes(String(s.lat)));
+    if (s.lat === null) {
+      assert.equal(s.lng, null, `${s.id} has lat=null but lng is not null`);
+      assert.equal(s.google_maps_url, null, `${s.id} has lat=null but google_maps_url is not null`);
+    } else {
+      assert.equal(typeof s.lat, 'number');
+      assert.equal(typeof s.lng, 'number');
+      assert.ok(s.google_maps_url.includes(String(s.lat)));
+    }
   }
 });

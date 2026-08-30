@@ -7,6 +7,51 @@
         "rank": 1,
         "shop_id": "fournil-didot",
         "winner_name": null
+      },
+      {
+        "rank": 2,
+        "shop_id": "bs-nation",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "ecrin-gourmand",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "maison-daguet",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "maison-bergeron",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-guyot-ferreira",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "maison-leparq",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "boulangerie-moderne-rabineau",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "au-paradis-du-gourmand",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -20,6 +65,51 @@
         "rank": 1,
         "shop_id": "la-parisienne-fbg-poissonniere",
         "winner_name": "Mickaël Reydellet"
+      },
+      {
+        "rank": 2,
+        "shop_id": "aux-delices-du-palais",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "boulangerie-guyot-ferreira",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "la-petite-alsacienne",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "graine",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "marquis-de-saint-cyr",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "delice-de-bagnolet",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "moulin-de-la-croix-nivert",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "alexine-st-ouen",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -33,6 +123,51 @@
         "rank": 1,
         "shop_id": "boulangerie-utopie",
         "winner_name": "Xavier Netry"
+      },
+      {
+        "rank": 2,
+        "shop_id": "maison-dore",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "la-parisienne-st-dominique",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "boulangerie-rouges",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "ecrin-gourmand",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-aa",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-paris-and-co",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "maison-m",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "aux-delices-de-vaugirard",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "du-pain-et-vous",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -46,6 +181,51 @@
         "rank": 1,
         "shop_id": "au-levain-des-pyrenees",
         "winner_name": "Tharshan Selvarajah"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-guyot",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "maison-lohezic-courcelles",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "tout-autour-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "aux-delices-de-vaugirard",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "grenier-de-felix",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-kilani",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "saveurs-de-levis",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "temps-dune-gourmandise",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "delice-de-bagnolet",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -59,6 +239,51 @@
         "rank": 1,
         "shop_id": "boulangerie-frederic-comyn",
         "winner_name": "Damien Dedun"
+      },
+      {
+        "rank": 2,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "la-parisienne-st-dominique",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "maison-lohezic-demours",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "boulangerie-tembely",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-labeille",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-guyot",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "magali-charonne",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "freres-blavette",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulange-paris-lamarck",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -72,6 +297,51 @@
         "rank": 1,
         "shop_id": "les-boulangers-de-reuilly",
         "winner_name": "Karim Akrout"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-de-la-place",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "maison-lardeux",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "aux-delices-de-vaugirard",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-frederic-comyn",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-bechu",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "boulangerie-bac",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "societe-boris-lume",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "au-castelblangeois",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -85,10 +355,55 @@
         "rank": 1,
         "shop_id": "les-saveurs-de-pierre-demours",
         "winner_name": "Taieb Sahal"
+      },
+      {
+        "rank": 2,
+        "shop_id": "essentiel-mouffetard",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "farine-et-o",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "au-140",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "aux-delices-du-palais",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "maison-legendre",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "boulangerie-guyot",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "giovanni-boulangerie",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "maison-leparq",
+        "winner_name": null
       }
     ],
     "date": null,
-    "source_url": "https://www.sortiraparis.com/en/lieux/70346-the-flavours-of-pierre-demours"
+    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
   },
   {
     "contest_id": "baguette",
@@ -98,6 +413,51 @@
         "rank": 1,
         "shop_id": "boulangerie-leroy-monti",
         "winner_name": "Sami Bouattour"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-aux-deux-anges",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "boulangerie-paris-co-ecoles",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "delice-de-bagnolet",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "tout-autour-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-faubourg-st-charles",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-labeille",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "alexine-st-ouen",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "maison-lardeux",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulangerie-comyn-felix-faure",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -111,6 +471,51 @@
         "rank": 1,
         "shop_id": "boulangerie-2m",
         "winner_name": "Mahmoud M'seddi"
+      },
+      {
+        "rank": 2,
+        "shop_id": "grenier-a-pain-st-amand",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "puits-damour",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "au-levain-des-pyrenees",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "landemaine-martyrs",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "maison-hubert-rambuteau",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "maison-dore",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "delmontel-levis",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "duc-de-la-chapelle",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulangerie-thierry-meunier",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -124,6 +529,51 @@
         "rank": 1,
         "shop_id": "boulangerie-brun",
         "winner_name": "Ridha Khadher"
+      },
+      {
+        "rank": 2,
+        "shop_id": "aux-delices-de-glaciere",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "dupain",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "gontran-cherrier-caulaincourt",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "maison-bicho",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "gourmandises-deiffel",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "boulangerie-2m",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "grenier-a-pain-italie",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "boulangerie-tembely",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "boulangerie-patisserie-hubert",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -137,6 +587,51 @@
         "rank": 1,
         "shop_id": "la-parisienne-rue-madame",
         "winner_name": "Mickaël Reydellet"
+      },
+      {
+        "rank": 2,
+        "shop_id": "fournil-de-lourmel",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "grenier-a-pain-st-amand",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "boulangerie-alexine-lepic",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "essentiel-blanqui",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "douceurs-et-traditions",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "flute-enchantee",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "boulangerie-brun",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "grenier-a-pain-italie",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "academie-du-pain",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -150,6 +645,56 @@
         "rank": 1,
         "shop_id": "grenier-a-pain-abbesses",
         "winner_name": "Djibril Bodian"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-brun",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "hure",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "academie-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "puits-damour",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "moulin-du-16eme",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "charles-tchouassi",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "aux-pains-garnis",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "gourmandises-deiffel",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "douceurs-et-traditions",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "maison-delcourt",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -163,6 +708,76 @@
         "rank": 1,
         "shop_id": "aux-delices-du-palais",
         "winner_name": "Tonin Angevin"
+      },
+      {
+        "rank": 2,
+        "shop_id": "petit-versailles-du-marais",
+        "winner_name": null
+      },
+      {
+        "rank": 2,
+        "shop_id": "montmartoise",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "tout-autour-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "pain-dautrefois",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "maison-delcourt",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "gosselin-saint-honore",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "artisans-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "boulangerie-mulot",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "macarons-cafe",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "liberte-vinaigriers",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "petite-marquise",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "acacias-etoile",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "meksem",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "petrin-normand",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -176,6 +791,51 @@
         "rank": 1,
         "shop_id": "au-paradis-du-gourmand",
         "winner_name": "Anthony Bosson"
+      },
+      {
+        "rank": 2,
+        "shop_id": "boulangerie-raphaelle",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "boulangerie-damiani",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "christian-vabret",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "maison-cailleaud",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "maison-landemaine-clichy",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "dominique-saibron",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "grenier-a-pain-lafayette",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "la-parisienne-coustou",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "claude-besnier",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -189,6 +849,51 @@
         "rank": 1,
         "shop_id": "boulangerie-mauvieux",
         "winner_name": "Philippe Mauvieux"
+      },
+      {
+        "rank": 2,
+        "shop_id": "raoul-maeder",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "boulangerie-audou",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "la-pompadour",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "arnaud-delmontel-martyrs",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "petite-marquise",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "maison-delcourt",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "eran-mayer",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "tout-autour-du-pain",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "saveurs-de-wagram",
+        "winner_name": null
       }
     ],
     "date": null,
@@ -202,6 +907,51 @@
         "rank": 1,
         "shop_id": "au-levain-dantan",
         "winner_name": "Christophe Vasseur"
+      },
+      {
+        "rank": 2,
+        "shop_id": "gaetan-romp",
+        "winner_name": null
+      },
+      {
+        "rank": 3,
+        "shop_id": "saveurs-du-20eme",
+        "winner_name": null
+      },
+      {
+        "rank": 4,
+        "shop_id": "gontran-cherrier-caulaincourt",
+        "winner_name": null
+      },
+      {
+        "rank": 5,
+        "shop_id": "fournil-du-village",
+        "winner_name": null
+      },
+      {
+        "rank": 6,
+        "shop_id": "gourmandises-deiffel",
+        "winner_name": null
+      },
+      {
+        "rank": 7,
+        "shop_id": "julien-saint-honore",
+        "winner_name": null
+      },
+      {
+        "rank": 8,
+        "shop_id": "philippe-marache",
+        "winner_name": null
+      },
+      {
+        "rank": 9,
+        "shop_id": "philippe-bogner",
+        "winner_name": null
+      },
+      {
+        "rank": 10,
+        "shop_id": "grenier-a-pain-st-amand",
+        "winner_name": null
       }
     ],
     "date": null,

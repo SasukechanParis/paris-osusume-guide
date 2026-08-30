@@ -18,3 +18,10 @@ test('sortShopsByDistance attaches distanceKm as a number', () => {
   assert.equal(typeof result[0].distanceKm, 'number');
   assert.ok(result[0].distanceKm < result[1].distanceKm);
 });
+
+test('sortShopsByDistance excludes shops with unresolved (null) coordinates', () => {
+  const withUnresolved = [...shops, { id: 'unresolved', name: 'Unresolved Shop', lat: null, lng: null }];
+  const result = sortShopsByDistance(withUnresolved, 48.8566, 2.3522);
+  assert.equal(result.length, 2);
+  assert.ok(!result.some((r) => r.shop.id === 'unresolved'));
+});

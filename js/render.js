@@ -87,8 +87,11 @@ export function renderRankingGroups(results, shops, contests) {
             <p class="ranking-shop-name">${label.name}</p>
             <p class="ranking-arr">${label.meta}</p>
             ${label.note}
+            <div class="ranking-links">
+              ${label.mapLink}
+              <a class="ranking-source" href="${result.source_url}">出典 ↗</a>
+            </div>
           </div>
-          <a class="ranking-source" href="${result.source_url}">出典 ↗</a>
         </div>`;
         })
         .join('');

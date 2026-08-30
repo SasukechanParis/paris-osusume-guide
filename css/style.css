@@ -55,9 +55,9 @@ h1.title .accent { color: var(--red); }
 .ranking-group-label { font-family: 'Libre Caslon Display', serif; font-size: 13px; color: var(--blue); margin: 0 0 12px; }
 .ranking-row {
   display: grid;
-  grid-template-columns: 32px 1fr auto;
+  grid-template-columns: 32px 1fr;
   gap: 12px;
-  align-items: center;
+  align-items: start;
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -67,6 +67,8 @@ h1.title .accent { color: var(--red); }
 .ranking-shop-name { font-weight: 700; font-size: 14px; margin: 0 0 3px; }
 .ranking-arr { font-size: 11px; color: var(--gray); margin: 0; }
 .ranking-source { font-size: 10px; color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ranking-links { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.ranking-links .shop-map-link { font-size: 10.5px; padding: 5px 12px; }
 .shop-note {
   font-size: 11px;
   color: var(--red);

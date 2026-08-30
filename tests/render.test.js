@@ -36,12 +36,13 @@ test('renderProgramList includes contest name and organizer', () => {
   assert.match(html, /パリ市/);
 });
 
-test('renderRankingGroups includes shop name, arrondissement in Japanese, source link, and contest detail link', () => {
+test('renderRankingGroups includes shop name, arrondissement in Japanese, source link, map link, and contest detail link', () => {
   const html = renderRankingGroups(results, shops, contests);
   assert.match(html, /Fournil Didot/);
   assert.match(html, /14区/);
   assert.match(html, /href="https:\/\/presse\.paris\.fr\/example"/);
   assert.match(html, /href="contest\.html\?id=baguette"/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8272,2\.3129"/);
 });
 
 test('renderNearbyResults shows shop name, arrondissement in Japanese, formatted distance, and maps link', () => {
