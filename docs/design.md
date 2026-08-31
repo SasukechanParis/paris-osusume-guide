@@ -12,13 +12,13 @@
 - 2026-08-31 第1弾: 「パリ製パンコンクール図鑑」(パンコンクール専門)→「さすけのパリ図鑑」(総合データベース)へ全面刷新。パンコンクールは複数カテゴリのうちの1つという位置付けに変更
   - `index.html`: 新設のランディングページ。カテゴリカードへの導線のみを持つ
   - `bread.html`: 旧`index.html`の内容(パンコンクール機能一式)をそのまま移植。旧`main.js`は`js/bread.js`にリネーム
-- 2026-08-31 第2弾: 単一の「おすすめ」ページ(`recommendations.html`)を廃止し、カテゴリごとの独立ページ5枚(`restaurants.html` レストラン / `chocolatiers.html` ショコラティエ / `bakeries.html` パン屋さん / `souvenirs.html` お土産 / `sweets.html` おかし)に分割。各ページ内は「さすけのおすすめ」⇔「先輩カップルのおすすめ(投稿フォーム経由)」をタブで切り替える構成にした
-- 全ページ共通で `.site-nav` ナビゲーション(トップ/パンコンクール/ミシュラン/レストラン/ショコラティエ/パン屋さん/お土産/おかし/投稿する)を設置
+- 2026-08-31 第2弾: 単一の「おすすめ」ページ(`recommendations.html`)を廃止し、カテゴリごとの独立ページ5枚(`restaurants.html` レストラン / `chocolatiers.html` ショコラティエ / `bakeries.html` パン屋さん / `souvenirs.html` お土産 / `supermarket.html` スーパーで買えるおすすめ)に分割。各ページ内は「さすけのおすすめ」⇔「先輩カップルのおすすめ(投稿フォーム経由)」をタブで切り替える構成にした
+- 全ページ共通で `.site-nav` ナビゲーション(トップ/パンコンクール/ミシュラン/レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル/投稿する)を設置
 
 ## スコープ
 
 - パンコンクール: 大会情報(主催、開催頻度、審査基準、歴代ランキング)、受賞店の地図・訪問ガイド・説明文、現在地/宿泊先住所から近い受賞店を検索する機能
-- カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/おかし): 各ページに「さすけのおすすめ」(実訪問済み/気になる、の2ステータス)と「先輩カップルのおすすめ」(投稿フォーム経由、承認制)をタブで表示
+- カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル): 各ページに「さすけのおすすめ」(実訪問済み/気になる、の2ステータス)と「先輩カップルのおすすめ」(投稿フォーム経由、承認制)をタブで表示
 - ミシュラン星付き: パリの三ツ星・二ツ星レストラン一覧
 - 投稿機能: 訪問者が自分のおすすめ店・感想を投稿できる導線(Googleフォーム、詳細は後述)
 - 対象言語: 日本語のみ
@@ -117,19 +117,21 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - データ構造: `{ id, name, category, arrondissement, address, lat, lng, google_maps_url, description, source_url, added_date }`
 - ジャンルを問わなくなったため、パンコンクール専用の`bread.html`ではなくトップページ`index.html`に「今話題のこと」セクションとして掲載する(2026-08-31 むんた指示で bread.html → index.html に移設。`js/index.js`が担当)
 
-## カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/おかし/ホテル、2026-08-31 全面刷新)
+## カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル、2026-08-31 全面刷新)
 
 - コンクール受賞店とは別軸で、さすけ(むんた)が実際に訪れて良いと思った、または気になっているお店を紹介するカテゴリ別の独立ページ群
-- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` / `hotels.html` の6ページ。旧単一ページ`recommendations.html`は廃止
+- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` の6ページ。旧単一ページ`recommendations.html`は廃止
 - `hotels.html`(2026-08-31 追記): むんたが実際に泊まったパリのホテル7件(Chouchou Hotel、Hôtel Excelsior Paris Opéra、Madame Cadet by Collection Vesper、La Maison Favart、Le Metropolitan Paris Tour Eiffel、M Social Hotel Paris、Hôtel France d'Antin Opéra)。`description`はむんた本人のコメントをそのまま採用、住所はWeb検索、座標はNominatimで取得
 - 各ページ内は「さすけのおすすめ」⇔「先輩カップルのおすすめ」をタブ切り替え(`js/category-page.js` で共通化。年別タブ`.year-tabs`/`.tab-btn`と同じCSSを流用)
   - カテゴリ単位の説明文はタブごとに1回だけ表示し、店カードごとに同じ説明文を繰り返さない(旧仕様の反省: 全店の`description`に同一の定型文が入っていて冗長だった)
 - データソースは2つ:
-  - `data/recommendations.json`(さすけのおすすめ): `{ id, category: "restaurant"|"chocolatier"|"bakery"|"souvenir"|"sweets"|"hotel", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }`。`description`は店固有の一言がある場合のみ設定し、定型文は入れない
+  - `data/recommendations.json`(さすけのおすすめ): `{ id, category: "restaurant"|"chocolatier"|"bakery"|"souvenir"|"supermarket"|"hotel", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }`。`description`は店固有の一言がある場合のみ設定し、定型文は入れない
     - 2026-08-31 追記: レストラン21件・ショコラティエ6件・お土産2件の計29件全てに、シェフ名・料理スタイル・創業年などの一言をWeb検索で個別に補完(Tripadvisor、TheFork、Michelin Guide、各店公式サイト等)。ミシュランと同じ「軽く情報を添える」方針
   - `data/guest-recommendations.json`(先輩カップルのおすすめ): さすけの投稿フォーム(`post.html`)経由で届いた店を、むんたが確認のうえ追加する。同じカテゴリ値を使用。初期状態は空配列
-  - `bakery`・`sweets`カテゴリは今回新設。むんたのデータがまだ無いため`recommendations.json`側は空(「近日公開予定です」表示)
+  - `bakery`・`supermarket`カテゴリは今回新設。むんたのデータがまだ無いため`recommendations.json`側は空(「近日公開予定です」表示)
 - 各セクション内は `recommended` → `curious` の順で表示する(先輩カップルのおすすめにはstatus区分なし)
+- 2026-09-01 追記: 「おかし」を「スーパーで買えるおすすめ」に改称(カテゴリ値も`sweets`→`supermarket`)。スイーツ限定ではなく、スーパーで買える商品全般を扱う想定にスコープ変更(むんた指示)
+- 2026-09-01 追記: トップページのカテゴリカード説明文から「さすけと先輩カップルのおすすめ〇〇」という定型文を除去。サイト全体が基本的に個人のおすすめである以上、カードごとに繰り返す必要はないという判断(むんた指示)。代わりに各カテゴリの中身が分かる短い説明に差し替え
 
 ## ミシュラン星付き(2026-08-31 追記)
 
@@ -153,7 +155,7 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 
 - 訪問者が自分のおすすめ店・感想を投稿できる窓口。認証・モデレーション機能を持つ独自バックエンドは作らず、Googleフォームへの導線のみを置く(フォーム自体は未作成)
 - フォーム回答はむんたが内容を確認し、問題なければ手動で `data/guest-recommendations.json` に追加する(自動反映はしない、既存の承認フローと同じ考え方)。承認後は各カテゴリページの「先輩カップルのおすすめ」タブに反映される
-- 想定する回答項目: お名前(任意)、連絡先(特典送付用、任意)、カテゴリ(レストラン/ショコラティエ/パン屋さん/お土産/おかし/その他)、お店の名前、Googleマップリンク、感想・コメント
+- 想定する回答項目: お名前(任意)、連絡先(特典送付用、任意)、カテゴリ(レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル/その他)、お店の名前、Googleマップリンク、感想・コメント
 - 特典: フォームに何か登録してくれた人には、むんたのおすすめルートをまとめた動画をプレゼントする(成約の有無を問わない、投稿へのお礼という位置付け。実装方法は未確定)
 - 現状 `post.html` はフォーム未公開のプレースホルダー表示。次のステップでGoogleフォームを作成し、埋め込みリンクに差し替える
 
