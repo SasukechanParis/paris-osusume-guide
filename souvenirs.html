@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お土産 - さすけのパリ図鑑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page">
+  <div class="tricolore-rail"><span></span><span></span><span></span></div>
+  <nav class="site-nav">
+    <a href="index.html">トップ</a>
+    <a href="bread.html">パンコンクール</a>
+    <a href="michelin.html">ミシュラン</a>
+    <a href="restaurants.html">レストラン</a>
+    <a href="chocolatiers.html">ショコラティエ</a>
+    <a href="bakeries.html">パン屋さん</a>
+    <a href="souvenirs.html" class="active">お土産</a>
+    <a href="sweets.html">おかし</a>
+    <a href="post.html">投稿する</a>
+  </nav>
+  <header class="hero">
+    <h1 class="title">お土産</h1>
+    <p class="lede">パリ土産に迷ったら。さすけと先輩カップルのおすすめです。</p>
+    <img class="hero-image" src="assets/illustrations/souvenir.png" alt="印象派タッチで描かれたパリ土産のイラスト">
+  </header>
+
+  <section aria-labelledby="souvenirs-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="souvenirs-h">お土産一覧</h2></div>
+
+    <div class="year-tabs" id="source-tabs">
+      <button class="tab-btn active" data-source="sasuke" type="button">さすけのおすすめ</button>
+      <button class="tab-btn" data-source="guest" type="button">先輩カップルのおすすめ</button>
+    </div>
+
+    <div id="sasuke-panel">
+      <p class="section-note">さすけが実際に買って良かった、または気になっているお土産のお店です。</p>
+      <div id="sasuke-list"></div>
+      <p id="sasuke-empty" class="section-note" hidden>近日公開予定です。</p>
+    </div>
+
+    <div id="guest-panel" hidden>
+      <p class="section-note">実際にパリで前撮りをした先輩カップルから届いたおすすめです。「投稿する」ページからの投稿を確認のうえ掲載しています。</p>
+      <div id="guest-list"></div>
+      <p id="guest-empty" class="section-note" hidden>まだ投稿がありません。「投稿する」からぜひ教えてください。</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
+  </footer>
+</div>
+<script type="module" src="js/souvenirs.js"></script>
+</body>
+</html>

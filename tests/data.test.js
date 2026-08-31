@@ -30,6 +30,12 @@ test('results.json rankings reference known shop ids, or carry a winner_name whe
   }
 });
 
+function assertPlaceSearchUrl(url, name) {
+  assert.ok(url.startsWith('https://www.google.com/maps/search/?api=1&query='), `not a maps search url: ${url}`);
+  const query = decodeURIComponent(url.split('query=')[1]);
+  assert.ok(query.includes(name), `query "${query}" does not include name "${name}"`);
+}
+
 test('shops.json entries either have coordinates with a matching google maps link, or both are null when unresolved', () => {
   const shops = loadJson('../data/shops.json');
   for (const s of shops) {
@@ -39,7 +45,7 @@ test('shops.json entries either have coordinates with a matching google maps lin
     } else {
       assert.equal(typeof s.lat, 'number');
       assert.equal(typeof s.lng, 'number');
-      assert.ok(s.google_maps_url.includes(String(s.lat)));
+      assertPlaceSearchUrl(s.google_maps_url, s.name);
     }
   }
 });
@@ -51,14 +57,14 @@ test('trending.json entries have coordinates, source, and matching google maps l
     assert.ok(t.id && t.name && t.source_url, `trending entry missing id/name/source_url: ${JSON.stringify(t)}`);
     assert.equal(typeof t.lat, 'number');
     assert.equal(typeof t.lng, 'number');
-    assert.ok(t.google_maps_url.includes(String(t.lat)));
+    assertPlaceSearchUrl(t.google_maps_url, t.name);
   }
 });
 
 test('recommendations.json entries have valid category/status and matching map link when coordinates are present', () => {
   const recommendations = loadJson('../data/recommendations.json');
   assert.ok(Array.isArray(recommendations));
-  const validCategories = new Set(['restaurant', 'chocolatier', 'souvenir']);
+  const validCategories = new Set(['restaurant', 'chocolatier', 'bakery', 'souvenir', 'sweets']);
   const validStatuses = new Set(['recommended', 'curious']);
   for (const item of recommendations) {
     assert.ok(item.id && item.name && item.address, `recommendation missing id/name/address: ${JSON.stringify(item)}`);
@@ -67,7 +73,7 @@ test('recommendations.json entries have valid category/status and matching map l
     if (item.lat !== null) {
       assert.equal(typeof item.lat, 'number');
       assert.equal(typeof item.lng, 'number');
-      assert.ok(item.google_maps_url.includes(String(item.lat)));
+      assertPlaceSearchUrl(item.google_maps_url, item.name);
     }
   }
 });
@@ -80,6 +86,21 @@ test('michelin.json entries have valid stars, coordinates, matching map link, an
     assert.ok([2, 3].includes(item.stars), `unexpected stars value ${item.stars} for ${item.id}`);
     assert.equal(typeof item.lat, 'number');
     assert.equal(typeof item.lng, 'number');
-    assert.ok(item.google_maps_url.includes(String(item.lat)));
+    assertPlaceSearchUrl(item.google_maps_url, item.name);
+  }
+});
+
+test('guest-recommendations.json entries have valid category and matching map link when coordinates are present', () => {
+  const guestRecommendations = loadJson('../data/guest-recommendations.json');
+  assert.ok(Array.isArray(guestRecommendations));
+  const validCategories = new Set(['restaurant', 'chocolatier', 'bakery', 'souvenir', 'sweets']);
+  for (const item of guestRecommendations) {
+    assert.ok(item.id && item.name && item.address, `guest recommendation missing id/name/address: ${JSON.stringify(item)}`);
+    assert.ok(validCategories.has(item.category), `unknown category ${item.category} for ${item.id}`);
+    if (item.lat !== null) {
+      assert.equal(typeof item.lat, 'number');
+      assert.equal(typeof item.lng, 'number');
+      assertPlaceSearchUrl(item.google_maps_url, item.name);
+    }
   }
 });
