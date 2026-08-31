@@ -71,3 +71,15 @@ test('recommendations.json entries have valid category/status and matching map l
     }
   }
 });
+
+test('michelin.json entries have valid stars, coordinates, matching map link, and source', () => {
+  const michelin = loadJson('../data/michelin.json');
+  assert.ok(Array.isArray(michelin));
+  for (const item of michelin) {
+    assert.ok(item.id && item.name && item.address && item.source_url, `michelin entry missing required field: ${JSON.stringify(item)}`);
+    assert.ok([2, 3].includes(item.stars), `unexpected stars value ${item.stars} for ${item.id}`);
+    assert.equal(typeof item.lat, 'number');
+    assert.equal(typeof item.lng, 'number');
+    assert.ok(item.google_maps_url.includes(String(item.lat)));
+  }
+});

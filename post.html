@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>コンクール詳細 - さすけのパリ図鑑</title>
+<title>投稿する - さすけのパリ図鑑</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,24 +16,25 @@
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
   <nav class="site-nav">
     <a href="index.html">トップ</a>
-    <a href="bread.html" class="active">パンコンクール</a>
+    <a href="bread.html">パンコンクール</a>
     <a href="recommendations.html">おすすめ</a>
     <a href="michelin.html">ミシュラン</a>
-    <a href="post.html">投稿する</a>
+    <a href="post.html" class="active">投稿する</a>
   </nav>
   <header class="hero">
-    <a href="bread.html" class="eyebrow">← パンコンクール一覧</a>
-    <h1 class="title" id="contest-title"></h1>
+    <h1 class="title">あなたの<span class="accent">おすすめ</span>を教えてください</h1>
+    <p class="lede">パリで見つけたお気に入りのお店、感想を投稿できます。内容を確認のうえ、このサイトに掲載させていただきます。</p>
   </header>
-  <section>
-    <p class="program-meta" id="contest-meta"></p>
-    <div class="year-tabs" id="year-tabs"></div>
-    <div class="year-panel" id="year-panel"></div>
+
+  <section aria-labelledby="post-form-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="post-form-h">投稿フォーム</h2></div>
+    <p class="section-note">準備中です。フォームが公開されるとここにボタンが表示されます。</p>
+    <div id="post-form-link"></div>
   </section>
+
   <footer class="site-footer">
-    <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
+    <p>投稿内容は運営者(さすけ)が確認してから掲載します。すべての投稿が掲載されるわけではありません。</p>
   </footer>
 </div>
-<script type="module" src="js/contest.js"></script>
 </body>
 </html>

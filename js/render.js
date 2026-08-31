@@ -123,6 +123,26 @@ export function renderRecommendationList(items) {
     .join('');
 }
 
+export function renderMichelinList(items) {
+  return [...items]
+    .sort((a, b) => b.stars - a.stars)
+    .map(
+      (item) => `
+    <div class="trending-card">
+      <div class="trending-name-row">
+        <p class="trending-name">${item.name}</p>
+        <span class="status-badge status-badge-michelin">${'★'.repeat(item.stars)}</span>
+      </div>
+      <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}${item.hotel ? ` (${item.hotel})` : ''}</p>
+      <div class="ranking-links">
+        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+        <a class="ranking-source" href="${item.source_url}">出典 ↗</a>
+      </div>
+    </div>`
+    )
+    .join('');
+}
+
 export function renderNearbyResults(sorted) {
   return sorted
     .map(

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>パリ製パンコンクール図鑑</title>
+<title>さすけのパリ図鑑</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,52 +14,50 @@
 <body>
 <div class="page">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
+  <nav class="site-nav">
+    <a href="index.html" class="active">トップ</a>
+    <a href="bread.html">パンコンクール</a>
+    <a href="recommendations.html">おすすめ</a>
+    <a href="michelin.html">ミシュラン</a>
+    <a href="post.html">投稿する</a>
+  </nav>
   <main id="app">
     <header class="hero">
       <div class="masthead">
         <div class="bars"><i></i><i></i><i></i></div>
-        <span class="eyebrow">Concours de Boulangerie · Paris</span>
+        <span class="eyebrow">Guide de Paris · par Sasuke</span>
       </div>
-      <h1 class="title">パリ製<span class="accent">パン</span>コンクール図鑑</h1>
-      <p class="lede">バゲット、クロワッサン——パリの職人技が競われる公式コンクールの日程・結果・受賞店を、出典付きでまとめています。</p>
+      <h1 class="title">さすけの<span class="accent">パリ</span>図鑑</h1>
+      <p class="lede">パリ在住のさすけが、出典付きでまとめているパリ食べ歩きデータベース。パンコンクールの受賞店、実際に行ったおすすめレストラン、ミシュラン星付き店まで。</p>
       <img class="hero-image" src="assets/illustrations/hero-croissant-baguette.jpg" alt="印象派タッチで描かれたクロワッサンとバゲットのイラスト">
     </header>
 
-    <section aria-labelledby="ranking-h">
-      <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="ranking-h">最新ランキング</h2></div>
-      <p class="section-note">コンクール名をタップすると、過去の全ランキングを年別に見られます</p>
-      <div id="ranking-groups"></div>
-    </section>
-
-    <section aria-labelledby="nearby-h">
-      <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くの受賞店を探す</h2></div>
-      <p class="section-note">現在地、またはホテル名・住所を入力すると、近い受賞店を距離順に表示します</p>
-
-      <div class="nearby-form">
-        <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
-        <div class="nearby-divider">または住所・ホテル名で検索</div>
-        <div class="nearby-row">
-          <input id="address-input" class="nearby-input" type="text" placeholder="例: Hôtel de la Paix, 9e arrondissement">
-          <button id="address-search-btn" class="btn btn-outline" type="button">検索</button>
-        </div>
-        <p id="nearby-status" class="section-note" style="margin:0;"></p>
+    <section aria-labelledby="categories-h">
+      <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="categories-h">カテゴリ</h2></div>
+      <div class="category-grid">
+        <a class="category-card" href="bread.html">
+          <p class="category-name">パンコンクール</p>
+          <p class="category-desc">バゲット・クロワッサンの公式コンクール、歴代ランキングと受賞店</p>
+        </a>
+        <a class="category-card" href="recommendations.html">
+          <p class="category-name">さすけのおすすめ</p>
+          <p class="category-desc">実際に行ったレストラン・ショコラティエ・お土産のお店</p>
+        </a>
+        <a class="category-card" href="michelin.html">
+          <p class="category-name">ミシュラン星付き</p>
+          <p class="category-desc">パリの三ツ星・二ツ星レストラン一覧</p>
+        </a>
+        <a class="category-card" href="post.html">
+          <p class="category-name">投稿する</p>
+          <p class="category-desc">あなたのおすすめのお店や感想を教えてください</p>
+        </a>
       </div>
-
-      <div id="nearby-results" class="nearby-results"></div>
-    </section>
-
-    <section aria-labelledby="trending-h">
-      <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="trending-h">今話題のお店</h2></div>
-      <p class="section-note">コンクール受賞歴とは別に、SNS・メディアで話題になっているお店です(週1回ほど見直します)</p>
-      <div id="trending-list"></div>
     </section>
 
     <footer class="site-footer">
-      <p><a href="recommendations.html">むんたのおすすめレストラン・お土産</a></p>
       <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
     </footer>
   </main>
 </div>
-<script type="module" src="js/main.js"></script>
 </body>
 </html>

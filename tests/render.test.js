@@ -7,7 +7,8 @@ import {
   renderYearTabs,
   renderYearPanel,
   renderTrending,
-  renderRecommendationList
+  renderRecommendationList,
+  renderMichelinList
 } from '../js/render.js';
 
 const contests = [
@@ -171,4 +172,35 @@ test('renderRecommendationList shows the curious status label', () => {
 
 test('renderRecommendationList returns empty string for an empty list', () => {
   assert.equal(renderRecommendationList([]), '');
+});
+
+test('renderMichelinList shows name, stars as filled marks, hotel, address, map link, and sorts 3-star before 2-star', () => {
+  const items = [
+    {
+      id: 'two-star-example',
+      name: 'Two Star Example',
+      hotel: null,
+      stars: 2,
+      arrondissement: '8e',
+      address: '1 rue Example, 75008 Paris',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.87,2.30',
+      source_url: 'https://mesinfos.fr/example'
+    },
+    {
+      id: 'three-star-example',
+      name: 'Three Star Example',
+      hotel: 'Hôtel Example',
+      stars: 3,
+      arrondissement: '1er',
+      address: '2 rue Example, 75001 Paris',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.86,2.34',
+      source_url: 'https://mesinfos.fr/example'
+    }
+  ];
+  const html = renderMichelinList(items);
+  assert.match(html, /Three Star Example[\s\S]*Two Star Example/);
+  assert.match(html, /★★★/);
+  assert.match(html, /Hôtel Example/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.86,2\.34"/);
+  assert.match(html, /href="https:\/\/mesinfos\.fr\/example"/);
 });
