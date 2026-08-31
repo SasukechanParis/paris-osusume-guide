@@ -125,6 +125,7 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
   - カテゴリ単位の説明文はタブごとに1回だけ表示し、店カードごとに同じ説明文を繰り返さない(旧仕様の反省: 全店の`description`に同一の定型文が入っていて冗長だった)
 - データソースは2つ:
   - `data/recommendations.json`(さすけのおすすめ): `{ id, category: "restaurant"|"chocolatier"|"bakery"|"souvenir"|"sweets", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }`。`description`は店固有の一言がある場合のみ設定し、定型文は入れない
+    - 2026-08-31 追記: レストラン21件・ショコラティエ6件・お土産2件の計29件全てに、シェフ名・料理スタイル・創業年などの一言をWeb検索で個別に補完(Tripadvisor、TheFork、Michelin Guide、各店公式サイト等)。ミシュランと同じ「軽く情報を添える」方針
   - `data/guest-recommendations.json`(先輩カップルのおすすめ): さすけの投稿フォーム(`post.html`)経由で届いた店を、むんたが確認のうえ追加する。同じカテゴリ値を使用。初期状態は空配列
   - `bakery`・`sweets`カテゴリは今回新設。むんたのデータがまだ無いため`recommendations.json`側は空(「近日公開予定です」表示)
 - 各セクション内は `recommended` → `curious` の順で表示する(先輩カップルのおすすめにはstatus区分なし)
