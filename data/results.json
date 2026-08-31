@@ -6,7 +6,7 @@
       {
         "rank": 1,
         "shop_id": "fournil-didot",
-        "winner_name": null
+        "winner_name": "Sithamparappillai Jegatheepan"
       },
       {
         "rank": 2,
@@ -55,7 +55,7 @@
       }
     ],
     "date": null,
-    "source_url": "https://parisbymouth.com/best-baguettes-paris/"
+    "source_url": "https://pressev2.paris.fr/communiques/decouvrez-le-laureat-de-la-33e-edition-du-grand-prix-de-la-baguette-de-paris"
   },
   {
     "contest_id": "baguette",
@@ -296,7 +296,7 @@
       {
         "rank": 1,
         "shop_id": "les-boulangers-de-reuilly",
-        "winner_name": "Karim Akrout"
+        "winner_name": "Makram Akrout"
       },
       {
         "rank": 2,
@@ -412,7 +412,7 @@
       {
         "rank": 1,
         "shop_id": "boulangerie-leroy-monti",
-        "winner_name": "Sami Bouattour"
+        "winner_name": "Fabrice Leroy"
       },
       {
         "rank": 2,
@@ -528,7 +528,7 @@
       {
         "rank": 1,
         "shop_id": "boulangerie-brun",
-        "winner_name": "Ridha Khadher"
+        "winner_name": "Sami Bouattour"
       },
       {
         "rank": 2,
@@ -707,7 +707,7 @@
       {
         "rank": 1,
         "shop_id": "aux-delices-du-palais",
-        "winner_name": "Tonin Angevin"
+        "winner_name": "Antonio Teixeira"
       },
       {
         "rank": 2,
@@ -790,7 +790,7 @@
       {
         "rank": 1,
         "shop_id": "au-paradis-du-gourmand",
-        "winner_name": "Anthony Bosson"
+        "winner_name": "Ridha Khadher"
       },
       {
         "rank": 2,
@@ -848,7 +848,7 @@
       {
         "rank": 1,
         "shop_id": "boulangerie-mauvieux",
-        "winner_name": "Philippe Mauvieux"
+        "winner_name": "Sébastien Mauvieux"
       },
       {
         "rank": 2,
@@ -906,7 +906,7 @@
       {
         "rank": 1,
         "shop_id": "au-levain-dantan",
-        "winner_name": "Christophe Vasseur"
+        "winner_name": "Pascal Barillon"
       },
       {
         "rank": 2,
@@ -1104,8 +1104,8 @@
       },
       {
         "rank": 6,
-        "shop_id": null,
-        "winner_name": "Ludovic Lherault"
+        "shop_id": "maison-lherault-antony",
+        "winner_name": "Ludovic Lhérault"
       },
       {
         "rank": 7,

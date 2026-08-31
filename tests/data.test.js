@@ -30,23 +30,23 @@ test('results.json rankings reference known shop ids, or carry a winner_name whe
   }
 });
 
-function assertPlaceSearchUrl(url, name) {
+function assertPlaceSearchUrl(url, name, address) {
   assert.ok(url.startsWith('https://www.google.com/maps/search/?api=1&query='), `not a maps search url: ${url}`);
   const query = decodeURIComponent(url.split('query=')[1]);
   assert.ok(query.includes(name), `query "${query}" does not include name "${name}"`);
+  assert.doesNotMatch(query.trim(), /^[-+]?\d+(?:\.\d+)?\s*,\s*[-+]?\d+(?:\.\d+)?$/, `query for ${name} is coordinates only`);
+  const postcode = address?.match(/\b(?:75|77|78|91|92|93|94|95)\d{3}\b/)?.[0];
+  if (postcode) {
+    assert.ok(query.includes(postcode), `query "${query}" does not include postcode "${postcode}"`);
+  }
 }
 
-test('shops.json entries either have coordinates with a matching google maps link, or both are null when unresolved', () => {
+test('every shops.json entry has coordinates and a name-and-address Google Maps link', () => {
   const shops = loadJson('../data/shops.json');
   for (const s of shops) {
-    if (s.lat === null) {
-      assert.equal(s.lng, null, `${s.id} has lat=null but lng is not null`);
-      assert.equal(s.google_maps_url, null, `${s.id} has lat=null but google_maps_url is not null`);
-    } else {
-      assert.equal(typeof s.lat, 'number');
-      assert.equal(typeof s.lng, 'number');
-      assertPlaceSearchUrl(s.google_maps_url, s.name);
-    }
+    assert.equal(typeof s.lat, 'number', `${s.id} has no latitude`);
+    assert.equal(typeof s.lng, 'number', `${s.id} has no longitude`);
+    assertPlaceSearchUrl(s.google_maps_url, s.name, s.address);
   }
 });
 
@@ -57,7 +57,7 @@ test('trending.json entries have coordinates, source, and matching google maps l
     assert.ok(t.id && t.name && t.source_url, `trending entry missing id/name/source_url: ${JSON.stringify(t)}`);
     assert.equal(typeof t.lat, 'number');
     assert.equal(typeof t.lng, 'number');
-    assertPlaceSearchUrl(t.google_maps_url, t.name);
+    assertPlaceSearchUrl(t.google_maps_url, t.name, t.address);
   }
 });
 
@@ -73,7 +73,7 @@ test('recommendations.json entries have valid category/status and matching map l
     if (item.lat !== null) {
       assert.equal(typeof item.lat, 'number');
       assert.equal(typeof item.lng, 'number');
-      assertPlaceSearchUrl(item.google_maps_url, item.name);
+      assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
     }
   }
 });
@@ -86,7 +86,7 @@ test('michelin.json entries have valid stars, coordinates, matching map link, an
     assert.ok([2, 3].includes(item.stars), `unexpected stars value ${item.stars} for ${item.id}`);
     assert.equal(typeof item.lat, 'number');
     assert.equal(typeof item.lng, 'number');
-    assertPlaceSearchUrl(item.google_maps_url, item.name);
+    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
   }
 });
 
@@ -100,7 +100,55 @@ test('guest-recommendations.json entries have valid category and matching map li
     if (item.lat !== null) {
       assert.equal(typeof item.lat, 'number');
       assert.equal(typeof item.lng, 'number');
-      assertPlaceSearchUrl(item.google_maps_url, item.name);
+      assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
     }
   }
+});
+
+test('corrected contest winners and the previously unidentified 2024 croissant shop stay linked', () => {
+  const results = loadJson('../data/results.json');
+  const winnerCases = new Map([
+    ['baguette-2026', 'Sithamparappillai Jegatheepan'],
+    ['baguette-2021', 'Makram Akrout'],
+    ['baguette-2019', 'Fabrice Leroy'],
+    ['baguette-2017', 'Sami Bouattour'],
+    ['baguette-2014', 'Antonio Teixeira'],
+    ['baguette-2013', 'Ridha Khadher'],
+    ['baguette-2012', 'Sébastien Mauvieux'],
+    ['baguette-2011', 'Pascal Barillon'],
+  ]);
+
+  for (const result of results) {
+    const expectedWinner = winnerCases.get(`${result.contest_id}-${result.year}`);
+    if (expectedWinner) {
+      assert.equal(result.rankings.find((ranking) => ranking.rank === 1)?.winner_name, expectedWinner);
+    }
+  }
+
+  const croissant2024 = results.find((result) => result.contest_id === 'croissant' && result.year === 2024);
+  assert.equal(croissant2024.rankings.find((ranking) => ranking.rank === 6)?.shop_id, 'maison-lherault-antony');
+});
+
+test('corrected addresses, coordinates, and Michelin descriptions do not regress', () => {
+  const shops = new Map(loadJson('../data/shops.json').map((shop) => [shop.id, shop]));
+  assert.equal(shops.get('carton-paris').address, '6 boulevard de Denain, 75010 Paris');
+  assert.equal(shops.get('boulangerie-frederic-comyn').address, '88 rue Cambronne, 75015 Paris');
+  assert.deepEqual(
+    [shops.get('freres-blavette').lat, shops.get('freres-blavette').lng],
+    [48.833684, 2.33034],
+  );
+  assert.deepEqual(
+    [shops.get('boulangerie-thierry-meunier').lat, shops.get('boulangerie-thierry-meunier').lng],
+    [48.8755171, 2.3965926],
+  );
+  assert.deepEqual(
+    [shops.get('julien-saint-honore').lat, shops.get('julien-saint-honore').lng],
+    [48.861117, 2.344139],
+  );
+  assert.equal(shops.get('maison-bergeron').name, 'Maison Bergeron');
+
+  const michelin = new Map(loadJson('../data/michelin.json').map((restaurant) => [restaurant.id, restaurant]));
+  assert.match(michelin.get('le-gabriel-reserve').description, /2024年/);
+  assert.equal(michelin.get('hakuba').hotel, 'Cheval Blanc Paris');
+  assert.equal(michelin.get('labysse-ledoyen').name, "L'Abysse Paris");
 });

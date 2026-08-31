@@ -46,12 +46,12 @@
   {
     "id": "boulangerie-frederic-comyn",
     "name": "Boulangerie Frédéric Comyn",
-    "address": "Rue Cambronne, 75015 Paris (Googleマップで確認済み)",
-    "lat": 48.8422325,
-    "lng": 2.3027803,
+    "address": "88 rue Cambronne, 75015 Paris",
+    "lat": 48.842272,
+    "lng": 2.302804,
     "arrondissement": "15e",
     "description": null,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Fr%C3%A9d%C3%A9ric%20Comyn%20Rue%20Cambronne%2C%2075015%20Paris%20(Google%E3%83%9E%E3%83%83%E3%83%97%E3%81%A7%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Fr%C3%A9d%C3%A9ric%20Comyn%2088%20rue%20Cambronne%2C%2075015%20Paris",
     "photo_url": null
   },
   {
@@ -453,12 +453,12 @@
   {
     "id": "carton-paris",
     "name": "Carton Paris",
-    "address": "6 boulevard de Magenta, 75010 Paris",
-    "lat": 48.8791711,
-    "lng": 2.3545874,
+    "address": "6 boulevard de Denain, 75010 Paris",
+    "lat": 48.879168,
+    "lng": 2.354571,
     "arrondissement": "10e",
     "description": null,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Carton%20Paris%206%20boulevard%20de%20Magenta%2C%2075010%20Paris",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Carton%20Paris%206%20boulevard%20de%20Denain%2C%2075010%20Paris",
     "photo_url": null
   },
   {
@@ -1510,11 +1510,11 @@
     "id": "boulangerie-audou",
     "name": "Boulangerie Audou",
     "address": "10 rue de Chanzy, 75011 Paris",
-    "lat": null,
-    "lng": null,
+    "lat": 48.852431,
+    "lng": 2.382976,
     "arrondissement": "11e",
-    "description": null,
-    "google_maps_url": null,
+    "description": "受賞当時の店名は「Boulangerie Audou」。同住所は現在「Boulangerie Pâtisserie LNA」として案内されています。",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Audou%20Boulangerie%20P%C3%A2tisserie%20LNA%2010%20rue%20de%20Chanzy%2C%2075011%20Paris",
     "photo_url": null
   },
   {
@@ -1598,8 +1598,8 @@
     "id": "julien-saint-honore",
     "name": "Julien",
     "address": "75 rue Saint-Honoré, 75001 Paris",
-    "lat": 48.8729506,
-    "lng": 2.3098426,
+    "lat": 48.861117,
+    "lng": 2.344139,
     "arrondissement": "1er",
     "description": null,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Julien%2075%20rue%20Saint-Honor%C3%A9%2C%2075001%20Paris",
@@ -1625,6 +1625,17 @@
     "arrondissement": "20e",
     "description": null,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philippe%20Bogner%20204%20rue%20des%20Pyr%C3%A9n%C3%A9es%2C%2075020%20Paris",
+    "photo_url": null
+  },
+  {
+    "id": "maison-lherault-antony",
+    "name": "Maison Lhérault",
+    "address": "81 rue Mirabeau, 92160 Antony",
+    "lat": 48.742722,
+    "lng": 2.297045,
+    "arrondissement": "Hauts-de-Seine",
+    "description": null,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Maison%20Lh%C3%A9rault%2081%20rue%20Mirabeau%2C%2092160%20Antony",
     "photo_url": null
   }
 ]

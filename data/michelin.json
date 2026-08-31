@@ -87,7 +87,7 @@
     "lat": 48.8696988,
     "lng": 2.3132448,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Gabriel%20La%20R%C3%A9serve%20Paris%2042%20avenue%20Gabriel%2C%2075008%20Paris",
-    "description": "シェフJérôme Banctel。2023年に三ツ星昇格、セーヌ川沿いの邸宅",
+    "description": "シェフJérôme Banctel。2024年に三ツ星へ昇格。シャンゼリゼ近くのLa Réserve Paris内にあるレストラン",
     "source_url": "https://mesinfos.fr/75000-paris/guide-michelin-2026-decouvrez-les-127-restaurants-etoiles-de-paris-242358.html"
   },
   {
@@ -119,14 +119,14 @@
   {
     "id": "hakuba",
     "name": "Hakuba",
-    "hotel": null,
+    "hotel": "Cheval Blanc Paris",
     "stars": 2,
     "arrondissement": "1er",
     "address": "4 rue Sauval, 75001 Paris",
     "lat": 48.8588656,
     "lng": 2.3421867,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Hakuba%204%20rue%20Sauval%2C%2075001%20Paris",
-    "description": "日本人シェフによる、繊細な技術のフレンチ",
+    "description": "Cheval Blanc Paris内で、鮨を軸に日本料理を提供する二ツ星店",
     "source_url": "https://mesinfos.fr/75000-paris/guide-michelin-2026-decouvrez-les-127-restaurants-etoiles-de-paris-242358.html"
   },
   {
@@ -235,15 +235,15 @@
   },
   {
     "id": "labysse-ledoyen",
-    "name": "L'Abysse au Pavillon Ledoyen",
+    "name": "L'Abysse Paris",
     "hotel": null,
     "stars": 2,
     "arrondissement": "8e",
     "address": "8 avenue Dutuit, 75008 Paris",
     "lat": 48.8661093,
     "lng": 2.3156834,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=L'Abysse%20au%20Pavillon%20Ledoyen%208%20avenue%20Dutuit%2C%2075008%20Paris",
-    "description": "シェフYannick Alléno。寿司をベースにした日本料理の技法",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=L'Abysse%20Paris%20Pavillon%20Ledoyen%208%20avenue%20Dutuit%2C%2075008%20Paris",
+    "description": "シェフYannick Allénoと鮨職人が手がける、鮨を軸にした日本料理",
     "source_url": "https://mesinfos.fr/75000-paris/guide-michelin-2026-decouvrez-les-127-restaurants-etoiles-de-paris-242358.html"
   },
   {
