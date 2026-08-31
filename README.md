@@ -8,7 +8,7 @@
 - `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索)
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧
-- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
+- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
 - `post.html` — 投稿する(Googleフォーム導線、現状プレースホルダー)
 
 ## ローカルでの確認方法
@@ -44,7 +44,7 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 
 ## カテゴリ別おすすめ(レストラン/ショコラティエ/パン屋さん/お土産/おかし)
 
-各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `bakery` / `souvenir` / `sweets` の5種。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`bakery`・`sweets`はデータ未整備のため現状空(近日公開表示)。
+各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `bakery` / `souvenir` / `sweets` / `hotel` の6種。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`bakery`・`sweets`はデータ未整備のため現状空(近日公開表示)。
 
 ## ミシュラン星付き(`michelin.html`)
 

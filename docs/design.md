@@ -117,14 +117,15 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - データ構造: `{ id, name, category, arrondissement, address, lat, lng, google_maps_url, description, source_url, added_date }`
 - ジャンルを問わなくなったため、パンコンクール専用の`bread.html`ではなくトップページ`index.html`に「今話題のこと」セクションとして掲載する(2026-08-31 むんた指示で bread.html → index.html に移設。`js/index.js`が担当)
 
-## カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/おかし、2026-08-31 全面刷新)
+## カテゴリページ(レストラン/ショコラティエ/パン屋さん/お土産/おかし/ホテル、2026-08-31 全面刷新)
 
 - コンクール受賞店とは別軸で、さすけ(むんた)が実際に訪れて良いと思った、または気になっているお店を紹介するカテゴリ別の独立ページ群
-- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` の5ページ。旧単一ページ`recommendations.html`は廃止
+- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` / `hotels.html` の6ページ。旧単一ページ`recommendations.html`は廃止
+- `hotels.html`(2026-08-31 追記): むんたが実際に泊まったパリのホテル7件(Chouchou Hotel、Hôtel Excelsior Paris Opéra、Madame Cadet by Collection Vesper、La Maison Favart、Le Metropolitan Paris Tour Eiffel、M Social Hotel Paris、Hôtel France d'Antin Opéra)。`description`はむんた本人のコメントをそのまま採用、住所はWeb検索、座標はNominatimで取得
 - 各ページ内は「さすけのおすすめ」⇔「先輩カップルのおすすめ」をタブ切り替え(`js/category-page.js` で共通化。年別タブ`.year-tabs`/`.tab-btn`と同じCSSを流用)
   - カテゴリ単位の説明文はタブごとに1回だけ表示し、店カードごとに同じ説明文を繰り返さない(旧仕様の反省: 全店の`description`に同一の定型文が入っていて冗長だった)
 - データソースは2つ:
-  - `data/recommendations.json`(さすけのおすすめ): `{ id, category: "restaurant"|"chocolatier"|"bakery"|"souvenir"|"sweets", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }`。`description`は店固有の一言がある場合のみ設定し、定型文は入れない
+  - `data/recommendations.json`(さすけのおすすめ): `{ id, category: "restaurant"|"chocolatier"|"bakery"|"souvenir"|"sweets"|"hotel", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }`。`description`は店固有の一言がある場合のみ設定し、定型文は入れない
     - 2026-08-31 追記: レストラン21件・ショコラティエ6件・お土産2件の計29件全てに、シェフ名・料理スタイル・創業年などの一言をWeb検索で個別に補完(Tripadvisor、TheFork、Michelin Guide、各店公式サイト等)。ミシュランと同じ「軽く情報を添える」方針
   - `data/guest-recommendations.json`(先輩カップルのおすすめ): さすけの投稿フォーム(`post.html`)経由で届いた店を、むんたが確認のうえ追加する。同じカテゴリ値を使用。初期状態は空配列
   - `bakery`・`sweets`カテゴリは今回新設。むんたのデータがまだ無いため`recommendations.json`側は空(「近日公開予定です」表示)
