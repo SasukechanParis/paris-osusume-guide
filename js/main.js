@@ -1,4 +1,4 @@
-import { renderProgramList, renderRankingGroups, renderNearbyResults } from './render.js';
+import { renderProgramList, renderRankingGroups, renderNearbyResults, renderTrending } from './render.js';
 import { sortShopsByDistance } from './nearby.js';
 import { geocodeAddress } from './geocode.js';
 
@@ -8,10 +8,11 @@ async function loadJson(path) {
 }
 
 async function init() {
-  const [contests, results, shops] = await Promise.all([
+  const [contests, results, shops, trending] = await Promise.all([
     loadJson('data/contests.json'),
     loadJson('data/results.json'),
-    loadJson('data/shops.json')
+    loadJson('data/shops.json'),
+    loadJson('data/trending.json')
   ]);
 
   const latestResults = contests
@@ -20,6 +21,7 @@ async function init() {
 
   document.getElementById('program-list').innerHTML = renderProgramList(contests);
   document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests);
+  document.getElementById('trending-list').innerHTML = renderTrending(trending);
   setupNearbySearch(shops);
 }
 

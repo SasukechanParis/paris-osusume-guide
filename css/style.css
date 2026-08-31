@@ -140,12 +140,20 @@ h1.title .accent { color: var(--red); }
 .nearby-card-meta { font-size: 11px; color: var(--gray); margin: 0; }
 .nearby-distance { font-family: 'Libre Caslon Display', serif; font-size: 16px; color: var(--blue); }
 
+.trending-card { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.trending-card:first-child { padding-top: 0; }
+.trending-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
+.trending-meta { font-size: 11px; color: var(--gray); margin: 0 0 8px; }
+.trending-desc { font-size: 13px; line-height: 1.8; margin: 0 0 12px; }
+
 .site-footer {
   margin-top: 56px;
   padding: 20px 20px 40px;
   border-top: 1px solid var(--line);
 }
-.site-footer p { font-size: 11px; color: var(--gray); line-height: 1.8; margin: 0; }
+.site-footer p { font-size: 11px; color: var(--gray); line-height: 1.8; margin: 0 0 10px; }
+.site-footer p:last-child { margin-bottom: 0; }
+.site-footer a { color: var(--blue); }
 
 @media (min-width: 480px) {
   header.hero { padding: 56px 32px 0; }

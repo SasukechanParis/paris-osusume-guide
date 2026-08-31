@@ -104,6 +104,37 @@ export function renderRankingGroups(results, shops, contests) {
     .join('');
 }
 
+export function renderTrending(trending) {
+  return trending
+    .map(
+      (t) => `
+    <div class="trending-card">
+      <p class="trending-name">${t.name}</p>
+      <p class="trending-meta">${arrondissementLabel(t.arrondissement)}</p>
+      <p class="trending-desc">${t.description}</p>
+      <div class="ranking-links">
+        <a class="btn btn-outline shop-map-link" href="${t.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+        <a class="ranking-source" href="${t.source_url}">出典 ↗</a>
+      </div>
+    </div>`
+    )
+    .join('');
+}
+
+export function renderRecommendationList(items) {
+  return items
+    .map(
+      (item) => `
+    <div class="trending-card">
+      <p class="trending-name">${item.name}</p>
+      <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
+      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.google_maps_url ? `<a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>` : ''}
+    </div>`
+    )
+    .join('');
+}
+
 export function renderNearbyResults(sorted) {
   return sorted
     .map(

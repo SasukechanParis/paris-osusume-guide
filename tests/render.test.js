@@ -6,7 +6,9 @@ import {
   renderNearbyResults,
   renderContestDetail,
   renderYearTabs,
-  renderYearPanel
+  renderYearPanel,
+  renderTrending,
+  renderRecommendationList
 } from '../js/render.js';
 
 const contests = [
@@ -122,4 +124,45 @@ test('renderContestDetail returns meta, tabs for every year, and a panel for the
   assert.match(tabs, /data-year="2026"/);
   assert.match(tabs, /data-year="2025"/);
   assert.match(panel, /Fournil Didot/);
+});
+
+test('renderTrending shows name, arrondissement in Japanese, description, map link, and source link', () => {
+  const trending = [
+    {
+      id: 'cedric-grolet-opera',
+      name: 'Cédric Grolet Opéra',
+      arrondissement: '2e',
+      description: 'Instagramフォロワー1300万人超で、開店前から連日行列ができている。',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8679572,2.3331957',
+      source_url: 'https://numero.jp/yuriyamano-83/'
+    }
+  ];
+  const html = renderTrending(trending);
+  assert.match(html, /Cédric Grolet Opéra/);
+  assert.match(html, /2区/);
+  assert.match(html, /1300万人超/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8679572,2\.3331957"/);
+  assert.match(html, /href="https:\/\/numero\.jp\/yuriyamano-83\/"/);
+});
+
+test('renderRecommendationList shows name, address, description, and map link when present', () => {
+  const items = [
+    {
+      id: 'example-restaurant',
+      name: 'Example Restaurant',
+      address: '1 rue Example, 75001 Paris',
+      arrondissement: '1er',
+      description: 'むんたのコメント',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.86,2.34'
+    }
+  ];
+  const html = renderRecommendationList(items);
+  assert.match(html, /Example Restaurant/);
+  assert.match(html, /1区/);
+  assert.match(html, /むんたのコメント/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.86,2\.34"/);
+});
+
+test('renderRecommendationList returns empty string for an empty list', () => {
+  assert.equal(renderRecommendationList([]), '');
 });

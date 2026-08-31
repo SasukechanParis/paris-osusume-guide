@@ -43,3 +43,19 @@ test('shops.json entries either have coordinates with a matching google maps lin
     }
   }
 });
+
+test('trending.json entries have coordinates, source, and matching google maps link', () => {
+  const trending = loadJson('../data/trending.json');
+  assert.ok(Array.isArray(trending));
+  for (const t of trending) {
+    assert.ok(t.id && t.name && t.source_url, `trending entry missing id/name/source_url: ${JSON.stringify(t)}`);
+    assert.equal(typeof t.lat, 'number');
+    assert.equal(typeof t.lng, 'number');
+    assert.ok(t.google_maps_url.includes(String(t.lat)));
+  }
+});
+
+test('recommendations.json is a valid array (empty box for now)', () => {
+  const recommendations = loadJson('../data/recommendations.json');
+  assert.ok(Array.isArray(recommendations));
+});

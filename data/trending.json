@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cedric-grolet-opera",
+    "name": "Cédric Grolet Opéra",
+    "category": "croissant",
+    "arrondissement": "2e",
+    "address": "35 Avenue de l'Opéra, 75002 Paris",
+    "lat": 48.8679572,
+    "lng": 2.3331957,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8679572,2.3331957",
+    "description": "世界的パティシエ Cédric Grolet の店。Instagramフォロワー1300万人超で、開店前から連日行列ができている。",
+    "source_url": "https://numero.jp/yuriyamano-83/",
+    "added_date": "2026-08-30"
+  },
+  {
+    "id": "philippe-conticini-dauphine",
+    "name": "Philippe Conticini",
+    "category": "croissant",
+    "arrondissement": "1er",
+    "address": "27 Place Dauphine, 75001 Paris",
+    "lat": 48.8568069,
+    "lng": 2.3417661,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8568069,2.3417661",
+    "description": "パリで話題の\"ビッグクロワッサン\"を扱う数店舗のうちの一つ。事前予約が推奨されている。",
+    "source_url": "https://www.myushop.net/paris/blog/detail/7220/106",
+    "added_date": "2026-08-30"
+  },
+  {
+    "id": "union-boulangerie",
+    "name": "Union Boulangerie",
+    "category": "other",
+    "arrondissement": "9e",
+    "address": "2 Rue Bleue, 75009 Paris",
+    "lat": 48.8758793,
+    "lng": 2.347715,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=48.8758793,2.347715",
+    "description": "Yann Couvreur出身のシェフ2人が始めた新興ブーランジェリー。地元グルメメディアで評判。",
+    "source_url": "https://www.gillespudlowski.com/283154/produits/paris-9e-la-belle-union-en-boulangerie-de-charles-et-maeva",
+    "added_date": "2026-08-30"
+  }
+]
