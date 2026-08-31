@@ -8,11 +8,14 @@
 }
 .site-nav a {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 12.5px;
   font-weight: 700;
   color: var(--gray);
   text-decoration: none;
-  padding: 6px 12px;
+  padding: 0 12px;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -90,9 +93,10 @@ h1.title .accent { color: var(--red); }
 }
 .tab-btn {
   flex-shrink: 0;
+  min-height: 44px;
   font-family: 'Libre Caslon Display', serif;
   font-size: 13px;
-  padding: 8px 16px;
+  padding: 0 16px;
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--gray);

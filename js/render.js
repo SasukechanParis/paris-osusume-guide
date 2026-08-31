@@ -134,6 +134,7 @@ export function renderMichelinList(items) {
         <span class="status-badge status-badge-michelin">${'★'.repeat(item.stars)}</span>
       </div>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}${item.hotel ? ` (${item.hotel})` : ''}</p>
+      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
       <div class="ranking-links">
         <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
         <a class="ranking-source" href="${item.source_url}">出典 ↗</a>

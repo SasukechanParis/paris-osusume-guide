@@ -194,6 +194,7 @@ test('renderMichelinList shows name, stars as filled marks, hotel, address, map 
       arrondissement: '1er',
       address: '2 rue Example, 75001 Paris',
       google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.86,2.34',
+      description: 'シェフExampleによる創作フレンチ',
       source_url: 'https://mesinfos.fr/example'
     }
   ];
@@ -201,6 +202,7 @@ test('renderMichelinList shows name, stars as filled marks, hotel, address, map 
   assert.match(html, /Three Star Example[\s\S]*Two Star Example/);
   assert.match(html, /★★★/);
   assert.match(html, /Hôtel Example/);
+  assert.match(html, /シェフExampleによる創作フレンチ/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.86,2\.34"/);
   assert.match(html, /href="https:\/\/mesinfos\.fr\/example"/);
 });

@@ -4,8 +4,8 @@
 
 ## ページ構成
 
-- `index.html` — トップページ(カテゴリ一覧への導線)
-- `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索・今話題のこと)
+- `index.html` — トップページ(今話題のこと・カテゴリ一覧への導線)
+- `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索)
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `sweets.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
