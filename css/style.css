@@ -27,28 +27,7 @@ h1.title .accent { color: var(--red); }
 
 .hero-image { width: 100%; border-radius: 2px; }
 
-.program-row {
-  display: grid;
-  grid-template-columns: 44px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-}
-.program-row:first-child { padding-top: 0; }
-.program-icon { width: 44px; height: 44px; object-fit: cover; border-radius: 50%; }
-.program-name { font-weight: 700; font-size: 14.5px; margin: 0 0 4px; }
 .program-meta { font-size: 12px; color: var(--gray); margin: 0; }
-.program-date { text-align: right; font-size: 11px; color: var(--gray); white-space: nowrap; }
-.program-date .status {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 10px;
-  border: 1px solid var(--red);
-  color: var(--red);
-  padding: 3px 9px;
-  border-radius: 999px;
-}
 
 .ranking-group { margin-bottom: 32px; }
 .ranking-group:last-child { margin-bottom: 0; }
@@ -142,9 +121,20 @@ h1.title .accent { color: var(--red); }
 
 .trending-card { padding: 18px 0; border-bottom: 1px solid var(--line); }
 .trending-card:first-child { padding-top: 0; }
-.trending-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0 0 4px; }
+.trending-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 4px; }
+.trending-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0; }
 .trending-meta { font-size: 11px; color: var(--gray); margin: 0 0 8px; }
 .trending-desc { font-size: 13px; line-height: 1.8; margin: 0 0 12px; }
+.status-badge {
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--gray);
+  white-space: nowrap;
+}
+.status-badge-recommended { border-color: var(--blue); color: var(--blue); }
+.status-badge-curious { border-color: var(--gray); color: var(--gray); }
 
 .site-footer {
   margin-top: 56px;

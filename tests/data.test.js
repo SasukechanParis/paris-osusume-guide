@@ -55,7 +55,19 @@ test('trending.json entries have coordinates, source, and matching google maps l
   }
 });
 
-test('recommendations.json is a valid array (empty box for now)', () => {
+test('recommendations.json entries have valid category/status and matching map link when coordinates are present', () => {
   const recommendations = loadJson('../data/recommendations.json');
   assert.ok(Array.isArray(recommendations));
+  const validCategories = new Set(['restaurant', 'chocolatier', 'souvenir']);
+  const validStatuses = new Set(['recommended', 'curious']);
+  for (const item of recommendations) {
+    assert.ok(item.id && item.name && item.address, `recommendation missing id/name/address: ${JSON.stringify(item)}`);
+    assert.ok(validCategories.has(item.category), `unknown category ${item.category} for ${item.id}`);
+    assert.ok(validStatuses.has(item.status), `unknown status ${item.status} for ${item.id}`);
+    if (item.lat !== null) {
+      assert.equal(typeof item.lat, 'number');
+      assert.equal(typeof item.lng, 'number');
+      assert.ok(item.google_maps_url.includes(String(item.lat)));
+    }
+  }
 });

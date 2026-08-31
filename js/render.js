@@ -30,26 +30,6 @@ function arrondissementLabel(arr) {
   return ARRONDISSEMENT_JA[arr] ?? arr;
 }
 
-export function renderProgramList(contests) {
-  const iconByCategory = {
-    baguette: 'assets/illustrations/baguette.jpg',
-    croissant: 'assets/illustrations/croissant.jpg'
-  };
-  return contests
-    .map(
-      (c) => `
-    <div class="program-row">
-      <img class="program-icon" src="${iconByCategory[c.category] ?? ''}" alt="${c.category}">
-      <div>
-        <p class="program-name">${c.name}</p>
-        <p class="program-meta">主催: ${c.organizer}</p>
-      </div>
-      <div class="program-date">${c.next_edition_date ?? '次回未発表'}<span class="status">下書き待ち</span></div>
-    </div>`
-    )
-    .join('');
-}
-
 function rankingRowLabel(r, shopById) {
   const shop = r.shop_id ? shopById.get(r.shop_id) : null;
   if (shop) {
@@ -121,12 +101,20 @@ export function renderTrending(trending) {
     .join('');
 }
 
+const RECOMMENDATION_STATUS_LABEL = {
+  recommended: 'おすすめ',
+  curious: '気になる(未訪問)'
+};
+
 export function renderRecommendationList(items) {
   return items
     .map(
       (item) => `
     <div class="trending-card">
-      <p class="trending-name">${item.name}</p>
+      <div class="trending-name-row">
+        <p class="trending-name">${item.name}</p>
+        ${item.status ? `<span class="status-badge status-badge-${item.status}">${RECOMMENDATION_STATUS_LABEL[item.status] ?? item.status}</span>` : ''}
+      </div>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
       ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
       ${item.google_maps_url ? `<a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>` : ''}

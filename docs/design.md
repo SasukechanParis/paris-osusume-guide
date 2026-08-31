@@ -103,12 +103,14 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - データ構造: `{ id, name, category, arrondissement, address, lat, lng, google_maps_url, description, source_url, added_date }`
 - トップページに「今話題のお店」セクションとして表示。コンクール受賞歴とは明確に区別する
 
-## むんたのおすすめ(レストラン・お土産)
+## むんたのおすすめ(レストラン・ショコラティエ・お土産)
 
-- コンクール受賞店とは別軸で、むんたが実際に訪れて良いと思ったレストラン・お土産店を紹介する独立セクション
+- コンクール受賞店とは別軸で、むんたが実際に訪れて良いと思った、または気になっているお店を紹介する独立セクション
 - 新規ページ `recommendations.html` として実装。トップページのフッターから導線を張る
-- データ構造: `data/recommendations.json` に `{ id, category: "restaurant"|"souvenir", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }` の配列
-- 初期状態はデータ空(`[]`)。中身はむんたから情報をもらい次第、随時追加していく運用
+- データ構造: `data/recommendations.json` に `{ id, category: "restaurant"|"chocolatier"|"souvenir", status: "recommended"|"curious", name, address, arrondissement, lat, lng, google_maps_url, description, photo_url }` の配列
+  - `status: "recommended"` = 実際に訪問しておすすめ、`"curious"` = 気になっているが未訪問(画面上は控えめなバッジで区別する)
+- 座標はGoogleマップの共有リンク(`maps.app.goo.gl/...`)をmunta本人が送り、リダイレクト先URLの `!3d!4d` から抽出する方式(Nominatimでの住所ベース検索より正確)
+- 各セクション内は `recommended` → `curious` の順で表示する
 
 ## 除外事項(今回のスコープ外)
 

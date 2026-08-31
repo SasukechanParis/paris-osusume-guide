@@ -1,7 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  renderProgramList,
   renderRankingGroups,
   renderNearbyResults,
   renderContestDetail,
@@ -15,11 +14,6 @@ const contests = [
   { id: 'baguette', name: 'Grand Prix de la Baguette', organizer: 'パリ市', category: 'baguette', next_edition_date: null }
 ];
 
-test('renderProgramList includes contest icon image', () => {
-  const html = renderProgramList(contests);
-  assert.match(html, /baguette\.jpg/);
-});
-
 const shops = [
   { id: 'fournil-didot', name: 'Fournil Didot', arrondissement: '14e', google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8272,2.3129' }
 ];
@@ -31,12 +25,6 @@ const results = [
     source_url: 'https://presse.paris.fr/example'
   }
 ];
-
-test('renderProgramList includes contest name and organizer', () => {
-  const html = renderProgramList(contests);
-  assert.match(html, /Grand Prix de la Baguette/);
-  assert.match(html, /パリ市/);
-});
 
 test('renderRankingGroups includes shop name, arrondissement in Japanese, source link, map link, and contest detail link', () => {
   const html = renderRankingGroups(results, shops, contests);
@@ -145,13 +133,14 @@ test('renderTrending shows name, arrondissement in Japanese, description, map li
   assert.match(html, /href="https:\/\/numero\.jp\/yuriyamano-83\/"/);
 });
 
-test('renderRecommendationList shows name, address, description, and map link when present', () => {
+test('renderRecommendationList shows name, address, description, status badge, and map link when present', () => {
   const items = [
     {
       id: 'example-restaurant',
       name: 'Example Restaurant',
       address: '1 rue Example, 75001 Paris',
       arrondissement: '1er',
+      status: 'recommended',
       description: 'むんたのコメント',
       google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.86,2.34'
     }
@@ -160,7 +149,24 @@ test('renderRecommendationList shows name, address, description, and map link wh
   assert.match(html, /Example Restaurant/);
   assert.match(html, /1区/);
   assert.match(html, /むんたのコメント/);
+  assert.match(html, /おすすめ/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.86,2\.34"/);
+});
+
+test('renderRecommendationList shows the curious status label', () => {
+  const items = [
+    {
+      id: 'example-curious',
+      name: 'Curious Restaurant',
+      address: '2 rue Example, 75002 Paris',
+      arrondissement: '2e',
+      status: 'curious',
+      description: null,
+      google_maps_url: null
+    }
+  ];
+  const html = renderRecommendationList(items);
+  assert.match(html, /気になる/);
 });
 
 test('renderRecommendationList returns empty string for an empty list', () => {
