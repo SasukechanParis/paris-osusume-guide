@@ -121,7 +121,7 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 
 - コンクール受賞店とは別軸で、さすけ(むんた)が実際に訪れて良いと思った、または気になっているお店を紹介するカテゴリ別の独立ページ群
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` の6ページ。旧単一ページ`recommendations.html`は廃止
-- `hotels.html`(2026-08-31 追記): むんたが実際に泊まったパリのホテル7件(Chouchou Hotel、Hôtel Excelsior Paris Opéra、Madame Cadet by Collection Vesper、La Maison Favart、Le Metropolitan Paris Tour Eiffel、M Social Hotel Paris、Hôtel France d'Antin Opéra)。`description`はむんた本人のコメントをそのまま採用、住所はWeb検索、座標はNominatimで取得
+- `hotels.html`(2026-08-31 追記): パリのホテル7件(Chouchou Hotel、Hôtel Excelsior Paris Opéra、Madame Cadet by Collection Vesper、La Maison Favart、Le Metropolitan Paris Tour Eiffel、M Social Hotel Paris、Hôtel France d'Antin Opéra)。むんた(さすけ)自身が宿泊した宿ではなく、ウェディング撮影の仕事で500件以上のホテルを訪れてきた中から、リッチな雰囲気・スタッフの対応・リーズナブルさ・清潔感の面で良いと思ったものを選んでいる(2026-09-01 むんた訂正)。`description`はむんた本人のコメントをそのまま採用、住所はWeb検索、座標はNominatimで取得
 - 各ページ内は「さすけのおすすめ」⇔「先輩カップルのおすすめ」をタブ切り替え(`js/category-page.js` で共通化。年別タブ`.year-tabs`/`.tab-btn`と同じCSSを流用)
   - カテゴリ単位の説明文はタブごとに1回だけ表示し、店カードごとに同じ説明文を繰り返さない(旧仕様の反省: 全店の`description`に同一の定型文が入っていて冗長だった)
 - データソースは2つ:
