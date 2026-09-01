@@ -59,3 +59,11 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 公開URL: https://sasukechanparis.github.io/paris-osusume-guide/
 
 2026-09-01にリポジトリを公開(public)で作成し、GitHub Pagesを有効化した。`main`ブランチにpushすると自動で反映される。URLは検索エンジンには特に対策していないが、公式LINEのリッチメニュー等では告知せず、むんたが個別に手渡す運用(`docs/design.md`の「アクセス設計」節を参照)。
+
+## アクセス解析(GoatCounter)
+
+全ページに [GoatCounter](https://www.goatcounter.com/)(無料・プライバシー配慮型)の計測タグを埋め込み済み。サイトコードは `paris-osusume` を想定。
+
+**むんたに必要な作業(1回だけ)**: https://www.goatcounter.com/signup で サイトコード `paris-osusume` ・自分のメールアドレスで登録し、届いたメールのリンクから本登録を完了する。以降は https://paris-osusume.goatcounter.com/ でダッシュボードを確認できる。
+
+**個別リンクの目印の付け方**: 人に渡すURLの末尾に `?ref=名前` を付けて共有する(例: `https://sasukechanparis.github.io/paris-osusume-guide/?ref=yamada`)。GoatCounterはこの`ref`パラメータを自動でソース(参照元)として認識し、ダッシュボードで「どの目印から来たか」が見られる。目印なし・見覚えのないソースからのアクセスが極端に増えたら、意図しないルートで広まっている可能性がある。
