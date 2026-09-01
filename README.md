@@ -9,6 +9,7 @@
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
+- `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ別に表示切替可能)
 - `post.html` — 投稿する(Googleフォーム導線、現状プレースホルダー)
 
 ## ローカルでの確認方法

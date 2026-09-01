@@ -26,7 +26,7 @@ const ARRONDISSEMENT_JA = {
   'Val-de-Marne': 'ヴァル・ド・マルヌ県(パリ郊外)'
 };
 
-function arrondissementLabel(arr) {
+export function arrondissementLabel(arr) {
   return ARRONDISSEMENT_JA[arr] ?? arr;
 }
 

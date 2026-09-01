@@ -4,46 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>ミシュラン星付き - パリおすすめデータベース</title>
+<title>地図 - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/map.css">
 </head>
 <body>
-<div class="page">
+<div class="page page-map">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
   <nav class="site-nav">
     <a href="index.html">トップ</a>
     <a href="bread.html">パンコンクール</a>
-    <a href="michelin.html" class="active">ミシュラン</a>
+    <a href="michelin.html">ミシュラン</a>
     <a href="restaurants.html">レストラン</a>
     <a href="chocolatiers.html">ショコラティエ</a>
     <a href="bakeries.html">パン屋さん</a>
     <a href="souvenirs.html">お土産</a>
     <a href="supermarket.html">スーパーで買えるおすすめ</a>
     <a href="hotels.html">ホテル</a>
-    <a href="map.html">地図</a>
+    <a href="map.html" class="active">地図</a>
     <a href="post.html">投稿する</a>
   </nav>
-  <header class="hero">
-    <h1 class="title">ミシュラン<span class="accent">星付き</span></h1>
-    <p class="lede">一度でいいから行ってみたい、パリにあるミシュランの星付きのお店をまとめました。</p>
-    <img class="hero-image" src="assets/illustrations/michelin.png" alt="印象派タッチで描かれたミシュラン料理のイラスト">
+  <header class="hero hero-compact">
+    <h1 class="title">地図</h1>
+    <p class="lede">全カテゴリのお店をまとめて表示。エリアごとの傾向を見て、ホテルや食べ歩きの計画に役立ててください。</p>
   </header>
 
-  <section aria-labelledby="michelin-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="michelin-h">星付きレストラン</h2></div>
-    <div id="michelin-list"></div>
+  <section class="map-section">
+    <div class="map-wrap">
+      <div id="map-canvas"></div>
+      <div id="map-legend" class="map-legend"></div>
+    </div>
   </section>
 
   <footer class="site-footer">
     <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
   </footer>
 </div>
-<script type="module" src="js/michelin.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script type="module" src="js/map.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

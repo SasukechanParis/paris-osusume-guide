@@ -1,0 +1,88 @@
+.page-map { max-width: none; }
+
+.hero-compact { padding-bottom: 20px; }
+.hero-compact .lede { max-width: 60ch; }
+
+.map-section { padding: 24px 0 0; }
+@media (min-width: 480px) {
+  .map-section { padding: 24px 0 0; }
+}
+
+.map-wrap {
+  position: relative;
+  width: 100%;
+  height: 78vh;
+  min-height: 420px;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 100%;
+  background: var(--surface);
+}
+
+.map-legend {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  padding: 10px 14px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  max-width: 220px;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+  padding: 5px 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.map-legend-item input { flex-shrink: 0; }
+
+.map-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.map-pin { filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35)); }
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+.leaflet-popup-content { margin: 12px 14px; }
+
+.map-popup { font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; }
+.map-popup-category {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+  margin: 0 0 3px;
+}
+.map-popup-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+.map-popup-meta { font-size: 11px; color: var(--gray); margin: 0 0 6px; }
+.map-popup-desc { font-size: 12px; line-height: 1.6; margin: 0 0 10px; }
+.map-popup-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.map-popup-links .shop-map-link { font-size: 10.5px; padding: 6px 12px; }
+
+@media (max-width: 479px) {
+  .map-wrap { height: 68vh; }
+  .map-legend { max-width: 160px; padding: 8px 10px; }
+  .map-legend-item { font-size: 11px; }
+}
