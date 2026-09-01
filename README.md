@@ -56,6 +56,6 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 
 ## GitHub Pagesでの公開
 
-公開URL: https://sasukechanparis.github.io/paris-bread-contest-guide/
+公開URL: https://sasukechanparis.github.io/paris-osusume-guide/
 
 2026-09-01にリポジトリを公開(public)で作成し、GitHub Pagesを有効化した。`main`ブランチにpushすると自動で反映される。URLは検索エンジンには特に対策していないが、公式LINEのリッチメニュー等では告知せず、むんたが個別に手渡す運用(`docs/design.md`の「アクセス設計」節を参照)。
