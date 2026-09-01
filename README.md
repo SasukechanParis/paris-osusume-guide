@@ -11,7 +11,7 @@
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
 - `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
-- `post.html` — 投稿する(Googleフォーム導線、現状プレースホルダー)
+- `post.html` — 投稿する(Googleフォームへのボタンリンク)
 
 ## ローカルでの確認方法
 
@@ -54,7 +54,7 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 
 ## 投稿機能(`post.html`)
 
-訪問者が自分のおすすめ店・感想を投稿できるページ。Googleフォームへの導線を予定(詳細は`docs/design.md`の「投稿機能」節を参照)。承認後は`data/guest-recommendations.json`に追加し、各カテゴリページの「先輩カップルのおすすめ」タブに反映する。現状はフォーム未作成のプレースホルダー。
+訪問者が自分のおすすめ店・感想を投稿できるページ。Googleフォーム(https://forms.gle/RqxPGi8SPc8pb9TX9)を別タブで開くボタンを設置済み(詳細は`docs/design.md`の「投稿機能」節を参照)。承認後は`data/guest-recommendations.json`に追加し、各カテゴリページの「先輩カップルのおすすめ」タブに反映する。
 
 ## GitHub Pagesでの公開
 
