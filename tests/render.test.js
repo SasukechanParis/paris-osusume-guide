@@ -54,6 +54,43 @@ test('renderNearbyResults shows shop name, arrondissement in Japanese, formatted
   assert.match(html, /14区/);
   assert.match(html, /650m/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8272,2\.3129"/);
+  assert.doesNotMatch(html, /shop\.html\?id=/);
+});
+
+test('renderNearbyResults links shop name to shop.html only when linkToShop is true', () => {
+  const sorted = [
+    {
+      shop: {
+        id: 'fournil-didot',
+        name: 'Fournil Didot',
+        arrondissement: '14e',
+        google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8272,2.3129'
+      },
+      distanceKm: 0.65
+    }
+  ];
+  const html = renderNearbyResults(sorted, { linkToShop: true });
+  assert.match(html, /href="shop\.html\?id=fournil-didot"/);
+});
+
+test('renderNearbyResults shows a status badge and address when the item has them', () => {
+  const sorted = [
+    {
+      shop: {
+        name: 'Le Petit Bistro',
+        arrondissement: '9e',
+        address: '12 Rue Cadet, 75009 Paris',
+        status: 'recommended',
+        description: '雰囲気が良い',
+        google_maps_url: 'https://www.google.com/maps/search/?api=1&query=Le%20Petit%20Bistro'
+      },
+      distanceKm: 1.2
+    }
+  ];
+  const html = renderNearbyResults(sorted);
+  assert.match(html, /おすすめ/);
+  assert.match(html, /12 Rue Cadet, 75009 Paris/);
+  assert.match(html, /雰囲気が良い/);
 });
 
 test('renderYearTabs marks the active year and lists all years', () => {

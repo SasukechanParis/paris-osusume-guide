@@ -1,4 +1,5 @@
 import { renderRecommendationList } from './render.js';
+import { setupNearbySearch } from './nearby-search.js';
 
 async function loadJson(path) {
   const res = await fetch(path);
@@ -34,4 +35,6 @@ export async function initCategoryPage(category) {
     document.getElementById('sasuke-panel').hidden = source !== 'sasuke';
     document.getElementById('guest-panel').hidden = source !== 'guest';
   });
+
+  setupNearbySearch([...sasuke, ...guests]);
 }

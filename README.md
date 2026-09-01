@@ -7,8 +7,8 @@
 - `index.html` — トップページ(今話題のこと・カテゴリ一覧への導線)
 - `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索)
 - `contest.html` — コンクール詳細(年別タブ)
-- `michelin.html` — ミシュラン星付きレストラン一覧
-- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ)
+- `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
+- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
 - `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)

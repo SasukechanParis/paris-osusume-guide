@@ -164,20 +164,29 @@ export function renderMichelinList(items) {
     .join('');
 }
 
-export function renderNearbyResults(sorted, winCounts) {
+export function renderNearbyResults(sorted, options = {}) {
+  const { winCounts, linkToShop = false } = options;
   return sorted
-    .map(
-      ({ shop, distanceKm }) => `
+    .map(({ shop, distanceKm }) => {
+      const nameHtml = linkToShop
+        ? `<a class="ranking-shop-link" href="shop.html?id=${shop.id}">${shop.name}</a>${winBadge(winCounts, shop.id)}`
+        : shop.name;
+      const statusBadge = shop.status
+        ? `<span class="status-badge status-badge-${shop.status}">${RECOMMENDATION_STATUS_LABEL[shop.status] ?? shop.status}</span>`
+        : '';
+      const metaParts = [arrondissementLabel(shop.arrondissement)];
+      if (shop.address) metaParts.push(shop.address);
+      return `
     <div class="nearby-card">
       <div>
-        <p class="nearby-card-name"><a class="ranking-shop-link" href="shop.html?id=${shop.id}">${shop.name}</a>${winBadge(winCounts, shop.id)}</p>
-        <p class="nearby-card-meta">${arrondissementLabel(shop.arrondissement)}</p>
+        <p class="nearby-card-name">${nameHtml} ${statusBadge}</p>
+        <p class="nearby-card-meta">${metaParts.join(' ・ ')}</p>
         ${shop.description ? `<p class="shop-note">${shop.description}</p>` : ''}
       </div>
       <div class="nearby-distance">${formatDistance(distanceKm)}</div>
       <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで経路を見る</a>
-    </div>`
-    )
+    </div>`;
+    })
     .join('');
 }
 

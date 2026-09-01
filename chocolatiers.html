@@ -55,6 +55,23 @@
     </div>
   </section>
 
+  <section aria-labelledby="nearby-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くのショコラティエを探す</h2></div>
+    <p class="section-note">現在地、またはホテル名・住所を入力すると、近いショコラティエを距離順に表示します</p>
+
+    <div class="nearby-form">
+      <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
+      <div class="nearby-divider">または住所・ホテル名で検索</div>
+      <div class="nearby-row">
+        <input id="address-input" class="nearby-input" type="text" placeholder="例: Hôtel de la Paix, 9e arrondissement">
+        <button id="address-search-btn" class="btn btn-outline" type="button">検索</button>
+      </div>
+      <p id="nearby-status" class="section-note" style="margin:0;"></p>
+    </div>
+
+    <div id="nearby-results" class="nearby-results"></div>
+  </section>
+
   <footer class="site-footer">
     <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
   </footer>

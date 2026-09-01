@@ -187,6 +187,13 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - 各ランキング行の店名は`shop.html`へのリンクになった(`.ranking-shop-link`)
 - **エリア絞り込み**: `map.html`に区(1〜20区+郊外3県)のセレクトボックスを追加。カテゴリのチェックボックスと組み合わせて絞り込める
 
+## 近くを探す機能の全カテゴリ展開(2026-09-01 追加)
+
+- 当初`bread.html`(パンコンクール)専用だった「現在地・住所から近い店を距離順に表示」機能を、レストラン・ショコラティエ・パン屋さん・お土産・スーパーで買えるおすすめ・ホテル・ミシュラン星付きの全カテゴリページに展開。要望:「現在地とか宿泊予定のホテルからの検索はパンコンクールだけじゃなくて、全部のカテゴリでできるようにして」
+- 実装: GPS/住所検索のDOM操作ロジックを`js/bread.js`から`js/nearby-search.js`(`setupNearbySearch(items, options)`)に切り出し、`js/category-page.js`(レストラン等6カテゴリ共通)・`js/michelin.js`・`js/bread.js`の3箇所から呼び出す形に統一。ページ側は共通のHTMLブロック(id: `gps-btn` / `address-input` / `address-search-btn` / `nearby-status` / `nearby-results`)を各`<footer>`直前に配置するだけでよい
+- `js/render.js`の`renderNearbyResults(sorted, options)`を汎用化。`options.linkToShop`でパンコンクール受賞店のみ`shop.html`へリンクし、他カテゴリは店名テキストのみ表示。`shop.status`があれば「おすすめ/気になる(未訪問)」バッジを、`shop.address`があれば住所も表示するようにした
+- 動作確認: `node --test`(34件全パス)、および`restaurants.html`(住所検索→距離順ソート結果を確認)・`hotels.html`(GPS取得失敗時のフォールバックメッセージを確認)・`michelin.html`(セクション表示を確認)をブラウザで検証済み
+
 ## 除外事項(今回のスコープ外)
 
 - 完全自動公開(人間の承認なしでのサイト反映)
