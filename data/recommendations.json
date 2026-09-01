@@ -466,5 +466,18 @@
     "description": "オペラ座からすぐ近く。日本人街も近いので日本食が恋しくなったときにも便利",
     "photo_url": null,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20France%20d%27Antin%20Op%C3%A9ra%2022%20rue%20d%27Antin%2C%2075002%20Paris"
+  },
+  {
+    "id": "union-boulangerie",
+    "category": "bakery",
+    "status": "recommended",
+    "name": "Union Boulangerie",
+    "address": "2 Rue Bleue, 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8758793,
+    "lng": 2.347715,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Union%20Boulangerie%202%20Rue%20Bleue%2C%2075009%20Paris",
+    "description": "アップルボムとホットドッグが絶品",
+    "photo_url": null
   }
 ]
