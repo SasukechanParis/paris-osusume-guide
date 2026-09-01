@@ -8,7 +8,9 @@ import {
   renderYearPanel,
   renderTrending,
   renderRecommendationList,
-  renderMichelinList
+  renderMichelinList,
+  buildShopWinCounts,
+  renderShopDetail
 } from '../js/render.js';
 
 const contests = [
@@ -205,4 +207,55 @@ test('renderMichelinList shows name, stars as filled marks, hotel, address, map 
   assert.match(html, /シェフExampleによる創作フレンチ/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.86,2\.34"/);
   assert.match(html, /href="https:\/\/mesinfos\.fr\/example"/);
+});
+
+test('buildShopWinCounts counts appearances per shop across all contests and years', () => {
+  const multiResults = [
+    { contest_id: 'baguette', year: 2025, rankings: [{ rank: 1, shop_id: 'shop-a' }, { rank: 2, shop_id: 'shop-b' }] },
+    { contest_id: 'baguette', year: 2024, rankings: [{ rank: 3, shop_id: 'shop-a' }] },
+    { contest_id: 'croissant', year: 2024, rankings: [{ rank: 1, shop_id: 'shop-a' }, { rank: 5, shop_id: null }] }
+  ];
+  const counts = buildShopWinCounts(multiResults);
+  assert.equal(counts.get('shop-a').total, 3);
+  assert.equal(counts.get('shop-a').byContest.get('baguette'), 2);
+  assert.equal(counts.get('shop-a').byContest.get('croissant'), 1);
+  assert.equal(counts.get('shop-b').total, 1);
+  assert.equal(counts.has('shop-c'), false);
+});
+
+test('renderRankingGroups links shop names to shop.html and shows a win badge for repeat winners', () => {
+  const multiShops = [
+    { id: 'fournil-didot', name: 'Fournil Didot', arrondissement: '14e', google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8272,2.3129' }
+  ];
+  const multiResults = [
+    { contest_id: 'baguette', year: 2026, rankings: [{ rank: 1, shop_id: 'fournil-didot', winner_name: null }], source_url: 'https://presse.paris.fr/example' }
+  ];
+  const winCounts = buildShopWinCounts([
+    ...multiResults,
+    { contest_id: 'croissant', year: 2024, rankings: [{ rank: 2, shop_id: 'fournil-didot' }] }
+  ]);
+  const html = renderRankingGroups(multiResults, multiShops, contests, winCounts);
+  assert.match(html, /href="shop\.html\?id=fournil-didot"/);
+  assert.match(html, /通算2回入賞/);
+});
+
+test('renderShopDetail lists every contest appearance sorted by year and flags repeat winners', () => {
+  const shop = {
+    id: 'fournil-didot',
+    name: 'Fournil Didot',
+    arrondissement: '14e',
+    address: '103 Rue Didot, 75014 Paris',
+    description: null,
+    google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.8272,2.3129'
+  };
+  const multiResults = [
+    { contest_id: 'baguette', year: 2026, rankings: [{ rank: 1, shop_id: 'fournil-didot' }], source_url: 'https://presse.paris.fr/2026' },
+    { contest_id: 'baguette', year: 2020, rankings: [{ rank: 4, shop_id: 'fournil-didot' }], source_url: 'https://presse.paris.fr/2020' },
+    { contest_id: 'baguette', year: 2021, rankings: [{ rank: 9, shop_id: 'other-shop' }], source_url: 'https://presse.paris.fr/2021' }
+  ];
+  const detail = renderShopDetail(shop, multiResults, contests);
+  assert.equal(detail.name, 'Fournil Didot');
+  assert.match(detail.winSummary, /通算2回入賞/);
+  assert.match(detail.rows, /2026[\s\S]*2020/);
+  assert.doesNotMatch(detail.rows, /other-shop/);
 });

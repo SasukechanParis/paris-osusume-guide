@@ -17,6 +17,12 @@ const CATEGORIES = {
   michelin: { label: 'ミシュラン星付き', color: '#7f1d1d' }
 };
 
+const ARRONDISSEMENT_ORDER = [
+  '1er', '2e', '3e', '4e', '5e', '6e', '7e', '8e', '9e', '10e',
+  '11e', '12e', '13e', '14e', '15e', '16e', '17e', '18e', '19e', '20e',
+  'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne'
+];
+
 function pinIcon(color) {
   const svg = `
     <svg width="27" height="38" viewBox="0 0 27 38" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +71,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       seenShopIds.add(ranking.shop_id);
       points.push({
         category: 'contest',
+        arrondissement: shop.arrondissement,
         lat: shop.lat,
         lng: shop.lng,
         name: shop.name,
@@ -80,6 +87,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
     if (item.lat === null) continue;
     points.push({
       category: item.category,
+      arrondissement: item.arrondissement,
       lat: item.lat,
       lng: item.lng,
       name: item.name,
@@ -93,6 +101,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
   for (const t of trending) {
     points.push({
       category: 'trending',
+      arrondissement: t.arrondissement,
       lat: t.lat,
       lng: t.lng,
       name: t.name,
@@ -106,6 +115,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
   for (const m of michelin) {
     points.push({
       category: 'michelin',
+      arrondissement: m.arrondissement,
       lat: m.lat,
       lng: m.lng,
       name: `${m.name} ${'★'.repeat(m.stars)}`,
@@ -139,11 +149,7 @@ async function init() {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  const layers = {};
-  for (const key of Object.keys(CATEGORIES)) {
-    layers[key] = L.layerGroup();
-  }
-
+  const entries = [];
   for (const point of points) {
     const config = CATEGORIES[point.category];
     if (!config) continue;
@@ -158,33 +164,66 @@ async function init() {
         categoryLabel: config.label
       })
     );
-    layers[point.category].addLayer(marker);
+    entries.push({ marker, category: point.category, arrondissement: point.arrondissement });
+    marker.addTo(map);
   }
 
-  for (const key of Object.keys(CATEGORIES)) {
-    layers[key].addTo(map);
+  const selectedCategories = new Set(Object.keys(CATEGORIES));
+  let selectedArrondissement = 'all';
+
+  function applyFilters() {
+    for (const entry of entries) {
+      const matches =
+        selectedCategories.has(entry.category) &&
+        (selectedArrondissement === 'all' || entry.arrondissement === selectedArrondissement);
+      const onMap = map.hasLayer(entry.marker);
+      if (matches && !onMap) entry.marker.addTo(map);
+      if (!matches && onMap) map.removeLayer(entry.marker);
+    }
   }
 
   const legendEl = document.getElementById('map-legend');
-  legendEl.innerHTML = Object.entries(CATEGORIES)
-    .map(
-      ([key, config]) => `
-      <label class="map-legend-item">
-        <input type="checkbox" data-category="${key}" checked>
-        <span class="map-legend-dot" style="background:${config.color}"></span>
-        ${config.label}
-      </label>`
-    )
+  const presentArrondissements = ARRONDISSEMENT_ORDER.filter((a) => entries.some((e) => e.arrondissement === a));
+  const arrondissementOptions = presentArrondissements
+    .map((a) => `<option value="${a}">${arrondissementLabel(a)}</option>`)
     .join('');
+
+  legendEl.innerHTML = `
+    <div class="map-legend-filter">
+      <label for="map-arrondissement-select">エリアで絞り込み</label>
+      <select id="map-arrondissement-select">
+        <option value="all">すべてのエリア</option>
+        ${arrondissementOptions}
+      </select>
+    </div>
+    <div class="map-legend-categories">
+      ${Object.entries(CATEGORIES)
+        .map(
+          ([key, config]) => `
+          <label class="map-legend-item">
+            <input type="checkbox" data-category="${key}" checked>
+            <span class="map-legend-dot" style="background:${config.color}"></span>
+            ${config.label}
+          </label>`
+        )
+        .join('')}
+    </div>`;
 
   legendEl.addEventListener('change', (event) => {
     const checkbox = event.target.closest('input[data-category]');
-    if (!checkbox) return;
-    const key = checkbox.dataset.category;
-    if (checkbox.checked) {
-      layers[key].addTo(map);
-    } else {
-      map.removeLayer(layers[key]);
+    if (checkbox) {
+      if (checkbox.checked) {
+        selectedCategories.add(checkbox.dataset.category);
+      } else {
+        selectedCategories.delete(checkbox.dataset.category);
+      }
+      applyFilters();
+      return;
+    }
+    const select = event.target.closest('#map-arrondissement-select');
+    if (select) {
+      selectedArrondissement = select.value;
+      applyFilters();
     }
   });
 }

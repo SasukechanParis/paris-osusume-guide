@@ -1,4 +1,4 @@
-import { renderContestDetail, renderYearPanel } from './render.js';
+import { renderContestDetail, renderYearPanel, buildShopWinCounts } from './render.js';
 
 async function loadJson(path) {
   const res = await fetch(path);
@@ -29,6 +29,7 @@ async function init() {
   document.getElementById('year-panel').innerHTML = panel;
 
   const contestResults = results.filter((r) => r.contest_id === contest.id);
+  const winCounts = buildShopWinCounts(results);
 
   document.getElementById('year-tabs').addEventListener('click', (event) => {
     const btn = event.target.closest('.tab-btn');
@@ -38,7 +39,7 @@ async function init() {
     if (!result) return;
 
     document.querySelectorAll('#year-tabs .tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
-    document.getElementById('year-panel').innerHTML = renderYearPanel(result, shops);
+    document.getElementById('year-panel').innerHTML = renderYearPanel(result, shops, winCounts);
   });
 }
 

@@ -1,4 +1,4 @@
-import { renderRankingGroups, renderNearbyResults } from './render.js';
+import { renderRankingGroups, renderNearbyResults, buildShopWinCounts } from './render.js';
 import { sortShopsByDistance } from './nearby.js';
 import { geocodeAddress } from './geocode.js';
 
@@ -17,18 +17,19 @@ async function init() {
   const latestResults = contests
     .map((c) => results.filter((r) => r.contest_id === c.id).sort((a, b) => b.year - a.year)[0])
     .filter(Boolean);
+  const winCounts = buildShopWinCounts(results);
 
-  document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests);
-  setupNearbySearch(shops);
+  document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests, winCounts);
+  setupNearbySearch(shops, winCounts);
 }
 
-function setupNearbySearch(shops) {
+function setupNearbySearch(shops, winCounts) {
   const statusEl = document.getElementById('nearby-status');
   const resultsEl = document.getElementById('nearby-results');
 
   function showResults(lat, lng) {
     const sorted = sortShopsByDistance(shops, lat, lng);
-    resultsEl.innerHTML = renderNearbyResults(sorted);
+    resultsEl.innerHTML = renderNearbyResults(sorted, winCounts);
     statusEl.textContent = '';
   }
 
