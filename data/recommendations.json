@@ -273,6 +273,19 @@
     "photo_url": null
   },
   {
+    "id": "septime",
+    "category": "restaurant",
+    "status": "curious",
+    "name": "Septime",
+    "address": "80 Rue de Charonne 75011 Paris",
+    "arrondissement": "11e",
+    "lat": 48.8536026,
+    "lng": 2.3809558,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Septime%2080%20Rue%20de%20Charonne%2075011%20Paris",
+    "description": "ミシュラン一つ星、「世界のベストレストラン50」の常連。気になっているがさすけはまだ未訪問",
+    "photo_url": null
+  },
+  {
     "id": "jade-genin",
     "category": "chocolatier",
     "status": "recommended",
