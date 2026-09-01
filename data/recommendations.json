@@ -479,5 +479,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Union%20Boulangerie%202%20Rue%20Bleue%2C%2075009%20Paris",
     "description": "アップルボムとホットドッグが絶品",
     "photo_url": null
+  },
+  {
+    "id": "boulangerie-michalak",
+    "category": "bakery",
+    "status": "recommended",
+    "name": "Boulangerie Michalak",
+    "address": "60 rue du Faubourg Poissonnière, 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8753045,
+    "lng": 2.3483644,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Michalak%2060%20rue%20du%20Faubourg%20Poissonni%C3%A8re%2C%2075009%20Paris",
+    "description": "パンも美味しいが、特にチーズケーキが絶品。隣のCafé Michalakのケーキもおすすめ",
+    "photo_url": null
   }
 ]
