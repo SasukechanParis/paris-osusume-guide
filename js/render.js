@@ -164,6 +164,26 @@ export function renderMichelinList(items) {
     .join('');
 }
 
+export function renderFleaMarketList(items) {
+  return items
+    .map(
+      (item) => `
+    <div class="trending-card">
+      <p class="trending-name">${item.name}</p>
+      <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
+      <p class="trending-meta">開催: ${item.hours}</p>
+      <p class="trending-meta">アクセス: ${item.access}</p>
+      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.caution ? `<p class="shop-note">⚠ ${item.caution}</p>` : ''}
+      <div class="ranking-links">
+        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+        <a class="ranking-source" href="${item.source_url}">${item.source_label ?? '出典 ↗'}</a>
+      </div>
+    </div>`
+    )
+    .join('');
+}
+
 export function renderNearbyResults(sorted, options = {}) {
   const { winCounts, linkToShop = false } = options;
   return sorted

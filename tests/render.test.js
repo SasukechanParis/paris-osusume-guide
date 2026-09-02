@@ -10,7 +10,8 @@ import {
   renderRecommendationList,
   renderMichelinList,
   buildShopWinCounts,
-  renderShopDetail
+  renderShopDetail,
+  renderFleaMarketList
 } from '../js/render.js';
 
 const contests = [
@@ -295,4 +296,45 @@ test('renderShopDetail lists every contest appearance sorted by year and flags r
   assert.match(detail.winSummary, /通算2回入賞/);
   assert.match(detail.rows, /2026[\s\S]*2020/);
   assert.doesNotMatch(detail.rows, /other-shop/);
+});
+
+test('renderFleaMarketList shows name, hours, access, description, caution note, and links', () => {
+  const fleaMarkets = [
+    {
+      id: 'puces-de-montreuil',
+      name: 'Marché aux Puces de la Porte de Montreuil',
+      arrondissement: '20e',
+      address: 'Avenue du Professeur André Lemierre, 75020 Paris',
+      hours: '土日月 7:00-19:30',
+      access: 'メトロ9号線 ポルト・ド・モントルイユ駅',
+      description: '正直なところ「うーん」というのが本音',
+      caution: '日中の明るい時間帯に訪れるのが無難',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=Puces%20de%20Montreuil',
+      source_url: 'https://www.paris.fr/lieux/marche-aux-puces-de-la-porte-de-montreuil-4517',
+      source_label: 'パリ市公式サイト(paris.fr)'
+    },
+    {
+      id: 'puces-de-vanves',
+      name: 'Marché aux puces de la Porte de Vanves',
+      arrondissement: '14e',
+      address: 'Rue du Colonel Monteil, 75014 Paris',
+      hours: '土 7:00-14:00 ・ 日 7:30-19:30',
+      access: 'メトロ13号線 ポルト・ド・ヴァンヴ駅',
+      description: 'こぢんまりとした古物・アンティーク市',
+      caution: null,
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=Puces%20de%20Vanves',
+      source_url: 'https://www.paris.fr/lieux/marche-aux-puces-de-la-porte-de-vanves-4518',
+      source_label: 'パリ市公式サイト(paris.fr)'
+    }
+  ];
+  const html = renderFleaMarketList(fleaMarkets);
+  assert.match(html, /Marché aux Puces de la Porte de Montreuil/);
+  assert.match(html, /20区/);
+  assert.match(html, /土日月 7:00-19:30/);
+  assert.match(html, /ポルト・ド・モントルイユ駅/);
+  assert.match(html, /うーん/);
+  assert.match(html, /日中の明るい時間帯に訪れるのが無難/);
+  assert.match(html, /パリ市公式サイト\(paris\.fr\)/);
+  assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=Puces%20de%20Montreuil"/);
+  assert.doesNotMatch(html.split('Marché aux puces de la Porte de Vanves')[1], /shop-note/);
 });

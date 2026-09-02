@@ -9,7 +9,8 @@
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
-- `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能)
+- `flea-markets.html` — 蚤の市(常設3市場の開催時間・アクセス・出典、不定期フリマの案内、近くの蚤の市検索つき)
+- `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)
 

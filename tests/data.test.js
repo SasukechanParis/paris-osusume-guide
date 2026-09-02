@@ -90,6 +90,21 @@ test('michelin.json entries have valid stars, coordinates, matching map link, an
   }
 });
 
+test('flea-markets.json entries have required fields, coordinates, and matching map link', () => {
+  const fleaMarkets = loadJson('../data/flea-markets.json');
+  assert.ok(Array.isArray(fleaMarkets));
+  assert.equal(fleaMarkets.length, 3);
+  for (const item of fleaMarkets) {
+    assert.ok(
+      item.id && item.name && item.address && item.hours && item.access && item.description && item.source_url,
+      `flea market entry missing required field: ${JSON.stringify(item)}`
+    );
+    assert.equal(typeof item.lat, 'number');
+    assert.equal(typeof item.lng, 'number');
+    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+  }
+});
+
 test('guest-recommendations.json entries have valid category and matching map link when coordinates are present', () => {
   const guestRecommendations = loadJson('../data/guest-recommendations.json');
   assert.ok(Array.isArray(guestRecommendations));

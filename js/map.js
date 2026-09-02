@@ -15,7 +15,8 @@ const CATEGORIES = {
   souvenir: { label: 'お土産', color: '#e84393' },
   supermarket: { label: 'スーパーで買えるおすすめ', color: '#27ae60' },
   hotel: { label: 'ホテル', color: '#2980b9' },
-  michelin: { label: 'ミシュラン星付き', color: '#7f1d1d' }
+  michelin: { label: 'ミシュラン星付き', color: '#7f1d1d' },
+  flea_market: { label: '蚤の市', color: '#16a085' }
 };
 
 const ARRONDISSEMENT_ORDER = [
@@ -63,7 +64,7 @@ function popupHtml({ name, meta, description, mapUrl, sourceUrl, categoryLabel }
     </div>`;
 }
 
-function buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin) {
+function buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets) {
   const points = [];
 
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -136,20 +137,35 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
     });
   }
 
+  for (const f of fleaMarkets) {
+    points.push({
+      category: 'flea_market',
+      arrondissement: f.arrondissement,
+      lat: f.lat,
+      lng: f.lng,
+      name: f.name,
+      meta: `${arrondissementLabel(f.arrondissement)} ・ ${f.hours}`,
+      description: f.description,
+      mapUrl: f.google_maps_url,
+      sourceUrl: f.source_url
+    });
+  }
+
   return points;
 }
 
 async function init() {
-  const [shops, results, recommendations, guestRecommendations, trending, michelin] = await Promise.all([
+  const [shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets] = await Promise.all([
     loadJson('data/shops.json'),
     loadJson('data/results.json'),
     loadJson('data/recommendations.json'),
     loadJson('data/guest-recommendations.json'),
     loadJson('data/trending.json'),
-    loadJson('data/michelin.json')
+    loadJson('data/michelin.json'),
+    loadJson('data/flea-markets.json')
   ]);
 
-  const points = buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin);
+  const points = buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets);
 
   const map = L.map('map-canvas', { zoomControl: false }).setView([48.8613, 2.3324], 13);
   L.control.zoom({ position: 'bottomright' }).addTo(map);

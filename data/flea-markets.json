@@ -1,0 +1,47 @@
+[
+  {
+    "id": "puces-de-saint-ouen",
+    "name": "Marché aux Puces de Saint-Ouen (Clignancourt)",
+    "arrondissement": "Seine-Saint-Denis",
+    "address": "Avenue de la Porte de Clignancourt, 93400 Saint-Ouen-sur-Seine",
+    "lat": 48.9029523,
+    "lng": 2.3388582,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20aux%20Puces%20de%20Saint-Ouen%20%28Clignancourt%29%20Avenue%20de%20la%20Porte%20de%20Clignancourt%2C%2093400%20Saint-Ouen-sur-Seine",
+    "hours": "金 10:00-13:00 ・ 土 10:00-18:00 ・ 日 10:00-18:00 ・ 月 11:00-17:00(年間を通して営業、祝日も営業)",
+    "description": "世界最大級と言われるアンティーク市場。15の小さな市場が集まった一大エリアで、高級な骨董品・ヴィンテージ家具・アートが中心。パリ観光の定番として世界中から人が集まる",
+    "caution": "スリが多いエリアとして知られており、特に最寄り駅(ポルト・ド・クリニャンクール)周辺は要注意。市も警官を配置するなど対策を強化しているが、貴重品の管理はしっかりと",
+    "access": "メトロ4・13・14号線 ポルト・ド・クリニャンクール駅、バス85・95番、トラムT3b",
+    "source_url": "https://www.pucesdeparissaintouen.com/en/les-services/horaires-douverture/horaire-douverture-des-puces/",
+    "source_label": "Les Puces de Paris Saint-Ouen(公式サイト)"
+  },
+  {
+    "id": "puces-de-vanves",
+    "name": "Marché aux puces de la Porte de Vanves",
+    "arrondissement": "14e",
+    "address": "Rue du Colonel Monteil, 75014 Paris",
+    "lat": 48.8252929,
+    "lng": 2.3102655,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20aux%20puces%20de%20la%20Porte%20de%20Vanves%20Rue%20du%20Colonel%20Monteil%2C%2075014%20Paris",
+    "hours": "土 7:00-14:00 ・ 日 7:30-19:30(年間を通して営業)。ただしプロの骨董商は午後早めから撤収を始めるため、掘り出し物狙いなら午前中がおすすめ",
+    "description": "こぢんまりとした古物・アンティーク市。クリニャンクールより手頃な価格帯で、観光客より地元パリジャンに人気。骨董品や小物、ヴィンテージ雑貨の掘り出し物を探すのに向いている",
+    "caution": null,
+    "access": "メトロ13号線 ポルト・ド・ヴァンヴ駅",
+    "source_url": "https://www.paris.fr/lieux/marche-aux-puces-de-la-porte-de-vanves-4518",
+    "source_label": "パリ市公式サイト(paris.fr)"
+  },
+  {
+    "id": "puces-de-montreuil",
+    "name": "Marché aux Puces de la Porte de Montreuil",
+    "arrondissement": "20e",
+    "address": "Avenue du Professeur André Lemierre, 75020 Paris",
+    "lat": 48.8572465,
+    "lng": 2.414579,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20aux%20Puces%20de%20la%20Porte%20de%20Montreuil%20Avenue%20du%20Professeur%20Andr%C3%A9%20Lemierre%2C%2075020%20Paris",
+    "hours": "土日月 7:00-19:30(年間を通して営業)",
+    "description": "パリ三大蚤の市の一つとされるが、正直なところさすけの感想は「うーん」というのが本音。古着や雑多な掘り出し物が中心で、クリニャンクールやヴァンヴに比べると全体的に雑然とした印象。時間が限られているなら他の2つを優先するのがおすすめ",
+    "caution": "ポルト・ド・モントルイユ周辺は雰囲気がやや殺伐としているとの声もある。日中の明るい時間帯に、荷物に注意して訪れるのが無難",
+    "access": "メトロ9号線・トラムT3b ポルト・ド・モントルイユ駅",
+    "source_url": "https://www.paris.fr/lieux/marche-aux-puces-de-la-porte-de-montreuil-4517",
+    "source_label": "パリ市公式サイト(paris.fr)"
+  }
+]

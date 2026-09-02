@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>ホテル - パリおすすめデータベース</title>
+<title>蚤の市 - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,41 +24,36 @@
     <a href="bakeries.html">パン屋さん</a>
     <a href="souvenirs.html">お土産</a>
     <a href="supermarket.html">スーパーで買えるおすすめ</a>
-    <a href="hotels.html" class="active">ホテル</a>
-    <a href="flea-markets.html">蚤の市</a>
+    <a href="hotels.html">ホテル</a>
+    <a href="flea-markets.html" class="active">蚤の市</a>
     <a href="map.html">地図</a>
     <a href="post.html">投稿する</a>
   </nav>
   <header class="hero">
-    <h1 class="title">ホテル</h1>
-    <p class="lede">ウェディングフォトグラファーのさすけが撮影で数多く訪れてきた中で良いと思ったホテル、先輩カップルが実際に泊まってよかったホテルです。</p>
-    <img class="hero-image" src="assets/illustrations/hotel.png" alt="印象派タッチで描かれたパリのホテルの窓辺のイラスト">
+    <h1 class="title">蚤の市</h1>
+    <p class="lede">パリには常設の蚤の市が3つあります。開催時間・アクセス・雰囲気を出典付きでまとめました。</p>
   </header>
 
-  <section aria-labelledby="hotels-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="hotels-h">ホテル一覧</h2></div>
+  <section aria-labelledby="flea-market-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="flea-market-h">常設の蚤の市</h2></div>
+    <div id="flea-market-list"></div>
+  </section>
 
-    <div class="year-tabs" id="source-tabs">
-      <button class="tab-btn active" data-source="sasuke" type="button">さすけのおすすめ</button>
-      <button class="tab-btn" data-source="guest" type="button">先輩カップルのおすすめ</button>
-    </div>
-
-    <div id="sasuke-panel">
-      <p class="section-note">さすけがお客様の撮影で500件以上のホテルを訪れてきた中で、リッチな雰囲気・スタッフの対応・リーズナブルさ・清潔感の面で良いと思ったホテルです(さすけ自身が宿泊したわけではありません)。</p>
-      <div id="sasuke-list"></div>
-      <p id="sasuke-empty" class="section-note" hidden>近日公開予定です。</p>
-    </div>
-
-    <div id="guest-panel" hidden>
-      <p class="section-note">実際にパリで前撮りをした先輩カップルから届いたおすすめです。「投稿する」ページからの投稿を確認のうえ掲載しています。</p>
-      <div id="guest-list"></div>
-      <p id="guest-empty" class="section-note" hidden>まだ投稿がありません。「投稿する」からぜひ教えてください。</p>
+  <section aria-labelledby="occasional-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="occasional-h">不定期のvide-greniers(単発フリマ)</h2></div>
+    <p class="section-note">上記3つとは別に、パリでは区ごとに単発のvide-greniers(蚤の市・フリーマーケット)やbrocante(骨董市)が開催されています。主に3月〜11月の日曜、区役所(mairie)の許可のもとで開催され、日程はその都度変わるため、このページでは日付を固定せず開催情報サイトへのリンクのみ掲載します(下のリンクはフランス語サイトを日本語に自動翻訳して開きます)。</p>
+    <div class="trending-card">
+      <p class="trending-name">開催カレンダーを見る</p>
+      <div class="ranking-links">
+        <a class="btn btn-outline shop-map-link" href="https://www-offi-fr.translate.goog/a-travers-paris/brocantes.html?_x_tr_sl=fr&_x_tr_tl=ja&_x_tr_hl=ja" target="_blank" rel="noopener">L'Officiel des spectacles(自動翻訳)</a>
+        <a class="btn btn-outline shop-map-link" href="https://www-jds-fr.translate.goog/paris/agenda/marches-aux-puces-393_B?_x_tr_sl=fr&_x_tr_tl=ja&_x_tr_hl=ja" target="_blank" rel="noopener">Journal Des Sorties(自動翻訳)</a>
+      </div>
     </div>
   </section>
 
   <section aria-labelledby="nearby-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くのホテルを探す</h2></div>
-    <p class="section-note">現在地、またはホテル名・住所を入力すると、近いホテルを距離順に表示します</p>
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くの蚤の市を探す</h2></div>
+    <p class="section-note">現在地、またはホテル名・住所を入力すると、近い蚤の市を距離順に表示します</p>
 
     <div class="nearby-form">
       <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
@@ -77,7 +72,7 @@
     <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
   </footer>
 </div>
-<script type="module" src="js/hotels.js"></script>
+<script type="module" src="js/flea-markets.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
