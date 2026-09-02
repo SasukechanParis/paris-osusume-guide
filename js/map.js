@@ -199,30 +199,50 @@ async function init() {
     .join('');
 
   legendEl.innerHTML = `
-    <div class="map-search-box">
-      <input id="map-address-input" class="map-search-input" type="text" placeholder="住所・ホテル名で検索">
-      <button id="map-address-btn" class="map-search-btn" type="button">検索</button>
+    <div class="map-legend-header">
+      <span class="map-legend-title">絞り込み</span>
+      <button id="map-legend-toggle" class="map-legend-toggle" type="button" aria-controls="map-legend-body">▾</button>
     </div>
-    <p id="map-search-status" class="map-search-status"></p>
-    <div class="map-legend-filter">
-      <label for="map-arrondissement-select">エリアで絞り込み</label>
-      <select id="map-arrondissement-select">
-        <option value="all">すべてのエリア</option>
-        ${arrondissementOptions}
-      </select>
-    </div>
-    <div class="map-legend-categories">
-      ${Object.entries(CATEGORIES)
-        .map(
-          ([key, config]) => `
-          <label class="map-legend-item">
-            <input type="checkbox" data-category="${key}" checked>
-            <span class="map-legend-dot" style="background:${config.color}"></span>
-            ${config.label}
-          </label>`
-        )
-        .join('')}
+    <div id="map-legend-body" class="map-legend-body">
+      <div class="map-search-box">
+        <input id="map-address-input" class="map-search-input" type="text" placeholder="住所・ホテル名で検索">
+        <button id="map-address-btn" class="map-search-btn" type="button">検索</button>
+      </div>
+      <p id="map-search-status" class="map-search-status"></p>
+      <div class="map-legend-filter">
+        <label for="map-arrondissement-select">エリアで絞り込み</label>
+        <select id="map-arrondissement-select">
+          <option value="all">すべてのエリア</option>
+          ${arrondissementOptions}
+        </select>
+      </div>
+      <div class="map-legend-categories">
+        ${Object.entries(CATEGORIES)
+          .map(
+            ([key, config]) => `
+            <label class="map-legend-item">
+              <input type="checkbox" data-category="${key}" checked>
+              <span class="map-legend-dot" style="background:${config.color}"></span>
+              ${config.label}
+            </label>`
+          )
+          .join('')}
+      </div>
     </div>`;
+
+  const legendToggle = document.getElementById('map-legend-toggle');
+  const legendBody = document.getElementById('map-legend-body');
+
+  function setLegendExpanded(expanded) {
+    legendBody.hidden = !expanded;
+    legendToggle.setAttribute('aria-expanded', String(expanded));
+    legendToggle.textContent = expanded ? '▴' : '▾';
+  }
+
+  setLegendExpanded(!window.matchMedia('(max-width: 479px)').matches);
+  legendToggle.addEventListener('click', () => {
+    setLegendExpanded(legendToggle.getAttribute('aria-expanded') !== 'true');
+  });
 
   let searchMarker = null;
   let locateMarker = null;
