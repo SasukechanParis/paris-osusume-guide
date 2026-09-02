@@ -11,7 +11,8 @@ import {
   renderMichelinList,
   buildShopWinCounts,
   renderShopDetail,
-  renderFleaMarketList
+  renderFleaMarketList,
+  renderPassageList
 } from '../js/render.js';
 
 const contests = [
@@ -337,4 +338,36 @@ test('renderFleaMarketList shows name, hours, access, description, caution note,
   assert.match(html, /パリ市公式サイト\(paris\.fr\)/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=Puces%20de%20Montreuil"/);
   assert.doesNotMatch(html.split('Marché aux puces de la Porte de Vanves')[1], /shop-note/);
+});
+
+test('renderPassageList shows name, year, description, optional caution note, and maps link', () => {
+  const passages = [
+    {
+      id: 'galerie-vivienne',
+      name: 'Galerie Vivienne',
+      arrondissement: '2e',
+      address: '4 Rue des Petits Champs, 75002 Paris',
+      year: '1823',
+      description: 'パリで最も優雅とされるパッサージュ',
+      google_maps_url: 'https://maps.app.goo.gl/JpZjN11DbsVPW6oE8'
+    },
+    {
+      id: 'passage-du-ponceau',
+      name: 'Passage du Ponceau',
+      arrondissement: '2e',
+      address: '212 Rue Saint-Denis, 75002 Paris',
+      year: '1826',
+      description: 'ガラス屋根はアクリル板に置き換えられている',
+      caution: 'わざわざ時間を割いて行くほどではないかもしれません',
+      google_maps_url: 'https://maps.app.goo.gl/AF3XyBfhcThXnZKn6'
+    }
+  ];
+  const html = renderPassageList(passages);
+  assert.match(html, /Galerie Vivienne/);
+  assert.match(html, /2区/);
+  assert.match(html, /1823築/);
+  assert.match(html, /パリで最も優雅とされるパッサージュ/);
+  assert.match(html, /href="https:\/\/maps\.app\.goo\.gl\/JpZjN11DbsVPW6oE8"/);
+  assert.match(html, /わざわざ時間を割いて行くほどではないかもしれません/);
+  assert.doesNotMatch(html.split('Passage du Ponceau')[0], /shop-note/);
 });

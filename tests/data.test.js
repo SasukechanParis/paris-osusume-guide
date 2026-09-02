@@ -120,10 +120,11 @@ test('free-spots.json entries have required fields, coordinates, and matching ma
   }
 });
 
-test('passages.json entries have required fields, coordinates, and matching map link', () => {
+test('passages.json entries have required fields, coordinates, a valid tier, and a real Google Maps link', () => {
   const passages = loadJson('../data/passages.json');
   assert.ok(Array.isArray(passages));
-  assert.equal(passages.length, 18);
+  assert.equal(passages.length, 16);
+  const validTiers = new Set(['must_visit', 'casual', 'meh']);
   for (const item of passages) {
     assert.ok(
       item.id && item.name && item.address && item.year && item.description,
@@ -131,7 +132,12 @@ test('passages.json entries have required fields, coordinates, and matching map 
     );
     assert.equal(typeof item.lat, 'number');
     assert.equal(typeof item.lng, 'number');
-    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+    assert.ok(validTiers.has(item.tier), `unknown tier ${item.tier} for ${item.id}`);
+    assert.match(
+      item.google_maps_url,
+      /^https:\/\/maps\.app\.goo\.gl\//,
+      `passage ${item.id} should link to a verified maps.app.goo.gl place, not a generated search query`
+    );
   }
 });
 
