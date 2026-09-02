@@ -1,4 +1,5 @@
 import { arrondissementLabel } from './render.js';
+import { geocodeAddress } from './geocode.js';
 
 async function loadJson(path) {
   const res = await fetch(path);
@@ -36,6 +37,15 @@ function pinIcon(color) {
     iconSize: [27, 38],
     iconAnchor: [13.5, 38],
     popupAnchor: [0, -34]
+  });
+}
+
+function youAreHereIcon() {
+  return L.divIcon({
+    className: 'map-you-marker',
+    html: '<div class="map-you-pulse"></div><div class="map-you-dot"></div>',
+    iconSize: [22, 22],
+    iconAnchor: [11, 11]
   });
 }
 
@@ -189,6 +199,11 @@ async function init() {
     .join('');
 
   legendEl.innerHTML = `
+    <div class="map-search-box">
+      <input id="map-address-input" class="map-search-input" type="text" placeholder="住所・ホテル名で検索">
+      <button id="map-address-btn" class="map-search-btn" type="button">検索</button>
+    </div>
+    <p id="map-search-status" class="map-search-status"></p>
     <div class="map-legend-filter">
       <label for="map-arrondissement-select">エリアで絞り込み</label>
       <select id="map-arrondissement-select">
@@ -208,6 +223,79 @@ async function init() {
         )
         .join('')}
     </div>`;
+
+  let searchMarker = null;
+  let locateMarker = null;
+  const searchStatusEl = document.getElementById('map-search-status');
+
+  function setSearchMarker(lat, lng, label) {
+    if (searchMarker) map.removeLayer(searchMarker);
+    searchMarker = L.marker([lat, lng], { icon: pinIcon('#1a1a2e'), zIndexOffset: 1000 }).addTo(map);
+    if (label) searchMarker.bindPopup(`<div class="map-popup"><p class="map-popup-name">${label}</p></div>`).openPopup();
+    map.setView([lat, lng], 15);
+  }
+
+  const addressInput = document.getElementById('map-address-input');
+  const addressBtn = document.getElementById('map-address-btn');
+
+  async function runAddressSearch() {
+    const query = addressInput.value.trim();
+    if (!query) return;
+    searchStatusEl.textContent = '検索しています…';
+    try {
+      const matches = await geocodeAddress(query);
+      if (matches.length === 0) {
+        searchStatusEl.textContent = '住所が見つかりませんでした。表記を変えて試してください。';
+        return;
+      }
+      setSearchMarker(matches[0].lat, matches[0].lng, matches[0].label);
+      searchStatusEl.textContent = '';
+    } catch (err) {
+      searchStatusEl.textContent = '検索中にエラーが発生しました。しばらくしてから再度お試しください。';
+    }
+  }
+
+  addressBtn.addEventListener('click', runAddressSearch);
+  addressInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') runAddressSearch();
+  });
+
+  const LocateControl = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd() {
+      const container = L.DomUtil.create('div', 'leaflet-bar map-locate-control');
+      const button = L.DomUtil.create('a', 'map-locate-btn', container);
+      button.href = '#';
+      button.title = '現在地を表示';
+      button.setAttribute('role', 'button');
+      button.setAttribute('aria-label', '現在地を表示');
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.on(button, 'click', (event) => {
+        L.DomEvent.preventDefault(event);
+        locateMe();
+      });
+      return container;
+    }
+  });
+  map.addControl(new LocateControl());
+
+  function locateMe() {
+    if (!navigator.geolocation) {
+      searchStatusEl.textContent = 'この端末は現在地取得に対応していません。住所で検索してください。';
+      return;
+    }
+    searchStatusEl.textContent = '現在地を取得しています…';
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        if (locateMarker) map.removeLayer(locateMarker);
+        locateMarker = L.marker([latitude, longitude], { icon: youAreHereIcon(), zIndexOffset: 2000 }).addTo(map);
+        map.setView([latitude, longitude], 15);
+        searchStatusEl.textContent = '';
+      },
+      () => { searchStatusEl.textContent = '現在地を取得できませんでした。住所で検索してください。'; }
+    );
+  }
 
   legendEl.addEventListener('change', (event) => {
     const checkbox = event.target.closest('input[data-category]');
