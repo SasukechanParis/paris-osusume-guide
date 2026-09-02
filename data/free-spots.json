@@ -1,0 +1,59 @@
+[
+  {
+    "id": "musee-carnavalet",
+    "name": "Musée Carnavalet",
+    "arrondissement": "3e",
+    "address": "23 Rue de Sévigné, 75003 Paris",
+    "lat": 48.8573232,
+    "lng": 2.3624734,
+    "hours": "火-日 10:00-18:00(月休、入館は17:15まで)。常設展は無料、企画展のみ有料",
+    "description": "パリの歴史をたどれる市立博物館。18〜19世紀の室内装飾の再現展示や絵画が充実していて、時間をかけて回れる",
+    "access": "メトロ Saint-Paul駅 / Chemin Vert駅",
+    "source_url": "https://www.carnavalet.paris.fr/en/visit/pratical-information",
+    "source_label": "carnavalet.paris.fr(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e%20Carnavalet%2023%20Rue%20de%20S%C3%A9vign%C3%A9%2C%2075003%20Paris"
+  },
+  {
+    "id": "musee-du-parfum-fragonard",
+    "name": "Musée du Parfum Fragonard",
+    "arrondissement": "9e",
+    "address": "9 Rue Scribe, 75009 Paris",
+    "lat": 48.8715287,
+    "lng": 2.330216,
+    "hours": "月-土 9:00-18:00 ・ 日 9:00-17:00。入場・ガイド付き見学ともに無料",
+    "description": "香水メーカーFragonardが運営する香水の歴史博物館。ガイド付きで香水づくりの工程を学べる。オペラ座のすぐ近く",
+    "access": "オペラ座から徒歩数分",
+    "source_url": "https://parisjetaime.com/eng/culture/musee-du-parfum-fragonard-p3626",
+    "source_label": "Paris je t'aime(パリ観光局)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e%20du%20Parfum%20Fragonard%209%20Rue%20Scribe%2C%2075009%20Paris"
+  },
+  {
+    "id": "musee-de-la-vie-romantique",
+    "name": "Musée de la Vie Romantique",
+    "arrondissement": "9e",
+    "address": "16 Rue Chaptal, 75009 Paris",
+    "lat": 48.8813455,
+    "lng": 2.3335217,
+    "hours": "火-日 10:00-18:00(月休)。常設展は無料、企画展のみ有料",
+    "description": "画家アリー・シェフェールの旧邸宅を利用した美術館。19世紀ロマン主義の雰囲気が残る中庭やジョルジュ・サンドゆかりの品々が見られる、隠れ家的スポット",
+    "access": "メトロ Saint-Georges駅 / Blanche駅",
+    "source_url": "https://museevieromantique.paris.fr/votre-visite/informations-pratiques",
+    "source_label": "museevieromantique.paris.fr(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e%20de%20la%20Vie%20Romantique%2016%20Rue%20Chaptal%2C%2075009%20Paris"
+  },
+  {
+    "id": "place-du-tertre",
+    "name": "Place du Tertre",
+    "arrondissement": "18e",
+    "address": "Place du Tertre, 75018 Paris",
+    "lat": 48.8865274,
+    "lng": 2.3408043,
+    "hours": "常時開放(広場のため営業時間なし)",
+    "description": "モンマルトルの丘にある広場。似顔絵師や画家が集まることで有名で、サクレクール寺院のすぐそば。眺めも良く散策にぴったり",
+    "access": "メトロ Abbesses駅から徒歩、またはモンマルトルのケーブルカー利用",
+    "caution": "観光客向けの客引き(似顔絵の押し売りなど)に注意。値段は必ず事前に確認を",
+    "source_url": "https://parisjetaime.com/eng/place-du-tertre-p1358",
+    "source_label": "Paris je t'aime(パリ観光局)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Place%20du%20Tertre%20Place%20du%20Tertre%2C%2075018%20Paris"
+  }
+]

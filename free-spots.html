@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>スーパーで買えるおすすめ - パリおすすめデータベース</title>
+<title>無料スポット - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,43 +23,32 @@
     <a href="chocolatiers.html">ショコラティエ</a>
     <a href="bakeries.html">パン屋さん</a>
     <a href="souvenirs.html">お土産</a>
-    <a href="supermarket.html" class="active">スーパーで買えるおすすめ</a>
+    <a href="supermarket.html">スーパーで買えるおすすめ</a>
     <a href="hotels.html">ホテル</a>
     <a href="flea-markets.html">蚤の市</a>
-    <a href="free-spots.html">無料スポット</a>
+    <a href="free-spots.html" class="active">無料スポット</a>
     <a href="map.html">地図</a>
     <a href="post.html">投稿する</a>
   </nav>
   <header class="hero">
-    <h1 class="title">スーパーで買えるおすすめ</h1>
-    <p class="lede">スーパーで手軽に買える、さすけと先輩カップルのおすすめ品です。</p>
-    <img class="hero-image" src="assets/illustrations/supermarket.png" alt="印象派タッチで描かれたスーパーの食品のイラスト">
+    <h1 class="title">無料<span class="accent">スポット</span></h1>
+    <p class="lede">入場無料の美術館・広場と、パリならではの屋根付きアーケード街「パッサージュ」をまとめました。</p>
   </header>
 
-  <section aria-labelledby="supermarket-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="supermarket-h">おすすめ一覧</h2></div>
+  <section aria-labelledby="free-spot-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="free-spot-h">無料の美術館・スポット</h2></div>
+    <div id="free-spot-list"></div>
+  </section>
 
-    <div class="year-tabs" id="source-tabs">
-      <button class="tab-btn active" data-source="sasuke" type="button">さすけのおすすめ</button>
-      <button class="tab-btn" data-source="guest" type="button">先輩カップルのおすすめ</button>
-    </div>
-
-    <div id="sasuke-panel">
-      <p class="section-note">さすけが実際に買って良かった、または気になっているスーパーの商品です。</p>
-      <div id="sasuke-list"></div>
-      <p id="sasuke-empty" class="section-note" hidden>近日公開予定です。</p>
-    </div>
-
-    <div id="guest-panel" hidden>
-      <p class="section-note">実際にパリで前撮りをした先輩カップルから届いたおすすめです。「投稿する」ページからの投稿を確認のうえ掲載しています。</p>
-      <div id="guest-list"></div>
-      <p id="guest-empty" class="section-note" hidden>まだ投稿がありません。「投稿する」からぜひ教えてください。</p>
-    </div>
+  <section aria-labelledby="passage-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="passage-h">パッサージュ(屋根付きアーケード街)</h2></div>
+    <p class="section-note">19世紀に作られたガラス屋根の商店街。現在パリには20軒前後が現存すると言われており、そのうち出典で確認できた18軒をまとめました(<a class="ranking-source" href="https://fr.wikipedia.org/wiki/Passages_couverts_de_Paris">出典: フランス語版Wikipedia ↗</a>、および<a class="ranking-source" href="https://www.parisdiscoveryguide.com/covered-passages-paris.html">Paris Discovery Guide ↗</a>)。通り抜け自体は無料ですが、パッサージュによって開閉時間や定休日が異なるため、時間帯によっては通れない場合があります。</p>
+    <div id="passage-list"></div>
   </section>
 
   <section aria-labelledby="nearby-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くのスーパーで買えるおすすめ品を探す</h2></div>
-    <p class="section-note">現在地、またはホテル名・住所を入力すると、近いスーパーで買えるおすすめ品を距離順に表示します</p>
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くの無料スポットを探す</h2></div>
+    <p class="section-note">現在地、またはホテル名・住所を入力すると、近い無料スポット・パッサージュを距離順に表示します</p>
 
     <div class="nearby-form">
       <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
@@ -78,7 +67,7 @@
     <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
   </footer>
 </div>
-<script type="module" src="js/supermarket.js"></script>
+<script type="module" src="js/free-spots.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

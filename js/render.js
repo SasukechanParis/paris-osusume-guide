@@ -184,6 +184,22 @@ export function renderFleaMarketList(items) {
     .join('');
 }
 
+export function renderPassageList(items) {
+  return items
+    .map(
+      (item) => `
+    <div class="trending-card">
+      <p class="trending-name">${item.name}</p>
+      <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address} ・ ${item.year}築</p>
+      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      <div class="ranking-links">
+        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
+      </div>
+    </div>`
+    )
+    .join('');
+}
+
 export function renderNearbyResults(sorted, options = {}) {
   const { winCounts, linkToShop = false } = options;
   return sorted

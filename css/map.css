@@ -175,6 +175,20 @@
 }
 .map-legend-item input { flex-shrink: 0; }
 
+.map-category-legend { padding: 14px 4px 0; }
+.map-category-legend-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.map-category-legend .map-legend-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+.map-category-legend .map-legend-item { white-space: normal; }
+
 .map-legend-dot {
   width: 10px;
   height: 10px;

@@ -232,18 +232,22 @@ async function init() {
           ${arrondissementOptions}
         </select>
       </div>
-      <div class="map-legend-categories">
-        ${Object.entries(CATEGORIES)
-          .map(
-            ([key, config]) => `
-            <label class="map-legend-item">
-              <input type="checkbox" data-category="${key}" checked>
-              <span class="map-legend-dot" style="background:${config.color}"></span>
-              ${config.label}
-            </label>`
-          )
-          .join('')}
-      </div>
+    </div>`;
+
+  const categoryLegendEl = document.getElementById('map-category-legend');
+  categoryLegendEl.innerHTML = `
+    <p class="map-category-legend-title">表示するカテゴリ</p>
+    <div class="map-legend-categories">
+      ${Object.entries(CATEGORIES)
+        .map(
+          ([key, config]) => `
+          <label class="map-legend-item">
+            <input type="checkbox" data-category="${key}" checked>
+            <span class="map-legend-dot" style="background:${config.color}"></span>
+            ${config.label}
+          </label>`
+        )
+        .join('')}
     </div>`;
 
   const legendToggle = document.getElementById('map-legend-toggle');
@@ -333,17 +337,18 @@ async function init() {
     );
   }
 
-  legendEl.addEventListener('change', (event) => {
+  categoryLegendEl.addEventListener('change', (event) => {
     const checkbox = event.target.closest('input[data-category]');
-    if (checkbox) {
-      if (checkbox.checked) {
-        selectedCategories.add(checkbox.dataset.category);
-      } else {
-        selectedCategories.delete(checkbox.dataset.category);
-      }
-      applyFilters();
-      return;
+    if (!checkbox) return;
+    if (checkbox.checked) {
+      selectedCategories.add(checkbox.dataset.category);
+    } else {
+      selectedCategories.delete(checkbox.dataset.category);
     }
+    applyFilters();
+  });
+
+  legendEl.addEventListener('change', (event) => {
     const select = event.target.closest('#map-arrondissement-select');
     if (select) {
       selectedArrondissement = select.value;

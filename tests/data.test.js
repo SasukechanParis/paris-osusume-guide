@@ -105,6 +105,36 @@ test('flea-markets.json entries have required fields, coordinates, and matching 
   }
 });
 
+test('free-spots.json entries have required fields, coordinates, and matching map link', () => {
+  const freeSpots = loadJson('../data/free-spots.json');
+  assert.ok(Array.isArray(freeSpots));
+  assert.equal(freeSpots.length, 4);
+  for (const item of freeSpots) {
+    assert.ok(
+      item.id && item.name && item.address && item.hours && item.access && item.description && item.source_url,
+      `free spot entry missing required field: ${JSON.stringify(item)}`
+    );
+    assert.equal(typeof item.lat, 'number');
+    assert.equal(typeof item.lng, 'number');
+    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+  }
+});
+
+test('passages.json entries have required fields, coordinates, and matching map link', () => {
+  const passages = loadJson('../data/passages.json');
+  assert.ok(Array.isArray(passages));
+  assert.equal(passages.length, 18);
+  for (const item of passages) {
+    assert.ok(
+      item.id && item.name && item.address && item.year && item.description,
+      `passage entry missing required field: ${JSON.stringify(item)}`
+    );
+    assert.equal(typeof item.lat, 'number');
+    assert.equal(typeof item.lng, 'number');
+    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+  }
+});
+
 test('guest-recommendations.json entries have valid category and matching map link when coordinates are present', () => {
   const guestRecommendations = loadJson('../data/guest-recommendations.json');
   assert.ok(Array.isArray(guestRecommendations));
