@@ -10,7 +10,7 @@
 - `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
 - `flea-markets.html` — 蚤の市(常設3市場の開催時間・アクセス・出典、不定期フリマの案内、近くの蚤の市検索つき)
-- `free-spots.html` — 無料スポット(無料の美術館・広場4件+パッサージュ18件、近くのスポット検索つき)
+- `free-spots.html` — 無料スポット(無料の美術館・広場5件+パッサージュ16件、近くのスポット検索つき)
 - `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)
@@ -48,11 +48,11 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 
 ## カテゴリ別おすすめ(レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル)
 
-各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `bakery` / `souvenir` / `supermarket` / `hotel` の6種。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`bakery`・`supermarket`はデータ未整備のため現状空(近日公開表示)。
+各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `bakery` / `souvenir` / `supermarket` / `hotel` の6種。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`supermarket`はデータ未整備のため現状空(近日公開表示)。
 
 ## ミシュラン星付き(`michelin.html`)
 
-`data/michelin.json` に三ツ星・二ツ星レストランの情報を持つ。ミシュランガイドの改訂時に手動更新する(自動巡回の対象外)。
+`data/michelin.json` に2026年版ガイドの三ツ星9・二ツ星20・一ツ星98(計127)の情報を持つ。星・区・ジャンルで絞り込み可能。ミシュランガイドの改訂時に手動更新する(自動巡回の対象外)。
 
 ## 投稿機能(`post.html`)
 

@@ -99,6 +99,66 @@ test('michelin.json entries have valid stars/genre, a Google Maps link, and a so
   assert.deepEqual(byStars, { 1: 98, 2: 20, 3: 9 });
 });
 
+// Maps a Paris postcode to its arrondissement label. A few arrondissements have a
+// historical alternate postcode (used inconsistently across sources for buildings
+// near the border of two postal sectors), so those map to the same arrondissement
+// as their standard postcode rather than being flagged as a mismatch.
+const POSTCODE_TO_ARR = {
+  ...Object.fromEntries(Array.from({ length: 20 }, (_, i) => i + 1).map((n) => [`750${String(n).padStart(2, '0')}`, n === 1 ? '1er' : `${n}e`])),
+  75116: '16e'
+};
+const PARIS_LAT_RANGE = [48.75, 49.05];
+const PARIS_LNG_RANGE = [2.05, 2.55];
+const SUBURB_LABELS = new Set(['Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne']);
+
+function assertParisSanity(items, label) {
+  for (const item of items) {
+    const arr = item.arrondissement;
+    if (item.lat !== null && !SUBURB_LABELS.has(arr)) {
+      assert.ok(
+        item.lat >= PARIS_LAT_RANGE[0] && item.lat <= PARIS_LAT_RANGE[1] && item.lng >= PARIS_LNG_RANGE[0] && item.lng <= PARIS_LNG_RANGE[1],
+        `${label} ${item.id} has coordinates far outside Paris and its inner suburbs: ${item.lat}, ${item.lng}`
+      );
+    }
+    if (item.address && arr && !SUBURB_LABELS.has(arr)) {
+      const postcodeMatch = item.address.match(/\b(75\d{3})\b/);
+      if (postcodeMatch) {
+        const postcode = postcodeMatch[1];
+        const expectedArr = POSTCODE_TO_ARR[postcode];
+        if (expectedArr) {
+          assert.equal(
+            arr,
+            expectedArr,
+            `${label} ${item.id}: arrondissement is "${arr}" but address postcode ${postcode} implies "${expectedArr}" (address: ${item.address})`
+          );
+        }
+      }
+    }
+  }
+}
+
+test('michelin.json entries pass Paris-bounds and arrondissement/postcode sanity checks', () => {
+  const michelin = loadJson('../data/michelin.json');
+  assertParisSanity(michelin, 'michelin');
+});
+
+test('shops.json entries pass Paris-bounds and arrondissement/postcode sanity checks (suburbs allowed via department label)', () => {
+  const shops = loadJson('../data/shops.json');
+  assertParisSanity(shops, 'shop');
+});
+
+test('michelin.json: very short restaurant names (name collision risk) must have a real address on file', () => {
+  const michelin = loadJson('../data/michelin.json');
+  for (const item of michelin) {
+    if (item.name.length <= 3) {
+      assert.ok(
+        item.address,
+        `${item.id} ("${item.name}") is a short, ambiguous name and has no address on file — high risk of resolving to an unrelated same-named place`
+      );
+    }
+  }
+});
+
 test('flea-markets.json entries have required fields, coordinates, and matching map link', () => {
   const fleaMarkets = loadJson('../data/flea-markets.json');
   assert.ok(Array.isArray(fleaMarkets));
