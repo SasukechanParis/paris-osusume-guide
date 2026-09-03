@@ -286,6 +286,32 @@
     "photo_url": null
   },
   {
+    "id": "chez-julien",
+    "category": "restaurant",
+    "status": "curious",
+    "name": "Chez Julien",
+    "address": "1 rue du Pont Louis-Philippe, 75004 Paris",
+    "arrondissement": "4e",
+    "lat": 48.8547356,
+    "lng": 2.3551411,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Chez%20Julien%201%20rue%20du%20Pont%20Louis-Philippe%2C%2075004%20Paris",
+    "description": "マレ地区の老舗ブラッスリー。1900年頃の天井画や赤いベルベットの内装が残る元パン屋の建物",
+    "photo_url": null
+  },
+  {
+    "id": "les-enfants-rouges",
+    "category": "restaurant",
+    "status": "curious",
+    "name": "Les Enfants Rouges",
+    "address": "9 rue de Beauce, 75003 Paris",
+    "arrondissement": "3e",
+    "lat": 48.863083,
+    "lng": 2.3612283,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Les%20Enfants%20Rouges%209%20rue%20de%20Beauce%2C%2075003%20Paris",
+    "description": "シェフDaï Shinozukaによる和仏融合のネオビストロ。マルシェ・デ・ザンファン・ルージュのすぐ裏手",
+    "photo_url": null
+  },
+  {
     "id": "jade-genin",
     "category": "chocolatier",
     "status": "recommended",
@@ -387,6 +413,32 @@
     "lng": 2.3430803,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Atelier%20Choux%20Paris%20-%20Hautefeuille%20Impasse%20Hautefeuille%2075006%20Paris",
     "description": "パリらしい邸宅建築モチーフのベビー・ファミリー向け雑貨ブランド",
+    "photo_url": null
+  },
+  {
+    "id": "conservatoire-des-hemispheres-passy",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Conservatoire des Hémisphères Passy - Art du Thé",
+    "address": "9 Rue de Passy, 75016 Paris",
+    "arrondissement": "16e",
+    "lat": 48.8582268,
+    "lng": 2.2836839,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Conservatoire%20des%20H%C3%A9misph%C3%A8res%20Passy%20-%20Art%20du%20Th%C3%A9%209%20Rue%20de%20Passy%2C%2075016%20Paris",
+    "description": "希少な茶葉を100種類以上扱う紅茶専門店",
+    "photo_url": null
+  },
+  {
+    "id": "officine-universelle-buly-1803",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Officine Universelle Buly 1803",
+    "address": "29 Rue de Richelieu, 75001 Paris",
+    "arrondissement": "1er",
+    "lat": 48.865088,
+    "lng": 2.3363879,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Officine%20Universelle%20Buly%201803%2029%20Rue%20de%20Richelieu%2C%2075001%20Paris",
+    "description": "1803年創業の老舗調香品店。香水・美容オイル・キャンドルなどパッケージも美しい",
     "photo_url": null
   },
   {
