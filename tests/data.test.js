@@ -78,16 +78,25 @@ test('recommendations.json entries have valid category/status and matching map l
   }
 });
 
-test('michelin.json entries have valid stars, coordinates, matching map link, and source', () => {
+test('michelin.json entries have valid stars/genre, a Google Maps link, and a source; coordinates when resolvable', () => {
   const michelin = loadJson('../data/michelin.json');
   assert.ok(Array.isArray(michelin));
+  assert.equal(michelin.length, 127);
   for (const item of michelin) {
-    assert.ok(item.id && item.name && item.address && item.source_url, `michelin entry missing required field: ${JSON.stringify(item)}`);
-    assert.ok([2, 3].includes(item.stars), `unexpected stars value ${item.stars} for ${item.id}`);
-    assert.equal(typeof item.lat, 'number');
-    assert.equal(typeof item.lng, 'number');
-    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+    assert.ok(item.id && item.name && item.genre && item.source_url, `michelin entry missing required field: ${JSON.stringify(item)}`);
+    assert.ok([1, 2, 3].includes(item.stars), `unexpected stars value ${item.stars} for ${item.id}`);
+    assert.ok(item.google_maps_url.startsWith('https://www.google.com/maps/search/?api=1&query='), `bad maps url for ${item.id}`);
+    if (item.lat !== null) {
+      assert.equal(typeof item.lat, 'number');
+      assert.equal(typeof item.lng, 'number');
+      if (item.address) assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+    } else {
+      assert.equal(item.lng, null, `${item.id} has lat null but lng not null`);
+    }
   }
+  const byStars = { 1: 0, 2: 0, 3: 0 };
+  for (const item of michelin) byStars[item.stars] += 1;
+  assert.deepEqual(byStars, { 1: 98, 2: 20, 3: 9 });
 });
 
 test('flea-markets.json entries have required fields, coordinates, and matching map link', () => {

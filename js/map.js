@@ -124,13 +124,16 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
   }
 
   for (const m of michelin) {
+    if (m.lat === null) continue;
+    const metaParts = [arrondissementLabel(m.arrondissement)];
+    if (m.address) metaParts.push(m.address + (m.hotel ? ` (${m.hotel})` : ''));
     points.push({
       category: 'michelin',
       arrondissement: m.arrondissement,
       lat: m.lat,
       lng: m.lng,
       name: `${m.name} ${'★'.repeat(m.stars)}`,
-      meta: `${arrondissementLabel(m.arrondissement)} ・ ${m.address}${m.hotel ? ` (${m.hotel})` : ''}`,
+      meta: metaParts.join(' ・ '),
       description: m.description,
       mapUrl: m.google_maps_url,
       sourceUrl: m.source_url

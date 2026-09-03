@@ -267,3 +267,14 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - 英語・フランス語対応
 - プッシュ通知などのネイティブ機能
 - 著作権未確認の店舗写真の掲載
+
+## ミシュラン1つ星98軒の追加・絞り込みUI(2026-09-03 追加)
+
+- 要望:「ミシュラン一つ星も欲しい。膨大になるから星・区・ジャンルで絞り込めるように」
+- **データ源**: 英語版Wikipedia「List of Michelin-starred restaurants in Paris」の生wikitextをMediaWiki APIから直接取得し、Pythonで構文解析(`{{Michelin stars table cell|stars=N}}`の2026年列を抽出)。WebFetch経由の要約では星数・料理ジャンルの取り違えが複数回発生した(例: 2つ星のLa ScèneやLe Clarenceを1つ星と誤答、Marsanの料理ジャンルを「Korean」と誤答)ため、要約に頼らずwikitextを直接パースする方式に切り替えた。2026年版は127軒(3つ星9・2つ星20・1つ星98)で、既存の29軒(2・3つ星)とも完全一致を確認済み
+- **1つ星は軽量テンプレート**: むんたと合意の上、既存29軒のような個別の手作り説明文(シェフ経歴等)は書かず、`genre`(料理ジャンル、Wikipedia表記を日本語化)+区+Googleマップリンクのみのシンプルな表示にした。誤情報を書くリスクを避けるための判断
+- **座標**: Nominatimで店名から直接ジオコーディング。98軒中75軒は解決できたが、23軒(Accents Table Bourse、Hanada、Pavyllon等、比較的新しい店が中心)はOpenStreetMapに未登録で解決できず、`lat`/`lng`をnullのまま許容(既存のrecommendations.json等と同じ扱い)。区・ジャンルでの絞り込みはWikipedia由来のarrondissementデータを使うため、座標がなくても機能する。地図表示・近くを探す機能からはこの23軒は自然に除外される(既存の`sortShopsByDistance`のnullフィルタがそのまま効く)
+- 既存29軒にも同じWikipediaデータから`genre`を逆算して付与し、ジャンル絞り込みが127軒全体で一貫して機能するようにした
+- **UI**: `michelin.html`に星タブ(すべて/★3/★2/★1)+区セレクト+ジャンルセレクトを追加、3つをAND条件で組み合わせ可能。`js/render.js`の`renderMichelinList`は`address`/`description`がnullの場合を優雅にスキップし、`genre`があればバッジ表示するよう更新
+- `js/map.js`の`buildPoints`もmichelinの`lat === null`エントリを除外するよう修正(nullをLeafletのマーカーに渡すと壊れるため)
+- ページ文言も「一度でいいから行ってみたい」→「全127軒まとめました(2026年版)。★・区・ジャンルで絞り込めます」に変更

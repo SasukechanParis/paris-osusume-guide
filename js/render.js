@@ -147,21 +147,24 @@ export function renderRecommendationList(items) {
 export function renderMichelinList(items) {
   return [...items]
     .sort((a, b) => b.stars - a.stars)
-    .map(
-      (item) => `
+    .map((item) => {
+      const metaParts = [arrondissementLabel(item.arrondissement)];
+      if (item.address) metaParts.push(item.address + (item.hotel ? ` (${item.hotel})` : ''));
+      return `
     <div class="trending-card">
       <div class="trending-name-row">
         <p class="trending-name">${item.name}</p>
         <span class="status-badge status-badge-michelin">${'★'.repeat(item.stars)}</span>
+        ${item.genre ? `<span class="status-badge status-badge-genre">${item.genre}</span>` : ''}
       </div>
-      <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}${item.hotel ? ` (${item.hotel})` : ''}</p>
+      <p class="trending-meta">${metaParts.join(' ・ ')}</p>
       ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
       <div class="ranking-links">
         <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
         <a class="ranking-source" href="${item.source_url}">出典 ↗</a>
       </div>
-    </div>`
-    )
+    </div>`;
+    })
     .join('');
 }
 

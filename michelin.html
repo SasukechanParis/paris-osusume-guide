@@ -32,12 +32,32 @@
   </nav>
   <header class="hero">
     <h1 class="title">ミシュラン<span class="accent">星付き</span></h1>
-    <p class="lede">一度でいいから行ってみたい、パリにあるミシュランの星付きのお店をまとめました。</p>
+    <p class="lede">パリにあるミシュランの星付きのお店を全127軒まとめました(2026年版)。★・区・ジャンルで絞り込めます。</p>
     <img class="hero-image" src="assets/illustrations/michelin.png" alt="印象派タッチで描かれたミシュラン料理のイラスト">
   </header>
 
   <section aria-labelledby="michelin-h">
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="michelin-h">星付きレストラン</h2></div>
+
+    <div class="year-tabs" id="star-tabs">
+      <button class="tab-btn active" data-stars="all" type="button">すべて</button>
+      <button class="tab-btn" data-stars="3" type="button">★★★</button>
+      <button class="tab-btn" data-stars="2" type="button">★★</button>
+      <button class="tab-btn" data-stars="1" type="button">★</button>
+    </div>
+
+    <div class="michelin-filter-row">
+      <div class="michelin-filter">
+        <label for="michelin-arr-select">区で絞り込み</label>
+        <select id="michelin-arr-select"></select>
+      </div>
+      <div class="michelin-filter">
+        <label for="michelin-genre-select">ジャンルで絞り込み</label>
+        <select id="michelin-genre-select"></select>
+      </div>
+    </div>
+
+    <p id="michelin-count" class="section-note"></p>
     <div id="michelin-list"></div>
   </section>
 

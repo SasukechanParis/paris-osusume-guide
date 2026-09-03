@@ -264,6 +264,29 @@ test('renderMichelinList shows name, stars as filled marks, hotel, address, map 
   assert.match(html, /href="https:\/\/mesinfos\.fr\/example"/);
 });
 
+test('renderMichelinList shows a genre badge and skips address/description when absent (one-star lighter template)', () => {
+  const items = [
+    {
+      id: 'one-star-example',
+      name: 'One Star Example',
+      hotel: null,
+      stars: 1,
+      arrondissement: '9e',
+      address: null,
+      genre: 'フレンチ',
+      description: null,
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=One%20Star%20Example%2C%20Paris',
+      source_url: 'https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Paris'
+    }
+  ];
+  const html = renderMichelinList(items);
+  assert.match(html, /One Star Example/);
+  assert.match(html, /★(?!★)/);
+  assert.match(html, /フレンチ/);
+  assert.match(html, /9区/);
+  assert.doesNotMatch(html, /trending-desc/);
+});
+
 test('buildShopWinCounts counts appearances per shop across all contests and years', () => {
   const multiResults = [
     { contest_id: 'baguette', year: 2025, rankings: [{ rank: 1, shop_id: 'shop-a' }, { rank: 2, shop_id: 'shop-b' }] },
