@@ -231,6 +231,32 @@ test('renderRecommendationList shows the submitter credit when present', () => {
   assert.match(html, /投稿: ゆりかさん/);
 });
 
+test('renderRecommendationList shows a photo when photo_url is present, and none otherwise', () => {
+  const withPhoto = renderRecommendationList([
+    {
+      id: 'with-photo',
+      name: 'With Photo',
+      address: '1 rue Example, 75001 Paris',
+      arrondissement: '1er',
+      photo_url: 'assets/photos/with-photo.jpg',
+      google_maps_url: null
+    }
+  ]);
+  assert.match(withPhoto, /<img class="trending-photo" src="assets\/photos\/with-photo\.jpg" alt="With Photo"/);
+
+  const withoutPhoto = renderRecommendationList([
+    {
+      id: 'no-photo',
+      name: 'No Photo',
+      address: '2 rue Example, 75001 Paris',
+      arrondissement: '1er',
+      photo_url: null,
+      google_maps_url: null
+    }
+  ]);
+  assert.doesNotMatch(withoutPhoto, /trending-photo/);
+});
+
 test('renderMichelinList shows name, stars as filled marks, hotel, address, map link, and sorts 3-star before 2-star', () => {
   const items = [
     {

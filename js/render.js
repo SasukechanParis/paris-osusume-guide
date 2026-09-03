@@ -131,6 +131,7 @@ export function renderRecommendationList(items) {
     .map(
       (item) => `
     <div class="trending-card">
+      ${item.photo_url ? `<img class="trending-photo" src="${item.photo_url}" alt="${item.name}" loading="lazy">` : ''}
       <div class="trending-name-row">
         <p class="trending-name">${item.name}</p>
         ${item.status ? `<span class="status-badge status-badge-${item.status}">${RECOMMENDATION_STATUS_LABEL[item.status] ?? item.status}</span>` : ''}
