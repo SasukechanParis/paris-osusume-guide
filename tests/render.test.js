@@ -215,6 +215,22 @@ test('renderRecommendationList returns empty string for an empty list', () => {
   assert.equal(renderRecommendationList([]), '');
 });
 
+test('renderRecommendationList shows the submitter credit when present', () => {
+  const items = [
+    {
+      id: 'hotel-volney-opera',
+      name: 'Hôtel Volney Opéra',
+      address: '11 Rue Volney, 75002 Paris',
+      arrondissement: '2e',
+      description: 'バスタブ付き',
+      submitted_by: 'ゆりか',
+      google_maps_url: 'https://www.google.com/maps/search/?api=1&query=48.86,2.33'
+    }
+  ];
+  const html = renderRecommendationList(items);
+  assert.match(html, /投稿: ゆりかさん/);
+});
+
 test('renderMichelinList shows name, stars as filled marks, hotel, address, map link, and sorts 3-star before 2-star', () => {
   const items = [
     {

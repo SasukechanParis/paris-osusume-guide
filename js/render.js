@@ -137,6 +137,7 @@ export function renderRecommendationList(items) {
       </div>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
       ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.submitted_by ? `<p class="trending-meta">投稿: ${item.submitted_by}さん</p>` : ''}
       ${item.google_maps_url ? `<a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>` : ''}
     </div>`
     )
