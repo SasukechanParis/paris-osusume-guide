@@ -55,5 +55,19 @@
     "source_url": "https://parisjetaime.com/eng/place-du-tertre-p1358",
     "source_label": "Paris je t'aime(パリ観光局)",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Place%20du%20Tertre%20Place%20du%20Tertre%2C%2075018%20Paris"
+  },
+  {
+    "id": "petit-palais",
+    "name": "Petit Palais",
+    "arrondissement": "8e",
+    "address": "Avenue Winston Churchill, 75008 Paris",
+    "lat": 48.8660479,
+    "lng": 2.3145896,
+    "hours": "火-日 10:00-18:00(月休、入館は17:15まで。金・土は企画展のみ20時まで夜間延長あり)。常設展は無料、企画展のみ有料",
+    "description": "パリの市立美術館。古代から20世紀初頭までの絵画・彫刻・工芸品を収蔵し、レンブラント・モネ・セザンヌなどの作品も見られる。優雅な建物と中庭のパティオも見どころ",
+    "access": "メトロ Champs-Élysées–Clemenceau駅",
+    "source_url": "https://www.petitpalais.paris.fr/preparer-sa-visite/informations-pratiques",
+    "source_label": "petitpalais.paris.fr(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Petit%20Palais%20Avenue%20Winston%20Churchill%2C%2075008%20Paris"
   }
 ]
