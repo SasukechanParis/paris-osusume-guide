@@ -11,6 +11,7 @@ const CATEGORIES = {
   trending: { label: '今話題のこと', color: '#9b59b6' },
   restaurant: { label: 'レストラン', color: '#e74c3c' },
   chocolatier: { label: 'ショコラティエ', color: '#6b3e26' },
+  patisserie: { label: 'パティスリー', color: '#c88ea7' },
   bakery: { label: 'パン屋さん', color: '#e67e22' },
   souvenir: { label: 'お土産', color: '#e84393' },
   supermarket: { label: 'スーパーで買えるおすすめ', color: '#27ae60' },

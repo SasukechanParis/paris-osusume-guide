@@ -557,5 +557,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Michalak%2060%20rue%20du%20Faubourg%20Poissonni%C3%A8re%2C%2075009%20Paris",
     "description": "パンも美味しいが、特にチーズケーキが絶品。隣のCafé Michalakのケーキもおすすめ",
     "photo_url": null
+  },
+  {
+    "id": "bontemps",
+    "category": "patisserie",
+    "status": "recommended",
+    "name": "Bontemps cafe",
+    "address": "57 Rue de Bretagne, 75003 Paris",
+    "arrondissement": "3e",
+    "lat": 48.8638867,
+    "lng": 2.3606413,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bontemps%20cafe%2057%20Rue%20de%20Bretagne%2C%2075003%20Paris",
+    "description": "サブレ(クッキー)専門の焼き菓子店。ケーキがめちゃうまい",
+    "photo_url": null
   }
 ]

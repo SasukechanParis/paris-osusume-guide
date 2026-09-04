@@ -64,7 +64,7 @@ test('trending.json entries have coordinates, source, and matching google maps l
 test('recommendations.json entries have valid category/status and matching map link when coordinates are present', () => {
   const recommendations = loadJson('../data/recommendations.json');
   assert.ok(Array.isArray(recommendations));
-  const validCategories = new Set(['restaurant', 'chocolatier', 'bakery', 'souvenir', 'supermarket', 'hotel']);
+  const validCategories = new Set(['restaurant', 'chocolatier', 'patisserie', 'bakery', 'souvenir', 'supermarket', 'hotel']);
   const validStatuses = new Set(['recommended', 'curious']);
   for (const item of recommendations) {
     assert.ok(item.id && item.name && item.address, `recommendation missing id/name/address: ${JSON.stringify(item)}`);
@@ -213,7 +213,7 @@ test('passages.json entries have required fields, coordinates, a valid tier, and
 test('guest-recommendations.json entries have valid category and matching map link when coordinates are present', () => {
   const guestRecommendations = loadJson('../data/guest-recommendations.json');
   assert.ok(Array.isArray(guestRecommendations));
-  const validCategories = new Set(['restaurant', 'chocolatier', 'bakery', 'souvenir', 'supermarket', 'hotel']);
+  const validCategories = new Set(['restaurant', 'chocolatier', 'patisserie', 'bakery', 'souvenir', 'supermarket', 'hotel']);
   for (const item of guestRecommendations) {
     assert.ok(item.id && item.name && item.address, `guest recommendation missing id/name/address: ${JSON.stringify(item)}`);
     assert.ok(validCategories.has(item.category), `unknown category ${item.category} for ${item.id}`);

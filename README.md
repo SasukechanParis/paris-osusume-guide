@@ -1,6 +1,6 @@
 # パリおすすめデータベース
 
-パリのパンコンクール受賞店、さすけと先輩カップルのおすすめ(レストラン・ショコラティエ・パン屋さん・お土産・スーパーで買えるおすすめ・ホテル)、ミシュラン星付き店をまとめた静的サイト。
+パリのパンコンクール受賞店、さすけと先輩カップルのおすすめ(レストラン・スイーツ(ショコラティエ・パティスリー)・パン屋さん・お土産・スーパーで買えるおすすめ・ホテル)、ミシュラン星付き店をまとめた静的サイト。
 
 ## ページ構成
 
@@ -46,9 +46,9 @@ Googleマップリンクは店名+住所のテキスト検索(`?api=1&query=店�
 
 Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェックを実行し、`docs/pending-updates.md` に下書きを追記する。
 
-## カテゴリ別おすすめ(レストラン/ショコラティエ/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル)
+## カテゴリ別おすすめ(レストラン/スイーツ(ショコラティエ・パティスリー)/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル)
 
-各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `bakery` / `souvenir` / `supermarket` / `hotel` の6種。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`supermarket`はデータ未整備のため現状空(近日公開表示)。
+各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `patisserie` / `bakery` / `souvenir` / `supermarket` / `hotel` の7種。`chocolatier`と`patisserie`はどちらも`chocolatiers.html`(表示名「スイーツ」)内で「ショコラティエ」「パティスリー」の2セクションに分けて表示する。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`supermarket`はデータ未整備のため現状空(近日公開表示)。
 
 ## ミシュラン星付き(`michelin.html`)
 
