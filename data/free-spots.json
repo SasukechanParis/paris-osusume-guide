@@ -69,5 +69,19 @@
     "source_url": "https://www.petitpalais.paris.fr/preparer-sa-visite/informations-pratiques",
     "source_label": "petitpalais.paris.fr(公式)",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Petit%20Palais%20Avenue%20Winston%20Churchill%2C%2075008%20Paris"
+  },
+  {
+    "id": "bnf-richelieu",
+    "name": "Bibliothèque nationale de France (BnF) | Richelieu",
+    "arrondissement": "2e",
+    "address": "58 Rue de Richelieu, 75002 Paris",
+    "lat": 48.8673812,
+    "lng": 2.3384826,
+    "hours": "サル・オヴァル(Salle Ovale): 火 10:00-20:00 ・ 水-日 10:00-18:00(月・祝日休)。無料で誰でも利用できる読書・休憩スペース",
+    "description": "フランス国立図書館の歴史的サイト。無料開放されている「サル・オヴァル(楕円形閲覧室)」が有名で、美しいガラス天井とドームの下で自由に読書・休憩ができる。実はウェディング写真撮影も可能な会場で(事前申請と申請料が必要)、撮影を検討したい方はさすけまでご相談を",
+    "access": "メトロ Bourse駅 / Pyramides駅",
+    "source_url": "https://www.bnf.fr/en/the-bnfs-richelieu-site",
+    "source_label": "bnf.fr(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biblioth%C3%A8que%20nationale%20de%20France%20(BnF)%20%7C%20Richelieu%2058%20Rue%20de%20Richelieu%2C%2075002%20Paris"
   }
 ]

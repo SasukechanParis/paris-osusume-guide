@@ -177,7 +177,7 @@ test('flea-markets.json entries have required fields, coordinates, and matching 
 test('free-spots.json entries have required fields, coordinates, and matching map link', () => {
   const freeSpots = loadJson('../data/free-spots.json');
   assert.ok(Array.isArray(freeSpots));
-  assert.equal(freeSpots.length, 5);
+  assert.equal(freeSpots.length, 6);
   for (const item of freeSpots) {
     assert.ok(
       item.id && item.name && item.address && item.hours && item.access && item.description && item.source_url,
