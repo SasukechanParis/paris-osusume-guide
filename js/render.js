@@ -104,6 +104,20 @@ export function renderRankingGroups(results, shops, contests, winCounts) {
     .join('');
 }
 
+export function renderUpdatesList(updates, limit = 5) {
+  return [...updates]
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .slice(0, limit)
+    .map(
+      (u) => `
+    <li class="updates-item">
+      <span class="updates-date">${u.date}</span>
+      ${u.link ? `<a class="updates-link" href="${u.link}">${u.text}</a>` : `<span class="updates-link">${u.text}</span>`}
+    </li>`
+    )
+    .join('');
+}
+
 export function renderTrending(trending) {
   return trending
     .map(

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "bnf-richelieu-free-spot",
+    "date": "2026-09-04",
+    "text": "無料スポットにBnFリシュリュー館(サル・オヴァル)を追加しました",
+    "link": "free-spots.html"
+  },
+  {
+    "id": "sweets-category-expansion",
+    "date": "2026-09-04",
+    "text": "「ショコラティエ」を「スイーツ」に拡張し、パティスリーも見られるようになりました",
+    "link": "chocolatiers.html"
+  },
+  {
+    "id": "souvenir-restaurant-additions",
+    "date": "2026-09-04",
+    "text": "お土産・レストランに新しいお店を追加しました",
+    "link": "souvenirs.html"
+  },
+  {
+    "id": "michelin-one-star-98",
+    "date": "2026-09-03",
+    "text": "ミシュラン一つ星98軒を追加し、全127軒が見られるようになりました",
+    "link": "michelin.html"
+  },
+  {
+    "id": "recommendation-photos",
+    "date": "2026-09-03",
+    "text": "おすすめカードに写真を表示できるようになりました",
+    "link": "supermarket.html"
+  }
+]

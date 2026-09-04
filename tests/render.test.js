@@ -12,7 +12,8 @@ import {
   buildShopWinCounts,
   renderShopDetail,
   renderFleaMarketList,
-  renderPassageList
+  renderPassageList,
+  renderUpdatesList
 } from '../js/render.js';
 
 const contests = [
@@ -435,4 +436,18 @@ test('renderPassageList shows name, year, description, optional caution note, an
   assert.match(html, /href="https:\/\/maps\.app\.goo\.gl\/JpZjN11DbsVPW6oE8"/);
   assert.match(html, /わざわざ時間を割いて行くほどではないかもしれません/);
   assert.doesNotMatch(html.split('Passage du Ponceau')[0], /shop-note/);
+});
+
+test('renderUpdatesList sorts by date descending, links when a link is present, and respects the limit', () => {
+  const updates = [
+    { id: 'older', date: '2026-09-01', text: '古い更新', link: 'a.html' },
+    { id: 'newest', date: '2026-09-04', text: '新しい更新', link: 'b.html' },
+    { id: 'no-link', date: '2026-09-03', text: 'リンクなし更新' }
+  ];
+  const html = renderUpdatesList(updates, 2);
+  assert.match(html, /新しい更新/);
+  assert.match(html, /href="b\.html"/);
+  assert.doesNotMatch(html, /古い更新/);
+  assert.ok(html.indexOf('新しい更新') < html.indexOf('リンクなし更新'));
+  assert.match(html, /<span class="updates-link">リンクなし更新<\/span>/);
 });

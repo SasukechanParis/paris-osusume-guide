@@ -4,7 +4,7 @@
 
 ## ページ構成
 
-- `index.html` — トップページ(今話題のこと・カテゴリ一覧への導線)
+- `index.html` — トップページ(最近追加されました・今話題のこと・カテゴリ一覧への導線)
 - `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索)
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
@@ -32,6 +32,7 @@ node --test
 ## データの更新方法
 
 1. `data/contests.json` / `data/results.json` / `data/shops.json` / `data/trending.json` / `data/recommendations.json` / `data/guest-recommendations.json` / `data/michelin.json` を編集する
+   - お店・情報を追加したときは `data/updates.json` にも1件追記する(トップページ「最近追加されました」に直近5件が表示される。`id`/`date`/`text`/任意の`link`)
 2. `node --test tests/data.test.js` でスキーマ・出典URL・shop_id参照の整合性を確認する
 3. ローカルサーバーで表示を確認する
 4. コミットする

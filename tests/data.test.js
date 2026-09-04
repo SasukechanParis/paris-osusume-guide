@@ -189,6 +189,15 @@ test('free-spots.json entries have required fields, coordinates, and matching ma
   }
 });
 
+test('updates.json entries have required fields and a valid date format', () => {
+  const updates = loadJson('../data/updates.json');
+  assert.ok(Array.isArray(updates));
+  for (const item of updates) {
+    assert.ok(item.id && item.date && item.text, `update entry missing id/date/text: ${JSON.stringify(item)}`);
+    assert.match(item.date, /^\d{4}-\d{2}-\d{2}$/, `update ${item.id} has invalid date "${item.date}"`);
+  }
+});
+
 test('passages.json entries have required fields, coordinates, a valid tier, and a real Google Maps link', () => {
   const passages = loadJson('../data/passages.json');
   assert.ok(Array.isArray(passages));
