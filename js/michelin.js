@@ -1,15 +1,11 @@
 import { renderMichelinList, arrondissementLabel } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
+import { loadJson } from './data.js';
 
 const ARRONDISSEMENT_ORDER = [
   '1er', '2e', '3e', '4e', '5e', '6e', '7e', '8e', '9e', '10e',
   '11e', '12e', '13e', '14e', '15e', '16e', '17e', '18e', '19e', '20e'
 ];
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  return res.json();
-}
 
 async function init() {
   const michelin = await loadJson('data/michelin.json');

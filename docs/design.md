@@ -315,3 +315,15 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - `index.html`のトップに「最近追加されました」セクションを新設(「今話題のこと」の直前)。`js/index.js`で`data/updates.json`を取得して描画する
 - 初回公開時に空にならないよう、この日までの主要な更新5件(BnFリシュリュー館追加・スイーツカテゴリ拡張・お土産/レストラン追加・ミシュラン一つ星98軒追加・おすすめ写真表示)を手動でバックフィルした
 - 動作確認時、ローカルdevサーバー(`python3 -m http.server`)のブラウザキャッシュにより`js/index.js`が更新前の内容のまま返され続ける事象を再確認した(既知の宿題、上の「おすすめカードの写真表示」節を参照)。`cache: 'reload'`を指定したfetchおよび`node --test`のレンダリングテストでは、実装自体が正しく動作すること(日付降順ソート・リンク有無の分岐・件数制限)を確認済み
+
+## キャッシュ対策・地図への無料スポット統合・公衆トイレマップ(2026-09-05 追加)
+
+「他に足したほうがいいアイデアは?」という相談から出た3案(キャッシュ対策・地図統合・新カテゴリ検討)のうち、キャッシュ対策と地図統合を実装、公衆トイレは新カテゴリとして採用した。
+
+- **キャッシュ対策**: 10個のJSファイル(`contest.js`/`free-spots.js`/`michelin.js`/`index.js`/`flea-markets.js`/`bread.js`/`category-page.js`/`map.js`/`shop.js`/`chocolatiers.js`)に重複していた`async function loadJson(path)`をすべて削除し、`js/data.js`の共有`loadJson()`に一本化した。内部で`fetch`のURLに`?v=VERSION`を付与しており、`VERSION`定数を書き換えるだけで全ページのキャッシュを一括で無効化できる
+- **無料スポットの地図統合**: 調査の結果、蚤の市(`flea_market`)は既にmap.jsのCATEGORIESに含まれていたことが判明(以前「スコープ外」としていたのは無料スポットのみだった)。`free-spots.json`+`passages.json`を新カテゴリ`free_spot`としてmap.jsに追加した
+- **公衆トイレ**: 出典は[Paris Data「Toilettes publiques」](https://opendata.paris.fr/explore/dataset/sanisettesparis/)(パリ市公式オープンデータ、ODbLライセンス、`opendata.paris.fr`のRecords APIから取得)。全610件のうち稼働中(`En service`)581件のみ採用し、閉鎖中29件は除外した。住所が欠けている3件は`url_fiche_equipement`のスラッグから施設名を補完(1件はそれも無く区名+Parisのみのフォールバック)
+  - 件数が多いため専用ページ(`toilets.html`)は作らず、既存の「無料スポット」ページに`近くの公衆トイレを探す`という3つ目のセクションを追加。`setupNearbySearch()`に`idSuffix`オプションを追加し、同じページ内で無料スポット用・トイレ用の2つの独立した近く検索ウィジェットを共存できるようにした(DOM要素IDに`-toilets`サフィックスを付与)
+  - map.htmlにも新カテゴリ`toilet`として追加。ただし581件は他カテゴリより一桁多いため、`CATEGORIES`に`defaultVisible: false`フラグを追加し、初期状態はチェックを外して非表示にした(見たい人だけチェックを入れる)。`selectedCategories`の初期値と`applyFilters()`の初回呼び出しをこのフラグに対応させた
+  - データは今回1回限りのスナップショット(設置場所は頻繁に変わらないため)。再取得したくなったら同じAPI(`https://opendata.paris.fr/api/records/1.0/search/?dataset=sanisettesparis&rows=100&start=N`を7ページ分)から同じ変換ロジックで再生成できる
+- ブラウザで動作確認: map.htmlでチェックボックスON/OFFに応じてピン数が202↔783(581件分)に切り替わること、ポップアップの内容、free-spots.htmlの2つの近く検索が独立して正しい結果(トイレ側はエッフェル塔近くで251m先の1件がトップに出る等)を返すことを確認済み

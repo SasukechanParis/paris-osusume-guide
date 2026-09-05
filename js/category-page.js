@@ -1,10 +1,6 @@
 import { renderRecommendationList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  return res.json();
-}
+import { loadJson } from './data.js';
 
 function sortByStatus(items) {
   const order = { recommended: 0, curious: 1 };

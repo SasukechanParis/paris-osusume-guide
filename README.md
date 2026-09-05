@@ -10,8 +10,8 @@
 - `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
 - `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
 - `flea-markets.html` — 蚤の市(常設3市場の開催時間・アクセス・出典、不定期フリマの案内、近くの蚤の市検索つき)
-- `free-spots.html` — 無料スポット(無料の美術館・広場6件+パッサージュ16件、近くのスポット検索つき)
-- `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき)
+- `free-spots.html` — 無料スポット(無料の美術館・広場6件+パッサージュ16件、近くのスポット検索つき。公衆トイレ581件の近く検索も別枠で設置)
+- `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき。公衆トイレは件数が多いため初期状態は非表示)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)
 
@@ -38,6 +38,14 @@ node --test
 4. コミットする
 
 Googleマップリンクは店名+住所のテキスト検索(`?api=1&query=店名 住所`)で構成する。座標(`lat`/`lng`)は距離計算専用で、マップリンク自体には使わない。
+
+## キャッシュ対策(`js/data.js`)
+
+全ページの`fetch(データ.json)`は`js/data.js`の共有`loadJson()`を通しており、内部で`?v=バージョン文字列`を付与している。ローカルの簡易devサーバーやブラウザがJSON/JSを古い内容のままキャッシュしてしまう問題への対策。**データやJSを更新したら`js/data.js`の`VERSION`定数を書き換えること**(1箇所を変えるだけで全ページに反映される)。
+
+## 公衆トイレ(`data/toilets.json`)
+
+出典: [Paris Data「Toilettes publiques」](https://opendata.paris.fr/explore/dataset/sanisettesparis/)(パリ市公式オープンデータ、ODbLライセンス)。全610件中、稼働中(`En service`)581件のみを採用したスナップショット。設置場所は頻繁には変わらないため自動更新はせず、必要になったら同じ手順(opendata.paris.fr APIから再取得)で再生成する。専用ページは作らず、`free-spots.html`の近く検索と`map.html`のカテゴリ(初期非表示)としてのみ表示する。
 
 ## 自動更新ワークフロー(運用イメージ)
 

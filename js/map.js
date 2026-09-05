@@ -1,10 +1,6 @@
 import { arrondissementLabel } from './render.js';
 import { geocodeAddress } from './geocode.js';
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  return res.json();
-}
+import { loadJson } from './data.js';
 
 const CATEGORIES = {
   contest: { label: 'パンコンクール受賞店', color: '#c9972c' },
@@ -17,7 +13,9 @@ const CATEGORIES = {
   supermarket: { label: 'スーパーで買えるおすすめ', color: '#27ae60' },
   hotel: { label: 'ホテル', color: '#2980b9' },
   michelin: { label: 'ミシュラン星付き', color: '#7f1d1d' },
-  flea_market: { label: '蚤の市', color: '#16a085' }
+  flea_market: { label: '蚤の市', color: '#16a085' },
+  free_spot: { label: '無料スポット', color: '#0e7490' },
+  toilet: { label: '公衆トイレ', color: '#7f8c8d', defaultVisible: false }
 };
 
 const ARRONDISSEMENT_ORDER = [
@@ -65,7 +63,7 @@ function popupHtml({ name, meta, description, mapUrl, sourceUrl, categoryLabel }
     </div>`;
 }
 
-function buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets) {
+function buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, freeSpots, passages, toilets) {
   const points = [];
 
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -155,21 +153,66 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
     });
   }
 
+  for (const f of freeSpots) {
+    points.push({
+      category: 'free_spot',
+      arrondissement: f.arrondissement,
+      lat: f.lat,
+      lng: f.lng,
+      name: f.name,
+      meta: `${arrondissementLabel(f.arrondissement)} ・ ${f.hours}`,
+      description: f.description,
+      mapUrl: f.google_maps_url,
+      sourceUrl: f.source_url
+    });
+  }
+
+  for (const p of passages) {
+    points.push({
+      category: 'free_spot',
+      arrondissement: p.arrondissement,
+      lat: p.lat,
+      lng: p.lng,
+      name: p.name,
+      meta: arrondissementLabel(p.arrondissement),
+      description: p.description,
+      mapUrl: p.google_maps_url,
+      sourceUrl: null
+    });
+  }
+
+  for (const t of toilets) {
+    points.push({
+      category: 'toilet',
+      arrondissement: t.arrondissement,
+      lat: t.lat,
+      lng: t.lng,
+      name: t.name,
+      meta: `${arrondissementLabel(t.arrondissement)} ・ ${t.hours}`,
+      description: t.description,
+      mapUrl: t.google_maps_url,
+      sourceUrl: t.source_url
+    });
+  }
+
   return points;
 }
 
 async function init() {
-  const [shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets] = await Promise.all([
+  const [shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, freeSpots, passages, toilets] = await Promise.all([
     loadJson('data/shops.json'),
     loadJson('data/results.json'),
     loadJson('data/recommendations.json'),
     loadJson('data/guest-recommendations.json'),
     loadJson('data/trending.json'),
     loadJson('data/michelin.json'),
-    loadJson('data/flea-markets.json')
+    loadJson('data/flea-markets.json'),
+    loadJson('data/free-spots.json'),
+    loadJson('data/passages.json'),
+    loadJson('data/toilets.json')
   ]);
 
-  const points = buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets);
+  const points = buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, freeSpots, passages, toilets);
 
   const map = L.map('map-canvas', { zoomControl: false }).setView([48.8613, 2.3324], 13);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -198,7 +241,11 @@ async function init() {
     marker.addTo(map);
   }
 
-  const selectedCategories = new Set(Object.keys(CATEGORIES));
+  const selectedCategories = new Set(
+    Object.entries(CATEGORIES)
+      .filter(([, config]) => config.defaultVisible !== false)
+      .map(([key]) => key)
+  );
   let selectedArrondissement = 'all';
 
   function applyFilters() {
@@ -211,6 +258,8 @@ async function init() {
       if (!matches && onMap) map.removeLayer(entry.marker);
     }
   }
+
+  applyFilters();
 
   const legendEl = document.getElementById('map-legend');
   const presentArrondissements = ARRONDISSEMENT_ORDER.filter((a) => entries.some((e) => e.arrondissement === a));
@@ -246,7 +295,7 @@ async function init() {
         .map(
           ([key, config]) => `
           <label class="map-legend-item">
-            <input type="checkbox" data-category="${key}" checked>
+            <input type="checkbox" data-category="${key}" ${config.defaultVisible === false ? '' : 'checked'}>
             <span class="map-legend-dot" style="background:${config.color}"></span>
             ${config.label}
           </label>`

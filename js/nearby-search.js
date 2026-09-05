@@ -3,16 +3,17 @@ import { geocodeAddress } from './geocode.js';
 import { renderNearbyResults } from './render.js';
 
 export function setupNearbySearch(items, options = {}) {
-  const statusEl = document.getElementById('nearby-status');
-  const resultsEl = document.getElementById('nearby-results');
-  const gpsBtn = document.getElementById('gps-btn');
-  const addressInput = document.getElementById('address-input');
-  const addressBtn = document.getElementById('address-search-btn');
+  const { idSuffix = '', ...renderOptions } = options;
+  const statusEl = document.getElementById(`nearby-status${idSuffix}`);
+  const resultsEl = document.getElementById(`nearby-results${idSuffix}`);
+  const gpsBtn = document.getElementById(`gps-btn${idSuffix}`);
+  const addressInput = document.getElementById(`address-input${idSuffix}`);
+  const addressBtn = document.getElementById(`address-search-btn${idSuffix}`);
   if (!statusEl || !resultsEl || !gpsBtn || !addressInput || !addressBtn) return;
 
   function showResults(lat, lng) {
     const sorted = sortShopsByDistance(items, lat, lng);
-    resultsEl.innerHTML = renderNearbyResults(sorted, options);
+    resultsEl.innerHTML = renderNearbyResults(sorted, renderOptions);
     statusEl.textContent = '';
   }
 

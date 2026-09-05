@@ -1,15 +1,12 @@
 import { renderFleaMarketList, renderPassageList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  return res.json();
-}
+import { loadJson } from './data.js';
 
 async function init() {
-  const [freeSpots, passages] = await Promise.all([
+  const [freeSpots, passages, toilets] = await Promise.all([
     loadJson('data/free-spots.json'),
-    loadJson('data/passages.json')
+    loadJson('data/passages.json'),
+    loadJson('data/toilets.json')
   ]);
 
   document.getElementById('free-spot-list').innerHTML = renderFleaMarketList(freeSpots);
@@ -25,6 +22,7 @@ async function init() {
   );
 
   setupNearbySearch([...freeSpots, ...passages]);
+  setupNearbySearch(toilets, { idSuffix: '-toilets' });
 }
 
 init();

@@ -1,9 +1,5 @@
 import { renderShopDetail } from './render.js';
-
-async function loadJson(path) {
-  const res = await fetch(path);
-  return res.json();
-}
+import { loadJson } from './data.js';
 
 async function init() {
   const params = new URLSearchParams(window.location.search);

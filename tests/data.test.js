@@ -189,6 +189,27 @@ test('free-spots.json entries have required fields, coordinates, and matching ma
   }
 });
 
+test('toilets.json entries have required fields, coordinates, a matching map link, and pass Paris-bounds sanity checks', () => {
+  const toilets = loadJson('../data/toilets.json');
+  assert.ok(Array.isArray(toilets));
+  assert.equal(toilets.length, 581);
+  const ids = new Set();
+  for (const item of toilets) {
+    assert.ok(
+      item.id && item.name && item.address && item.hours && item.type && item.source_url,
+      `toilet entry missing required field: ${JSON.stringify(item)}`
+    );
+    assert.ok(!ids.has(item.id), `duplicate toilet id ${item.id}`);
+    ids.add(item.id);
+    assert.equal(typeof item.lat, 'number');
+    assert.equal(typeof item.lng, 'number');
+    assert.equal(typeof item.pmr_accessible, 'boolean');
+    assert.equal(typeof item.baby_changing, 'boolean');
+    assertPlaceSearchUrl(item.google_maps_url, item.name, item.address);
+  }
+  assertParisSanity(toilets, 'toilet');
+});
+
 test('updates.json entries have required fields and a valid date format', () => {
   const updates = loadJson('../data/updates.json');
   assert.ok(Array.isArray(updates));
