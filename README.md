@@ -1,6 +1,6 @@
 # パリおすすめデータベース
 
-パリのパンコンクール受賞店、さすけと先輩カップルのおすすめ(レストラン・スイーツ(ショコラティエ・パティスリー)・パン屋さん・お土産・スーパーで買えるおすすめ・ホテル)、ミシュラン星付き店をまとめた静的サイト。
+パリのパンコンクール受賞店、さすけと先輩カップルのおすすめ(レストラン・カフェ・スイーツ(ショコラティエ・パティスリー)・パン屋さん・お土産・スーパーで買えるおすすめ・ホテル)、ミシュラン星付き店をまとめた静的サイト。
 
 ## ページ構成
 
@@ -8,9 +8,11 @@
 - `bread.html` — パンコンクール(日程・ランキング・近くの受賞店検索)
 - `contest.html` — コンクール詳細(年別タブ)
 - `michelin.html` — ミシュラン星付きレストラン一覧(近くの店検索つき)
-- `restaurants.html` / `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
-- `flea-markets.html` — 蚤の市(常設3市場の開催時間・アクセス・出典、不定期フリマの案内、近くの蚤の市検索つき)
+- `restaurants.html` — レストラン・カフェ(「レストラン」「カフェ・サロン・ド・テ」の2セクション、「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
+- `chocolatiers.html` / `bakeries.html` / `souvenirs.html` / `supermarket.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
+- `flea-markets.html` — 市場(常設の蚤の市3件+食品マルシェなど公式データ77件、不定期フリマの案内、近くの市場検索つき)
 - `free-spots.html` — 無料スポット(無料の美術館・広場6件+パッサージュ16件、近くのスポット検索つき。公衆トイレ581件の近く検索も別枠で設置)
+- `guide.html` — 旅行ガイド(季節の見どころ・旅行実務FAQ。出典付きの静的コンテンツ、JSONデータなし)
 - `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき。公衆トイレは件数が多いため初期状態は非表示)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)
@@ -55,9 +57,13 @@ Googleマップリンクは店名+住所のテキスト検索(`?api=1&query=店�
 
 Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェックを実行し、`docs/pending-updates.md` に下書きを追記する。
 
-## カテゴリ別おすすめ(レストラン/スイーツ(ショコラティエ・パティスリー)/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル)
+## カテゴリ別おすすめ(レストラン/カフェ/スイーツ(ショコラティエ・パティスリー)/パン屋さん/お土産/スーパーで買えるおすすめ/ホテル)
 
-各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `chocolatier` / `patisserie` / `bakery` / `souvenir` / `supermarket` / `hotel` の7種。`chocolatier`と`patisserie`はどちらも`chocolatiers.html`(表示名「スイーツ」)内で「ショコラティエ」「パティスリー」の2セクションに分けて表示する。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`supermarket`はデータ未整備のため現状空(近日公開表示)。
+各ページは「さすけのおすすめ」(`data/recommendations.json`)と「先輩カップルのおすすめ」(`data/guest-recommendations.json`)をタブで切り替える。カテゴリ値は `restaurant` / `cafe` / `chocolatier` / `patisserie` / `bakery` / `souvenir` / `supermarket` / `hotel` の8種。`restaurant`と`cafe`はどちらも`restaurants.html`(表示名「レストラン・カフェ」)内で「レストラン」「カフェ・サロン・ド・テ」の2セクションに分けて表示する。`chocolatier`と`patisserie`も同様に`chocolatiers.html`(表示名「スイーツ」)内で2セクションに分けて表示する。`recommendations.json`側は`status: "recommended"|"curious"`でバッジ表示を分ける。`cafe`は現時点で全件`curious`(メディア記事から調査、むんた自身の訪問実績はまだ無し)。`supermarket`はデータ未整備のため現状空(近日公開表示)。
+
+## 市場(`data/marches.json`)
+
+出典: [Paris Data「Marchés découverts」](https://opendata.paris.fr/explore/dataset/marches-decouverts/)(パリ市公式オープンデータ)。全80件のうち、既存の`flea-markets.json`(常設の蚤の市3件)と重複する`produit: "Puces"`3件を除いた77件(食品・オーガニック食品・花・アート/手工芸・切手)を採用。`flea-markets.html`の「食品マルシェ・その他の市場」セクションと`map.html`のカテゴリ(`flea_market`、蚤の市と統合)に表示する。開催曜日ごとの時間は`h_deb_sem_1`(平日共通)/`h_deb_sam`(土)/`h_deb_dim`(日)から組み立てている。
 
 ## ミシュラン星付き(`michelin.html`)
 

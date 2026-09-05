@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>蚤の市 - パリおすすめデータベース</title>
+<title>市場 - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,20 +19,21 @@
     <a href="index.html">トップ</a>
     <a href="bread.html">パンコンクール</a>
     <a href="michelin.html">ミシュラン</a>
-    <a href="restaurants.html">レストラン</a>
+    <a href="restaurants.html">レストラン・カフェ</a>
     <a href="chocolatiers.html">スイーツ</a>
     <a href="bakeries.html">パン屋さん</a>
     <a href="souvenirs.html">お土産</a>
     <a href="supermarket.html">スーパーで買えるおすすめ</a>
     <a href="hotels.html">ホテル</a>
-    <a href="flea-markets.html" class="active">蚤の市</a>
+    <a href="flea-markets.html" class="active">市場</a>
     <a href="free-spots.html">無料スポット</a>
+    <a href="guide.html">旅行ガイド</a>
     <a href="map.html">地図</a>
     <a href="post.html">投稿する</a>
   </nav>
   <header class="hero">
-    <h1 class="title">蚤の市</h1>
-    <p class="lede">パリには常設の蚤の市が3つあります。開催時間・アクセス・雰囲気を出典付きでまとめました。</p>
+    <h1 class="title">市場</h1>
+    <p class="lede">パリには常設の蚤の市が3つあります。開催時間・アクセス・雰囲気を出典付きでまとめました。あわせて食品マルシェなど公式データにある市場77件も掲載しています。</p>
   </header>
 
   <section aria-labelledby="flea-market-h">
@@ -52,9 +53,15 @@
     </div>
   </section>
 
+  <section aria-labelledby="marche-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="marche-h">食品マルシェ・その他の市場</h2></div>
+    <p class="section-note">パリ市公式オープンデータに登録されている食品マルシェ・花市場・切手市場などをまとめました(常設の蚤の市3つは上記に含まれるため除外)。出典: <a class="ranking-source" href="https://opendata.paris.fr/explore/dataset/marches-decouverts/">Paris Data ↗</a></p>
+    <div id="marche-list"></div>
+  </section>
+
   <section aria-labelledby="nearby-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くの蚤の市を探す</h2></div>
-    <p class="section-note">現在地、またはホテル名・住所を入力すると、近い蚤の市を距離順に表示します</p>
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くの市場を探す</h2></div>
+    <p class="section-note">現在地、またはホテル名・住所を入力すると、近い市場を距離順に表示します</p>
 
     <div class="nearby-form">
       <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>

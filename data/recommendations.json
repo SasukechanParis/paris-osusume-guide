@@ -570,5 +570,70 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Bontemps%20cafe%2057%20Rue%20de%20Bretagne%2C%2075003%20Paris",
     "description": "サブレ(クッキー)専門の焼き菓子店。ケーキがめちゃうまい",
     "photo_url": null
+  },
+  {
+    "id": "angelina",
+    "category": "cafe",
+    "status": "curious",
+    "name": "Angelina",
+    "address": "226 Rue de Rivoli, 75001 Paris",
+    "arrondissement": "1er",
+    "lat": 48.8650778,
+    "lng": 2.3284104,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Angelina%20226%20Rue%20de%20Rivoli%2C%2075001%20Paris",
+    "description": "1903年創業の老舗サロン・ド・テ。名物の濃厚なホットチョコレート「ラフリカン」とモンブランで有名。テュイルリー公園のすぐそば",
+    "photo_url": null
+  },
+  {
+    "id": "mariage-freres",
+    "category": "cafe",
+    "status": "curious",
+    "name": "Mariage Frères",
+    "address": "30 Rue du Bourg-Tibourg, 75004 Paris",
+    "arrondissement": "4e",
+    "lat": 48.8577196,
+    "lng": 2.3565683,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mariage%20Fr%C3%A8res%2030%20Rue%20du%20Bourg-Tibourg%2C%2075004%20Paris",
+    "description": "1854年創業、フランス最古の紅茶専門店。世界中から集めた500種類以上の茶葉を扱う。マレ地区の落ち着いた雰囲気のサロン",
+    "photo_url": null
+  },
+  {
+    "id": "shakespeare-and-company-cafe",
+    "category": "cafe",
+    "status": "curious",
+    "name": "Shakespeare and Company Café",
+    "address": "37 Rue de la Bûcherie, 75005 Paris",
+    "arrondissement": "5e",
+    "lat": 48.8525747,
+    "lng": 2.3471123,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shakespeare%20and%20Company%20Caf%C3%A9%2037%20Rue%20de%20la%20B%C3%BBcherie%2C%2075005%20Paris",
+    "description": "老舗書店Shakespeare and Companyに隣接するカフェ。ノートルダム大聖堂を眺めながらコーヒーとペイストリーが楽しめる",
+    "photo_url": null
+  },
+  {
+    "id": "coutume-cafe",
+    "category": "cafe",
+    "status": "curious",
+    "name": "Coutume Café",
+    "address": "47 Rue de Babylone, 75007 Paris",
+    "arrondissement": "7e",
+    "lat": 48.8516587,
+    "lng": 2.3182992,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Coutume%20Caf%C3%A9%2047%20Rue%20de%20Babylone%2C%2075007%20Paris",
+    "description": "パリのスペシャルティコーヒーの草分け的存在。自家焙煎の豆を使い、ル・ボン・マルシェ百貨店のすぐ近くにある",
+    "photo_url": null
+  },
+  {
+    "id": "ten-belles",
+    "category": "cafe",
+    "status": "curious",
+    "name": "Ten Belles",
+    "address": "10 Rue de la Grange aux Belles, 75010 Paris",
+    "arrondissement": "10e",
+    "lat": 48.8734923,
+    "lng": 2.3647376,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Ten%20Belles%2010%20Rue%20de%20la%20Grange%20aux%20Belles%2C%2075010%20Paris",
+    "description": "サン・マルタン運河沿いにある人気のスペシャルティコーヒー店。自家製の焼き菓子やサワードウパンも評判",
+    "photo_url": null
   }
 ]

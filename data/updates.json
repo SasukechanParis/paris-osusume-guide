@@ -1,5 +1,29 @@
 [
   {
+    "id": "cafe-category-added",
+    "date": "2026-09-05",
+    "text": "レストランページに「カフェ・サロン・ド・テ」を追加しました",
+    "link": "restaurants.html"
+  },
+  {
+    "id": "marches-added",
+    "date": "2026-09-05",
+    "text": "市場ページに食品マルシェなど77件を追加しました",
+    "link": "flea-markets.html"
+  },
+  {
+    "id": "travel-guide-added",
+    "date": "2026-09-05",
+    "text": "旅行ガイドを新設しました(季節の見どころ・旅行実務FAQ)",
+    "link": "guide.html"
+  },
+  {
+    "id": "public-toilets-added",
+    "date": "2026-09-05",
+    "text": "公衆トイレ581件の近く検索・地図表示に対応しました",
+    "link": "free-spots.html"
+  },
+  {
     "id": "bnf-richelieu-free-spot",
     "date": "2026-09-04",
     "text": "無料スポットにBnFリシュリュー館(サル・オヴァル)を追加しました",
