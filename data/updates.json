@@ -1,5 +1,11 @@
 [
   {
+    "id": "food-shopping-guides-added",
+    "date": "2026-09-10",
+    "text": "パン屋さん・スーパー・お土産・旅行ガイドに実用ガイド(パンの注文の仕方・食材辞典・お土産の選び方・レストランの使い方)を追加しました",
+    "link": "guide.html"
+  },
+  {
     "id": "taxi-warning-trending-refresh",
     "date": "2026-09-10",
     "text": "空港ガイドにタクシーの注意点・対処法を追加しVTCを優先案内に、今話題のことにCafé Kodomoを追加しました",
