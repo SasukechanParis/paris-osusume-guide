@@ -250,3 +250,76 @@ h1.title .accent { color: var(--red); }
   .nearby-card { grid-template-columns: 1fr auto auto; align-items: center; }
   .site-footer { padding: 24px 32px 40px; }
 }
+
+.emergency-banner {
+  display: block;
+  margin: 0 20px;
+  padding: 16px 18px;
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.emergency-banner-label {
+  display: block;
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.emergency-banner-desc { display: block; font-size: 12px; line-height: 1.6; opacity: 0.92; }
+@media (min-width: 480px) {
+  .emergency-banner { margin: 0 32px; }
+}
+
+.emergency-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0 8px;
+}
+.emergency-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.emergency-card {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 16px;
+}
+.emergency-card:first-of-type { padding-top: 0; }
+.emergency-card h2 {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.emergency-answer {
+  font-size: 14px;
+  line-height: 1.9;
+  font-weight: 700;
+  background: var(--surface);
+  border-left: 3px solid var(--red);
+  padding: 12px 14px;
+  margin: 0 0 12px;
+  border-radius: 2px;
+}
+.emergency-tel-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.emergency-tel { background: var(--red); border-color: var(--red); }
+.emergency-card details { margin-top: 4px; }
+.emergency-card summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  padding: 8px 0;
+}
+.emergency-card details[open] summary { margin-bottom: 4px; }

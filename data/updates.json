@@ -1,5 +1,11 @@
 [
   {
+    "id": "emergency-page-added",
+    "date": "2026-09-10",
+    "text": "「パリで困ったら」ページを新設し、旅行ガイドに免税(Détaxe/PABLO)・荷物預かり・定休日の罠を追加しました",
+    "link": "emergency.html"
+  },
+  {
     "id": "guide-transport-money",
     "date": "2026-09-05",
     "text": "旅行ガイドに地下鉄アプリ・Wise/Revolut・スリ対策(スマホ紛失対策含む)を加筆しました",
