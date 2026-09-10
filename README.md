@@ -14,7 +14,7 @@
 - `restaurants.html` — レストラン・カフェ(「レストラン」「カフェ・サロン・ド・テ」の2セクション、「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
 - `chocolatiers.html` / `hotels.html` — カテゴリ別おすすめ(「さすけのおすすめ」⇔「先輩カップルのおすすめ」タブ、近くの店検索つき)
 - `bakeries.html` — パン屋さん(パンの種類・注文フランス語つき) / `souvenirs.html` — お土産(選び方・食品持ち込み注意点つき) / `supermarket.html` — スーパーで買えるおすすめ(食材の見分け方つき)。いずれもカテゴリ別おすすめ一覧+近くの店検索は共通
-- `flea-markets.html` — 市場(常設の蚤の市3件+食品マルシェなど公式データ77件、不定期フリマの案内、近くの市場検索つき)
+- `flea-markets.html` — 市場(常設の蚤の市3件+食品マルシェなど79件、不定期フリマの案内、近くの市場検索つき)
 - `free-spots.html` — 無料スポット(無料の美術館・広場6件+パッサージュ16件、近くのスポット検索つき。公衆トイレ581件の近く検索も別枠で設置)
 - `guide.html` — 旅行ガイド(季節の見どころ・旅行実務FAQ・レストランの使い方・お得な支払い方法・免税Détaxe/PABLO・荷物預かり。出典付きの静的コンテンツ、JSONデータなし)
 - `monthly-guide.html` — 月別パリガイド(1月〜12月の気温目安・日照時間・季節イベント。日付が毎年変わるイベントは「例年◯月頃」表記で固定日付を書かない方針)
@@ -68,7 +68,7 @@ Scheduled Task `paris-bread-weekly-check`(毎週月曜9:05)が両方のチェッ
 
 ## 市場(`data/marches.json`)
 
-出典: [Paris Data「Marchés découverts」](https://opendata.paris.fr/explore/dataset/marches-decouverts/)(パリ市公式オープンデータ)。全80件のうち、既存の`flea-markets.json`(常設の蚤の市3件)と重複する`produit: "Puces"`3件を除いた77件(食品・オーガニック食品・花・アート/手工芸・切手)を採用。`flea-markets.html`の「食品マルシェ・その他の市場」セクションと`map.html`のカテゴリ(`flea_market`、蚤の市と統合)に表示する。開催曜日ごとの時間は`h_deb_sem_1`(平日共通)/`h_deb_sam`(土)/`h_deb_dim`(日)から組み立てている。
+出典: [Paris Data「Marchés découverts」](https://opendata.paris.fr/explore/dataset/marches-decouverts/)(パリ市公式オープンデータ)。全80件のうち、既存の`flea-markets.json`(常設の蚤の市3件)と重複する`produit: "Puces"`3件を除いた77件(食品・オーガニック食品・花・アート/手工芸・切手)を採用。加えて、同オープンデータには含まれない屋根付き市場(Marché des Enfants Rouges・Marché d'Aligre)をparis.fr公式ページを出典に2件手動追加し、計79件。`flea-markets.html`の「食品マルシェ・その他の市場」セクションと`map.html`のカテゴリ(`flea_market`、蚤の市と統合)に表示する。開催曜日ごとの時間は`h_deb_sem_1`(平日共通)/`h_deb_sam`(土)/`h_deb_dim`(日)から組み立てている。
 
 ## ミシュラン星付き(`michelin.html`)
 

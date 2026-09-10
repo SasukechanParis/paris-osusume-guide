@@ -423,3 +423,18 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - guide.html(入店・水/パン・会計・免税の4フレーズ)、bakeries.html(パンの注文4フレーズ)、airport.html(タクシー確認フレーズ)の全ての引用符付きフランス語フレーズに、カタカナ読みと英訳を追加した
 - guide.htmlの「レストランの使い方」section-note、bakeries.htmlの「注文の仕方」カード冒頭に、「Bonjour・Merci・S'il vous plaîtの3つさえ言えれば、あとは指さしや英語混じりで問題ない」という要旨のむんたのコメントをそのまま反映した
 - ブラウザで動作確認: 各ページの該当箇所にHello/Thank you/Please等の英訳とカタカナが表示されていることを確認済み。テスト49件全通過(テキストのみの変更でデータファイルは触れていない)
+
+## 海外一次情報の深掘りリサーチ・実装(2026-09-10 追加)
+
+むんたから「日本語で検索すれば見つかる情報を増やすのではなく、フランス語・英語の一次情報から、日本語ではまだ紹介されていない価値の高い情報を掘り起こしてほしい」という指示を受け、フランス語・英語メディア(Le Fooding、Time Out、Sortiraparis、各種公式サイト等)を中心に調査した候補35件から、むんたが「Aのみ・パリ市内限定」と承認した項目を実装した。
+
+- **レストラン・カフェ4件(`recommendations.json`)**: Ethanol(11区、ミシュラン一つ星シェフの2店舗目)、Pochana(11区、Le Fooding 2026「ベスト・カジュアルダイニング」)、Tanat(3区、旧Kawa、ワールドAeroPress選手権3位の焙煎士)、Le Maung Coffee Roaster by OMG(2区、フランス初のインドネシア式コーヒー店)
+- **パン屋・スイーツ・老舗2件**: Boulangerie du Sentier(2区、2026年Grand Parisクロワッサンコンクール優勝店)、LaCrèma gelato artisanal(5区、ヴィーガンジェラート)、Au Pied de Cochon(1区、1947年創業・パリ初の24時間営業許可レストラン)
+- **無料スポット3件(`free-spots.json`)**: Institut du Monde Arabeの9階無料テラス、Galeries Lafayette Haussmannの屋上無料テラス、Square René-Viviani(パリ最古の木)
+- **市場2件(`marches.json`新規)+2件(既存を加筆)**: 新規はMarché des Enfants Rouges(1615年創業・パリ最古の屋根付き市場)とMarché d'Aligre(屋外市場+屋根付き市場+蚤の市の複合)。既存のMarché BastilleとMarché aux Fleurs Reine Élizabeth II(2014年エリザベス女王訪問での改称エピソード)の説明文を加筆
+- **建築さんぽ(`guide.html`新設セクション)**: むんたの「パリは歴史を知ると面白い」というフィードバックを受け、エクトール・ギマールのアール・ヌーヴォー様式メトロ入口(2028年にHôtel Mezzaraがギマール美術館としてオープン予定)と、フォンダシオン・カルティエの2025年10月25日移転(旧ラスパイユ大通り→パレ・ロワイヤル広場2番地、ジャン・ヌーヴェル設計)を追加
+- **フランス人自身の贈答文化(`souvenirs.html`加筆)**: 「日本人向けパリ土産」ではなく、フランス人同士が贈り合う「épicerie fine(高級食料品)」のコフレ(詰め合わせ箱)文化を追加。むんたの「日本語で擦り倒されたものじゃないお土産情報がいい」という指摘に対応
+- **24時間営業薬局の具体例(`emergency.html`加筆)**: 当番薬局(3237)とは別に、常時24時間営業のPharmacie Centrale(15区)とPharmacie de la Porte de Montreuil(20区)を追加。候補にあった18区Boulevard Barbèsの薬局は、情報源間で営業時間の記載が食い違った(24時間 vs 08:00-23:59・土休)ため「要確認」と判断し掲載を見送った
+- **見送った候補(理由付き)**: Maison Duret(2026年フラン・コンクール3位)はセーヌ・エ・マルヌ県トルシー(パリ郊外)に所在するため、むんたの「パリ郊外の情報は不要」という指示により除外。B/C優先度の候補(さすけの個人体験が必要なもの、既存情報と重複するもの)も今回は実装せず
+- **ファクトチェックで訂正した事項**: Marché d'Aligreのsource_urlを当初`paris.fr/lieux/marche-aligre-beauvau-5460`と誤って作成しコミット前にcurlで404を検知→正しいURL(`marche-d-aligre-5481`)に修正。ギマール解説とフォンダシオン・カルティエの当初リンクも404だったため、WebSearchで正しい一次情報URL(paris.fr公式記事、fondationcartier.com公式)に差し替え。追加した全新規source_url・google_maps_urlはcurlで200 OKを確認済み
+- ブラウザで動作確認: souvenirs.html/guide.html/emergency.html/restaurants.html/free-spots.html/flea-markets.htmlの全ページで新規カード・新規エントリが正しく表示され、コンソールエラーなしを確認。テスト49件全通過(`free-spots.length` 6→9、`marches.length` 77→79 に更新)

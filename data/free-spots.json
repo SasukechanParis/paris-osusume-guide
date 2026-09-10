@@ -83,5 +83,47 @@
     "source_url": "https://www.bnf.fr/en/the-bnfs-richelieu-site",
     "source_label": "bnf.fr(公式)",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Biblioth%C3%A8que%20nationale%20de%20France%20(BnF)%20%7C%20Richelieu%2058%20Rue%20de%20Richelieu%2C%2075002%20Paris"
+  },
+  {
+    "id": "institut-du-monde-arabe-terrasse",
+    "name": "Institut du Monde Arabe(9階テラス)",
+    "arrondissement": "5e",
+    "address": "1 Rue des Fossés Saint-Bernard, 75005 Paris",
+    "lat": 48.8489962,
+    "lng": 2.3573756,
+    "hours": "火-日 10:00-18:00(月休、荒天時は閉鎖)。テラスは無料",
+    "description": "アラブ世界研究所の最上階(9階)にある展望テラス。チケット不要・無料で、ノートルダム大聖堂の背面からサン・ルイ島、マレ地区、セーヌ川まで一望できる。日本語ではまだあまり知られていない無料展望スポット",
+    "access": "メトロ Jussieu駅 / Cardinal Lemoine駅",
+    "source_url": "https://www.imarabe.org/fr/terrasse",
+    "source_label": "imarabe.org(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Institut%20du%20Monde%20Arabe(9%E9%9A%8E%E3%83%86%E3%83%A9%E3%82%B9)%201%20Rue%20des%20Foss%C3%A9s%20Saint-Bernard%2C%2075005%20Paris"
+  },
+  {
+    "id": "galeries-lafayette-terrasse",
+    "name": "Galeries Lafayette Haussmann(屋上テラス)",
+    "arrondissement": "9e",
+    "address": "40 Boulevard Haussmann, 75009 Paris",
+    "lat": 48.8736459,
+    "lng": 2.3321271,
+    "hours": "営業時間内は無料・予約不要(8階からアクセス)",
+    "description": "老舗デパート、ギャルリー・ラファイエットの屋上テラス。チケット・予約不要で、エッフェル塔やサクレクール寺院まで360度のパリを無料で一望できる。買い物のついでに立ち寄れる隠れた展望スポット",
+    "access": "メトロ Chaussée d'Antin - La Fayette駅 / Opéra駅",
+    "source_url": "https://haussmann.galerieslafayette.com/en/the-terrace-at-galeries-lafayette/",
+    "source_label": "Galeries Lafayette(公式)",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Galeries%20Lafayette%20Haussmann(%E5%B1%8B%E4%B8%8A%E3%83%86%E3%83%A9%E3%82%B9)%2040%20Boulevard%20Haussmann%2C%2075009%20Paris"
+  },
+  {
+    "id": "square-rene-viviani",
+    "name": "Square René-Viviani",
+    "arrondissement": "5e",
+    "address": "2 Rue du Fouarre, 75005 Paris",
+    "lat": 48.8515872,
+    "lng": 2.3474752,
+    "hours": "常時開放(公園のため営業時間なし)",
+    "description": "ノートルダム大聖堂の真向かいにある小さな公園。1601〜1602年頃、王室の薬草学者ジャン・ロバンが植えたとされる「パリで最も古い木」(高さ約15m、幹周り3.85mのニセアカシア)がある、観光客の少ない静かな穴場",
+    "access": "メトロ Saint-Michel駅 / Maubert-Mutualité駅",
+    "source_url": "https://www.pariszigzag.fr/sortir-paris/sorties-paris/square-rene-viviani-arbre/",
+    "source_label": "Paris ZigZag",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Square%20Ren%C3%A9-Viviani%202%20Rue%20du%20Fouarre%2C%2075005%20Paris"
   }
 ]

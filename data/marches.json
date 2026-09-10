@@ -105,7 +105,7 @@
     "lat": 48.855479362453735,
     "lng": 2.3476582634978183,
     "hours": "月 08:00-19:30 ・ 火 08:00-19:30 ・ 水 08:00-19:30 ・ 木 08:00-19:30 ・ 金 08:00-19:30 ・ 土 08:00-19:30 ・ 日 08:00-19:30",
-    "description": "種別: 花",
+    "description": "種別: 花。シテ島にある、パリで最も歴史ある花市場(1808年創業)。元は「花と鳥の市場」という名前だったが、2014年6月にエリザベス女王が訪問したことを記念して現在の名称に改称された。鉄骨とガラス屋根のアーケードが美しい",
     "access": "運営: Mairie de Paris",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20aux%20Fleurs%20Reine%20%C3%89lizabeth%20Ii%20Place%20Louis%20L%C3%A9pine%20et%20Quai%20de%20la%20Corse%2C%2075004%20Paris",
     "source_url": "https://opendata.paris.fr/explore/dataset/marches-decouverts/",
@@ -161,7 +161,7 @@
     "lat": 48.855255048945686,
     "lng": 2.3700797013740202,
     "hours": "木 07:00-13:30 ・ 日 07:00-14:30",
-    "description": "種別: 食品",
+    "description": "種別: 食品。ブールヴァール・リシャール=ルノワール沿いに広がる大規模な屋外市場で、地元パリジャンの定番。新鮮な野菜・果物・チーズ・惣菜が揃う",
     "access": "運営: Bensidoun",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20Bastille%20Terre-plein%20du%20Boulevard%20Richard-lenoir%2C%20entre%20les%20Rues%20Amelot%20et%20Saint-sabin%2C%2075011%20Paris",
     "source_url": "https://opendata.paris.fr/explore/dataset/marches-decouverts/",
@@ -1076,5 +1076,33 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20Vincent%20Auriol%20Terre-plein%20du%20Boulevard%20Vincent-auriol%2C%20entre%20le%20N%C2%B0%2064%20et%20la%20Rue%20Jeanne%20D'arc%2C%2075013%20Paris",
     "source_url": "https://opendata.paris.fr/explore/dataset/marches-decouverts/",
     "source_label": "Paris Data(パリ市公式オープンデータ)"
+  },
+  {
+    "id": "marche-enfants-rouges",
+    "name": "Marché des Enfants Rouges",
+    "arrondissement": "3e",
+    "address": "39 Rue de Bretagne, 75003 Paris",
+    "lat": 48.862792,
+    "lng": 2.361978,
+    "hours": "火-土 8:30-19:30(土は14:00まで)・日 8:30-14:00(月休)",
+    "description": "種別: 食品(屋根付き市場)。1615年創業、パリ最古の屋根付き市場。名前は隣接していた孤児院の子供たちが赤い服を着ていたことに由来。イタリア・アフリカ・レバノン等、世界各国の惣菜・軽食の屋台が並び、その場で食べ歩きもできる",
+    "access": "運営: Ville de Paris",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20des%20Enfants%20Rouges%2039%20Rue%20de%20Bretagne%2C%2075003%20Paris",
+    "source_url": "https://www.paris.fr/lieux/marche-couvert-des-enfants-rouges-5461",
+    "source_label": "paris.fr(公式)"
+  },
+  {
+    "id": "marche-aligre",
+    "name": "Marché d'Aligre",
+    "arrondissement": "12e",
+    "address": "Place d'Aligre, 75012 Paris",
+    "lat": 48.848901,
+    "lng": 2.3783195,
+    "hours": "屋外市場: 火-金 7:00-13:30・土日 7:00-14:30(月休)。屋根付き市場(Marché Beauvau): 火-日、屋外市場よりやや長め",
+    "description": "種別: 食品+蚤の市の複合。屋外の青空市場、1843年建造の歴史的建造物である屋根付き市場「マルシェ・ボーヴォー」、古着・古書・雑貨を扱う小さな蚤の市が同じ広場に同居する珍しい市場。朝早い時間帯が最も活気があり、生産者が直接販売する店も多い",
+    "access": "運営: Ville de Paris",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=March%C3%A9%20d'Aligre%20Place%20d'Aligre%2C%2075012%20Paris",
+    "source_url": "https://www.paris.fr/lieux/marche-d-aligre-5481",
+    "source_label": "paris.fr(公式)"
   }
 ]
