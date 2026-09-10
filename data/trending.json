@@ -26,6 +26,19 @@
     "added_date": "2026-08-30"
   },
   {
+    "id": "cafe-kodomo",
+    "name": "Café Kodomo",
+    "category": "other",
+    "arrondissement": "11e",
+    "address": "6 Rue Deguerry, 75011 Paris",
+    "lat": 48.8685124,
+    "lng": 2.3729813,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Kodomo%206%20Rue%20Deguerry%2C%2075011%20Paris",
+    "description": "台湾・日本の要素を取り入れたカンティーヌ兼コーヒーショップ。家族連れにも配慮した設計で、スペシャルティコーヒー・自家製パティスリー・和風サンドイッチなどを提供",
+    "source_url": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/349969-cafe-kodomo-une-cantine-et-coffee-shop-taiwano-japonais-pense-aussi-pour-les-familles",
+    "added_date": "2026-09-10"
+  },
+  {
     "id": "union-boulangerie",
     "name": "Union Boulangerie",
     "category": "other",

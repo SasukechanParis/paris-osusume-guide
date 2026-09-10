@@ -1,5 +1,11 @@
 [
   {
+    "id": "taxi-warning-trending-refresh",
+    "date": "2026-09-10",
+    "text": "空港ガイドにタクシーの注意点・対処法を追加しVTCを優先案内に、今話題のことにCafé Kodomoを追加しました",
+    "link": "airport.html"
+  },
+  {
     "id": "airport-guide-added",
     "date": "2026-09-10",
     "text": "空港アクセスガイドを新設しました(CDG・オルリー・ボーヴェの行き方比較)",
