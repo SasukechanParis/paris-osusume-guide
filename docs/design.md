@@ -438,3 +438,13 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - **見送った候補(理由付き)**: Maison Duret(2026年フラン・コンクール3位)はセーヌ・エ・マルヌ県トルシー(パリ郊外)に所在するため、むんたの「パリ郊外の情報は不要」という指示により除外。B/C優先度の候補(さすけの個人体験が必要なもの、既存情報と重複するもの)も今回は実装せず
 - **ファクトチェックで訂正した事項**: Marché d'Aligreのsource_urlを当初`paris.fr/lieux/marche-aligre-beauvau-5460`と誤って作成しコミット前にcurlで404を検知→正しいURL(`marche-d-aligre-5481`)に修正。ギマール解説とフォンダシオン・カルティエの当初リンクも404だったため、WebSearchで正しい一次情報URL(paris.fr公式記事、fondationcartier.com公式)に差し替え。追加した全新規source_url・google_maps_urlはcurlで200 OKを確認済み
 - ブラウザで動作確認: souvenirs.html/guide.html/emergency.html/restaurants.html/free-spots.html/flea-markets.htmlの全ページで新規カード・新規エントリが正しく表示され、コンソールエラーなしを確認。テスト49件全通過(`free-spots.length` 6→9、`marches.length` 77→79 に更新)
+
+## 芸能人情報の追加・月別ガイド廃止・表記統一(2026-09-10 追加)
+
+さすけから直接、narro(木村拓哉さん来店)・Galeries Lafayette屋上テラス(山下智久さん来訪)の芸能人トリビアの追加指示、Au Pied de Cochonは自身が実際に訪問済みという情報提供、月別ガイド廃止の希望、そしてサイト内の「むんた」表記をすべて「さすけ」に統一してほしいという依頼を受けて対応。
+
+- `data/recommendations.json`のnarroとGaleries Lafayette屋上テラス(`data/free-spots.json`)の`description`に、さすけから直接提供された芸能人来訪情報をそのまま追記
+- Au Pied de Cochonの`status`を`curious`(気になる・未訪問)から`recommended`(おすすめ)に変更。さすけ本人が実際に訪問済みと確認が取れたため
+- `free-spots.html`の「むんたが実際に足を運んで確認した」という表記を「さすけが実際に足を運んで確認した」に修正(サイト内で唯一の「むんた」表記だった)
+- **月別ガイド(`monthly-guide.html`)を廃止**: さすけの「月別ガイドいらないかも」という意向を受け、削除するか確認した上で削除を実施。全ページのナビから「月別ガイド」リンクを除去、index.htmlのカテゴリカードも削除、`data/updates.json`の該当エントリは「今どうしたい?」部分のみ残して`index.html`へのリンクに差し替え
+- テスト49件全通過(データ構造・件数に変更なし)。ブラウザで新規表記・ステータス変更・ナビからのリンク除去を確認済み

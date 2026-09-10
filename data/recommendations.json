@@ -22,7 +22,7 @@
     "lat": 48.8449342,
     "lng": 2.3495977,
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=narro%2072%20Rue%20du%20Cardinal%20Lemoine%2075005%20Paris",
-    "description": "シェフChikuda Kazumaによる、和素材を取り入れたフレンチ",
+    "description": "シェフChikuda Kazumaによる、和素材を取り入れたフレンチ。木村拓哉さん(キムタク)が来店したことでも話題になったお店",
     "photo_url": null
   },
   {
@@ -717,7 +717,7 @@
   {
     "id": "au-pied-de-cochon",
     "category": "restaurant",
-    "status": "curious",
+    "status": "recommended",
     "name": "Au Pied de Cochon",
     "address": "6 Rue Coquillière, 75001 Paris",
     "arrondissement": "1er",
