@@ -1,5 +1,11 @@
 [
   {
+    "id": "french-phrases-katakana-english",
+    "date": "2026-09-10",
+    "text": "フランス語フレーズにカタカナ読み・英訳を追加しました",
+    "link": "guide.html"
+  },
+  {
     "id": "monthly-guide-purpose-links-added",
     "date": "2026-09-10",
     "text": "月別パリガイドを新設し、トップページに「今どうしたい?」の目的別リンクを追加しました",
