@@ -1,5 +1,11 @@
 [
   {
+    "id": "airport-guide-added",
+    "date": "2026-09-10",
+    "text": "空港アクセスガイドを新設しました(CDG・オルリー・ボーヴェの行き方比較)",
+    "link": "airport.html"
+  },
+  {
     "id": "emergency-page-added",
     "date": "2026-09-10",
     "text": "「パリで困ったら」ページを新設し、旅行ガイドに免税(Détaxe/PABLO)・荷物預かり・定休日の罠を追加しました",
