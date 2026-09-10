@@ -1,5 +1,11 @@
 [
   {
+    "id": "monthly-guide-purpose-links-added",
+    "date": "2026-09-10",
+    "text": "月別パリガイドを新設し、トップページに「今どうしたい?」の目的別リンクを追加しました",
+    "link": "monthly-guide.html"
+  },
+  {
     "id": "shoot-day-guide-added",
     "date": "2026-09-10",
     "text": "撮影当日ガイドを新設しました(前日の準備・持ち物・天候と撮影の目安)",
