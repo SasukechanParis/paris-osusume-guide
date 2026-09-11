@@ -1,5 +1,11 @@
 [
   {
+    "id": "architecture-trivia-added",
+    "date": "2026-09-11",
+    "text": "建築さんぽにオスマン建築・高層ビル規制・サクレ・クール寺院の豆知識を追加、季節の見どころを削除しました",
+    "link": "guide.html#architecture-h"
+  },
+  {
     "id": "omusubi-gonbei-added",
     "date": "2026-09-11",
     "text": "旅行ガイドに「日本食が恋しくなったら」を追加、おむすび権米衛(Omusubi Gonbei)をレストラン一覧に追加しました",
