@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Michelin Two &amp; Three-Star Restaurants in Paris | Paris Guide by Sasuke</title>
-<meta name="description" content="All 29 of Paris's Michelin two- and three-star restaurants for 2026, with arrondissement, address, and a Google Maps link for each — plus where to find the city's roughly 100 one-star restaurants.">
+<title>All 127 Michelin-Starred Restaurants in Paris (2026) | Paris Guide by Sasuke</title>
+<meta name="description" content="Every one of Paris's 127 Michelin-starred restaurants for 2026 — one, two, and three star — filterable by star rating, arrondissement, and cuisine, with a Google Maps link and a 'find nearest' search for each.">
 <link rel="canonical" href="https://sasukechanparis.github.io/paris-osusume-guide/en/michelin-star-restaurants-paris.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Michelin Two & Three-Star Restaurants in Paris">
-<meta property="og:description" content="All 29 of Paris's Michelin two- and three-star restaurants for 2026, with arrondissement, address, and a Google Maps link for each.">
+<meta property="og:title" content="All 127 Michelin-Starred Restaurants in Paris (2026)">
+<meta property="og:description" content="Every Michelin-starred restaurant in Paris — one, two, and three star — filterable by star, arrondissement, and cuisine.">
 <meta property="og:url" content="https://sasukechanparis.github.io/paris-osusume-guide/en/michelin-star-restaurants-paris.html">
 <meta property="og:image" content="https://sasukechanparis.github.io/paris-osusume-guide/assets/illustrations/hero-paris.png">
 <meta property="og:locale" content="en_US">
@@ -26,36 +26,64 @@
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
   <nav class="site-nav">
     <a href="index.html">Home</a>
-    <a href="paris-bakery-awards.html" class="active">Bakery Awards</a>
+    <a href="paris-bakery-awards.html" class="active">Food &amp; Drink</a>
     <a href="practical-guide.html">Practical Guide</a>
     <a href="hotels.html">Hotels</a>
     <a href="paris-honeymoon-guide.html">Couples &amp; Honeymoon</a>
+    <a href="map.html">Map</a>
     <a href="about.html">About</a>
   </nav>
   <header class="hero">
     <a href="paris-bakery-awards.html" class="eyebrow">&larr; Bakery &amp; Pastry Awards</a>
-    <h1 class="title">Paris's <span class="accent">two- and three-star</span> tables</h1>
-    <p class="lede">The 2026 Michelin Guide lists 127 starred restaurants in Paris: 98 with one star, 20 with two, and 9 with three. This page covers just the top tier — the 29 two- and three-star restaurants — since a flat list of 100+ names isn't actually that useful on its own. For each one you get the facts that don't need a food critic to verify: arrondissement, address, and a map link, sourced back to where the star count was reported.</p>
+    <h1 class="title">Every Michelin star <span class="accent">in Paris</span></h1>
+    <p class="lede">The 2026 Michelin Guide lists 127 starred restaurants in Paris: 98 with one star, 20 with two, and 9 with three. All of them are here — filter by star rating, arrondissement, or cuisine, and use the search at the bottom to find whichever one is closest to you right now.</p>
     <img class="hero-image" src="../assets/illustrations/michelin.png" alt="Impressionist-style illustration of Michelin-style fine dining">
   </header>
 
   <section aria-labelledby="michelin-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="michelin-h">Two- and three-star restaurants</h2></div>
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="michelin-h">All 127, filterable</h2></div>
 
     <div class="year-tabs" id="star-tabs">
-      <button class="tab-btn active" data-stars="all" type="button">All 29</button>
+      <button class="tab-btn active" data-stars="all" type="button">All stars</button>
       <button class="tab-btn" data-stars="3" type="button">&#9733;&#9733;&#9733; Three star</button>
       <button class="tab-btn" data-stars="2" type="button">&#9733;&#9733; Two star</button>
+      <button class="tab-btn" data-stars="1" type="button">&#9733; One star</button>
+    </div>
+
+    <div class="michelin-filter-row">
+      <div class="michelin-filter">
+        <label for="michelin-arr-filter">Arrondissement</label>
+        <select id="michelin-arr-filter">
+          <option value="all">All arrondissements</option>
+        </select>
+      </div>
+      <div class="michelin-filter">
+        <label for="michelin-genre-filter">Cuisine</label>
+        <select id="michelin-genre-filter">
+          <option value="all">All cuisines</option>
+        </select>
+      </div>
     </div>
 
     <p id="michelin-count" class="section-note"></p>
     <div id="michelin-list"></div>
   </section>
 
-  <section aria-labelledby="one-star-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="one-star-h">Looking for one-star restaurants?</h2></div>
-    <p class="trending-desc">Paris also has around 100 one-star restaurants in the current guide — enough that a flat list stops being useful and starts being noise. The Michelin Guide's own site is the best place to browse them, since it stays current and lets you filter by cuisine and price.</p>
-    <a class="btn btn-outline" href="https://guide.michelin.com/us/en/ile-de-france/paris/restaurants" target="_blank" rel="noopener">Browse the Michelin Guide Paris &#8599;</a>
+  <section aria-labelledby="nearby-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">Find the nearest one to you</h2></div>
+    <p class="section-note">Use your current location, or type a hotel name or address, to sort every starred restaurant by distance. (A handful of the newest openings don't have a mapped location yet and won't appear here — the full list above always has them.)</p>
+
+    <div class="nearby-form">
+      <button id="gps-btn" class="btn gps-btn" type="button">Use my location</button>
+      <div class="nearby-divider">or search by address / hotel name</div>
+      <div class="nearby-row">
+        <input id="address-input" class="nearby-input" type="text" placeholder="e.g. Hôtel de la Paix, 9th arrondissement">
+        <button id="address-search-btn" class="btn btn-outline" type="button">Search</button>
+      </div>
+      <p id="nearby-status" class="section-note" style="margin:0;"></p>
+    </div>
+
+    <div id="nearby-results" class="nearby-results"></div>
   </section>
 
   <!-- Future CTA: "Planning a couples photoshoot in Paris?" — enable once
@@ -67,6 +95,7 @@
   </footer>
 </div>
 <script type="module" src="js/michelin-en.js"></script>
+<script type="module" src="js/michelin-nearby-en.js"></script>
 <script data-goatcounter="https://paris-guide-en.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

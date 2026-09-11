@@ -1,0 +1,98 @@
+[
+  {
+    "id": "jade-genin",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "Jade Genin",
+    "address": "Rue Danielle Casanova 75001 Paris",
+    "arrondissement": "1er",
+    "lat": 48.8677869,
+    "lng": 2.3332878,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jade%20Genin%20Rue%20Danielle%20Casanova%2075001%20Paris",
+    "description": "A newer shop specializing in milk chocolate, opened by Jade Genin, daughter of Jacques Genin."
+  },
+  {
+    "id": "patrick-roger",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "Patrick Roger",
+    "address": "Place de la Madeleine 75008 Paris",
+    "arrondissement": "8e",
+    "lat": 48.8693692,
+    "lng": 2.3231732,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Patrick%20Roger%20Place%20de%20la%20Madeleine%2075008%20Paris",
+    "description": "Sculptural, almost gallery-piece chocolates from Patrick Roger, a Meilleur Ouvrier de France — France's top-craftsman title."
+  },
+  {
+    "id": "trois-chocolats",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "Les trois chocolats Paris",
+    "address": "Rue Saint-Paul 75004 Paris",
+    "arrondissement": "4e",
+    "lat": 48.8543513,
+    "lng": 2.3623572,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Les%20trois%20chocolats%20Paris%20Rue%20Saint-Paul%2075004%20Paris",
+    "description": "French-Japanese chocolates built on ingredients like yuzu, miso, and cherry blossom, from a third-generation craftsman from Hakata."
+  },
+  {
+    "id": "mere-de-famille",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "À la Mère de Famille",
+    "address": "33 - 35 Rue du Faubourg Montmartre 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8739394,
+    "lng": 2.3422933,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%C3%80%20la%20M%C3%A8re%20de%20Famille%2033%20-%2035%20Rue%20du%20Faubourg%20Montmartre%2075009%20Paris",
+    "description": "Paris's oldest chocolate and confectionery shop, open since 1761."
+  },
+  {
+    "id": "ursa-major",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "Ursa Major Chocolats",
+    "address": "75 Rue Sedaine 75011 Paris",
+    "arrondissement": "11e",
+    "lat": 48.8582768,
+    "lng": 2.3775336,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ursa%20Major%20Chocolats%2075%20Rue%20Sedaine%2075011%20Paris",
+    "description": "A space-themed chocolate shop run by three sisters."
+  },
+  {
+    "id": "bernachon",
+    "category": "chocolatier",
+    "status": "recommended",
+    "name": "Bernachon Paris",
+    "address": "Rue de Sèvres 75007 Paris",
+    "arrondissement": "7e",
+    "lat": 48.8475037,
+    "lng": 2.3187336,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bernachon%20Paris%20Rue%20de%20S%C3%A8vres%2075007%20Paris",
+    "description": "A bean-to-bar veteran, founded in Lyon in 1953."
+  },
+  {
+    "id": "bontemps",
+    "category": "patisserie",
+    "status": "recommended",
+    "name": "Bontemps cafe",
+    "address": "57 Rue de Bretagne, 75003 Paris",
+    "arrondissement": "3e",
+    "lat": 48.8638867,
+    "lng": 2.3606413,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bontemps%20cafe%2057%20Rue%20de%20Bretagne%2C%2075003%20Paris",
+    "description": "A bakery built around sablé cookies — the cakes are just as good."
+  },
+  {
+    "id": "lacrema-gelato",
+    "category": "patisserie",
+    "status": "curious",
+    "name": "LaCrèma gelato artisanal",
+    "address": "19 Rue Soufflot, 75005 Paris",
+    "arrondissement": "5e",
+    "lat": 48.8470233,
+    "lng": 2.3414708,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=LaCr%C3%A8ma%20gelato%20artisanal%2019%20Rue%20Soufflot%2C%2075005%20Paris",
+    "description": "A vegan gelato specialist with house-made plant-based bases, no milk or cream. Opened April 2026, near the Luxembourg Gardens and the Panthéon."
+  }
+]

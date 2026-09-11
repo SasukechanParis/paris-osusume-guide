@@ -1,0 +1,50 @@
+[
+  {
+    "id": "brentanos",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Brentano's",
+    "address": "37 Avenue de l'Opéra 75002 Paris",
+    "arrondissement": "2e",
+    "lat": 48.8681609,
+    "lng": 2.3331613,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Brentano's%2037%20Avenue%20de%20l'Op%C3%A9ra%2075002%20Paris",
+    "description": "One of Paris's oldest English-language bookshops, open since 1895."
+  },
+  {
+    "id": "atelier-choux",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Atelier Choux Paris - Hautefeuille",
+    "address": "Impasse Hautefeuille 75006 Paris",
+    "arrondissement": "6e",
+    "lat": 48.8524992,
+    "lng": 2.3430803,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Atelier%20Choux%20Paris%20-%20Hautefeuille%20Impasse%20Hautefeuille%2075006%20Paris",
+    "description": "A baby and family goods brand with packaging and motifs drawn from Parisian architecture."
+  },
+  {
+    "id": "conservatoire-des-hemispheres-passy",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Conservatoire des Hémisphères Passy - Art du Thé",
+    "address": "9 Rue de Passy, 75016 Paris",
+    "arrondissement": "16e",
+    "lat": 48.8582268,
+    "lng": 2.2836839,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Conservatoire%20des%20H%C3%A9misph%C3%A8res%20Passy%20-%20Art%20du%20Th%C3%A9%209%20Rue%20de%20Passy%2C%2075016%20Paris",
+    "description": "A tea specialist carrying more than 100 rare teas."
+  },
+  {
+    "id": "officine-universelle-buly-1803",
+    "category": "souvenir",
+    "status": "recommended",
+    "name": "Officine Universelle Buly 1803",
+    "address": "29 Rue de Richelieu, 75001 Paris",
+    "arrondissement": "1er",
+    "lat": 48.865088,
+    "lng": 2.3363879,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Officine%20Universelle%20Buly%201803%2029%20Rue%20de%20Richelieu%2C%2075001%20Paris",
+    "description": "A perfumery and apothecary founded in 1803 — perfume, beauty oils, and candles in beautifully designed packaging."
+  }
+]

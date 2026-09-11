@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurants &amp; Cafés in Paris: Sasuke's Own Picks | Paris Guide by Sasuke</title>
+<meta name="description" content="Restaurants and cafés Sasuke has actually eaten at and would go back to, plus a shortlist of spots he wants to try next — chef backgrounds, cuisine style, and a Google Maps link for each.">
+<link rel="canonical" href="https://sasukechanparis.github.io/paris-osusume-guide/en/restaurants-and-cafes-paris.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Restaurants & Cafés in Paris: Sasuke's Own Picks">
+<meta property="og:description" content="Restaurants and cafés Sasuke has actually eaten at and would go back to, plus a shortlist of spots he wants to try next.">
+<meta property="og:url" content="https://sasukechanparis.github.io/paris-osusume-guide/en/restaurants-and-cafes-paris.html">
+<meta property="og:image" content="https://sasukechanparis.github.io/paris-osusume-guide/assets/illustrations/hero-paris.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/en.css">
+</head>
+<body>
+<div class="page">
+  <div class="tricolore-rail"><span></span><span></span><span></span></div>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="paris-bakery-awards.html" class="active">Food &amp; Drink</a>
+    <a href="practical-guide.html">Practical Guide</a>
+    <a href="hotels.html">Hotels</a>
+    <a href="paris-honeymoon-guide.html">Couples &amp; Honeymoon</a>
+    <a href="map.html">Map</a>
+    <a href="about.html">About</a>
+  </nav>
+  <header class="hero">
+    <h1 class="title">Restaurants &amp; cafés, <span class="accent">Sasuke's own list</span></h1>
+    <p class="lede">These are restaurants and cafés Sasuke — the photographer behind this guide — has personally eaten at, plus a few he hasn't gotten to yet but wants to. Not a ranked "best of" list and not independently fact-checked the way the bakery-competition and Michelin pages are: it's one Paris resident's actual experience, marked accordingly. Booking a table near where you're staying? See <a href="hotels.html">hotels by location</a> first.</p>
+  </header>
+
+  <section aria-labelledby="restaurants-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="restaurants-h">Restaurants</h2></div>
+    <div id="restaurants-list"></div>
+  </section>
+
+  <section aria-labelledby="cafes-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="cafes-h">Cafés</h2></div>
+    <p class="section-note">All of these are on Sasuke's to-try list rather than places he's already reviewed — Paris has no shortage of good coffee, and this list is a starting point, not the full picture.</p>
+    <div id="cafes-list"></div>
+  </section>
+
+  <section aria-labelledby="nearby-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">Find the nearest one to you</h2></div>
+    <p class="section-note">Use your current location, or type a hotel name or address, to sort every restaurant and café on this page by distance.</p>
+
+    <div class="nearby-form">
+      <button id="gps-btn" class="btn gps-btn" type="button">Use my location</button>
+      <div class="nearby-divider">or search by address / hotel name</div>
+      <div class="nearby-row">
+        <input id="address-input" class="nearby-input" type="text" placeholder="e.g. Hôtel de la Paix, 9th arrondissement">
+        <button id="address-search-btn" class="btn btn-outline" type="button">Search</button>
+      </div>
+      <p id="nearby-status" class="section-note" style="margin:0;"></p>
+    </div>
+
+    <div id="nearby-results" class="nearby-results"></div>
+  </section>
+
+  <section aria-labelledby="more-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="more-h">Looking for something more specific?</h2></div>
+    <div class="hub-grid">
+      <a class="hub-card" href="michelin-star-restaurants-paris.html">
+        <p class="hub-card-name">Michelin-Starred Restaurants</p>
+        <p class="hub-card-desc">All 127 of Paris's Michelin-starred restaurants, filterable by star, arrondissement, and cuisine.</p>
+      </a>
+      <a class="hub-card" href="dining-in-paris.html">
+        <p class="hub-card-name">How Dining in Paris Actually Works</p>
+        <p class="hub-card-desc">Tipping, splitting the bill, booking, and other etiquette questions first-time visitors have.</p>
+      </a>
+      <a class="hub-card" href="chocolatiers-and-patisseries-paris.html">
+        <p class="hub-card-name">Chocolatiers &amp; Pâtisseries</p>
+        <p class="hub-card-desc">Sasuke's own picks for chocolate and pastry, from old-guard institutions to newer names.</p>
+      </a>
+      <a class="hub-card" href="paris-honeymoon-guide.html">
+        <p class="hub-card-name">Couples &amp; Honeymoon</p>
+        <p class="hub-card-desc">Planning a romantic dinner as part of the trip? Start with the couples guide for spots and timing.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Future CTA: "Planning a couples photoshoot in Paris?" — enable once
+       photographerWebsiteUrl is set in en/assets/config.js. -->
+
+  <footer class="site-footer">
+    <p>These are Sasuke's own picks, not an independently fact-checked ranking — restaurants do close, move, and change hands, so always confirm hours and that a place is still open before making a special trip. Created by Sasuke, a Paris-based wedding and couple photographer.</p>
+    <p><a href="about.html">About this guide</a></p>
+  </footer>
+</div>
+<script type="module" src="js/restaurants-cafes-en.js"></script>
+<script data-goatcounter="https://paris-guide-en.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

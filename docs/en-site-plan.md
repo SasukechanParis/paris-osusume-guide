@@ -62,6 +62,25 @@ All 15 pages above are complete, tested locally (rendered, no console errors, al
 
 English pages use a **separate GoatCounter site code**, `paris-guide-en`, from the Japanese site's `paris-osusume` — so English SEO traffic and hand-distributed Japanese client traffic never mix in the dashboard. **This needs the same one-time signup step the Japanese site needed**: sign up at goatcounter.com with site code `paris-guide-en`, confirm via email, then `https://paris-guide-en.goatcounter.com/` will start showing data (it's already embedded in every English page, so nothing else needs to change once the account exists).
 
+## Round 2 (same day, site owner reviewed round 1 and asked for more)
+
+After reviewing the first 15 pages, Sasuke asked for four more things, all now built:
+
+1. **Restaurant/café, chocolatier/pâtisserie, bakery, and souvenir pages ported from his own picks** — he explicitly approved reusing `data/recommendations.json` for these categories (a different ruling from hotels: no criteria mismatch here, these just are his real picks). `data/guest-recommendations.json` is still never touched, no exception. See the new pages listed below.
+2. **Michelin page expanded from 29 to all 127 entries** (one/two/three star), with arrondissement + cuisine filters added alongside the existing star filter, and a "find nearest" search. The French→English cuisine-label table lives in `en/js/michelin-en.js`.
+3. **An interactive map** (`en/map.html`, Leaflet + OpenStreetMap, porting `map.js`'s approach) aggregating pins from every English-only data source — bread-contest winners, all 127 Michelin entries, hotels, and (once built) the four new category pages — with category/area filters, address search, and a "show my location" control, mirroring the Japanese site's `map.html` feature-for-feature but in English. Built to degrade gracefully: it fetches the four new category files with a helper that treats a missing file as "no pins yet" rather than breaking, so the map works today and picks up new categories automatically as they land — no code change needed later.
+4. **Hotels now have coordinates.** The original hotel brief didn't ask for lat/lng, so `en/data/hotels-en.json` didn't have any — added by geocoding all 16 addresses via Nominatim (same tool and method the Japanese site already uses), so hotels can appear on the new map. Each result was sanity-checked against a Paris/Île-de-France bounding box before being accepted; none needed manual correction.
+
+Also answered two operational questions in chat rather than in a page: whether hotel-affiliate signups require a registered French business (no, for signup; yes in principle once real commission income starts — added detail to `wiki/ビジネス設計/フランス起業_税務_生活実務_wiki.md`), and the GoatCounter signup steps for the new `paris-guide-en` site code.
+
+### Final site map (19 pages total)
+
+Added since round 1: `en/restaurants-and-cafes-paris.html`, `en/chocolatiers-and-patisseries-paris.html`, `en/favorite-bakeries-paris.html`, `en/paris-souvenir-guide.html`, `en/map.html`. `paris-bakery-awards.html` now also hubs these four new "Sasuke's own picks" pages alongside the two competitions and Michelin. The top nav's second item was renamed "Bakery Awards" → "Food & Drink" and a "Map" item was added, applied consistently across all 19 pages (section-grouped active states: every practical-guide sub-page highlights "Practical Guide," every food/bakery/restaurant/Michelin page highlights "Food & Drink").
+
+### Map data resilience (worth knowing if you edit this later)
+
+`en/js/map-en.js` loads the four "Sasuke's own picks" JSON files with a helper (`fetchJsonOrEmpty`) that treats a missing file as zero pins rather than an error — this was deliberate, since the map was built before those four pages existed and needed to keep working either way. Now that all four exist, this no longer matters in practice, but the pattern is still there if a category ever gets removed or renamed.
+
 ## Testing done
 
 - Every English page was loaded in a real browser against a local static server; no console errors, all fonts/CSS/images/data loaded (200 OK).
@@ -70,12 +89,12 @@ English pages use a **separate GoatCounter site code**, `paris-guide-en`, from t
 - Grepped the entire `en/` tree for banned first-person/attribution phrases ("I recommend," "Sasuke recommends," "my clients love," etc.), any reference to `guest-recommendations.json`, and any non-empty/placeholder affiliate URL — all clean.
 - Spot-verified two specific factual claims myself via live web search rather than trusting either my own or the subagents' training-data knowledge: that the baguette competition's winner genuinely does supply the Élysée Palace for a year (confirmed, multiple outlets including 2026's actual winner), and that Paris's free public "sanisette" toilets are officially ~435 in number per paris.fr (used that instead of the Japanese site's older 581-count snapshot, which was itself flagged there as a static, non-refreshed figure).
 
-## What was deliberately left out of v1 (not fabricated, just not attempted tonight)
+## What was deliberately left out (still true after round 2)
 
-- A rebuilt English interactive map (`map.html` equivalent) — the Japanese Leaflet map has Japanese-language UI controls; porting it well is a real feature, not a translation, and was out of scope for one night.
-- An English "find the nearest bakery/hotel to me" GPS search — nice-to-have, not required for the content to be useful or correct.
-- Chocolatiers/bakeries/souvenirs/supermarket category pages — the Japanese equivalents mix Sasuke's own picks (OWNER_APPROVAL, needs his confirmation before public reuse) with guest picks (CLIENT_PRIVATE, excluded entirely) and needed the same location/fact-driven independent-research treatment as hotels. Left for a follow-up rather than rushed.
-- One-star Michelin restaurants (98 of the 127) — intentionally shown as "see the official guide" rather than listed with unverified one-line blurbs; matches the reasoning already used for the Japanese site.
+- **`supermarket` category** — zero entries in the Japanese site's own data (`data/recommendations.json`), so there's nothing to port yet.
+- **Flea markets / free spots (passages, free museums, public toilets as their own page)** — not built. The interactive map and the "public toilets" section in `getting-around-paris.html` cover the highest-value parts of this; a full English port of `flea-markets.html`/`free-spots.html` would need the same care the rest of this project got, and wasn't requested.
+- **Photo display on category cards** — `photo_url` is `null` for every entry in the current data, so no image-rendering code was built for restaurant/hotel/bakery cards; trivial to add once real photos exist.
+- **"Trending now" (`今話題のこと`)** — not ported. It's Japan-audience social-media buzz-driven content on the Japanese site and would need its own English-market research process, not a translation.
 
 ## What was NOT done — the one item held back for review
 

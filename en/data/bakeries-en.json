@@ -1,0 +1,38 @@
+[
+  {
+    "id": "union-boulangerie",
+    "category": "bakery",
+    "status": "recommended",
+    "name": "Union Boulangerie",
+    "address": "2 Rue Bleue, 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8758793,
+    "lng": 2.347715,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Union%20Boulangerie%202%20Rue%20Bleue%2C%2075009%20Paris",
+    "description": "The two things worth going for: the apple bomb pastry and the hot dog."
+  },
+  {
+    "id": "boulangerie-michalak",
+    "category": "bakery",
+    "status": "recommended",
+    "name": "Boulangerie Michalak",
+    "address": "60 rue du Faubourg Poissonnière, 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8753045,
+    "lng": 2.3483644,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20Michalak%2060%20rue%20du%20Faubourg%20Poissonni%C3%A8re%2C%2075009%20Paris",
+    "description": "The bread is good, but the cheesecake is the real draw — worth trying the cakes next door at Café Michalak too."
+  },
+  {
+    "id": "boulangerie-du-sentier",
+    "category": "bakery",
+    "status": "curious",
+    "name": "Boulangerie du Sentier",
+    "address": "47 Rue du Caire, 75002 Paris",
+    "arrondissement": "2e",
+    "lat": 48.8679056,
+    "lng": 2.3489745,
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Boulangerie%20du%20Sentier%2047%20Rue%20du%20Caire%2C%2075002%20Paris",
+    "description": "Winner of the 2026 Grand Paris croissant competition (its 25th edition) — a Sentier bakery carrying on the neighborhood's Jewish baking tradition."
+  }
+]

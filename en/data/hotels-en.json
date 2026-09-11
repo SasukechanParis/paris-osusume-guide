@@ -5,14 +5,27 @@
     "address": "2 Place des Pyramides, 75001 Paris, France",
     "arrondissement": "1er",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Regina%20Louvre%202%20Place%20des%20Pyramides%2075001%20Paris",
-    "categories": ["near-louvre", "first-time-visitors"],
-    "tags": ["Great location", "Facing the Louvre"],
+    "categories": [
+      "near-louvre",
+      "first-time-visitors"
+    ],
+    "tags": [
+      "Great location",
+      "Facing the Louvre"
+    ],
     "whyThisLocation": "Faces the Louvre directly across Place des Pyramides, with the Tuileries Garden, the Rue de Rivoli arcades, and the Palais-Royal all within a 5-10 minute walk — built for visitors who want to walk to the museum rather than plan transport around it.",
     "sourceUrls": [
       "https://www.regina-hotel.com/en/",
       "https://www.historichotels.org/hotels-resorts/hotel-regina-louvre/"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8637204,
+    "lng": 2.3325149
   },
   {
     "id": "le-meurice",
@@ -20,14 +33,26 @@
     "address": "228 Rue de Rivoli, 75001 Paris, France",
     "arrondissement": "1er",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Meurice%20228%20Rue%20de%20Rivoli%2075001%20Paris",
-    "categories": ["near-louvre"],
-    "tags": ["Great location", "Historic palace"],
+    "categories": [
+      "near-louvre"
+    ],
+    "tags": [
+      "Great location",
+      "Historic palace"
+    ],
     "whyThisLocation": "Sits directly across from the Tuileries Garden and about five minutes on foot from the Louvre, putting the Right Bank's main sightseeing corridor within walking distance in either direction.",
     "sourceUrls": [
       "https://www.dorchestercollection.com/paris/le-meurice/",
       "https://www.forbestravelguide.com/hotels/paris-france/le-meurice-dorchester-collection"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8651359,
+    "lng": 2.3282657
   },
   {
     "id": "hotel-du-louvre-unbound-collection",
@@ -35,14 +60,27 @@
     "address": "Place André Malraux, 75001 Paris, France",
     "arrondissement": "1er",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20du%20Louvre%20Place%20Andr%C3%A9%20Malraux%2075001%20Paris",
-    "categories": ["near-louvre", "first-time-visitors"],
-    "tags": ["Great location", "Editor's pick"],
+    "categories": [
+      "near-louvre",
+      "first-time-visitors"
+    ],
+    "tags": [
+      "Great location",
+      "Editor's pick"
+    ],
     "whyThisLocation": "Occupies the block between the Louvre and the Opéra Garnier, so both are a short walk away in opposite directions — a practical single base for a first visit built around the Louvre, the Palais-Royal, and the grand boulevards.",
     "sourceUrls": [
       "https://www.hyatt.com/unbound-collection/en-US/paraz-hotel-du-louvre",
       "https://www.forbestravelguide.com/hotels/paris-france/hotel-du-louvre-in-the-unbound-collection-by-hyatt"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8636181,
+    "lng": 2.3353282
   },
   {
     "id": "hotel-therese",
@@ -50,14 +88,26 @@
     "address": "5-7 Rue Thérèse, 75001 Paris, France",
     "arrondissement": "1er",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Th%C3%A9r%C3%A8se%205-7%20Rue%20Th%C3%A9r%C3%A8se%2075001%20Paris",
-    "categories": ["near-louvre"],
-    "tags": ["Great location", "Value pick"],
+    "categories": [
+      "near-louvre"
+    ],
+    "tags": [
+      "Great location",
+      "Value pick"
+    ],
     "whyThisLocation": "A five-minute walk from both the Louvre and the Jardin du Palais-Royal, with the Pyramides metro two minutes away — a more moderately priced option in the same walkable pocket as the area's palace hotels.",
     "sourceUrls": [
       "https://en.hoteltherese.com/",
       "https://www.i-escape.com/hotel-therese"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8660937,
+    "lng": 2.3357764
   },
   {
     "id": "cheval-blanc-paris",
@@ -65,14 +115,26 @@
     "address": "8 Quai du Louvre, 75001 Paris, France",
     "arrondissement": "1er",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cheval%20Blanc%20Paris%208%20Quai%20du%20Louvre%2075001%20Paris",
-    "categories": ["near-louvre"],
-    "tags": ["Great location", "Landmark building"],
+    "categories": [
+      "near-louvre"
+    ],
+    "tags": [
+      "Great location",
+      "Landmark building"
+    ],
     "whyThisLocation": "Set on the Seine directly beside the Pont Neuf, a few minutes' walk from the Louvre and the Île de la Cité — as central as the Right Bank gets, and the building itself (the restored Samaritaine department store) is part of the draw.",
     "sourceUrls": [
       "https://www.chevalblanc.com/en/maison/paris/",
       "https://guide.michelin.com/us/en/hotels-stays/paris/cheval-blanc-paris-dior-spa-cheval-blanc-paris-12286"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8588428,
+    "lng": 2.3418987
   },
   {
     "id": "hotel-lutetia",
@@ -80,14 +142,28 @@
     "address": "45 Boulevard Raspail, 75006 Paris, France",
     "arrondissement": "6e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Lutetia%2045%20Boulevard%20Raspail%2075006%20Paris",
-    "categories": ["saint-germain", "couples", "honeymoon"],
-    "tags": ["Good for couples", "Left Bank icon"],
+    "categories": [
+      "saint-germain",
+      "couples",
+      "honeymoon"
+    ],
+    "tags": [
+      "Good for couples",
+      "Left Bank icon"
+    ],
     "whyThisLocation": "The only historic palace hotel on the Left Bank, in the middle of Saint-Germain-des-Prés with Le Bon Marché, the Luxembourg Gardens, and the neighborhood's cafés all within walking distance — a landmark stay without ever needing to leave the Left Bank to sightsee.",
     "sourceUrls": [
       "https://www.mandarinoriental.com/en/paris/lutetia",
       "https://www.lhw.com/get-inspired/destination-experiences/paris/hotel-stories/hotel-lutetia-saint-germain-des-pres-paris-france"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.850915,
+    "lng": 2.3272149
   },
   {
     "id": "hotel-bel-ami",
@@ -95,14 +171,27 @@
     "address": "7 Rue Saint-Benoît, 75006 Paris, France",
     "arrondissement": "6e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Bel-Ami%207%20Rue%20Saint-Beno%C3%AEt%2075006%20Paris",
-    "categories": ["saint-germain", "first-time-visitors"],
-    "tags": ["Great location", "Walkable"],
+    "categories": [
+      "saint-germain",
+      "first-time-visitors"
+    ],
+    "tags": [
+      "Great location",
+      "Walkable"
+    ],
     "whyThisLocation": "A few steps from Café de Flore, Les Deux Magots, and Place Saint-Germain-des-Prés, in the middle of the Left Bank's bookshops, galleries, and restaurant streets — built for exploring the neighborhood on foot rather than as a base you commute from.",
     "sourceUrls": [
       "https://www.hotelbelami-paris.com/",
       "https://www.americanexpress.com/en-us/travel/discover/property/France/Paris/Hotel-Bel-Ami"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8548818,
+    "lng": 2.3332071
   },
   {
     "id": "relais-christine",
@@ -110,14 +199,29 @@
     "address": "3 Rue Christine, 75006 Paris, France",
     "arrondissement": "6e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Relais%20Christine%203%20Rue%20Christine%2075006%20Paris",
-    "categories": ["saint-germain", "couples", "honeymoon"],
-    "tags": ["Editor's pick", "Quiet retreat", "Good for couples"],
+    "categories": [
+      "saint-germain",
+      "couples",
+      "honeymoon"
+    ],
+    "tags": [
+      "Editor's pick",
+      "Quiet retreat",
+      "Good for couples"
+    ],
     "whyThisLocation": "Set back from the street around a private courtyard garden in a quiet stretch of Saint-Germain, close enough to walk to the Seine, the Latin Quarter, and the Musée d'Orsay, but insulated from the noise those areas bring — a fit for couples who want quiet without giving up walkability.",
     "sourceUrls": [
       "https://www.relais-christine.com/en/",
       "https://www.relaischateaux.com/us/hotel/relais-christine/"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8544372,
+    "lng": 2.3400012
   },
   {
     "id": "shangri-la-paris",
@@ -125,14 +229,28 @@
     "address": "10 Avenue d'Iéna, 75116 Paris, France",
     "arrondissement": "16e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shangri-La%20Paris%2010%20Avenue%20d%27I%C3%A9na%2075116%20Paris",
-    "categories": ["eiffel-tower", "couples", "honeymoon"],
-    "tags": ["Eiffel Tower view", "Honeymoon pick"],
+    "categories": [
+      "eiffel-tower",
+      "couples",
+      "honeymoon"
+    ],
+    "tags": [
+      "Eiffel Tower view",
+      "Honeymoon pick"
+    ],
     "whyThisLocation": "Occupies a former princely residence across the Seine from the Eiffel Tower, and most rooms and suites are positioned to look directly at it — the clearest Eiffel Tower view in this guide, in a quiet residential pocket of the 16th near the Trocadéro.",
     "sourceUrls": [
       "https://www.shangri-la.com/paris/shangrila/",
       "https://guide.michelin.com/us/en/hotels-stays/paris/shangrila-hotel-paris-5455"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8637194,
+    "lng": 2.2934262
   },
   {
     "id": "pullman-paris-tour-eiffel",
@@ -140,14 +258,25 @@
     "address": "18 Avenue de Suffren, 75015 Paris, France",
     "arrondissement": "15e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pullman%20Paris%20Tour%20Eiffel%2018%20Avenue%20de%20Suffren%2075015%20Paris",
-    "categories": ["eiffel-tower"],
-    "tags": ["Near Eiffel Tower"],
+    "categories": [
+      "eiffel-tower"
+    ],
+    "tags": [
+      "Near Eiffel Tower"
+    ],
     "whyThisLocation": "A five-minute walk from the base of the Eiffel Tower on the Left Bank, with the Champ de Mars and the Seine both close by — a larger, more straightforward option for visitors who want to be near the tower without booking a guaranteed view room.",
     "sourceUrls": [
       "https://www.pullmanparistoureiffel.fr/en",
       "https://www.oyster.com/paris/hotels/pullman-paris-tour-eiffel/"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8555021,
+    "lng": 2.2926827
   },
   {
     "id": "hotel-duquesne-eiffel",
@@ -155,14 +284,27 @@
     "address": "23 Avenue Duquesne, 75007 Paris, France",
     "arrondissement": "7e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Duquesne%20Eiffel%2023%20Avenue%20Duquesne%2075007%20Paris",
-    "categories": ["eiffel-tower", "first-time-visitors"],
-    "tags": ["Near Eiffel Tower", "Value pick"],
+    "categories": [
+      "eiffel-tower",
+      "first-time-visitors"
+    ],
+    "tags": [
+      "Near Eiffel Tower",
+      "Value pick"
+    ],
     "whyThisLocation": "A quiet residential street in the 7th arrondissement, with top-floor rooms close enough to get a direct view of the tower, and Les Invalides and the Champ de Mars both an easy walk — a smaller, more moderately priced alternative to the area's bigger hotels.",
     "sourceUrls": [
       "https://www.hotel-duquesne-eiffel-paris.com/",
       "https://www.oyster.com/paris/hotels/hotel-duquesne-eiffel/"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8526447,
+    "lng": 2.3090021
   },
   {
     "id": "le-pavillon-de-la-reine",
@@ -170,14 +312,29 @@
     "address": "28 Place des Vosges, 75003 Paris, France",
     "arrondissement": "3e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Pavillon%20de%20la%20Reine%2028%20Place%20des%20Vosges%2075003%20Paris",
-    "categories": ["le-marais", "couples", "honeymoon"],
-    "tags": ["Good for couples", "Historic", "Quiet retreat"],
+    "categories": [
+      "le-marais",
+      "couples",
+      "honeymoon"
+    ],
+    "tags": [
+      "Good for couples",
+      "Historic",
+      "Quiet retreat"
+    ],
     "whyThisLocation": "Set back from Place des Vosges behind its own courtyard, in the middle of the Marais's café and boutique streets — a quiet, historic base for couples who want to walk to dinner rather than take a taxi.",
     "sourceUrls": [
       "https://en.pavillon-de-la-reine.com/",
       "https://guide.michelin.com/us/en/hotels-stays/paris/le-pavillon-de-la-reine-104"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8562644,
+    "lng": 2.365997
   },
   {
     "id": "hotel-du-petit-moulin",
@@ -185,14 +342,27 @@
     "address": "29-31 Rue de Poitou, 75003 Paris, France",
     "arrondissement": "3e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20du%20Petit%20Moulin%2029-31%20Rue%20de%20Poitou%2075003%20Paris",
-    "categories": ["le-marais", "couples"],
-    "tags": ["Good for couples", "Design-forward"],
+    "categories": [
+      "le-marais",
+      "couples"
+    ],
+    "tags": [
+      "Good for couples",
+      "Design-forward"
+    ],
     "whyThisLocation": "A former bakery turned boutique hotel on a quiet street just off Rue de Bretagne, in the middle of the Marais's shopping and café district — a design-forward pick for couples who plan to spend most of their time on foot in the neighborhood.",
     "sourceUrls": [
       "https://en.hotelpetitmoulinparis.com/",
       "https://guide.michelin.com/us/en/hotels-stays/paris/hotel-du-petit-moulin-8173"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8615897,
+    "lng": 2.3621005
   },
   {
     "id": "hotel-jules-et-jim",
@@ -200,14 +370,27 @@
     "address": "11 Rue des Gravilliers, 75003 Paris, France",
     "arrondissement": "3e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Jules%20et%20Jim%2011%20Rue%20des%20Gravilliers%2075003%20Paris",
-    "categories": ["le-marais", "first-time-visitors"],
-    "tags": ["Great location", "Contemporary design"],
+    "categories": [
+      "le-marais",
+      "first-time-visitors"
+    ],
+    "tags": [
+      "Great location",
+      "Contemporary design"
+    ],
     "whyThisLocation": "Tucked on a quiet street near the Musée des Arts et Métiers, close to the Marais's boutiques and the Centre Pompidou — a contemporary, central base for first-time visitors who want walkable access to both the Marais and the Right Bank's main sights.",
     "sourceUrls": [
       "https://www.hoteljulesetjim.com/",
       "https://parisjetaime.com/eng/accommodation/jules-et-jim-p251"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8636052,
+    "lng": 2.3573697
   },
   {
     "id": "airelles-chateau-de-versailles-grand-controle",
@@ -215,14 +398,25 @@
     "address": "Château de Versailles, 78000 Versailles, France",
     "arrondissement": "Versailles",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Airelles%20Le%20Grand%20Contr%C3%B4le%20Ch%C3%A2teau%20de%20Versailles%2078000%20Versailles",
-    "categories": ["destination"],
-    "tags": ["Destination hotel"],
+    "categories": [
+      "destination"
+    ],
+    "tags": [
+      "Destination hotel"
+    ],
     "whyThisLocation": "The only hotel inside the grounds of the Palace of Versailles, in a 17th-century residence built by the palace's own architect. This is a destination hotel, not a convenient Paris base — it's roughly 30-40 minutes from central Paris by train, and the reason to stay is the palace itself, not proximity to the city's other sights.",
     "sourceUrls": [
       "https://airelles.com/en/destination/chateau-de-versailles-hotel/",
       "https://www.forbestravelguide.com/hotels/paris-france/airelles-chateau-de-versailles-le-grand-controle"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8044252,
+    "lng": 2.1202853
   },
   {
     "id": "molitor-hotel-spa-paris",
@@ -230,13 +424,24 @@
     "address": "16 Avenue de la Porte Molitor, 75016 Paris, France",
     "arrondissement": "16e",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Molitor%20Hotel%20%26%20Spa%20Paris%2016%20Avenue%20de%20la%20Porte%20Molitor%2075016%20Paris",
-    "categories": ["destination"],
-    "tags": ["Destination hotel"],
+    "categories": [
+      "destination"
+    ],
+    "tags": [
+      "Destination hotel"
+    ],
     "whyThisLocation": "Built around the restored 1929 Art Deco swimming pools that made it a Paris landmark long before it reopened as a hotel. It sits at the western edge of the city near Porte d'Auteuil, well outside walking distance of the Louvre, the Marais, or the Eiffel Tower — a pick for the pools and the building, not for sightseeing logistics.",
     "sourceUrls": [
       "https://www.molitorparis.com/en/",
       "https://www.historichotels.org/hotels-resorts/hotel-molitor-paris-mgallery"
     ],
-    "affiliateLinks": { "expedia": "", "hotelsCom": "", "booking": "", "agoda": "" }
+    "affiliateLinks": {
+      "expedia": "",
+      "hotelsCom": "",
+      "booking": "",
+      "agoda": ""
+    },
+    "lat": 48.8449368,
+    "lng": 2.2534652
   }
 ]
