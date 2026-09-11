@@ -20,8 +20,25 @@ const CATEGORIES = {
   chocolatier: { label: 'Chocolatiers', color: '#6b3e26' },
   patisserie: { label: 'Pâtisseries', color: '#c88ea7' },
   bakery: { label: 'Favorite bakeries', color: '#e67e22' },
-  souvenir: { label: 'Souvenirs', color: '#e84393' }
+  souvenir: { label: 'Souvenirs', color: '#e84393' },
+  toilet: { label: 'Public toilets', color: '#7f8c8d', defaultVisible: false }
 };
+
+// data/toilets.json's `type` field is French; translated for the popup.
+const TOILET_TYPE_LABELS = {
+  Sanisette: 'Self-cleaning cabin',
+  WC: 'Standard toilet',
+  Urinoir: 'Urinal',
+  'Urinoir femme': "Women's urinal",
+  Lavatory: 'Lavatory'
+};
+
+function formatToiletHours(hours) {
+  if (!hours) return '';
+  if (hours === '24/24h') return '24 hours';
+  if (hours === 'Horaires du parc') return "Same hours as the park it's in";
+  return hours.replace(/(\d{1,2})h(\d{2})/g, '$1:$2');
+}
 
 const ARRONDISSEMENT_ORDER = [
   '1er', '2e', '3e', '4e', '5e', '6e', '7e', '8e', '9e', '10e',
@@ -94,7 +111,7 @@ function popupHtml({ name, meta, description, mapUrl, sourceUrl, categoryLabel }
     </div>`;
 }
 
-function buildPoints({ shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs }) {
+function buildPoints({ shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs, toilets }) {
   const points = [];
 
   // Bakery competition winners: latest year per contest only, same as the
@@ -218,11 +235,29 @@ function buildPoints({ shops, results, michelin, hotels, restaurantsCafes, choco
     });
   }
 
+  for (const t of toilets) {
+    const typeLabel = TOILET_TYPE_LABELS[t.type] || t.type || 'Public toilet';
+    const notes = [typeLabel];
+    if (t.pmr_accessible) notes.push('wheelchair accessible');
+    if (t.baby_changing) notes.push('baby changing table');
+    points.push({
+      category: 'toilet',
+      arrondissement: t.arrondissement,
+      lat: t.lat,
+      lng: t.lng,
+      name: 'Public toilet',
+      meta: `${arrondissementLabel(t.arrondissement)} &middot; ${formatToiletHours(t.hours)}`,
+      description: notes.join(' &middot; '),
+      mapUrl: t.google_maps_url,
+      sourceUrl: null
+    });
+  }
+
   return points;
 }
 
 async function init() {
-  const [shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs] = await Promise.all([
+  const [shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs, toilets] = await Promise.all([
     fetchJson('../data/shops.json'),
     fetchJson('../data/results.json'),
     fetchJson('../data/michelin.json'),
@@ -230,10 +265,11 @@ async function init() {
     fetchJsonOrEmpty('data/restaurants-cafes-en.json'),
     fetchJsonOrEmpty('data/chocolatiers-patisseries-en.json'),
     fetchJsonOrEmpty('data/bakeries-en.json'),
-    fetchJsonOrEmpty('data/souvenirs-en.json')
+    fetchJsonOrEmpty('data/souvenirs-en.json'),
+    fetchJson('../data/toilets.json')
   ]);
 
-  const points = buildPoints({ shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs });
+  const points = buildPoints({ shops, results, michelin, hotels, restaurantsCafes, chocolatiersPatisseries, bakeries, souvenirs, toilets });
 
   const map = L.map('map-canvas', { zoomControl: false }).setView([48.8613, 2.3324], 13);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -262,7 +298,11 @@ async function init() {
     marker.addTo(map);
   }
 
-  const selectedCategories = new Set(Object.keys(CATEGORIES));
+  const selectedCategories = new Set(
+    Object.entries(CATEGORIES)
+      .filter(([, config]) => config.defaultVisible !== false)
+      .map(([key]) => key)
+  );
   let selectedArrondissement = 'all';
 
   function applyFilters() {
@@ -312,7 +352,7 @@ async function init() {
         .map(
           ([key, config]) => `
           <label class="map-legend-item">
-            <input type="checkbox" data-category="${key}" checked>
+            <input type="checkbox" data-category="${key}" ${config.defaultVisible === false ? '' : 'checked'}>
             <span class="map-legend-dot" style="background:${config.color}"></span>
             ${escapeHtml(config.label)}
           </label>`
