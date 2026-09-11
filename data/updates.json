@@ -1,5 +1,11 @@
 [
   {
+    "id": "restaurant-staff-call-etiquette-added",
+    "date": "2026-09-11",
+    "text": "レストランの使い方に「店員の呼び方」(すみませーん禁止・アイコンタクト等)を追加しました",
+    "link": "guide.html#restaurant-h"
+  },
+  {
     "id": "architecture-trivia-added",
     "date": "2026-09-11",
     "text": "建築さんぽにオスマン建築・高層ビル規制・サクレ・クール寺院の豆知識を追加、季節の見どころを削除しました",
