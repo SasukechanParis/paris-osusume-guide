@@ -81,6 +81,16 @@ Added since round 1: `en/restaurants-and-cafes-paris.html`, `en/chocolatiers-and
 
 `en/js/map-en.js` loads the four "Sasuke's own picks" JSON files with a helper (`fetchJsonOrEmpty`) that treats a missing file as zero pins rather than an error — this was deliberate, since the map was built before those four pages existed and needed to keep working either way. Now that all four exist, this no longer matters in practice, but the pattern is still there if a category ever gets removed or renamed.
 
+## SEO / AEO push (Sept 11-12, 2026)
+
+Ran a full SEO/AEO audit (published as an Artifact, not in this repo) and worked through its priority list:
+
+1. **Structured data**: 1/20 pages → 16/20. FAQPage on the practical-guide cluster + paris-honeymoon-guide.html (all Q&A text extracted programmatically from each page's own visible content, never hand-typed, so schema can't drift from what a reader sees); ItemList/Hotel on hotels.html; ItemList/Restaurant on the Michelin page (name+award only — a fuller version briefly tripled page weight for no real benefit); ItemList/Bakery on the two competition-result pages (generated from results.json/shops.json, always reflects the latest year); ItemList on the four "Sasuke's own picks" pages; AboutPage/Person on about.html. The 4 pages still without schema (index, the two hub pages, map.html) are navigational rather than content pages.
+2. **Title/meta description length**: 16 of 20 descriptions and 11 of 20 titles were long enough to truncate in search results — all trimmed to fit, og:title kept in sync.
+3. **Google Search Console + Bing Webmaster Tools**: verified and sitemap submitted (site owner did the account/verification steps; I added the `google-site-verification` meta tag to `en/index.html` once given the value, and confirmed it went live before he clicked verify). Bing was set up via GSC import, no separate verification needed.
+
+Deliberately not done yet, per the audit's own sequencing: splitting `hotels.html` into per-neighborhood pages, and the "Paris photoshoot locations" content gap — both flagged as "wait for real Search Console query data first" rather than guessing.
+
 ## Testing done
 
 - Every English page was loaded in a real browser against a local static server; no console errors, all fonts/CSS/images/data loaded (200 OK).
