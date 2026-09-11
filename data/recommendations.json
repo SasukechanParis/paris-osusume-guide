@@ -726,5 +726,18 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Au%20Pied%20de%20Cochon%206%20Rue%20Coquilli%C3%A8re%2C%2075001%20Paris",
     "description": "1947年創業、パリで初めて24時間営業を許可されたレストラン。かつてレ・アール市場で働く人々が食べていた名物「オニオングラタンスープ」の老舗",
     "photo_url": null
+  },
+  {
+    "id": "omusubi-gonbei",
+    "category": "restaurant",
+    "status": "recommended",
+    "name": "Omusubi Gonbei",
+    "address": "27 Rue des Petits Champs, 75001 Paris",
+    "arrondissement": "1er",
+    "lat": 48.8666098,
+    "lng": 2.3372128,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Omusubi%20Gonbei%2027%20Rue%20des%20Petits%20Champs%2C%2075001%20Paris",
+    "description": "日本の「おむすび権米衛」パリ店。オペラ座近く、パレ・ロワイヤルのそば。1個2€前後・セット8.5〜11€ほどで、ちゃんと美味しいおにぎりが食べられる。スーパーのおにぎりで日本食欲を満たそうとして残念な思いをするくらいなら、こちらがおすすめ",
+    "photo_url": null
   }
 ]
