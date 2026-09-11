@@ -1,5 +1,11 @@
 [
   {
+    "id": "special-hotels-added",
+    "date": "2026-09-11",
+    "text": "ホテルページに「特別なホテル」(Ritz Paris・Airelles Château de Versailles, Le Grand Contrôle)を追加しました",
+    "link": "hotels.html"
+  },
+  {
     "id": "shoot-day-guide-real-content",
     "date": "2026-09-10",
     "text": "撮影当日ガイドに、さすけからの実際のご案内(前日の準備・持ち物・撮影体制・天気)を掲載しました",
