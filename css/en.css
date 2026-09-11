@@ -1,0 +1,55 @@
+/* English site only. Loaded in addition to tokens.css/base.css/style.css.
+   Never edit tokens.css/base.css/style.css from here — those are shared
+   with the Japanese pages. */
+
+.disclosure-banner {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 16px;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--gray);
+  margin: 0 0 28px;
+}
+
+.hotel-grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 0 0 8px; }
+.hotel-card { background: var(--bg); padding: 20px; display: grid; gap: 10px; }
+.hotel-card-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 16px; margin: 0; }
+.hotel-card-area { font-size: 11px; color: var(--gray); margin: 0; }
+.hotel-card-why { font-size: 13px; line-height: 1.8; margin: 0; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-chip {
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.affiliate-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.affiliate-row .btn { font-size: 11.5px; padding: 8px 14px; }
+.affiliate-row:empty { display: none; }
+
+.jump-nav { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 8px; }
+.jump-nav a {
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+}
+.jump-nav a:hover { border-bottom-color: var(--ink); }
+
+.hub-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.hub-card { background: var(--bg); padding: 20px; display: grid; gap: 4px; text-decoration: none; color: inherit; }
+.hub-card-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0; }
+.hub-card-desc { font-size: 12px; color: var(--gray); line-height: 1.7; margin: 0; }
+
+@media (min-width: 620px) {
+  .hotel-grid { grid-template-columns: 1fr 1fr; }
+  .hub-grid { grid-template-columns: 1fr 1fr; }
+}
