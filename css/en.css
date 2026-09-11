@@ -49,6 +49,8 @@
 .hub-card-name { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-size: 15px; margin: 0; }
 .hub-card-desc { font-size: 12px; color: var(--gray); line-height: 1.7; margin: 0; }
 
+.ranking-metro { font-size: 11px; color: var(--gray); margin: 4px 0 0; }
+
 @media (min-width: 620px) {
   .hotel-grid { grid-template-columns: 1fr 1fr; }
   .hub-grid { grid-template-columns: 1fr 1fr; }

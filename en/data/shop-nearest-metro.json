@@ -1,0 +1,747 @@
+{
+ "fournil-didot": {
+  "station": "Plaisance",
+  "lines": "13",
+  "distanceKm": 0.41
+ },
+ "la-parisienne-fbg-poissonniere": {
+  "station": "Bonne Nouvelle",
+  "lines": "8, 9",
+  "distanceKm": 0.13
+ },
+ "boulangerie-utopie": {
+  "station": "Oberkampf",
+  "lines": "5, 9",
+  "distanceKm": 0.24
+ },
+ "au-levain-des-pyrenees": {
+  "station": "Maraîchers",
+  "lines": "9",
+  "distanceKm": 0.17
+ },
+ "boulangerie-frederic-comyn": {
+  "station": "Vaugirard",
+  "lines": "12",
+  "distanceKm": 0.31
+ },
+ "les-boulangers-de-reuilly": {
+  "station": "Daumesnil",
+  "lines": "6, 8",
+  "distanceKm": 0.1
+ },
+ "les-saveurs-de-pierre-demours": {
+  "station": "Ternes",
+  "lines": "2",
+  "distanceKm": 0.52
+ },
+ "boulangerie-leroy-monti": {
+  "station": "Daumesnil",
+  "lines": "6, 8",
+  "distanceKm": 0.15
+ },
+ "boulangerie-2m": {
+  "station": "Raspail",
+  "lines": "4, 6",
+  "distanceKm": 0.16
+ },
+ "boulangerie-brun": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 0.46
+ },
+ "la-parisienne-rue-madame": {
+  "station": "Rennes",
+  "lines": "12",
+  "distanceKm": 0.27
+ },
+ "grenier-a-pain-abbesses": {
+  "station": "Abbesses",
+  "lines": "12",
+  "distanceKm": 0.15
+ },
+ "aux-delices-du-palais": {
+  "station": "Porte de Vanves",
+  "lines": "13",
+  "distanceKm": 0.56
+ },
+ "au-paradis-du-gourmand": {
+  "station": "Plaisance",
+  "lines": "13",
+  "distanceKm": 0.2
+ },
+ "boulangerie-mauvieux": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.46
+ },
+ "au-levain-dantan": {
+  "station": "Abbesses",
+  "lines": "12",
+  "distanceKm": 0.09
+ },
+ "boulangerie-du-sentier": {
+  "station": "Sentier",
+  "lines": "3",
+  "distanceKm": 0.19
+ },
+ "boom-boulangerie-omnivore": {
+  "station": "Pont de Levallois—Bécon",
+  "lines": "3",
+  "distanceKm": 1.12
+ },
+ "thevenin-saint-placide": {
+  "station": "Saint-Placide",
+  "lines": "4",
+  "distanceKm": 0.03
+ },
+ "gosselin-saint-germain": {
+  "station": "Solférino",
+  "lines": "12",
+  "distanceKm": 0.06
+ },
+ "chez-flo": {
+  "station": "Quai de la Gare",
+  "lines": "6",
+  "distanceKm": 0.05
+ },
+ "la-mandrine": {
+  "station": "Pointe du Lac",
+  "lines": "8",
+  "distanceKm": 9.43
+ },
+ "au-castelblangeois": {
+  "station": "Louvre—Rivoli",
+  "lines": "1",
+  "distanceKm": 0.15
+ },
+ "artisan-des-gourmands": {
+  "station": "Boucicaut",
+  "lines": "8",
+  "distanceKm": 0.37
+ },
+ "maison-sohier": {
+  "station": "Rosny-Bois Perrier",
+  "lines": "11",
+  "distanceKm": 6.11
+ },
+ "boulangerie-pain-ce": {
+  "station": "Les Sablons",
+  "lines": "1",
+  "distanceKm": 0.14
+ },
+ "des-racines-et-du-pain": {
+  "station": "Châtillon—Montrouge",
+  "lines": "13",
+  "distanceKm": 2.89
+ },
+ "mille-et-un": {
+  "station": "Rennes",
+  "lines": "12",
+  "distanceKm": 0.17
+ },
+ "boulangerie-moderne-rabineau": {
+  "station": "Cardinal Lemoine",
+  "lines": "10",
+  "distanceKm": 0.55
+ },
+ "boulangerie-lorette": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 0.35
+ },
+ "moulin-de-la-croix-nivert": {
+  "station": "Cambronne",
+  "lines": "6",
+  "distanceKm": 0.34
+ },
+ "magali-charonne": {
+  "station": "Charonne",
+  "lines": "9",
+  "distanceKm": 0.17
+ },
+ "maison-pailliette": {
+  "station": "Saint-Mandé",
+  "lines": "1",
+  "distanceKm": 0.04
+ },
+ "fabrique-aux-gourmandises": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 1.13
+ },
+ "boulangerie-bleue-elio-franck": {
+  "station": "La Défense",
+  "lines": "1",
+  "distanceKm": 4.4
+ },
+ "boulangerie-victoire": {
+  "station": "Cadet",
+  "lines": "7",
+  "distanceKm": 0.22
+ },
+ "vibrations-gourmandes": {
+  "station": "Château de Vincennes",
+  "lines": "1",
+  "distanceKm": 3.38
+ },
+ "saveurs-de-parmentier": {
+  "station": "Parmentier",
+  "lines": "3",
+  "distanceKm": 0.21
+ },
+ "mildo": {
+  "station": "Commerce",
+  "lines": "8",
+  "distanceKm": 0.14
+ },
+ "la-tradition-bondy": {
+  "station": "Bobigny—Pablo Picasso",
+  "lines": "5",
+  "distanceKm": 2.2
+ },
+ "chez-meunier": {
+  "station": "Havre—Caumartin",
+  "lines": "3, 9",
+  "distanceKm": 0.17
+ },
+ "carton-paris": {
+  "station": "Gare du Nord",
+  "lines": "4, 5",
+  "distanceKm": 0.16
+ },
+ "patisserie-colbert-comyn": {
+  "station": "Bagneux—Lucie Aubrac",
+  "lines": "4",
+  "distanceKm": 3.29
+ },
+ "maison-disabelle": {
+  "station": "Maubert—Mutualité",
+  "lines": "10",
+  "distanceKm": 0.05
+ },
+ "la-remise-a-pain": {
+  "station": "Rue des Boulets",
+  "lines": "9",
+  "distanceKm": 0.3
+ },
+ "bs-nation": {
+  "station": "Nation",
+  "lines": "1, 2, 6, 9",
+  "distanceKm": 0.12
+ },
+ "ecrin-gourmand": {
+  "station": "Bel-Air",
+  "lines": "6",
+  "distanceKm": 0.3
+ },
+ "maison-daguet": {
+  "station": "Convention",
+  "lines": "12",
+  "distanceKm": 0.16
+ },
+ "maison-bergeron": {
+  "station": "École Militaire",
+  "lines": "8",
+  "distanceKm": 0.5
+ },
+ "boulangerie-guyot-ferreira": {
+  "station": "Cardinal Lemoine",
+  "lines": "10",
+  "distanceKm": 0.05
+ },
+ "maison-leparq": {
+  "station": "Dupleix",
+  "lines": "6",
+  "distanceKm": 0.12
+ },
+ "aux-delices-de-glaciere": {
+  "station": "Glacière",
+  "lines": "6",
+  "distanceKm": 0.15
+ },
+ "la-petite-alsacienne": {
+  "station": "Pernety",
+  "lines": "13",
+  "distanceKm": 0.16
+ },
+ "graine": {
+  "station": "Pelleport",
+  "lines": "3bis",
+  "distanceKm": 0.03
+ },
+ "marquis-de-saint-cyr": {
+  "station": "Porte de Champerret",
+  "lines": "3",
+  "distanceKm": 0.41
+ },
+ "delice-de-bagnolet": {
+  "station": "Porte de Bagnolet",
+  "lines": "3",
+  "distanceKm": 0.33
+ },
+ "alexine-st-ouen": {
+  "station": "Porte de Saint-Ouen",
+  "lines": "13",
+  "distanceKm": 0.24
+ },
+ "maison-dore": {
+  "station": "Cardinal Lemoine",
+  "lines": "10",
+  "distanceKm": 0.73
+ },
+ "la-parisienne-st-dominique": {
+  "station": "La Tour-Maubourg",
+  "lines": "8",
+  "distanceKm": 0.29
+ },
+ "boulangerie-rouges": {
+  "station": "Guy Môquet",
+  "lines": "13",
+  "distanceKm": 0.17
+ },
+ "boulangerie-aa": {
+  "station": "Olympiades",
+  "lines": "14",
+  "distanceKm": 0.32
+ },
+ "boulangerie-paris-and-co": {
+  "station": "Javel—André Citroën",
+  "lines": "10",
+  "distanceKm": 0.1
+ },
+ "maison-m": {
+  "station": "Porte de Vanves",
+  "lines": "13",
+  "distanceKm": 0.38
+ },
+ "aux-delices-de-vaugirard": {
+  "station": "Rennes",
+  "lines": "12",
+  "distanceKm": 0.28
+ },
+ "du-pain-et-vous": {
+  "station": "École Militaire",
+  "lines": "8",
+  "distanceKm": 0.17
+ },
+ "boulangerie-guyot": {
+  "station": "Cardinal Lemoine",
+  "lines": "10",
+  "distanceKm": 0.05
+ },
+ "maison-lohezic-courcelles": {
+  "station": "Pereire",
+  "lines": "3",
+  "distanceKm": 0.15
+ },
+ "tout-autour-du-pain": {
+  "station": "Filles du Calvaire",
+  "lines": "8",
+  "distanceKm": 0.11
+ },
+ "grenier-de-felix": {
+  "station": "Boucicaut",
+  "lines": "8",
+  "distanceKm": 0.05
+ },
+ "boulangerie-kilani": {
+  "station": "Faidherbe—Chaligny",
+  "lines": "8",
+  "distanceKm": 0.12
+ },
+ "saveurs-de-levis": {
+  "station": "Villiers",
+  "lines": "2, 3",
+  "distanceKm": 0.21
+ },
+ "temps-dune-gourmandise": {
+  "station": "Raspail",
+  "lines": "4, 6",
+  "distanceKm": 0.54
+ },
+ "maison-lohezic-demours": {
+  "station": "Pereire",
+  "lines": "3",
+  "distanceKm": 0.17
+ },
+ "boulangerie-tembely": {
+  "station": "Château Rouge",
+  "lines": "4",
+  "distanceKm": 0.31
+ },
+ "boulangerie-labeille": {
+  "station": "Quai de la Rapée",
+  "lines": "5",
+  "distanceKm": 0.25
+ },
+ "freres-blavette": {
+  "station": "Mouton-Duvernet",
+  "lines": "4",
+  "distanceKm": 0.17
+ },
+ "boulange-paris-lamarck": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.14
+ },
+ "boulangerie-de-la-place": {
+  "station": "Place d'Italie",
+  "lines": "5, 6, 7",
+  "distanceKm": 0.26
+ },
+ "maison-lardeux": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.2
+ },
+ "boulangerie-bechu": {
+  "station": "Victor Hugo",
+  "lines": "2",
+  "distanceKm": 0.3
+ },
+ "boulangerie-bac": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 0.23
+ },
+ "societe-boris-lume": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.25
+ },
+ "essentiel-mouffetard": {
+  "station": "Place Monge",
+  "lines": "7",
+  "distanceKm": 0.28
+ },
+ "farine-et-o": {
+  "station": "Notre-Dame-de-Lorette",
+  "lines": "12",
+  "distanceKm": 0.2
+ },
+ "au-140": {
+  "station": "Jourdain",
+  "lines": "11",
+  "distanceKm": 0.03
+ },
+ "maison-legendre": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 0.23
+ },
+ "giovanni-boulangerie": {
+  "station": "Chardon Lagache",
+  "lines": "10",
+  "distanceKm": 0.24
+ },
+ "boulangerie-aux-deux-anges": {
+  "station": "Bastille",
+  "lines": "1, 5, 8",
+  "distanceKm": 0.23
+ },
+ "boulangerie-paris-co-ecoles": {
+  "station": "Cardinal Lemoine",
+  "lines": "10",
+  "distanceKm": 0.1
+ },
+ "boulangerie-faubourg-st-charles": {
+  "station": "Javel—André Citroën",
+  "lines": "10",
+  "distanceKm": 0.41
+ },
+ "boulangerie-comyn-felix-faure": {
+  "station": "Félix Faure",
+  "lines": "8",
+  "distanceKm": 0.02
+ },
+ "grenier-a-pain-st-amand": {
+  "station": "Plaisance",
+  "lines": "13",
+  "distanceKm": 0.45
+ },
+ "puits-damour": {
+  "station": "Rue des Boulets",
+  "lines": "9",
+  "distanceKm": 0.22
+ },
+ "landemaine-martyrs": {
+  "station": "Saint-Georges",
+  "lines": "12",
+  "distanceKm": 0.17
+ },
+ "maison-hubert-rambuteau": {
+  "station": "Rambuteau",
+  "lines": "11",
+  "distanceKm": 0.18
+ },
+ "delmontel-levis": {
+  "station": "Villiers",
+  "lines": "2, 3",
+  "distanceKm": 0.14
+ },
+ "duc-de-la-chapelle": {
+  "station": "Porte de la Chapelle",
+  "lines": "12",
+  "distanceKm": 0.34
+ },
+ "boulangerie-thierry-meunier": {
+  "station": "Télégraphe",
+  "lines": "11",
+  "distanceKm": 0.13
+ },
+ "dupain": {
+  "station": "Saint-Sébastien—Froissart",
+  "lines": "8",
+  "distanceKm": 0.16
+ },
+ "gontran-cherrier-caulaincourt": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.4
+ },
+ "maison-bicho": {
+  "station": "La Chapelle",
+  "lines": "2",
+  "distanceKm": 0.21
+ },
+ "gourmandises-deiffel": {
+  "station": "École Militaire",
+  "lines": "8",
+  "distanceKm": 0.29
+ },
+ "grenier-a-pain-italie": {
+  "station": "Tolbiac",
+  "lines": "7",
+  "distanceKm": 0.14
+ },
+ "boulangerie-patisserie-hubert": {
+  "station": "Grands Boulevards",
+  "lines": "8, 9",
+  "distanceKm": 0.17
+ },
+ "fournil-de-lourmel": {
+  "station": "Lourmel",
+  "lines": "8",
+  "distanceKm": 0.07
+ },
+ "boulangerie-alexine-lepic": {
+  "station": "Blanche",
+  "lines": "2",
+  "distanceKm": 0.29
+ },
+ "essentiel-blanqui": {
+  "station": "Corvisart",
+  "lines": "6",
+  "distanceKm": 0.19
+ },
+ "douceurs-et-traditions": {
+  "station": "La Tour-Maubourg",
+  "lines": "8",
+  "distanceKm": 0.29
+ },
+ "flute-enchantee": {
+  "station": "Ledru-Rollin",
+  "lines": "8",
+  "distanceKm": 0.13
+ },
+ "academie-du-pain": {
+  "station": "Alésia",
+  "lines": "4",
+  "distanceKm": 0.28
+ },
+ "hure": {
+  "station": "Rue de la Pompe",
+  "lines": "9",
+  "distanceKm": 0.33
+ },
+ "moulin-du-16eme": {
+  "station": "Exelmans",
+  "lines": "9",
+  "distanceKm": 0.45
+ },
+ "charles-tchouassi": {
+  "station": "Arts et Métiers",
+  "lines": "3, 11",
+  "distanceKm": 0.1
+ },
+ "aux-pains-garnis": {
+  "station": "La Fourche",
+  "lines": "13",
+  "distanceKm": 0.25
+ },
+ "maison-delcourt": {
+  "station": "Exelmans",
+  "lines": "9",
+  "distanceKm": 0.33
+ },
+ "petit-versailles-du-marais": {
+  "station": "Pont Marie",
+  "lines": "7",
+  "distanceKm": 0.27
+ },
+ "montmartoise": {
+  "station": "Château Rouge",
+  "lines": "4",
+  "distanceKm": 0.15
+ },
+ "pain-dautrefois": {
+  "station": "Lamarck—Caulaincourt",
+  "lines": "12",
+  "distanceKm": 0.5
+ },
+ "gosselin-saint-honore": {
+  "station": "Louvre—Rivoli",
+  "lines": "1",
+  "distanceKm": 0.11
+ },
+ "artisans-du-pain": {
+  "station": "Plaisance",
+  "lines": "13",
+  "distanceKm": 0.38
+ },
+ "boulangerie-mulot": {
+  "station": "Mabillon",
+  "lines": "10",
+  "distanceKm": 0.18
+ },
+ "macarons-cafe": {
+  "station": "Alésia",
+  "lines": "4",
+  "distanceKm": 0.06
+ },
+ "liberte-vinaigriers": {
+  "station": "Jacques Bonsergent",
+  "lines": "5",
+  "distanceKm": 0.24
+ },
+ "petite-marquise": {
+  "station": "Victor Hugo",
+  "lines": "2",
+  "distanceKm": 0.08
+ },
+ "acacias-etoile": {
+  "station": "Argentine",
+  "lines": "1",
+  "distanceKm": 0.27
+ },
+ "meksem": {
+  "station": "Campo Formio",
+  "lines": "5",
+  "distanceKm": 0.08
+ },
+ "petrin-normand": {
+  "station": "Félix Faure",
+  "lines": "8",
+  "distanceKm": 0.37
+ },
+ "boulangerie-raphaelle": {
+  "station": "Château Rouge",
+  "lines": "4",
+  "distanceKm": 0.24
+ },
+ "boulangerie-damiani": {
+  "station": "Brochant",
+  "lines": "13",
+  "distanceKm": 0.11
+ },
+ "christian-vabret": {
+  "station": "Pont Marie",
+  "lines": "7",
+  "distanceKm": 0.27
+ },
+ "maison-cailleaud": {
+  "station": "Porte de Vincennes",
+  "lines": "1",
+  "distanceKm": 0.1
+ },
+ "maison-landemaine-clichy": {
+  "station": "Liège",
+  "lines": "13",
+  "distanceKm": 0.18
+ },
+ "dominique-saibron": {
+  "station": "Alésia",
+  "lines": "4",
+  "distanceKm": 0.06
+ },
+ "grenier-a-pain-lafayette": {
+  "station": "Poissonnière",
+  "lines": "7",
+  "distanceKm": 0.03
+ },
+ "la-parisienne-coustou": {
+  "station": "Blanche",
+  "lines": "2",
+  "distanceKm": 0.12
+ },
+ "claude-besnier": {
+  "station": "Varenne",
+  "lines": "13",
+  "distanceKm": 0.21
+ },
+ "raoul-maeder": {
+  "station": "Miromesnil",
+  "lines": "9, 13",
+  "distanceKm": 0.21
+ },
+ "boulangerie-audou": {
+  "station": "Faidherbe—Chaligny",
+  "lines": "8",
+  "distanceKm": 0.25
+ },
+ "la-pompadour": {
+  "station": "Rue de la Pompe",
+  "lines": "9",
+  "distanceKm": 0.22
+ },
+ "arnaud-delmontel-martyrs": {
+  "station": "Saint-Georges",
+  "lines": "12",
+  "distanceKm": 0.23
+ },
+ "eran-mayer": {
+  "station": "Avenue Émile Zola",
+  "lines": "10",
+  "distanceKm": 0.06
+ },
+ "saveurs-de-wagram": {
+  "station": "Wagram",
+  "lines": "3",
+  "distanceKm": 0.29
+ },
+ "gaetan-romp": {
+  "station": "Quatre-Septembre",
+  "lines": "3",
+  "distanceKm": 0.14
+ },
+ "saveurs-du-20eme": {
+  "station": "Porte de Bagnolet",
+  "lines": "3",
+  "distanceKm": 0.56
+ },
+ "fournil-du-village": {
+  "station": "Abbesses",
+  "lines": "12",
+  "distanceKm": 0.24
+ },
+ "julien-saint-honore": {
+  "station": "Les Halles",
+  "lines": "4",
+  "distanceKm": 0.21
+ },
+ "philippe-marache": {
+  "station": "Rue Saint-Maur",
+  "lines": "3",
+  "distanceKm": 0.17
+ },
+ "philippe-bogner": {
+  "station": "Gambetta",
+  "lines": "3",
+  "distanceKm": 0.06
+ },
+ "maison-lherault-antony": {
+  "station": "Aéroport d'Orly",
+  "lines": "14",
+  "distanceKm": 5.06
+ }
+}

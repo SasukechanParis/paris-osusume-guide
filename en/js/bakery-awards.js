@@ -62,13 +62,38 @@ function winBadge(winCounts, shopId) {
   return `<span class="status-badge status-badge-wins">${total}&times; on this list</span>`;
 }
 
-function rankingRowParts(ranking, shopsById, winCounts) {
+// Distance bands for the nearest-metro callout. Inside WALK_BAND we show a
+// confident walk-time estimate; inside FAR_BAND we still name the station
+// but soften the wording so it doesn't read as an easy walk; beyond that we
+// say nothing rather than imply a metro connection that isn't really there
+// (several shops in this dataset are 5-9km from the nearest station).
+const METRO_WALK_BAND_KM = 0.6;
+const METRO_FAR_BAND_KM = 1.5;
+const WALKING_KMH = 5;
+
+function metroNote(shopId, metroByShopId) {
+  const metro = metroByShopId?.get(shopId);
+  if (!metro || metro.distanceKm == null) return '';
+  const { station, lines, distanceKm } = metro;
+  const lineWord = String(lines).includes(',') ? 'Lines' : 'Line';
+  if (distanceKm <= METRO_WALK_BAND_KM) {
+    const walkMin = Math.max(1, Math.round((distanceKm / WALKING_KMH) * 60));
+    return `<p class="ranking-metro">Nearest metro: ${escapeHtml(station)} (${lineWord} ${escapeHtml(String(lines))}) &mdash; about ${walkMin} min walk</p>`;
+  }
+  if (distanceKm <= METRO_FAR_BAND_KM) {
+    return `<p class="ranking-metro">Nearest metro: ${escapeHtml(station)} (${lineWord} ${escapeHtml(String(lines))}), about ${distanceKm.toFixed(1)}km away &mdash; not a short walk</p>`;
+  }
+  return '';
+}
+
+function rankingRowParts(ranking, shopsById, winCounts, metroByShopId) {
   const shop = ranking.shop_id ? shopsById.get(ranking.shop_id) : null;
   if (!shop) {
     return {
       name: ranking.winner_name ? escapeHtml(ranking.winner_name) : 'Bakery not named in the source',
       meta: 'Shop could not be identified from the source record',
       note: '',
+      metro: '',
       mapLink: ''
     };
   }
@@ -80,12 +105,13 @@ function rankingRowParts(ranking, shopsById, winCounts) {
     name: `<span class="ranking-shop-name-text">${escapeHtml(shop.name)}</span>${winBadge(winCounts, shop.id)}`,
     meta: arrondissementLabel(shop.arrondissement),
     note,
+    metro: metroNote(shop.id, metroByShopId),
     mapLink
   };
 }
 
-function renderRow(ranking, shopsById, winCounts) {
-  const parts = rankingRowParts(ranking, shopsById, winCounts);
+function renderRow(ranking, shopsById, winCounts, metroByShopId) {
+  const parts = rankingRowParts(ranking, shopsById, winCounts, metroByShopId);
   return `
     <div class="ranking-row${ranking.rank === 1 ? ' is-first' : ''}">
       <span class="rank-num">${ranking.rank}</span>
@@ -93,6 +119,7 @@ function renderRow(ranking, shopsById, winCounts) {
         <p class="ranking-shop-name">${parts.name}</p>
         <p class="ranking-arr">${parts.meta}</p>
         ${parts.note}
+        ${parts.metro}
         <div class="ranking-links">${parts.mapLink}</div>
       </div>
     </div>`;
@@ -112,8 +139,8 @@ export function renderYearTabs(sortedResults, activeYear) {
 // outside a top-5 cut, and that note needs to be visible wherever the shop
 // shows up, so both the latest-year section and the year-tabs history use
 // this same, uncapped renderer.
-export function renderYearResult(result, shopsById, winCounts) {
-  const rows = result.rankings.map((r) => renderRow(r, shopsById, winCounts)).join('');
+export function renderYearResult(result, shopsById, winCounts, metroByShopId) {
+  const rows = result.rankings.map((r) => renderRow(r, shopsById, winCounts, metroByShopId)).join('');
   return `
     ${rows}
     <a class="ranking-source" href="${escapeHtml(result.source_url)}" target="_blank" rel="noopener">Source &#8599;</a>`;
@@ -123,9 +150,14 @@ export function renderYearResult(result, shopsById, winCounts) {
 // Loads results.json + shops.json once, renders the latest year in full,
 // then wires up a year-tabs history browser underneath it.
 export async function initContestPage({ contestId, latestElId, yearLabelElId, tabsElId, panelElId }) {
-  const [results, shops] = await Promise.all([loadJson('../data/results.json'), loadJson('../data/shops.json')]);
+  const [results, shops, metroByShop] = await Promise.all([
+    loadJson('../data/results.json'),
+    loadJson('../data/shops.json'),
+    loadJson('data/shop-nearest-metro.json').catch(() => ({}))
+  ]);
 
   const shopsById = new Map(shops.map((s) => [s.id, s]));
+  const metroByShopId = new Map(Object.entries(metroByShop));
   const contestResults = results.filter((r) => r.contest_id === contestId).sort((a, b) => b.year - a.year);
   if (contestResults.length === 0) return;
 
@@ -133,7 +165,7 @@ export async function initContestPage({ contestId, latestElId, yearLabelElId, ta
   const latest = contestResults[0];
 
   const latestEl = document.getElementById(latestElId);
-  if (latestEl) latestEl.innerHTML = renderYearResult(latest, shopsById, winCounts);
+  if (latestEl) latestEl.innerHTML = renderYearResult(latest, shopsById, winCounts, metroByShopId);
 
   const yearLabelEl = yearLabelElId ? document.getElementById(yearLabelElId) : null;
   if (yearLabelEl) yearLabelEl.textContent = String(latest.year);
@@ -143,7 +175,7 @@ export async function initContestPage({ contestId, latestElId, yearLabelElId, ta
   if (!tabsEl || !panelEl) return;
 
   tabsEl.innerHTML = renderYearTabs(contestResults, latest.year);
-  panelEl.innerHTML = renderYearResult(latest, shopsById, winCounts);
+  panelEl.innerHTML = renderYearResult(latest, shopsById, winCounts, metroByShopId);
 
   tabsEl.addEventListener('click', (event) => {
     const btn = event.target.closest('.tab-btn');
@@ -152,7 +184,7 @@ export async function initContestPage({ contestId, latestElId, yearLabelElId, ta
     const result = contestResults.find((r) => r.year === year);
     if (!result) return;
     tabsEl.querySelectorAll('.tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
-    panelEl.innerHTML = renderYearResult(result, shopsById, winCounts);
+    panelEl.innerHTML = renderYearResult(result, shopsById, winCounts, metroByShopId);
   });
 
   if (window.goatcounter && window.goatcounter.bind_events) {
