@@ -22,6 +22,7 @@
 - `free-spots.html` — 無料スポット(無料の美術館・広場6件+パッサージュ16件、近くのスポット検索つき。公衆トイレ581件の近く検索も別枠で設置)
 - `guide.html` — 旅行ガイド(建築さんぽ・旅行実務FAQ・レストランの使い方・お得な支払い方法・免税Détaxe/PABLO・荷物預かり。出典付きの静的コンテンツ、JSONデータなし)
 - `map.html` — 地図(全カテゴリのピンをLeaflet.js + OpenStreetMapで1枚の地図に表示、カテゴリ・区で絞り込み可能、現在地・住所検索つき。公衆トイレは件数が多いため初期状態は非表示)
+- `toilets-map.html` — トイレマップ(公衆トイレ581件のみをLeaflet.jsの地図で表示。map.htmlのカテゴリチェックボックスを操作する手間なしに全件見られる専用ページ。区の絞り込み・現在地/住所検索つき)
 - `shop.html` — 店舗単位ページ(`?id=`で指定した店の全コンクール受賞歴を年度横断で表示、複数受賞バッジ付き)
 - `post.html` — 投稿する(Googleフォームへのボタンリンク)
 
@@ -55,7 +56,7 @@ Googleマップリンクは店名+住所のテキスト検索(`?api=1&query=店�
 
 ## 公衆トイレ(`data/toilets.json`)
 
-出典: [Paris Data「Toilettes publiques」](https://opendata.paris.fr/explore/dataset/sanisettesparis/)(パリ市公式オープンデータ、ODbLライセンス)。全610件中、稼働中(`En service`)581件のみを採用したスナップショット。設置場所は頻繁には変わらないため自動更新はせず、必要になったら同じ手順(opendata.paris.fr APIから再取得)で再生成する。専用ページは作らず、`free-spots.html`の近く検索と`map.html`のカテゴリ(初期非表示)としてのみ表示する。
+出典: [Paris Data「Toilettes publiques」](https://opendata.paris.fr/explore/dataset/sanisettesparis/)(パリ市公式オープンデータ、ODbLライセンス)。全610件中、稼働中(`En service`)581件のみを採用したスナップショット。設置場所は頻繁には変わらないため自動更新はせず、必要になったら同じ手順(opendata.paris.fr APIから再取得)で再生成する。`free-spots.html`の近く検索・`map.html`のカテゴリ(初期非表示)に加えて、2026-09-13に専用ページ`toilets-map.html`を追加した(map.htmlのカテゴリチェックボックス操作が分かりにくいとの声を受けて新設)。
 
 ## 自動更新ワークフロー(運用イメージ)
 

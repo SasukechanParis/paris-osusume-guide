@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>地図 - パリおすすめデータベース</title>
+<title>トイレマップ - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,12 +33,12 @@
     <a href="flea-markets.html">市場</a>
     <a href="free-spots.html">無料スポット</a>
     <a href="guide.html">旅行ガイド</a>
-    <a href="map.html" class="active">地図</a>
+    <a href="map.html">地図</a>
     <a href="post.html">投稿する</a>
   </nav>
   <header class="hero hero-compact">
-    <h1 class="title">地図</h1>
-    <p class="lede">全カテゴリのお店をまとめて表示。エリアごとの傾向を見て、ホテルや食べ歩きの計画に役立ててください。公衆トイレはデフォルトで非表示になっているので、下の「表示するカテゴリ」欄でチェックを入れてください。トイレだけを探したい場合は<a class="ranking-source" href="toilets-map.html">トイレマップ</a>が便利です。</p>
+    <h1 class="title">トイレ<span class="accent">マップ</span></h1>
+    <p class="lede">パリ市内581件の公衆トイレ(稼働中のみ)を地図上に表示します。エリアで絞り込んだり、現在地・住所から近くを探せます。</p>
   </header>
 
   <section class="map-section">
@@ -46,15 +46,14 @@
       <div id="map-canvas"></div>
       <div id="map-legend" class="map-legend"></div>
     </div>
-    <div id="map-category-legend" class="map-category-legend"></div>
   </section>
 
   <footer class="site-footer">
-    <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
+    <p>出典: <a class="ranking-source" href="https://opendata.paris.fr/explore/dataset/sanisettesparis/">Paris Data「Toilettes publiques」↗</a>(パリ市公式オープンデータ)。位置情報は住所から自動計算しており、実際の設置位置と数十m程度ずれる場合があります。</p>
   </footer>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script type="module" src="js/map.js"></script>
+<script type="module" src="js/toilets-map.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

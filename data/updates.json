@@ -1,5 +1,11 @@
 [
   {
+    "id": "toilets-map-added",
+    "date": "2026-09-13",
+    "text": "公衆トイレだけを地図で見られる「トイレマップ」ページを新設しました",
+    "link": "toilets-map.html"
+  },
+  {
     "id": "restaurant-staff-call-etiquette-added",
     "date": "2026-09-11",
     "text": "レストランの使い方に「店員の呼び方」(すみませーん禁止・アイコンタクト等)を追加しました",
