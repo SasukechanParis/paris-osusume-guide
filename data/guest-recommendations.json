@@ -11,5 +11,18 @@
     "description": "オペラ座もヴァンドーム広場も徒歩数分。部屋はあまり広くないが、撮影前後に嬉しいバスタブ付き",
     "submitted_by": "ゆりか",
     "photo_url": null
+  },
+  {
+    "id": "brasserie-des-pres",
+    "category": "restaurant",
+    "name": "Brasserie des Prés",
+    "address": "6 Cour du Commerce Saint-André, 75006 Paris",
+    "arrondissement": "6e",
+    "lat": 48.8528875,
+    "lng": 2.3392324,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Brasserie%20des%20Pr%C3%A9s%206%20Cour%20du%20Commerce%20Saint-Andr%C3%A9%2C%2075006%20Paris",
+    "description": "パリらしいものを食べたい時におすすめのビストロ。オニオングラタンスープ・パテアンクルート・牛のタルタルが好評。事前予約推奨だが、当日運良く待ちなしで入店できたとのこと",
+    "submitted_by": null,
+    "photo_url": "assets/photos/brasserie-des-pres.jpg"
   }
 ]

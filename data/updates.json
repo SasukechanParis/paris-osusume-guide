@@ -1,5 +1,17 @@
 [
   {
+    "id": "brasserie-des-pres-guest-recommendation",
+    "date": "2026-09-16",
+    "text": "先輩カップルのおすすめにBrasserie des Prés(6区)を追加しました",
+    "link": "restaurants.html"
+  },
+  {
+    "id": "hotel-sasuke-recommendation-removed",
+    "date": "2026-09-15",
+    "text": "ホテルページの「さすけのおすすめ」を廃止し、「先輩カップルのおすすめ」をデフォルト表示にしました",
+    "link": "hotels.html"
+  },
+  {
     "id": "toilets-map-added",
     "date": "2026-09-13",
     "text": "公衆トイレだけを地図で見られる「トイレマップ」ページを新設しました",

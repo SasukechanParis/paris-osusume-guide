@@ -36,7 +36,7 @@
   </nav>
   <header class="hero">
     <h1 class="title">ホテル</h1>
-    <p class="lede">ウェディングフォトグラファーのさすけが撮影で数多く訪れてきた中で良いと思ったホテル、先輩カップルが実際に泊まってよかったホテルです。</p>
+    <p class="lede">先輩カップルが実際に泊まってよかったホテルです。あわせて、撮影ができる特別なホテルも紹介しています。</p>
     <img class="hero-image" src="assets/illustrations/hotel.png" alt="印象派タッチで描かれたパリのホテルの窓辺のイラスト">
   </header>
 
@@ -44,17 +44,17 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="hotels-h">ホテル一覧</h2></div>
 
     <div class="year-tabs" id="source-tabs">
-      <button class="tab-btn active" data-source="sasuke" type="button">さすけのおすすめ</button>
-      <button class="tab-btn" data-source="guest" type="button">先輩カップルのおすすめ</button>
+      <button class="tab-btn" data-source="sasuke" type="button">さすけのおすすめ</button>
+      <button class="tab-btn active" data-source="guest" type="button">先輩カップルのおすすめ</button>
     </div>
 
-    <div id="sasuke-panel">
-      <p class="section-note">さすけがお客様の撮影で500件以上のホテルを訪れてきた中で、リッチな雰囲気・スタッフの対応・リーズナブルさ・清潔感の面で良いと思ったホテルです(さすけ自身が宿泊したわけではありません)。</p>
+    <div id="sasuke-panel" hidden>
+      <p class="section-note">ホテルは基本的に一度しか泊まらないため比較ができず、実体験に基づく確かなおすすめができません。そのため、さすけ自身のおすすめとしての掲載は行っていません。</p>
       <div id="sasuke-list"></div>
-      <p id="sasuke-empty" class="section-note" hidden>近日公開予定です。</p>
+      <p id="sasuke-empty" class="section-note" hidden></p>
     </div>
 
-    <div id="guest-panel" hidden>
+    <div id="guest-panel">
       <p class="section-note">実際にパリで前撮りをした先輩カップルから届いたおすすめです。「投稿する」ページからの投稿を確認のうえ掲載しています。</p>
       <div id="guest-list"></div>
       <p id="guest-empty" class="section-note" hidden>まだ投稿がありません。「投稿する」からぜひ教えてください。</p>
