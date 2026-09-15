@@ -1,4 +1,4 @@
-const VERSION = '2026-09-16-1';
+const VERSION = '2026-09-16-2';
 
 export async function loadJson(path) {
   const sep = path.includes('?') ? '&' : '?';
