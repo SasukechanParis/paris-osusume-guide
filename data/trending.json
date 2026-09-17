@@ -50,5 +50,31 @@
     "description": "Yann Couvreur出身のシェフ2人が始めた新興ブーランジェリー。地元グルメメディアで評判。",
     "source_url": "https://www.gillespudlowski.com/283154/produits/paris-9e-la-belle-union-en-boulangerie-de-charles-et-maeva",
     "added_date": "2026-08-30"
+  },
+  {
+    "id": "salted-boy",
+    "name": "Salted Boy",
+    "category": "bakery",
+    "arrondissement": "3e",
+    "address": "4 Rue Réaumur, 75003 Paris",
+    "lat": 48.8648362,
+    "lng": 2.3594123,
+    "description": "パリ初、韓国発祥の「塩パン(salted bread)」専門店。日韓ハイブリッドのバターを使った塩味ブリオッシュがSNSでバズり、2026年9月1日の開店直後から連日売り切れ。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/brunch-cafe-tea-time/articles/344081-salted-boy-the-coffee-shop-dedicated-to-salted-bread-in-paris-is-open",
+    "added_date": "2026-09-17",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Salted%20Boy%204%20Rue%20R%C3%A9aumur%2C%2075003%20Paris"
+  },
+  {
+    "id": "magnetic-paris",
+    "name": "Magnetic",
+    "category": "activity",
+    "arrondissement": "10e",
+    "address": "7 Rue d'Aix, 75010 Paris",
+    "lat": 48.870269,
+    "lng": 2.369602,
+    "description": "パリ初のプレミアム複合エンタメ施設。600㎡の空間にカラオケ・ブラインドテスト・クイズ・レトロゲーム・ダーツとレストラン/バーを併設し、2026年9月のオープン直後から話題に。",
+    "source_url": "https://www.lebonbon.fr/paris/news/food-jeux-karaoke-nouveau-lieu-immersif-600-m2-ouvre-portes-10e/",
+    "added_date": "2026-09-17",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Magnetic%207%20Rue%20d%27Aix%2C%2075010%20Paris"
   }
 ]
