@@ -1,31 +1,5 @@
 [
   {
-    "id": "cedric-grolet-opera",
-    "name": "Cédric Grolet Opéra",
-    "category": "croissant",
-    "arrondissement": "2e",
-    "address": "35 Avenue de l'Opéra, 75002 Paris",
-    "lat": 48.8679572,
-    "lng": 2.3331957,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=C%C3%A9dric%20Grolet%20Op%C3%A9ra%2035%20Avenue%20de%20l'Op%C3%A9ra%2C%2075002%20Paris",
-    "description": "世界的パティシエ Cédric Grolet の店。Instagramフォロワー1300万人超で、開店前から連日行列ができている。",
-    "source_url": "https://numero.jp/yuriyamano-83/",
-    "added_date": "2026-08-30"
-  },
-  {
-    "id": "philippe-conticini-dauphine",
-    "name": "Philippe Conticini",
-    "category": "croissant",
-    "arrondissement": "1er",
-    "address": "27 Place Dauphine, 75001 Paris",
-    "lat": 48.8568069,
-    "lng": 2.3417661,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Philippe%20Conticini%2027%20Place%20Dauphine%2C%2075001%20Paris",
-    "description": "パリで話題の\"ビッグクロワッサン\"を扱う数店舗のうちの一つ。事前予約が推奨されている。",
-    "source_url": "https://www.myushop.net/paris/blog/detail/7220/106",
-    "added_date": "2026-08-30"
-  },
-  {
     "id": "cafe-kodomo",
     "name": "Café Kodomo",
     "category": "other",
@@ -37,19 +11,6 @@
     "description": "台湾・日本の要素を取り入れたカンティーヌ兼コーヒーショップ。家族連れにも配慮した設計で、スペシャルティコーヒー・自家製パティスリー・和風サンドイッチなどを提供",
     "source_url": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/349969-cafe-kodomo-une-cantine-et-coffee-shop-taiwano-japonais-pense-aussi-pour-les-familles",
     "added_date": "2026-09-10"
-  },
-  {
-    "id": "union-boulangerie",
-    "name": "Union Boulangerie",
-    "category": "other",
-    "arrondissement": "9e",
-    "address": "2 Rue Bleue, 75009 Paris",
-    "lat": 48.8758793,
-    "lng": 2.347715,
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Union%20Boulangerie%202%20Rue%20Bleue%2C%2075009%20Paris",
-    "description": "Yann Couvreur出身のシェフ2人が始めた新興ブーランジェリー。地元グルメメディアで評判。",
-    "source_url": "https://www.gillespudlowski.com/283154/produits/paris-9e-la-belle-union-en-boulangerie-de-charles-et-maeva",
-    "added_date": "2026-08-30"
   },
   {
     "id": "salted-boy",
@@ -65,16 +26,16 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Salted%20Boy%204%20Rue%20R%C3%A9aumur%2C%2075003%20Paris"
   },
   {
-    "id": "magnetic-paris",
-    "name": "Magnetic",
-    "category": "activity",
-    "arrondissement": "10e",
-    "address": "7 Rue d'Aix, 75010 Paris",
-    "lat": 48.870269,
-    "lng": 2.369602,
-    "description": "パリ初のプレミアム複合エンタメ施設。600㎡の空間にカラオケ・ブラインドテスト・クイズ・レトロゲーム・ダーツとレストラン/バーを併設し、2026年9月のオープン直後から話題に。",
-    "source_url": "https://www.lebonbon.fr/paris/news/food-jeux-karaoke-nouveau-lieu-immersif-600-m2-ouvre-portes-10e/",
+    "id": "le-butter-shop",
+    "name": "Le Butter Shop",
+    "category": "other",
+    "arrondissement": "15e",
+    "address": "5 Rue Bouchut, 75015 Paris",
+    "lat": 48.847464,
+    "lng": 2.309831,
+    "description": "パリ初、バター専門店。ブルターニュ・ロワール地方などの小規模生産者による、メープルシュガーやエスペレット唐辛子、トリュフなど個性的なフレーバーバター30種以上を扱う。2026年7月開業後、9月に入り欧米メディアで一斉に取り上げられ話題が再燃中。",
+    "source_url": "https://www.euronews.com/culture/2026/09/14/butter-late-than-never-paris-gets-its-first-boutique-entirely-dedicated-to-butter",
     "added_date": "2026-09-17",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Magnetic%207%20Rue%20d%27Aix%2C%2075010%20Paris"
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Butter%20Shop%205%20Rue%20Bouchut%2C%2075015%20Paris"
   }
 ]
