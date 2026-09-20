@@ -1,5 +1,44 @@
 [
   {
+    "id": "hotel-volney-opera",
+    "category": "hotel",
+    "name": "Hôtel Volney Opéra",
+    "address": "11 Rue Volney, 75002 Paris",
+    "arrondissement": "2e",
+    "lat": 48.8697976,
+    "lng": 2.3302308,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20Volney%20Op%C3%A9ra%2011%20Rue%20Volney%2C%2075002%20Paris",
+    "description": "オペラ座もヴァンドーム広場も、徒歩数分で行けます。部屋はあまり広くないですが、浴槽は撮影前後にあって嬉しいバスタブがつきです！",
+    "submitted_by": "ゆりか",
+    "photo_url": null
+  },
+  {
+    "id": "hotel-la-tremoille",
+    "category": "hotel",
+    "name": "Hôtel La Trémoille",
+    "address": "14 Rue de la Trémoille, 75008 Paris",
+    "arrondissement": "8e",
+    "lat": 48.8668866,
+    "lng": 2.3028648,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel%20La%20Tr%C3%A9moille%2014%20Rue%20de%20la%20Tr%C3%A9moille%2C%2075008%20Paris",
+    "description": "8区にあるラトレモワイユパリさんに2泊利用しました。お部屋はコンパクトですが、パリの雰囲気を味わえるアンティークな内装で個人的にはとっても好みでした！立地を考えたら価格も申し分ないくらい。ロビーのお兄さんも親切に対応してくださり、トータル的に満足なお宿です。",
+    "submitted_by": null,
+    "photo_url": null
+  },
+  {
+    "id": "pullman-paris-tour-eiffel",
+    "category": "hotel",
+    "name": "Pullman Paris Tour Eiffel",
+    "address": "18 Avenue de Suffren, 75015 Paris",
+    "arrondissement": "15e",
+    "lat": 48.8555021,
+    "lng": 2.2926827,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pullman%20Paris%20Tour%20Eiffel%2018%20Avenue%20de%20Suffren%2C%2075015%20Paris",
+    "description": "撮影当日の宿泊で利用しました。さすけさんはお支度の時から撮影をしてくださっており、おかげで自然な姿の写真も沢山残すことができました。お部屋はエッフェル塔が見えるトロカデロスイートを予約。間近でエッフェル塔が見られたことと撮影終わりにはシャンパンフラッシュも見ることができてとっても素敵な夜を過ごせました。",
+    "submitted_by": null,
+    "photo_url": null
+  },
+  {
     "id": "brasserie-des-pres",
     "category": "restaurant",
     "name": "Brasserie des Prés",
