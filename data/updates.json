@@ -1,5 +1,11 @@
 [
   {
+    "id": "japanese-food-section-added",
+    "date": "2026-09-21",
+    "text": "レストランに「日本食が恋しくなったら」(現地の人お墨付きの日本食6軒)を追加しました",
+    "link": "restaurants.html#japanese-h"
+  },
+  {
     "id": "trending-refresh-2026-09-17",
     "date": "2026-09-17",
     "text": "今話題のことを最新3件(Salted Boy・Café Kodomo・Le Butter Shop)に絞り込みました",

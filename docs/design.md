@@ -573,3 +573,15 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - 「ホテルの新規投稿を止める」作業自体は外部のGoogleフォームの設定変更のため、さすけがフォーム編集画面から行う(リポジトリ側では対応不要)
 - さすけの過去の指示(「最近追加されましたにわざわざ書かない」)を踏まえ、今回は`data/updates.json`に新規エントリを追加していない
 - テスト49件全通過。VERSIONを`2026-09-20-1`に更新。ブラウザでhotels.htmlの両タブ(さすけ7件・先輩カップル3件・地図リンク3件)とコンソールエラーなしを確認済み
+
+## レストランに「日本食が恋しくなったら」セクションを追加(2026-09-21 追加)
+
+さすけから、現地の人お墨付きの日本食6軒(Googleマップの短縮リンク付き)と、セクション冒頭の趣旨(日本食ブームで店は多いが信用ならない店も多い/貴重な食事の機会だがどうしても食べたくなったら我慢しなくていい/ハズレを引くと悲しいので紹介する/避けるべきはNAGANO・TOYAMAのように地名を冠した店)の依頼。
+
+- **お店の特定**: 渡された`maps.app.goo.gl`の短縮リンクを、UAなしの`curl -I`(302の`Location`ヘッダ)で解決し、Google上の正式な店名とピン座標を取得(UA付きだと302にならず解決できない点に注意)。住所はWebSearchで裏取りし、4軒は公式・複数ソースで確認、La Cuisine de Chez Moiは公式サイト(cuisinedechezmoi.com)で確認。逆ジオコーディングだけでは番地が欠けたり近隣の別店舗名が返るため、住所の根拠には使わなかった。`lat`/`lng`はさすけが貼ったGoogleリンクのピン位置を使用(既存のおむすび権米衛の座標とも約13mで一致)
+- **6軒**(さすけの提示順): Sanukiya(さぬき家・1区)、Kamakiri Hakata Udon(2区)、Omusubi Gonbei(1区・既存エントリ)、Kodawari Ramen (Tsukiji)(1区)、Hakata Choten OPERA(1区・Châtelet店ではなくOpéra店)、La Cuisine de Chez Moi(9区・中華)。全て`status: "recommended"`
+- **説明文**: さすけが書いた分(Kodawari・La Cuisine de Chez Moi)はほぼそのまま。Kodawariの「元エールフランスのパイロット」は創業者Jean-Baptiste Meusnierの経歴として複数の記事で裏取り済み。コメントが無かった3軒(Sanukiya・Kamakiri・Hakata Choten)には、調べて確認できた業態のみを短く記載(うどん専門店/セルフ形式/とんこつラーメン専門)し、個人的な感想や評価は一切足していない。定休日・営業時間は変わりやすいため載せていない
+- **実装**: `category: "restaurant"`のまま`group: "japanese"`という任意フィールドを追加し、`js/restaurants.js`で一般のレストラン一覧から除外して専用セクション(`#sasuke-list-japanese`)に表示。新しいカテゴリ値を作らなかったのは、`map.js`のCATEGORIES・テストのvalidCategories・近く検索など多数の箇所への影響を避けるため。地図・近くの店検索には従来どおり含まれる。セクションは「レストラン」と「カフェ・サロン・ド・テ」の間に配置
+- **セクション冒頭の解釈**: 原文の「どうしても日本食が食べたくなったら無理をしない方が良い」は、直後の「ハズレを引くと悲しい」との流れから「我慢しなくていい」の意味と解釈して書いた(要確認)
+- **guide.html**: 同名のFAQ「日本食が恋しくなったら?」に、新セクションへの案内ボタン(`restaurants.html#japanese-h`)を追加。小さなテキストリンクだと見つけにくかった反省から、`btn btn-outline`のボタン形式にした
+- テスト: 先に`recommendations.json japanese-food group ...`(6件の順序・category=restaurant・status=recommended・group値の限定)を追加してRED(49/50)を確認してから実装し、50件全通過。VERSIONを`2026-09-21-1`に更新。ブラウザでrestaurants.htmlの新セクション(6カード・バッジ・住所・地図リンク・一般一覧への混入なし)とguide.htmlのボタンリンク、コンソールエラーなしを確認済み

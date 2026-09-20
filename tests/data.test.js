@@ -78,6 +78,20 @@ test('recommendations.json entries have valid category/status and matching map l
   }
 });
 
+test('recommendations.json japanese-food group is a restaurant-only subgroup of 6 curated places', () => {
+  const recommendations = loadJson('../data/recommendations.json');
+  assert.ok(recommendations.every((r) => r.group === undefined || r.group === 'japanese'), 'unknown group value');
+  const japanese = recommendations.filter((r) => r.group === 'japanese');
+  assert.deepEqual(
+    japanese.map((r) => r.id),
+    ['sanukiya', 'kamakiri-hakata-udon', 'omusubi-gonbei', 'kodawari-ramen-tsukiji', 'hakata-choten-opera', 'la-cuisine-de-chez-moi']
+  );
+  for (const r of japanese) {
+    assert.equal(r.category, 'restaurant', `${r.id} must be a restaurant`);
+    assert.equal(r.status, 'recommended', `${r.id} must be recommended`);
+  }
+});
+
 test('michelin.json entries have valid stars/genre, a Google Maps link, and a source; coordinates when resolvable', () => {
   const michelin = loadJson('../data/michelin.json');
   assert.ok(Array.isArray(michelin));

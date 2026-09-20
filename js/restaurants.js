@@ -18,12 +18,15 @@ async function init() {
     loadJson('data/guest-recommendations.json')
   ]);
 
-  const sasukeRestaurant = sortByStatus(recommendations.filter((r) => r.category === 'restaurant'));
+  const sasukeRestaurantAll = sortByStatus(recommendations.filter((r) => r.category === 'restaurant'));
+  const sasukeJapanese = sasukeRestaurantAll.filter((r) => r.group === 'japanese');
+  const sasukeRestaurant = sasukeRestaurantAll.filter((r) => r.group !== 'japanese');
   const sasukeCafe = sortByStatus(recommendations.filter((r) => r.category === 'cafe'));
   const guestRestaurant = guestRecommendations.filter((r) => r.category === 'restaurant');
   const guestCafe = guestRecommendations.filter((r) => r.category === 'cafe');
 
   renderGroup(sasukeRestaurant, 'sasuke-list-restaurant', 'sasuke-empty-restaurant');
+  renderGroup(sasukeJapanese, 'sasuke-list-japanese', 'sasuke-empty-japanese');
   renderGroup(sasukeCafe, 'sasuke-list-cafe', 'sasuke-empty-cafe');
   renderGroup(guestRestaurant, 'guest-list-restaurant', 'guest-empty-restaurant');
   renderGroup(guestCafe, 'guest-list-cafe', 'guest-empty-cafe');
@@ -37,7 +40,7 @@ async function init() {
     document.getElementById('guest-panel').hidden = source !== 'guest';
   });
 
-  setupNearbySearch([...sasukeRestaurant, ...sasukeCafe, ...guestRestaurant, ...guestCafe]);
+  setupNearbySearch([...sasukeRestaurant, ...sasukeJapanese, ...sasukeCafe, ...guestRestaurant, ...guestCafe]);
 }
 
 init();
