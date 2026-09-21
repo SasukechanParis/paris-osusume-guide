@@ -14,6 +14,7 @@ const OUT = join(ROOT, 'data/search-articles.json');
 const PAGES = [
   { file: 'guide.html', label: '旅行ガイド' },
   { file: 'airport.html', label: '空港アクセス' },
+  { file: 'transit.html', label: 'チケットの買い方' },
   { file: 'emergency.html', label: '困ったとき' },
   { file: 'shoot-day.html', label: '撮影当日ガイド' },
   // お土産ページは「選び方」の4カード(souvenir-*)だけを記事として扱う(店の一覧は場所として検索できる)

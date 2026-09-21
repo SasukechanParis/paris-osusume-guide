@@ -32,6 +32,7 @@ export const PAGE_TAB = {
   'emergency.html': 'sos',
   'menu.html': 'menu',
   'journey.html': 'menu',
+  'transit.html': 'menu',
   'settings.html': 'menu',
   'french.html': 'menu',
   'airport.html': 'menu',
@@ -82,6 +83,7 @@ export const MENU_GROUPS = [
     title: '旅の情報',
     links: [
       { href: 'journey.html', label: '旅の流れ', desc: '出発前〜帰国日までの確認事項・入国関連の公式情報' },
+      { href: 'transit.html', label: 'チケットの買い方', desc: '地下鉄・バス。スマホかNavigo Easyか、図つきで' },
       { href: 'french.html', label: 'フランス語カード', desc: '相手にそのまま見せられる' },
       { href: 'emergency.html', label: '困ったとき', desc: '盗難・体調不良・パスポート紛失など' },
       { href: 'airport.html', label: '空港アクセス', desc: 'CDG・オルリー・ボーヴェ' },

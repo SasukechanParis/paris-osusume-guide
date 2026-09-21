@@ -63,21 +63,20 @@ test('freshness.json: every verified item has an https source and a finding; eve
       assert.ok(item.verified_on <= today, `${item.id}: not in the future`);
     }
   }
-  const claims = freshness.items.filter((i) => i.topic === 'transit' && !i.ref).map((i) => i.id);
-  assert.ok(claims.includes('transit-carnet-10'), 'the 10-ticket price the guide quotes is on the list');
-  assert.equal(freshness.items.find((i) => i.id === 'transit-carnet-10').verified_on, null, 'not confirmed against an official page, so no date');
+  assert.equal(freshness.items.find((i) => i.id === 'noctilien-lines').verified_on, null, 'not confirmed against an official page, so no date');
 });
 
 test('badge model separates confirmed items (with date and source) from unconfirmed ones', () => {
-  const model = badgeModel(['transit-single-ticket', 'transit-carnet-10', 'paper-ticket-end', 'no-such-id'], freshness, files, '2026-09-22');
-  assert.deepEqual(model.verified.map((v) => v.id), ['transit-single-ticket']);
+  const model = badgeModel(['transit-single-ticket', 'paper-ticket-end', 'noctilien-lines', 'no-such-id'], freshness, files, '2026-09-22');
+  assert.deepEqual(model.verified.map((v) => v.id), ['transit-single-ticket', 'paper-ticket-end']);
   assert.equal(model.verified[0].dateText, '2026年9月21日');
   assert.equal(model.verified[0].due, false);
-  assert.equal(model.unverified.length, 2);
+  assert.equal(model.unverified.length, 1);
   const html = renderBadge(model);
   assert.match(html, /公式で確認\(2026年9月21日\)/);
   assert.match(html, /公式ページでは確認できていない記述/);
-  assert.match(html, /href="https:\/\/www\.service-public\.gouv\.fr/);
+  assert.match(html, /href="https:\/\/www\.iledefrance-mobilites\.fr/);
+  assert.equal((html.match(/fresh-line is-verified/g) ?? []).length, 1, 'items confirmed on the same day share one line');
   assert.doesNotMatch(html, /<script/);
 });
 
@@ -92,5 +91,18 @@ test('the corrected tram fare and the fare list agree with the pages that quote 
   assert.match(airport, /id="orly-t7"[\s\S]*?2\.05€/);
   assert.doesNotMatch(airport, /通常の地下鉄・バスチケットと同じ\(2\.55€\)/);
   const guide = readFileSync(join(ROOT, 'guide.html'), 'utf8');
-  assert.match(guide, /data-fresh="transit-single-ticket transit-carnet-10 paper-ticket-end navigo-easy-card-price"/);
+  assert.match(guide, /data-fresh="transit-single-ticket paper-ticket-end navigo-easy-card phone-ticket-requirements"/);
+});
+
+test('content withheld or corrected because it could not be confirmed is really gone from the pages, and the record explains each case', () => {
+  const page = (file) => readFileSync(join(ROOT, file), 'utf8');
+  assert.doesNotMatch(page('guide.html'), /17\.35/, 'the old paper-booklet price');
+  assert.doesNotMatch(page('emergency.html'), /0892|0\.35€\/分程度/, 'the French interbank number and its unconfirmed rate');
+  assert.doesNotMatch(page('emergency.html'), /約1週間/, 'the passport re-issue takes about a month, not a week');
+  assert.match(page('emergency.html'), /1か月程度/);
+  assert.doesNotMatch(page('airport.html'), /2026年2月末|7\/25〜8\/16|2025年1月改定/);
+  assert.doesNotMatch(page('airport.html'), /バス・トラム用チケット1枚/, 'the Noctilien fare that was not confirmed');
+  assert.ok(freshness.withheld.length >= 5 && freshness.corrections.length >= 4);
+  for (const w of freshness.withheld) for (const key of ['id', 'page', 'what', 'why', 'to_restore']) assert.ok(w[key], `${w.id}.${key}`);
+  for (const c of freshness.corrections) for (const key of ['id', 'on', 'page', 'before', 'after', 'basis']) assert.ok(c[key], `${c.id}.${key}`);
 });

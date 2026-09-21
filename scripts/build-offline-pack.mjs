@@ -14,7 +14,7 @@ const OUT = join(ROOT, 'data/offline-pack.json');
 
 // 通信が切れても使いたいページ(緊急・撮影準備・保存した店・フランス語・旅の流れ・空港・ガイド・検索など)
 export const PACK_PAGES = [
-  'index.html', 'menu.html', 'emergency.html', 'shoot-day.html', 'journey.html', 'french.html', 'saved.html',
+  'index.html', 'menu.html', 'emergency.html', 'shoot-day.html', 'journey.html', 'transit.html', 'french.html', 'saved.html',
   'guide.html', 'airport.html', 'settings.html', 'search.html', 'purpose.html'
 ];
 const OPTIONAL_DATA = ['data/toilets.json']; // 保存した場所にトイレがあるときだけ

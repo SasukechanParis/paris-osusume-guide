@@ -1,7 +1,10 @@
 {
   "version": 1,
-  "note": "運営者が設定する連絡先。null の項目は、その機能を出さない。実在しない連絡先やフォームのURLを入れない。report.contact を設定すると、「情報が違っていた」の報告文をコピーしたあとに、その連絡先を開くリンクが出る(このサイトから自動で送ることはしない)。設定するときは {\"label\": \"LINE\", \"url\": \"https://…\"} の形で、https か mailto のURLだけを使う。",
+  "note": "運営者が設定する連絡先。null の項目は、その機能を出さない。実在しない連絡先やフォームのURLを入れない。report.contact を設定すると、「情報が違っていた」の報告文をコピーしたあとに、その連絡先を開くリンクが出る(このサイトから自動で送ることはしない)。設定するときは {\"label\": \"Googleフォーム\", \"url\": \"https://…\"} の形で、https か mailto のURLだけを使う。現在はサイトの「投稿する」ページ(post.html)と同じGoogleフォーム。事前入力(フィールドID)は使っていない。",
   "report": {
-    "contact": null
+    "contact": {
+      "label": "Googleフォーム",
+      "url": "https://forms.gle/RqxPGi8SPc8pb9TX9"
+    }
   }
 }

@@ -8,11 +8,13 @@
       "title": "ETIAS(ヨーロッパ渡航認証)",
       "check": "旅行の日程が決まったら、ETIASが始まっているか・自分が対象になるかを、公式ページで確認する",
       "who": "ビザなしで短期滞在(90日以内)する旅行者向けの案内です。ビザや滞在許可をお持ちの方など、条件が異なる場合があります。日本からの渡航者向けには在日フランス大使館が案内しています。",
-      "summary": "ビザなしで欧州30か国に短期滞在する旅行者が、渡航前にオンラインで取る渡航認証です。2026年9月21日の確認時点では、まだ運用が始まっていません。",
+      "summary": "ビザなしで欧州30か国に短期滞在する旅行者が、渡航前にオンラインで取る渡航認証です。日本のパスポートも対象です。2026年9月21日の確認時点では、まだ運用が始まっていません。",
       "points": [
-        { "label": "今の状況", "text": "欧州委員会の公式ページ(2026年4月10日付)は、「ETIASは現在運用しておらず、渡航認証の申請は受け付けていない」としています。" },
-        { "label": "開始の時期", "text": "欧州委員会は2026年4月28日の案内で「2026年第4四半期に開始予定」としました。開始日は、開始の数か月前に公式に告知されるとされています。時期が変わる可能性があるため、出発前に公式ページで最新の状況を確認してください。" },
-        { "label": "費用", "text": "欧州委員会のページ(2025年10月6日更新)に20ユーロと記載があります。申請するときは、公式サイトで金額を確認してください。" },
+        { "label": "今の状況", "text": "EU公式のETIASサイト(2026年9月21日に確認)は、「ETIASは現在運用しておらず、渡航認証の申請は受け付けていない」としています。" },
+        { "label": "開始の時期", "text": "開始日はまだ告知されていません(2026年9月21日時点)。EUは、開始日を開始の数か月前に知らせるとしています。欧州委員会は2026年4月28日の案内で「2026年第4四半期に開始予定」としましたが、確定した日付ではありません。開始のあとは、移行期間と猶予期間が続き、少なくとも12か月になるとされています(EU公式ニュース 2025年4月14日)。時期が変わる可能性があるため、出発前に公式ページで最新の状況を確認してください。" },
+        { "label": "対象と有効期間", "text": "日本を含む59か国・地域のパスポートの人が対象です(EU公式ニュース 2026年7月6日)。承認されると、3年間、またはそのパスポートの期限のどちらか早いほうまで有効とされています。" },
+        { "label": "費用", "text": "申請料は20ユーロです(EU公式のETIASサイト)。免除される人もいます。申請するときは、公式サイトで金額を確認してください。" },
+        { "label": "申請の流れ", "text": "開始後に申請します。開始前は申請できません。グループ申請はできず、子どもを含めて1人ずつ申請します。多くは数分で処理されますが、場合によっては最長30日かかることがあるため、余裕をもって申請するよう案内されています(EU公式ニュース 2026年7月6日)。" },
         { "label": "申請できる場所", "text": "公式サイトまたは公式アプリだけです。第三者のサイトは追加料金の請求や個人情報の悪用の恐れがあると、欧州委員会が注意しています。このサイトでは申請を受け付けず、旅券番号などの入力も求めません。" }
       ],
       "links": [
@@ -21,6 +23,9 @@
         { "label": "在日フランス大使館(日本語)", "url": "https://jp.diplomatie.gouv.fr/ja/ees-le-nouveau-systeme-europeen-de-gestion-des-frontieres-entre-en-service-le-10-avril-2026" }
       ],
       "sources": [
+        { "label": "EU公式ETIASサイト(2026年9月21日に確認)", "url": "https://travel-europe.europa.eu/etias_en" },
+        { "label": "EU公式ETIASニュース「旅行会社向けの5つの注意点」(2026年7月6日)", "url": "https://travel-europe.europa.eu/etias/ltr/about-etias/news-corner/5-things-travel-agents-should-know-about-ETIAS" },
+        { "label": "EU公式ETIASニュース「EESとETIASの改訂スケジュール」(2025年4月14日)", "url": "https://travel-europe.europa.eu/en/etias/about-etias/news-corner/revised-timeline-ees-and-etias" },
         { "label": "欧州委員会 Smart borders(ページ日付 2026年4月10日)", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders_en" },
         { "label": "欧州委員会 ニュース「EESとETIASの主な違い」(2026年4月28日)", "url": "https://home-affairs.ec.europa.eu/news/main-differences-between-ees-and-etias-what-travellers-need-know-2026-04-28_en" },
         { "label": "欧州委員会 ETIAS(2025年10月6日更新)", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/european-travel-information-authorisation-system_en" },

@@ -165,6 +165,17 @@ function freshnessChecks(root, cache, add, today) {
       else if (w.anchor && !pageAnchors(root, w.page, cache).has(w.anchor)) add('error', `${tag}: ${w.page}#${w.anchor} がありません`);
     }
   }
+  for (const w of freshness.withheld ?? []) {
+    const tag = `data/freshness.json: withheld ${w.id ?? '(idなし)'}`;
+    for (const key of ['id', 'page', 'what', 'why', 'to_restore']) if (!w[key]) add('error', `${tag}: ${key} がありません`);
+    if (w.page && !existsSync(join(root, w.page))) add('error', `${tag}: ${w.page} がありません`);
+  }
+  for (const c of freshness.corrections ?? []) {
+    const tag = `data/freshness.json: corrections ${c.id ?? '(idなし)'}`;
+    for (const key of ['id', 'on', 'page', 'before', 'after', 'basis']) if (!c[key]) add('error', `${tag}: ${key} がありません`);
+    if (c.on && (!isIsoDate(c.on) || c.on > today)) add('error', `${tag}: on の日付が不正です(${c.on})`);
+    if (c.page && !existsSync(join(root, c.page))) add('error', `${tag}: ${c.page} がありません`);
+  }
   return audited;
 }
 
@@ -179,7 +190,7 @@ function freshMarkerChecks(root, files, add) {
 }
 
 export function checkSite({ root = ROOT, today = isoToday() } = {}) {
-  const result = { errors: [], warnings: [], freshness: [] };
+  const result = { errors: [], warnings: [], freshness: [], withheld: [] };
   const add = (level, message) => (level === 'error' ? result.errors : result.warnings).push(message);
   const jp = readdirSync(root).filter((f) => f.endsWith('.html'));
   const en = existsSync(join(root, 'en')) ? readdirSync(join(root, 'en')).filter((f) => f.endsWith('.html')).map((f) => `en/${f}`) : [];
@@ -187,6 +198,7 @@ export function checkSite({ root = ROOT, today = isoToday() } = {}) {
   const cache = htmlChecks(root, files, add);
   dataChecks(root, cache, add, today);
   result.freshness = freshnessChecks(root, cache, add, today);
+  result.withheld = readJson(root, 'data/freshness.json').withheld ?? [];
   freshMarkerChecks(root, files, add);
   // 今話題のこと: 最新の追加日が古すぎないか(週次の確認が止まっていないかの目安)
   const trending = readJson(root, 'data/trending.json');
@@ -273,6 +285,10 @@ async function main() {
       console.log(`  [${label}] ${item.id}: ${item.label}${verifiedOn ? `(確認日 ${verifiedOn}、次の確認 ${dueOn} まで)` : ''}`);
       if (state !== 'current') console.log(`      → ${item.action}`);
     }
+  }
+  if (args.includes('--freshness') && result.withheld.length) {
+    console.log('\n確認できていないので、いまは載せていない内容');
+    for (const w of result.withheld) console.log(`  ${w.page}: ${w.what}\n      → 戻す条件: ${w.to_restore}`);
   }
   console.log(`\nエラー ${result.errors.length}件 / 警告 ${result.warnings.length}件`);
   if (result.errors.length) process.exit(1);

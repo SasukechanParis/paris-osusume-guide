@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "note": "公式情報と照合が必要な項目の正本。ここに載せた項目は、確認できた分だけ verified_on(確認日)と source(出典)を持つ。確認していない項目には日付を入れない(自動で今日の日付を入れない)。入国関連(etias・ees)の確認日と出典は data/official-info.json が正本で、ここでは ref で参照するだけ(二重管理しない)。確認日は「事実を公式資料で確かめた日」であり、記事の編集日・掲載日(data/updates.json)とは別。node scripts/check-site.mjs --freshness で、未確認と再確認の時期が来ている項目を一覧できる。",
+  "version": 2,
+  "note": "公式情報と照合が必要な項目の正本。ここに載せた項目は、確認できた分だけ verified_on(確認日)と source(出典)を持つ。確認していない項目には日付を入れない(自動で今日の日付を入れない)。入国関連(etias・ees)の確認日と出典は data/official-info.json が正本で、ここでは ref で参照するだけ(二重管理しない)。確認日は「事実を公式資料で確かめた日」であり、記事の編集日・掲載日(data/updates.json)とは別。withheld は「確認できていないので、いまは載せていない内容」、corrections は「公式で確かめて直した内容」の記録。node scripts/check-site.mjs --freshness で、未確認・再確認の時期が来た項目を一覧できる。",
   "default_recheck_days": 120,
   "items": [
     {
@@ -8,18 +8,34 @@
       "topic": "entry",
       "label": "ETIAS(ヨーロッパ渡航認証)の状況・開始時期・費用",
       "short": "ETIASの状況・開始時期・費用",
-      "where": [{ "page": "journey.html", "anchor": "official-etias" }],
-      "ref": { "file": "data/official-info.json", "card": "etias" },
+      "where": [
+        {
+          "page": "journey.html",
+          "anchor": "official-etias"
+        }
+      ],
+      "ref": {
+        "file": "data/official-info.json",
+        "card": "etias"
+      },
       "recheck_after_days": 30,
-      "action": "開始時期・費用は変わりうるので、公開前と月1回、欧州委員会のETIASページで見直す。開始予定日が過ぎても「申請必須」へ自動で切り替えない。"
+      "action": "開始日が告知されたら、カードの「開始の時期」を書き直す。開始予定日が過ぎても「申請必須」へ自動で切り替えない。月1回、EU公式のETIASサイトで見直す。"
     },
     {
       "id": "ees",
       "topic": "entry",
       "label": "EES(出入国システム)の運用状況",
       "short": "EESの運用状況",
-      "where": [{ "page": "journey.html", "anchor": "official-ees" }],
-      "ref": { "file": "data/official-info.json", "card": "ees" },
+      "where": [
+        {
+          "page": "journey.html",
+          "anchor": "official-ees"
+        }
+      ],
+      "ref": {
+        "file": "data/official-info.json",
+        "card": "ees"
+      },
       "recheck_after_days": 30,
       "action": "運用の範囲・登録の流れが変わっていないか、欧州委員会と在日フランス大使館のページで見直す。"
     },
@@ -30,100 +46,219 @@
       "short": "メトロ・RER1回券(2.55€)",
       "claim": "メトロ・鉄道・RERの単発券 2.55€(2026年)",
       "where": [
-        { "page": "guide.html", "anchor": "faq-metro" },
-        { "page": "airport.html", "anchor": "orly-metro14" }
+        {
+          "page": "guide.html",
+          "anchor": "faq-metro"
+        },
+        {
+          "page": "airport.html",
+          "anchor": "orly-metro14"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "fares"
+        }
       ],
       "verified_on": "2026-09-21",
       "source": {
-        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
-        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+        "label": "Île-de-France Mobilités「2026年の運賃」(2025年12月10日公開)",
+        "url": "https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026"
       },
-      "finding": "2026年1月1日から、メトロ・鉄道・RERの単発券は2.55€(割引1.30€)。",
+      "finding": "2026年1月1日から、メトロ・鉄道・RERの単発券は2.55€(割引1.30€)。RATPの運賃表(Bonjour RATP)でも、2026年1月1日付で2.55€。service-public.gouv.fr(2025年12月11日掲載)とも一致。",
       "action": "運賃は毎年1月に改定される。2027年1月の改定後に見直す。",
       "recheck_after_days": 120
     },
     {
       "id": "transit-bus-tram-ticket",
       "topic": "transit",
-      "label": "バス・トラム用チケットの運賃(トラムT7)",
+      "label": "バス・トラム用チケットの運賃(トラムT7を含む)",
       "short": "バス・トラム用チケット(2.05€)",
-      "claim": "トラムT7はバス・トラム用チケット 2.05€",
-      "where": [{ "page": "airport.html", "anchor": "orly-t7" }],
+      "claim": "バス・トラム用チケット 2.05€。トラムT7もこのチケット",
+      "where": [
+        {
+          "page": "airport.html",
+          "anchor": "orly-t7"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "fares"
+        }
+      ],
       "verified_on": "2026-09-21",
       "source": {
-        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
-        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+        "label": "Île-de-France Mobilités「2026年の運賃」(2025年12月10日公開)",
+        "url": "https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026"
       },
-      "finding": "2026年1月1日から、バス・トラムの単発券は2.05€(割引1.05€)。以前の本文は「地下鉄・バスと同じ2.55€」だったが、この公式記事と合わないため訂正した(2026-09-21)。",
-      "action": "トラムT7がバス・トラム用チケットの対象であることの確認までは、IDFMの公式ページが読めず取れていない。出発前に公式アプリで確認するよう案内している。",
+      "finding": "2026年1月1日から、バス・トラムの単発券は2.05€(割引1.05€)。IDFMのチケットのページは、このチケットを「バスまたはトラムで、イル・ド・フランス全域で使える」としている。",
+      "action": "運賃は毎年1月に改定される。2027年1月の改定後に見直す。",
       "recheck_after_days": 120
     },
     {
       "id": "airport-ticket",
       "topic": "transit",
-      "label": "空港チケット(RER Bでの空港往復)の運賃",
-      "short": "空港チケット(14€・割引7€)",
-      "claim": "空港チケット 14€(割引7€)",
-      "where": [{ "page": "airport.html", "anchor": "cdg-rer-b" }],
+      "label": "空港チケット・Orlyvalの運賃",
+      "short": "空港チケット・Orlyval(14€・割引7€)",
+      "claim": "空港チケット 14€(割引7€)。Orlyvalのチケット 14€(割引7€)",
+      "where": [
+        {
+          "page": "airport.html",
+          "anchor": "cdg-rer-b"
+        },
+        {
+          "page": "airport.html",
+          "anchor": "orly-orlyval"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "fares"
+        }
+      ],
       "verified_on": "2026-09-21",
       "source": {
-        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
-        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+        "label": "Île-de-France Mobilités「2026年の運賃」(2025年12月10日公開)",
+        "url": "https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026"
       },
-      "finding": "2026年の空港チケットは14€(割引7€)。金額は本文と一致。本文の「2025年1月改定」という改定時期の記述までは確認できていない。",
-      "action": "改定時期の記述を残すなら、RATPの空港運賃ページ(https://www.ratp.fr/en/titres-et-tarifs/paris-aeroport)で確認する。",
+      "finding": "2026年の空港チケット(Paris Région ↔ 空港)は14€(割引7€)、Orlyvalのチケットは14€(割引7€)。RATPのページ(2026年5月26日更新)は、空港チケットを「鉄道(メトロ・電車・RER・Orlyval)で空港へ行くためのチケット」としている。",
+      "action": "運賃は毎年1月に改定される。2027年1月の改定後に見直す。",
       "recheck_after_days": 120
     },
     {
-      "id": "transit-carnet-10",
+      "id": "navigo-jour-price",
       "topic": "transit",
-      "label": "10回分のデジタル回数券の金額",
-      "short": "10回券の金額(17.35€)",
-      "claim": "10回分のデジタル回数券 17.35€",
-      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
-      "verified_on": null,
-      "source": null,
-      "finding": "公式の運賃ページ(Île-de-France Mobilités)は自動取得が403で読めず、service-public.gouv.fr の2026年運賃記事には10回券の金額の記載がない。第三者のサイトは17.35€としているが、根拠にしていない。",
-      "action": "IDFMの運賃ページ(https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026)をブラウザで開き、10回券の金額を確認して本文を直す。確認できないなら金額の表記を外す。",
+      "label": "Navigo Jour(1日券)の料金",
+      "short": "Navigo Jour(1日券 12.30€・空港を除く)",
+      "claim": "Navigo Jour 12.30€。空港を除くイル・ド・フランス全域",
+      "where": [
+        {
+          "page": "transit.html",
+          "anchor": "fares"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "Île-de-France Mobilités「2026年の運賃」(2025年12月10日公開)",
+        "url": "https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026"
+      },
+      "finding": "Navigo Jour(全ゾーン1〜5)は12.30€。「空港を除く、イル・ド・フランス全域で使える」と記載。",
+      "action": "運賃は毎年1月に改定される。2027年1月の改定後に見直す。",
       "recheck_after_days": 120
+    },
+    {
+      "id": "navigo-easy-card",
+      "topic": "transit",
+      "label": "Navigo Easyカード(価格・買える場所・使い方の決まり)",
+      "short": "Navigo Easyカード(2€)",
+      "claim": "2€。窓口で買える。名前なしで貸し借り可、1人1枚、なくしても再発行不可",
+      "where": [
+        {
+          "page": "guide.html",
+          "anchor": "faq-metro"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "route-card"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "Île-de-France Mobilités「Navigo Easy」",
+        "url": "https://www.iledefrance-mobilites.fr/en/titres-et-tarifs/supports/passe-navigo-easy"
+      },
+      "finding": "カードは2€で、鉄道会社の窓口(ticket offices or counters)で買える。チャージは、窓口・駅、提携店、または公式アプリ。名前のないカードで貸し借りできるが、複数人で旅行するときは1人ずつ自分のカードで改札を通る。なくしたり盗まれたりした場合、カードとチャージ済みのチケットは再発行できない。使えるチケット: メトロ・RER券、バス・トラム券、Navigo Jour、空港券、Paris Visite ほか。Bonjour RATPも「駅で2€」としている。",
+      "action": "カード代は改定されうる。年1回、IDFMのNavigo Easyのページで見直す。",
+      "recheck_after_days": 180
     },
     {
       "id": "paper-ticket-end",
       "topic": "transit",
-      "label": "紙の切符の廃止時期",
-      "short": "紙の切符の廃止時期",
-      "claim": "紙の切符は2026年にバス・鉄道網とも順次終了",
-      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
-      "verified_on": null,
-      "source": null,
-      "finding": "IDFMの公式ページが読めず、廃止の時期を確認できていない。検索結果の要約には本文と違う時期の記載があったが、ページ本文を読めていないので根拠にしていない。古い記述の可能性がある。",
-      "action": "IDFMの「fin du ticket magnétique」のお知らせ(https://www.iledefrance-mobilites.fr/en/actualites/fin-ticket-magnetique)を開いて現状を確認し、本文を直す。",
-      "recheck_after_days": 120
+      "label": "紙の切符の販売終了と、手元の紙の切符の期限",
+      "short": "紙の切符の販売終了と期限",
+      "claim": "紙の切符はもう買えない。手元の分は2026年12月15日まで。交換は2027年1月14日まで",
+      "where": [
+        {
+          "page": "guide.html",
+          "anchor": "faq-metro"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "route-choose"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "Île-de-France Mobilités「Ticket t+」のページ",
+        "url": "https://www.iledefrance-mobilites.fr/en/titres-et-tarifs/detail/ticket-t"
+      },
+      "finding": "IDFMは、紙のチケットは販売終了で、バス・トラムでは使えないとしている。手元のt+チケット・空港チケット・Origine-Destinationチケットは2026年12月15日まで使え、RATPまたはSNCFの窓口で2027年1月14日まで、Navigo Easy用のデジタルのチケットに交換できる(Navigo Easyを持って行く)。Bonjour RATPは、2025年11月5日から、バス・トラムの車内やメトロ・RERの駅で紙のチケットを買えなくなったとしている。",
+      "action": "12月15日と1月14日を過ぎたら、本文からこの案内を外す。",
+      "recheck_after_days": 90
     },
     {
-      "id": "navigo-easy-card-price",
+      "id": "phone-ticket-requirements",
       "topic": "transit",
-      "label": "Navigo Easyカードの購入代金",
-      "short": "Navigo Easyカード代(2€)",
-      "claim": "Navigo Easyカード 2€",
-      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
-      "verified_on": null,
-      "source": null,
-      "finding": "公式ページが読めず確認できていない。",
-      "action": "IDFMまたはRATPのNavigo Easyのページで、カード代を確認する。",
-      "recheck_after_days": 120
+      "label": "スマホにチケットを入れる方法と、対応する機種",
+      "short": "スマホの対応機種と購入の手順",
+      "claim": "iPhone: iOS 17.5以上(XR/XS以降)、Android: 8以上(Pixel 4以前とHuawei・Honorは不可)。アプリの「購入」→「スマホに」→ 支払い(銀行カードとメールアドレス)",
+      "where": [
+        {
+          "page": "guide.html",
+          "anchor": "faq-metro"
+        },
+        {
+          "page": "transit.html",
+          "anchor": "route-phone"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "Île-de-France Mobilités「iPhoneで乗る」「Androidで乗る」ガイド",
+        "url": "https://www.iledefrance-mobilites.fr/dossiers/validation-transports-iphone-apple"
+      },
+      "finding": "iPhone: IDFMはiOS 17.5以上(最も古い機種はiPhone XR/XS)としている。Appleのサポートページ(2026年4月17日公開)は、iPhone XS以降・最新のiOS・iCloudにサインインしたApple Account・Walletに追加したクレジット/デビットカードが必要としている。購入は、アプリの「Achat」→「Sur mon iPhone」→ チケットを選ぶ → 初回だけApple Walletに追加 → 支払い。乗るときは、iPhoneを改札にかざすだけで、ロック解除もアプリの起動も電池残量もいらない(IDFM)。Android: Android 8以上。対応しない機種は、Google Pixel 4以前とHuawei・Honor。購入は「Achat」→「Sur mon téléphone」。支払いは有効な銀行カードとメールアドレス(領収書用)が必要で、Samsung Payも使える。日本のiPhone・日本発行のカードでの可否は、IDFMもAppleも書いていない(未確認)。",
+      "action": "対応機種は変わりうる。半年に1回、IDFMの案内と、Appleのサポートページで見直す。",
+      "recheck_after_days": 180
     },
     {
-      "id": "airport-service-changes",
+      "id": "bank-card-tap",
       "topic": "transit",
-      "label": "空港交通の運行変更(ロワシーバス廃止・オルリーヴァルの特別措置・Noctilien)",
-      "short": "空港交通の運行変更",
-      "claim": "ロワシーバスは2026年2月末で廃止、オルリーヴァルの夏の特別措置、Noctilienの運行",
-      "where": [{ "page": "airport.html", "anchor": "cdg-rer-b" }],
+      "label": "銀行カード(クレジットカード)のタッチでの乗車",
+      "short": "銀行カードのタッチでの乗車",
+      "claim": "2026年は、メトロの改札では使えない。バス車内の緊急用、オルリー空港駅の出口(6月30日開始の予定)、モンマルトルのケーブルカー(7月8日開始の予定)。メトロは2027年7月の1号線から順次",
+      "where": [
+        {
+          "page": "transit.html",
+          "anchor": "route-card-tap"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "Île-de-France Mobilités「銀行カードで乗る」(2026年6月16日公開)",
+        "url": "https://www.iledefrance-mobilites.fr/actualites/valider-transports-carte-bancaire-ile-de-france"
+      },
+      "finding": "銀行カードは「ふだん使いの乗車券」ではなく、切符を持っていない旅行者のための緊急用。バス車内(パリと近郊のほぼ全車両)で買え、金額は車内券2.55€(乗り換えなし)。2026年6月30日からオルリー空港駅の出口、7月8日からモンマルトルのケーブルカーを始める予定(IDFMの記事は6月16日付。始まったかどうかは確認していない)。メトロ・鉄道は、2027年7月のメトロ1号線から始め、2027年末までに4・14・15・18号線、2028年末までに7・12号線、2030年ごろに残りの鉄道の予定。旅の準備には、アプリ・Navigo Easy・Walletのチケットが、到着前から使えるとIDFMは案内している。",
+      "action": "導入の日程は変わりうる。3か月に1回、IDFMの案内を見直す。",
+      "recheck_after_days": 90
+    },
+    {
+      "id": "noctilien-lines",
+      "topic": "transit",
+      "label": "Noctilien(深夜バス)の路線・運賃",
+      "short": "Noctilien(深夜バス)の路線",
+      "claim": "CDGへはN140・N143、オルリーへはN22・N31・N131・N144(深夜・早朝のバス)",
+      "where": [
+        {
+          "page": "airport.html",
+          "anchor": "cdg-noctilien"
+        },
+        {
+          "page": "airport.html",
+          "anchor": "orly-noctilien"
+        }
+      ],
       "verified_on": null,
       "source": null,
-      "finding": "時期が限られる記述。公式ページで確認できていない。",
-      "action": "RATP・Aéroports de Parisの公式ページで、運行の現状を確認する。期間限定の措置は期間が過ぎたら本文から外す。",
+      "finding": "公式ページで確認できていない。",
+      "action": "RATPまたはIDFMのNoctilienのページで、路線番号と運行時間を確認する。確認できないなら、2つのカードを外す。",
       "recheck_after_days": 60
     },
     {
@@ -133,15 +268,21 @@
       "short": "免税の条件・PABLOでの手続き",
       "claim": "同一店舗・同一日の購入合計が100.01€以上、16歳以上、EU域外居住、滞在6か月未満、出国時に荷物を預ける前にPABLO端末で認証",
       "where": [
-        { "page": "guide.html", "anchor": "detaxe-eligibility" },
-        { "page": "guide.html", "anchor": "detaxe-pablo" }
+        {
+          "page": "guide.html",
+          "anchor": "detaxe-eligibility"
+        },
+        {
+          "page": "guide.html",
+          "anchor": "detaxe-pablo"
+        }
       ],
       "verified_on": "2026-09-21",
       "source": {
         "label": "フランス税関(douane.gouv.fr)PABLOの案内(ページ表記 “Updated on 04/06/2026”)",
         "url": "https://www.douane.gouv.fr/en/fiche/tax-exemption-france-tourists-pablo"
       },
-      "finding": "公式ページは、税込100€超(同一店舗・同一日)、16歳以上、EU域外の居住者、滞在6か月未満、荷物の預け入れ前にPABLO端末で認証、と記載。本文の条件と一致。公式ページには認証の期限の記載もある(購入月から3か月後の月末まで。例: 1月に購入なら4月末)が、本文には書いていないため、掲載するかは運営者が決める。還付方法・手数料など、その他の記述は確認していない。",
+      "finding": "公式ページは、税込100€超(同一店舗・同一日)、16歳以上、EU域外の居住者、滞在6か月未満、荷物の預け入れ前にPABLO端末で認証、と記載。本文の条件と一致。公式には、認証の期限(購入月から3か月後の月末まで)もあるが、旅行者は短期滞在なので本文には載せないと運営者が決めた(2026-09-21)。還付方法・手数料など、その他の記述は確認していない。",
       "action": "免税の限度額・期限は制度改正で変わりうる。年1回、税関のページで見直す。",
       "recheck_after_days": 180
     },
@@ -151,7 +292,12 @@
       "label": "緊急電話番号(15・17・18・112)",
       "short": "緊急電話番号(15・17・18・112)",
       "claim": "15(SAMU)・17(警察)・18(消防)・112(EU共通)",
-      "where": [{ "page": "emergency.html", "anchor": null }],
+      "where": [
+        {
+          "page": "emergency.html",
+          "anchor": null
+        }
+      ],
       "verified_on": "2026-09-21",
       "source": {
         "label": "service-public.gouv.fr「緊急時の番号」(ページ表記 “Verified 15 November 2024”)",
@@ -162,29 +308,87 @@
       "recheck_after_days": 180
     },
     {
-      "id": "emergency-card-and-pharmacy-numbers",
+      "id": "pharmacy-3237",
       "topic": "emergency",
-      "label": "カード利用停止の窓口(0892 705 705)・薬局の当番案内(3237)",
-      "short": "カード利用停止・薬局当番の番号",
-      "claim": "0892 705 705(カード利用停止)、3237(当番薬局)",
-      "where": [{ "page": "emergency.html", "anchor": null }],
-      "verified_on": null,
-      "source": null,
-      "finding": "公式ページで確認できていない。番号は変わりうる。",
-      "action": "公式ページ(銀行・薬剤師会など)で番号と対象を確認する。確認できるまで、本文は「カード裏面・発行銀行のアプリの連絡先を優先」の案内を維持する。",
+      "label": "当番薬局の案内(3237)",
+      "short": "当番薬局の案内(3237・有料)",
+      "claim": "3237に電話すると、近くの当番薬局を案内する。有料(1分あたり0.35€)",
+      "where": [
+        {
+          "page": "emergency.html",
+          "anchor": "pharmacy"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "3237.fr(薬剤師の職能団体が運営)「当番・緊急の薬局について」",
+        "url": "https://www.3237.fr/public/presentation.php"
+      },
+      "finding": "「3237」は、電話をかけた場所から近い当番の薬局を自動で探す有料の音声サービス(1分35サンチーム)。3237.frのサイトでも同じ検索ができる。当番の薬局は、シャッターを閉めて呼び鈴で対応する場合があり、処方箋とカルト・ヴィタル(仏の健康保険証)を求められる、とも書かれている。",
+      "action": "料金は変わりうる。年1回、3237.frで見直す。",
       "recheck_after_days": 180
     },
     {
-      "id": "emergency-embassy",
+      "id": "card-stop-guidance",
       "topic": "emergency",
-      "label": "在フランス日本国大使館の電話番号・住所・受付時間",
+      "label": "クレジットカードを盗まれたときの利用停止",
+      "short": "カードの利用停止の連絡先",
+      "claim": "カード裏面や発行会社のアプリの緊急連絡先ですぐ利用停止。海外では専用の番号が必要なことがある",
+      "where": [
+        {
+          "page": "emergency.html",
+          "anchor": "card-stolen"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "economie.gouv.fr「カードの盗難・紛失のときは」(ページ表記 “Écrit le 13/06/2025”)",
+        "url": "https://www.economie.gouv.fr/particuliers/eviter-les-arnaques/que-faire-en-cas-de-perte-ou-de-vol-de-votre-carte-bancaire"
+      },
+      "finding": "フランス政府の案内は、まず銀行の担当者、または銀行が知らせている利用停止の番号に連絡するよう案内している。海外にいる場合は、銀行の専用番号に連絡する必要があることがあるので、出発前に調べておくように、とも書かれている。フランスの銀行のカード向けの共通窓口(0 892 705 705・有料・24時間)もあるが、日本で発行されたカードで使えるかは確認できていないため、本文には載せていない(withheld を参照)。",
+      "action": "日本で発行されたカードの扱いを、カード会社の案内で確認できたら、共通窓口の記載を戻すか決める。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "embassy-contact",
+      "topic": "emergency",
+      "label": "在フランス日本国大使館の電話・住所・受付時間",
       "short": "大使館の電話・住所・受付時間",
-      "claim": "電話 01 4888 6200、7 Avenue Hoche、土日祝休館",
-      "where": [{ "page": "emergency.html", "anchor": null }],
-      "verified_on": null,
-      "source": null,
-      "finding": "大使館の公式ページが自動取得で403になり、確認できていない。",
-      "action": "在フランス日本国大使館の公式ページ(https://www.fr.emb-japan.go.jp/itpr_ja/ryoken.html)をブラウザで開いて確認する。",
+      "claim": "電話 01-4888-6200、7, avenue Hoche 75008 Paris。領事窓口は平日 9:30〜13:00・14:30〜17:00",
+      "where": [
+        {
+          "page": "emergency.html",
+          "anchor": "passport-lost"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "在フランス日本国大使館「大使館案内」(ページ表記 令和6年4月17日)",
+        "url": "https://www.fr.emb-japan.go.jp/itpr_ja/00000.html"
+      },
+      "finding": "住所は7, avenue Hoche 75008 Paris、電話は01-4888-6200(代表)。執務時間は平日9:15〜18:30(電話の対応は9:30〜13:00・14:30〜18:00)。領事窓口(旅券・証明など)は平日9:30〜13:00・14:30〜17:00で、午前の申請・届出の受付は12:30まで。週末以外の休館日は、大使館の休館日カレンダーで確認する。来館時は、パスポートまたは滞在許可証などの身分証明書を持参。",
+      "action": "受付時間・休館日は変わりうる。半年に1回、大使館の案内ページで見直す。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "passport-lost-procedure",
+      "topic": "emergency",
+      "label": "パスポートをなくしたときの手続きと日数",
+      "short": "パスポート紛失の手続きと日数",
+      "claim": "新しいパスポートは1か月程度。帰国が間に合わないときは「帰国のための渡航書」(原則、帰国予定日の前日に受け取り)",
+      "where": [
+        {
+          "page": "emergency.html",
+          "anchor": "passport-lost"
+        }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "在フランス日本国大使館「紛焼失による発給」(令和8年8月3日)・「帰国のための渡航書」(令和8年4月22日)",
+        "url": "https://www.fr.emb-japan.go.jp/itpr_ja/funshitsu.html"
+      },
+      "finding": "紛失による新規発給の所要期間は「1カ月程度」(日本の連休や手数料改定の前後は、さらに数週間かかることがある)。帰国のための渡航書は、新しいパスポートを待たずに帰国したい場合の書類で、原則として帰国予定日の前日に受け取る。日本に帰国した時点で失効し、経由地を含む第三国への入国には使えない。渡航書の必要書類: 申請書、紛失一般旅券等届出書、警察の盗難・紛失届証明書、写真2枚(縦4.5cm×横3.5cm・6か月以内)、戸籍謄本(抄本)か本籍地が記載された住民票(コピー可・6か月以内)または電子戸籍パス(3か月以内)、E-ticketなど帰国日程が分かる書類。旅券のコピー・運転免許証・保険証は戸籍の代わりにならない。申請・受領とも本人出頭が原則。",
+      "action": "必要書類・日数は変わりうる。半年に1回、大使館のページで見直す。",
       "recheck_after_days": 180
     },
     {
@@ -199,6 +403,84 @@
       "finding": "載せていないので、誤りが出る心配はない。ただし souvenirs・supermarket・guide などの記事本文にある金額(€表記)は、店ごとの確認日を持たない。",
       "action": "載せるときは data/place-facts.json に、店ごと・項目ごとの verified_on と source_url を付ける(確認していない項目は入れない)。本文の金額は、確認できたものから place-facts へ移す。",
       "recheck_after_days": 120
+    }
+  ],
+  "withheld": [
+    {
+      "id": "carnet-10-price",
+      "page": "guide.html",
+      "what": "「10回分のデジタル回数券17.35€で割安」",
+      "why": "17.35€は、2024年12月31日までの紙の回数券の価格だった(RATPの運賃表)。紙の回数券は2023年9月21日に販売終了。現在の10回分の定価は公式に載っていない。",
+      "to_restore": "現在の10回分の定価が、公式で確認できたら"
+    },
+    {
+      "id": "roissybus-end-date",
+      "page": "airport.html",
+      "what": "「ロワシーバスは2026年2月末で廃止され、現在はRER Bが公式な代替手段」",
+      "why": "RATPは、ロワシーバスの運行が終わること・未使用のチケットの払い戻しを案内しているが、終了の日付と「公式な代替手段」という言い方は確認できていない。",
+      "to_restore": "IDFMの「La ligne RoissyBus s'arrête」の案内で、日付を確認できたら"
+    },
+    {
+      "id": "orlyval-summer-measure",
+      "page": "airport.html",
+      "what": "「2026年夏(7/25〜8/16予定)は、Navigo/Imagine R保有者のOrlyval運賃が無料」",
+      "why": "期間がすでに過ぎている。公式でも確認できていない。",
+      "to_restore": "戻さない(期間限定の措置のため)"
+    },
+    {
+      "id": "airport-fare-revision-date",
+      "page": "airport.html",
+      "what": "空港チケットの運賃の「2025年1月改定」",
+      "why": "金額(14€・割引7€)は確認できたが、改定の時期は確認できていない。",
+      "to_restore": "改定の時期を、公式で確認できたら"
+    },
+    {
+      "id": "card-stop-0892",
+      "page": "emergency.html",
+      "what": "0892 705 705(フランスの銀行のカード共通の利用停止窓口)のボタンと、「有料番号(0.35€/分程度)ですがフランス国内のどのカードでも利用停止を依頼できます」",
+      "why": "番号・有料・24時間はフランス政府の案内で確認できたが、日本で発行されたカードで使えるかが確認できていない。「0.35€/分」という金額も、公式に書かれていない。",
+      "to_restore": "日本で発行されたカードでも使えると、公式で確認できたら"
+    },
+    {
+      "id": "noctilien-fare",
+      "page": "airport.html",
+      "what": "Noctilienの運賃「通常のバス・トラム用チケット1枚(2€)」",
+      "why": "「2€」は2025年の価格で、2026年のバス・トラム用チケットは2.05€。Noctilienにこのチケットがそのまま使えるかも、公式で確認できていない。",
+      "to_restore": "Noctilienの運賃を、公式で確認できたら"
+    }
+  ],
+  "corrections": [
+    {
+      "id": "t7-fare",
+      "on": "2026-09-21",
+      "page": "airport.html",
+      "before": "トラムT7の運賃は通常の地下鉄・バスチケットと同じ(2.55€)",
+      "after": "バス・トラム用のチケット(2.05€、2026年1月改定。メトロ・RER用は2.55€)",
+      "basis": "IDFM「2026年の運賃」"
+    },
+    {
+      "id": "passport-reissue-days",
+      "on": "2026-09-21",
+      "page": "emergency.html",
+      "before": "パスポートの通常の再発行には約1週間かかる",
+      "after": "新しいパスポートの発給は1か月程度。帰国が間に合わないときは「帰国のための渡航書」",
+      "basis": "在フランス日本国大使館「紛焼失による発給」(令和8年8月3日)"
+    },
+    {
+      "id": "iphone-requirement",
+      "on": "2026-09-21",
+      "page": "guide.html",
+      "before": "iPhone XS以降・Android 8以降のNFC対応機種",
+      "after": "iPhone: iOS 17.5以上(XR/XS以降)、Android: 8以上",
+      "basis": "IDFM「iPhoneで乗る」「Androidで乗る」ガイド"
+    },
+    {
+      "id": "paper-ticket-dates",
+      "on": "2026-09-21",
+      "page": "guide.html",
+      "before": "紙の切符は2026年にバス・鉄道網とも順次終了",
+      "after": "紙の切符は購入できない。手元の分は2026年12月15日まで、交換は2027年1月14日まで",
+      "basis": "IDFM「Ticket t+」のページ、Bonjour RATP"
     }
   ]
 }

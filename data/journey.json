@@ -9,7 +9,8 @@
       "items": [
         { "id": "before-hotel", "text": "宿泊先を決める", "links": [{ "href": "hotels.html", "label": "ホテル" }] },
         { "id": "before-airport", "text": "空港から宿泊先までの行き方を決める", "links": [{ "href": "airport.html", "label": "空港アクセス" }] },
-        { "id": "before-money", "text": "カードの使い方・地下鉄アプリとチケットの買い方を確認する", "links": [{ "href": "guide.html#money-h", "label": "お得な支払い方法" }, { "href": "guide.html#faq-metro", "label": "地下鉄アプリとチケット" }] },
+        { "id": "before-money", "text": "カードの使い方を確認する", "links": [{ "href": "guide.html#money-h", "label": "お得な支払い方法" }] },
+        { "id": "before-transit", "text": "地下鉄・バスのチケットの準備をする(スマホに入れるか、Navigo Easyカードにするか)", "links": [{ "href": "transit.html", "label": "チケットの買い方(図つき)" }, { "href": "guide.html#faq-metro", "label": "地下鉄アプリとチケット" }] },
         { "id": "before-items", "text": "持ち物を確認する(前撮りを予約している方)", "links": [{ "href": "shoot-day.html#items-h", "label": "当日の持ち物" }, { "href": "shoot-day.html#checklist-h", "label": "チェックリスト" }] },
         { "id": "before-faq", "text": "旅行実務(チップ・水道水・スリ対策・定休日)を読んでおく", "links": [{ "href": "guide.html#faq-h", "label": "旅行実務FAQ" }] },
         { "id": "before-entry", "text": "入国関連の公式情報(ETIAS・EES)を確認する", "official": ["etias", "ees"] }

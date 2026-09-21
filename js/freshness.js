@@ -59,12 +59,17 @@ export function auditItems(data, files, today) {
   });
 }
 
-// ページ内の注記の中身(HTML文字列)
+// ページ内の注記の中身(HTML文字列)。同じ確認日の項目は、出典つきで1行にまとめる
 export function renderBadge(model) {
-  const lines = model.verified.map((v) => {
-    const source = v.source ? ` <a class="ranking-source" href="${escapeHtml(v.source.url)}" target="_blank" rel="noopener">出典 ↗</a>` : '';
-    const due = v.due ? ' 確認から時間がたっています。最新は公式でご確認ください。' : '';
-    return `<p class="fresh-line is-verified">公式で確認(${escapeHtml(v.dateText)}): ${escapeHtml(v.short)}${due}${source}</p>`;
+  const byDate = new Map();
+  for (const v of model.verified) byDate.set(v.dateText, [...(byDate.get(v.dateText) ?? []), v]);
+  const lines = [...byDate].map(([dateText, items]) => {
+    const parts = items.map((v) => {
+      const due = v.due ? '(確認から時間がたっています。最新は公式でご確認ください)' : '';
+      const source = v.source ? ` <a class="ranking-source" href="${escapeHtml(v.source.url)}" target="_blank" rel="noopener">出典 ↗</a>` : '';
+      return `${escapeHtml(v.short)}${due}${source}`;
+    });
+    return `<p class="fresh-line is-verified">公式で確認(${escapeHtml(dateText)}): ${parts.join('、')}</p>`;
   });
   if (model.unverified.length) {
     lines.push(

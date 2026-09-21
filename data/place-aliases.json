@@ -9,7 +9,7 @@
     { "canonical": "r.pantagruel", "also": ["m.pantagruel"], "basis": "同じ店名・同じ通り(Rue de Richelieu, 75001)、座標の差8m" },
     { "canonical": "r.accents-table-bourse", "also": ["m.accents-table-bourse"], "basis": "同じ店名(ミシュランデータ側に住所なし。おすすめ側は24 Rue Feydeau, 75002)" },
     { "canonical": "r.boulangerie-du-sentier", "also": ["s.boulangerie-du-sentier"], "basis": "同じ店名・同じ住所(47 rue du Caire, 75002)" },
-    { "canonical": "s.boulangerie-guyot-ferreira", "also": ["s.boulangerie-guyot"], "basis": "同じ住所・同じ座標(28 rue Monge, 75005)で、店名の表記のみ違う" }
+    { "canonical": "s.boulangerie-guyot-ferreira", "also": ["s.boulangerie-guyot"], "basis": "同じ住所・同じ座標(28 rue Monge, 75005)で、店名の表記のみ違う。運営者が同じ店と確認済み(2026-09-21)" }
   ],
   "keep_separate": [
     { "ids": ["s.la-parisienne-fbg-poissonniere", "s.la-parisienne-rue-madame", "s.la-parisienne-st-dominique", "s.la-parisienne-coustou"], "basis": "同名の別支店(住所が異なる)" },

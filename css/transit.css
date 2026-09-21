@@ -1,0 +1,96 @@
+/* チケットの買い方(transit.html)の図解。HTML/CSSだけで作り、文字を大きくしても折り返して追従する。 */
+.dg { margin: 16px 0 0; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.dg figcaption { margin-top: 14px; font-size: 0.8125rem; line-height: 1.6; color: var(--gray); }
+
+/* 図1: 選び方 */
+.dg-start { padding: 10px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); text-align: center; font-weight: 700; line-height: 1.5; }
+.dg-down { position: relative; width: 2px; height: 22px; margin: 0 auto; background: var(--gray); }
+.dg-down::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--gray);
+  border-bottom: 0;
+}
+.dg-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  text-decoration: none;
+}
+.dg-node > div { min-width: 0; flex: 1; }
+.dg-node strong { display: block; font-size: 1.0625rem; line-height: 1.5; }
+.dg-node span { display: block; font-size: 0.9375rem; line-height: 1.6; }
+.dg-node small { display: block; margin-top: 2px; font-size: 0.8125rem; line-height: 1.6; color: var(--gray); }
+.dg-icon { flex: none; width: 28px; height: 28px; margin-top: 2px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.dg-no { border-style: dashed; border-color: var(--gray); color: var(--gray); }
+.dg-no strong { text-decoration: line-through; text-decoration-thickness: 2px; }
+a.dg-node { min-height: 44px; }
+.dg-a { border-color: var(--blue); }
+.dg-a strong { color: var(--blue); }
+.dg-b { border-color: var(--ink); }
+.dg-choices { display: grid; gap: 12px; }
+@media (min-width: 560px) { .dg-choices { grid-template-columns: 1fr 1fr; } }
+.dg-note { margin-top: 14px; padding: 10px 12px; border-left: 4px solid var(--red); background: var(--bg); font-size: 0.9375rem; line-height: 1.7; }
+.dg-note a { color: var(--blue); }
+.dg-list { margin: 8px 0 0; padding-left: 1.2em; font-size: 0.9375rem; line-height: 1.8; }
+.dg-list li + li { margin-top: 4px; }
+
+/* 図2・図3: 手順(縦につなぐ) */
+.dg-steps { list-style: none; margin: 0; padding: 0; }
+.dg-step { position: relative; display: flex; align-items: flex-start; gap: 12px; padding-bottom: 20px; }
+.dg-step:last-child { padding-bottom: 0; }
+.dg-step::before { content: ''; position: absolute; left: 17px; top: 40px; bottom: 4px; width: 2px; background: var(--line); }
+.dg-step:last-child::before { display: none; }
+.dg-num {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--bg);
+  font-weight: 700;
+}
+.dg-step > div { min-width: 0; flex: 1; }
+.dg-step strong { display: block; font-size: 1.0625rem; line-height: 1.5; }
+.dg-step p { margin: 4px 0 0; font-size: 0.9375rem; line-height: 1.75; overflow-wrap: anywhere; }
+.dg-step em { font-style: normal; font-weight: 700; }
+
+/* 図4: 使える・まだ使えない */
+.dg-cols { display: grid; gap: 12px; }
+@media (min-width: 560px) { .dg-cols { grid-template-columns: 1fr 1fr; } }
+.dg-col { padding: 12px 14px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); }
+.dg-yes { border-color: var(--blue); }
+.dg-no-col { border-style: dashed; border-color: var(--gray); }
+.dg-col-title { margin: 0; font-size: 1.0625rem; font-weight: 700; line-height: 1.5; }
+.dg-yes .dg-col-title { color: var(--blue); }
+
+/* 料金表 */
+.fare-wrap { margin-top: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.fare-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.6; }
+.fare-caption { padding: 0 0 8px; text-align: left; font-size: 0.8125rem; font-weight: 700; color: var(--gray); }
+.fare-table th, .fare-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.fare-table thead th { font-size: 0.8125rem; color: var(--gray); }
+.fare-table tbody th { font-weight: 700; }
+.fare-table td:nth-child(2) { white-space: nowrap; font-weight: 700; }
+@media (max-width: 400px) {
+  /* 狭い画面では、3列を「チケット名 → 料金 → 使える範囲」の縦並びにして、横にはみ出さない */
+  .fare-table thead { display: none; }
+  .fare-table, .fare-table tbody, .fare-table tr, .fare-table th, .fare-table td { display: block; }
+  .fare-table tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .fare-table th, .fare-table td { padding: 2px 0; border: 0; }
+  .fare-table td:nth-child(2) { font-size: 1.0625rem; }
+}
+
+@media print { .dg { break-inside: avoid; } }
