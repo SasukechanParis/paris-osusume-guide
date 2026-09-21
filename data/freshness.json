@@ -447,6 +447,41 @@
       "what": "Noctilienの運賃「通常のバス・トラム用チケット1枚(2€)」",
       "why": "「2€」は2025年の価格で、2026年のバス・トラム用チケットは2.05€。Noctilienにこのチケットがそのまま使えるかも、公式で確認できていない。",
       "to_restore": "Noctilienの運賃を、公式で確認できたら"
+    },
+    {
+      "id": "en-card-stop-0892",
+      "page": "en/emergency-guide.html",
+      "what": "0892 705 705(フランスの銀行のカード共通の利用停止窓口)のボタンと、「約0.35€/分」「フランス発行のどのカードでも使える」という説明",
+      "why": "番号・有料・24時間はフランス政府の案内で確認できたが、「どのカードでも」「0.35€/分」は公式に書かれておらず、英語版の読者の多くは日本語版と同じく海外発行のカードを使う。",
+      "to_restore": "フランス発行のカードの利用者向けと分けて、公式で確認できたら"
+    },
+    {
+      "id": "en-roissybus-end-date",
+      "page": "en/airport-transfers.html",
+      "what": "「ロワシーバスは2026年2月末で廃止、RER Bが公式な代替手段」",
+      "why": "終了の日付と「公式な代替手段」という言い方を、公式で確認できていない(日本語版と同じ)。",
+      "to_restore": "IDFMの「La ligne RoissyBus s'arrête」の案内で、日付を確認できたら"
+    },
+    {
+      "id": "en-orlyval-summer-measure",
+      "page": "en/airport-transfers.html",
+      "what": "「2026年夏(7/25〜8/16予定)のOrlyval無料措置」",
+      "why": "期間がすでに過ぎている。公式でも確認できていない。",
+      "to_restore": "戻さない(期間限定の措置のため)"
+    },
+    {
+      "id": "en-airport-fare-revision-date",
+      "page": "en/airport-transfers.html",
+      "what": "空港チケットの運賃の「2025年1月改定」",
+      "why": "金額(14€・割引7€)は確認できたが、改定の時期は確認できていない。",
+      "to_restore": "改定の時期を、公式で確認できたら"
+    },
+    {
+      "id": "en-noctilien-fare",
+      "page": "en/airport-transfers.html",
+      "what": "Noctilienの運賃「バス・トラム用チケット1枚(2€)」「通常のバス・トラム運賃」",
+      "why": "「2€」は2025年の価格で、2026年は2.05€。Noctilienにこのチケットがそのまま使えるかも確認できていない。",
+      "to_restore": "Noctilienの運賃を、公式で確認できたら"
     }
   ],
   "corrections": [
@@ -481,6 +516,62 @@
       "before": "紙の切符は2026年にバス・鉄道網とも順次終了",
       "after": "紙の切符は購入できない。手元の分は2026年12月15日まで、交換は2027年1月14日まで",
       "basis": "IDFM「Ticket t+」のページ、Bonjour RATP"
+    },
+    {
+      "id": "en-ten-ride-price",
+      "on": "2026-09-21",
+      "page": "en/getting-around-paris.html",
+      "before": "10回分の割引パック 17.35€",
+      "after": "削除(17.35€は2024年12月31日までの紙の回数券の価格)",
+      "basis": "RATP(Bonjour RATP)の運賃表"
+    },
+    {
+      "id": "en-paper-ticket",
+      "on": "2026-09-21",
+      "page": "en/getting-around-paris.html",
+      "before": "紙の切符は2026年に路線ごとに順次廃止",
+      "after": "2025年11月5日に販売終了。手元の分は2026年12月15日まで(バス・トラムでは不可)、交換は2027年1月14日まで",
+      "basis": "IDFM「Ticket t+」のページ、Bonjour RATP"
+    },
+    {
+      "id": "en-phone-requirements",
+      "on": "2026-09-21",
+      "page": "en/getting-around-paris.html",
+      "before": "iPhone XS以降・Android 8.0以上のNFC対応機種",
+      "after": "iPhone: iOS 17.5以上(XR/XS以降)、Android: 8以上(Pixel 4以前とHuawei・Honorは不可)",
+      "basis": "IDFM「iPhoneで乗る」「Androidで乗る」ガイド"
+    },
+    {
+      "id": "en-navigo-easy-where",
+      "on": "2026-09-21",
+      "page": "en/getting-around-paris.html",
+      "before": "Navigo Easyは「駅の券売機」で買える",
+      "after": "鉄道会社(RATP・SNCF)の窓口で買える(チャージは窓口・駅・提携店・アプリ)",
+      "basis": "IDFM「Navigo Easy」のページ"
+    },
+    {
+      "id": "en-t7-fare",
+      "on": "2026-09-21",
+      "page": "en/airport-transfers.html",
+      "before": "トラムT7は通常のメトロ・バスのチケットと同じ(2.55€)",
+      "after": "バス・トラム用のチケット(2.05€。メトロ・RER用は2.55€)",
+      "basis": "IDFM「2026年の運賃」"
+    },
+    {
+      "id": "en-index-links",
+      "on": "2026-09-21",
+      "page": "en/index.html",
+      "before": "「Where to start」の4リンクが practical-guide.html#dining などを指していた(飛び先の見出しが無く、ページの先頭が開く)",
+      "after": "それぞれ dining-in-paris.html / paris-opening-hours.html / airport-transfers.html / getting-around-paris.html#safety へ",
+      "basis": "practical-guide.html のトピック一覧の飛び先"
+    },
+    {
+      "id": "en-hero-images",
+      "on": "2026-09-21",
+      "page": "en/index.html",
+      "before": "トップと michelin ページの挿絵が、約2.2MBのPNGだった",
+      "after": "<picture> で軽いWebP(800px幅で約50KB)を先に読み込む(PNGは非対応の閲覧環境と、SNSのプレビュー用に残す)",
+      "basis": "assets/illustrations/*-800.webp・*-1400.webp"
     }
   ]
 }

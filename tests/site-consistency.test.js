@@ -8,8 +8,8 @@ import { checkSite, classifyLink, collectExternalLinks } from '../scripts/check-
 test('the real site has no broken internal links, missing anchors, duplicate ids, bad dates or freshness-list errors', () => {
   const { errors, warnings } = checkSite();
   assert.deepEqual(errors, [], `check-site の結果:\n${errors.join('\n')}`);
-  // 英語版の既存の問題(今回の対象外)は警告にとどめる。日本語版の警告は出さない
-  assert.deepEqual(warnings.filter((w) => !w.startsWith('en/')), []);
+  // 英語版も含めて、警告は0件(飛び先のないリンクなど)
+  assert.deepEqual(warnings, [], `check-site の警告:\n${warnings.join('\n')}`);
 });
 
 // ---------- 検査そのものが、問題を見つけられること ----------

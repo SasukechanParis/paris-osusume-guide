@@ -5,7 +5,7 @@
 // - 通信できるときは常に最新を取りに行く(更新は自動反映。入力中の画面を勝手に再読み込みしない)
 // VERSION は js/data.js と同じ値にする(tests/site-consistency.test.js が検証する)。
 
-const VERSION = '2026-09-21-9';
+const VERSION = '2026-09-21-10';
 const PACK_PREFIX = 'pack-';
 const SCOPE_PATH = new URL(self.registration.scope).pathname;
 const NETWORK_TIMEOUT_MS = 8000;

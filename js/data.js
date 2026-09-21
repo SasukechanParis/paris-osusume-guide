@@ -1,6 +1,6 @@
 // データ・JSの更新時はこの VERSION を書き換える(全ページの fetch に ?v= が付く)。
 // sw.js の VERSION と一致させること(tests/offline.test.js が検証する)。
-export const VERSION = '2026-09-21-9';
+export const VERSION = '2026-09-21-10';
 
 export class DataLoadError extends Error {
   constructor(reason, { path, status = null, cause = null } = {}) {
