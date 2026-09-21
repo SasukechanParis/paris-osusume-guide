@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>撮影当日ガイド - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,33 +11,69 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tools.css">
+<!-- shell:head -->
+<link rel="stylesheet" href="css/mobile.css">
+<script>(function(){var f,g={path:function(p){return String(p).split(/[?#]/)[0]||'/'},referrer:function(r){try{return new URL(r).origin===location.origin?'':r}catch(e){return ''}}};Object.defineProperty(g,'get_data',{configurable:true,enumerable:true,get:function(){return f},set:function(h){f=function(v){var d=h(v),m=/[?&]ref=([A-Za-z0-9_-]{1,40})(?:&|$)/.exec(d.q||'');d.q=m?'?ref='+m[1]:'';return d}}});window.goatcounter=g})();</script>
+<!-- /shell:head -->
 </head>
-<body>
+<body class="jp">
 <div class="page">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
-  <nav class="site-nav">
-    <a href="index.html">トップ</a>
-    <a href="emergency.html">困ったら</a>
-    <a href="airport.html">空港</a>
-    <a href="shoot-day.html" class="active">撮影当日</a>
-    <a href="bread.html">パンコンクール</a>
-    <a href="michelin.html">ミシュラン</a>
-    <a href="restaurants.html">レストラン・カフェ</a>
-    <a href="chocolatiers.html">スイーツ</a>
-    <a href="bakeries.html">パン屋さん</a>
-    <a href="souvenirs.html">お土産</a>
-    <a href="supermarket.html">スーパーで買えるおすすめ</a>
-    <a href="hotels.html">ホテル</a>
-    <a href="flea-markets.html">市場</a>
-    <a href="free-spots.html">無料スポット</a>
-    <a href="guide.html">旅行ガイド</a>
-    <a href="map.html">地図</a>
-    <a href="post.html">投稿する</a>
-  </nav>
+  <!-- shell:top -->
+  <header class="app-bar">
+    <a class="app-bar-brand" href="index.html"><span class="app-bar-flag" aria-hidden="true"><i></i><i></i><i></i></span>パリおすすめ</a>
+    <a class="app-bar-sos" href="emergency.html">困ったとき</a>
+  </header>
+<!-- /shell:top -->
   <header class="hero">
     <h1 class="title">撮影当日<span class="accent">ガイド</span></h1>
     <p class="lede">さすけとの前撮りを予約されている方向けの、撮影当日までの準備ガイドです。</p>
   </header>
+
+  <nav class="toc" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <div class="toc-chips">
+        <a href="#checklist-h">チェックリスト</a>
+        <a href="#before-h">前日の準備</a>
+        <a href="#items-h">当日の持ち物</a>
+        <a href="#crew-h">サポート体制</a>
+        <a href="#weather-h">天気</a>
+    </div>
+  </nav>
+
+  <section aria-labelledby="checklist-h" id="checklist">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="checklist-h">チェックリスト</h2></div>
+    <p class="section-note">下の案内を、前日と出発前の確認事項にまとめました(内容は変えていません)。チェックはこの端末にだけ保存されます。</p>
+
+    <h3 class="subsection-title">前日 <span class="stage-progress" data-checklist-count="shoot-before"></span></h3>
+    <ul class="checklist" data-checklist="shoot-before">
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-b-sleep"><span>午前撮影の場合は朝がとても早いので、早めに就寝する</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-b-uber"><span>移動でUberを利用予定なら、SMS認証・カード登録を済ませておく</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-b-cash"><span>アシスタントへのお支払い用の現金を準備する</span></label></li>
+    </ul>
+    <div class="checklist-actions no-print"><button type="button" class="btn btn-outline" data-checklist-reset="shoot-before">前日のチェックをリセット</button></div>
+
+    <h3 class="subsection-title">出発前(当日) <span class="stage-progress" data-checklist-count="shoot-depart"></span></h3>
+    <ul class="checklist" data-checklist="shoot-depart">
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-coat"><span>上着を用意する(基本的に9月〜5月は必要です)</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-phone"><span>スマホを持つ(できればおふたりで1台。写真撮影・Uber手配用)</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-shoes"><span>移動用の靴を用意する(履き替えの回数が多いと、その分撮影時間を圧迫します)</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-water"><span>水分を用意する(移動車がUberの場合。チャーター車は備え付けの水があります)</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-valuables"><span>荷物は撮影に使うものだけにする。パスポートなどの貴重品は、鍵のかかるスーツケースか、お部屋のセキュリティボックスへ</span></label></li>
+      <li class="check-item"><label class="check-label"><input type="checkbox" data-check="shoot-d-props"><span>ネクタイ・アクセサリー・グローブなど、準備したものを忘れていないか一度チェックする</span></label></li>
+    </ul>
+    <div class="checklist-actions no-print"><button type="button" class="btn btn-outline" data-checklist-reset="shoot-depart">出発前のチェックをリセット</button></div>
+
+    <h3 class="subsection-title">メモ(この端末にだけ保存)</h3>
+    <div class="memo-grid">
+      <label>集合時間<input type="text" data-memo="shoot-time" maxlength="120" autocomplete="off" placeholder="例: 9:00"></label>
+      <label>集合場所<input type="text" data-memo="shoot-place" maxlength="120" autocomplete="off" placeholder="例: ホテルのロビー"></label>
+    </div>
+    <p class="section-note">入力した内容は、このブラウザにだけ保存され、他の人にも解析にも送られません。印刷・PDF保存をすると、チェックとメモがそのまま出ます。</p>
+    <p class="checklist-status" data-checklist-status role="status"></p>
+    <div class="checklist-actions no-print"><button type="button" class="btn btn-outline" data-print>印刷・PDFで保存</button></div>
+  </section>
 
   <section aria-labelledby="before-h">
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="before-h">前日の準備</h2></div>
@@ -75,6 +111,17 @@
     <p>この内容は今後も随時更新していきます。</p>
   </footer>
 </div>
+<!-- shell:bottom -->
+<nav class="tab-bar" aria-label="メインメニュー">
+  <a class="tab" href="index.html" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>ホーム</span></a>
+  <a class="tab" href="search.html" data-tab="find"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>探す</span></a>
+  <a class="tab" href="map.html" data-tab="map"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>地図</span></a>
+  <a class="tab" href="saved.html" data-tab="saved"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span>保存</span><span class="tab-badge" data-saved-count hidden></span></a>
+  <a class="tab" href="menu.html" data-tab="menu" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>メニュー</span></a>
+</nav>
+<script type="module" src="js/shell.js"></script>
+<!-- /shell:bottom -->
+<script type="module" src="js/checklists.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

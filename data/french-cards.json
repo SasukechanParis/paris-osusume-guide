@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "note": "フランス語カード。from があるものは旅行ガイド(guide.html)に載っている既存の表現で、読み方(reading)もガイドのもの。それ以外は標準的な表現で、発音のカタカナ表記は付けない(不正確になりやすいため)。医療・アレルギーなど、誤りが重大になる表現は載せない。",
+  "groups": [
+    { "id": "basic", "label": "あいさつ・基本" },
+    { "id": "enter", "label": "入店・注文" },
+    { "id": "pay", "label": "会計" },
+    { "id": "way", "label": "道・トイレ" },
+    { "id": "hotel", "label": "ホテル" },
+    { "id": "shop", "label": "買い物・免税" },
+    { "id": "menu", "label": "メニューの言葉" }
+  ],
+  "cards": [
+    { "id": "basic-hello", "group": "basic", "ja": "こんにちは", "fr": "Bonjour", "reading": "ボンジュール", "from": "guide.html#restaurant-h" },
+    { "id": "basic-thanks", "group": "basic", "ja": "ありがとう", "fr": "Merci", "reading": "メルシー", "from": "guide.html#restaurant-h" },
+    { "id": "basic-please", "group": "basic", "ja": "お願いします(頼むときに添える)", "fr": "S'il vous plaît", "reading": "シルヴプレ", "from": "guide.html#restaurant-h" },
+    { "id": "basic-excuse", "group": "basic", "ja": "すみません(声をかけるとき)", "fr": "Excusez-moi" },
+    { "id": "basic-nofrench", "group": "basic", "ja": "フランス語は話せません", "fr": "Je ne parle pas français." },
+    { "id": "basic-english", "group": "basic", "ja": "英語は話せますか?", "fr": "Parlez-vous anglais ?" },
+    { "id": "basic-slow", "group": "basic", "ja": "ゆっくり話してください", "fr": "Pouvez-vous parler plus lentement, s'il vous plaît ?" },
+
+    { "id": "enter-table2", "group": "enter", "ja": "2名です(入店するとき)", "fr": "Bonjour, une table pour deux, s'il vous plaît.", "reading": "ボンジュール・ユンヌ・タブル・プール・ドゥ・シルヴプレ", "from": "guide.html#restaurant-enter" },
+    { "id": "enter-reserved", "group": "enter", "ja": "予約があります", "fr": "Nous avons une réservation." },
+    { "id": "enter-menu", "group": "enter", "ja": "メニューをお願いします", "fr": "La carte, s'il vous plaît." },
+    { "id": "enter-this", "group": "enter", "ja": "これをお願いします(メニューを指さして)", "fr": "Je voudrais ceci, s'il vous plaît." },
+    { "id": "enter-recommend", "group": "enter", "ja": "おすすめは何ですか?", "fr": "Qu'est-ce que vous conseillez ?" },
+    { "id": "enter-tapwater", "group": "enter", "ja": "水道水をお願いします(無料)", "fr": "Une carafe d'eau, s'il vous plaît.", "reading": "ユンヌ・キャラフ・ドー・シルヴプレ", "from": "guide.html#restaurant-water" },
+
+    { "id": "pay-bill", "group": "pay", "ja": "お会計をお願いします", "fr": "L'addition, s'il vous plaît.", "reading": "ラディション・シルヴプレ", "from": "guide.html#restaurant-bill" },
+    { "id": "pay-card", "group": "pay", "ja": "カードで払えますか?", "fr": "Est-ce que je peux payer par carte ?" },
+    { "id": "pay-separate", "group": "pay", "ja": "別々に払えますか?", "fr": "Est-ce qu'on peut payer séparément ?" },
+    { "id": "pay-good", "group": "pay", "ja": "とてもおいしかったです", "fr": "C'était très bon, merci." },
+
+    { "id": "way-toilet", "group": "way", "ja": "トイレはどこですか?", "fr": "Où sont les toilettes, s'il vous plaît ?" },
+    { "id": "way-metro", "group": "way", "ja": "最寄りの地下鉄の駅はどこですか?", "fr": "Où est la station de métro la plus proche ?" },
+    { "id": "way-map", "group": "way", "ja": "地図で教えてください", "fr": "Pouvez-vous me montrer sur la carte, s'il vous plaît ?" },
+    { "id": "way-far", "group": "way", "ja": "ここから遠いですか?", "fr": "C'est loin d'ici ?" },
+
+    { "id": "hotel-reservation", "group": "hotel", "ja": "予約しています(名前を添えて)", "fr": "Bonjour, j'ai une réservation." },
+    { "id": "hotel-luggage", "group": "hotel", "ja": "荷物を預かってもらえますか?", "fr": "Est-ce que je peux laisser mes valises ici ?" },
+    { "id": "hotel-breakfast", "group": "hotel", "ja": "朝食は何時からですか?", "fr": "À quelle heure commence le petit-déjeuner ?" },
+    { "id": "hotel-taxi", "group": "hotel", "ja": "タクシーを呼んでもらえますか?", "fr": "Pouvez-vous appeler un taxi, s'il vous plaît ?" },
+
+    { "id": "shop-price", "group": "shop", "ja": "いくらですか?", "fr": "Combien ça coûte ?" },
+    { "id": "shop-gift", "group": "shop", "ja": "プレゼント用に包んでもらえますか?", "fr": "Pouvez-vous faire un paquet cadeau, s'il vous plaît ?" },
+    { "id": "shop-detaxe", "group": "shop", "ja": "免税の手続きをお願いします(パスポートを見せて)", "fr": "Je voudrais la détaxe, s'il vous plaît.", "reading": "ジュ・ヴドレ・ラ・デタックス・シルヴプレ", "from": "guide.html#detaxe-shop" },
+
+    { "id": "menu-formule", "group": "menu", "ja": "セットメニュー(単品より割安なことが多い)", "fr": "formule", "reading": "フォルミュル", "from": "guide.html#restaurant-menu" },
+    { "id": "menu-entree", "group": "menu", "ja": "前菜", "fr": "entrée", "from": "guide.html#restaurant-menu" },
+    { "id": "menu-plat", "group": "menu", "ja": "メイン", "fr": "plat", "from": "guide.html#restaurant-menu" },
+    { "id": "menu-dessert", "group": "menu", "ja": "デザート", "fr": "dessert", "from": "guide.html#restaurant-menu" },
+    { "id": "menu-cafe-gourmand", "group": "menu", "ja": "コーヒーと小さなデザートの盛り合わせ", "fr": "café gourmand", "reading": "カフェ・グルマン", "from": "guide.html#restaurant-menu" },
+    { "id": "menu-eau-plate", "group": "menu", "ja": "ふつうのミネラルウォーター(有料)", "fr": "eau plate", "from": "guide.html#restaurant-water" },
+    { "id": "menu-eau-gazeuse", "group": "menu", "ja": "炭酸水(有料)", "fr": "eau gazeuse", "from": "guide.html#restaurant-water" }
+  ]
+}

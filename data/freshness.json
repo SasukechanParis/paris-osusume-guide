@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "note": "公式情報と照合が必要な項目の正本。ここに載せた項目は、確認できた分だけ verified_on(確認日)と source(出典)を持つ。確認していない項目には日付を入れない(自動で今日の日付を入れない)。入国関連(etias・ees)の確認日と出典は data/official-info.json が正本で、ここでは ref で参照するだけ(二重管理しない)。確認日は「事実を公式資料で確かめた日」であり、記事の編集日・掲載日(data/updates.json)とは別。node scripts/check-site.mjs --freshness で、未確認と再確認の時期が来ている項目を一覧できる。",
+  "default_recheck_days": 120,
+  "items": [
+    {
+      "id": "etias",
+      "topic": "entry",
+      "label": "ETIAS(ヨーロッパ渡航認証)の状況・開始時期・費用",
+      "short": "ETIASの状況・開始時期・費用",
+      "where": [{ "page": "journey.html", "anchor": "official-etias" }],
+      "ref": { "file": "data/official-info.json", "card": "etias" },
+      "recheck_after_days": 30,
+      "action": "開始時期・費用は変わりうるので、公開前と月1回、欧州委員会のETIASページで見直す。開始予定日が過ぎても「申請必須」へ自動で切り替えない。"
+    },
+    {
+      "id": "ees",
+      "topic": "entry",
+      "label": "EES(出入国システム)の運用状況",
+      "short": "EESの運用状況",
+      "where": [{ "page": "journey.html", "anchor": "official-ees" }],
+      "ref": { "file": "data/official-info.json", "card": "ees" },
+      "recheck_after_days": 30,
+      "action": "運用の範囲・登録の流れが変わっていないか、欧州委員会と在日フランス大使館のページで見直す。"
+    },
+    {
+      "id": "transit-single-ticket",
+      "topic": "transit",
+      "label": "メトロ・RER 1回券の運賃",
+      "short": "メトロ・RER1回券(2.55€)",
+      "claim": "メトロ・鉄道・RERの単発券 2.55€(2026年)",
+      "where": [
+        { "page": "guide.html", "anchor": "faq-metro" },
+        { "page": "airport.html", "anchor": "orly-metro14" }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+      },
+      "finding": "2026年1月1日から、メトロ・鉄道・RERの単発券は2.55€(割引1.30€)。",
+      "action": "運賃は毎年1月に改定される。2027年1月の改定後に見直す。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "transit-bus-tram-ticket",
+      "topic": "transit",
+      "label": "バス・トラム用チケットの運賃(トラムT7)",
+      "short": "バス・トラム用チケット(2.05€)",
+      "claim": "トラムT7はバス・トラム用チケット 2.05€",
+      "where": [{ "page": "airport.html", "anchor": "orly-t7" }],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+      },
+      "finding": "2026年1月1日から、バス・トラムの単発券は2.05€(割引1.05€)。以前の本文は「地下鉄・バスと同じ2.55€」だったが、この公式記事と合わないため訂正した(2026-09-21)。",
+      "action": "トラムT7がバス・トラム用チケットの対象であることの確認までは、IDFMの公式ページが読めず取れていない。出発前に公式アプリで確認するよう案内している。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "airport-ticket",
+      "topic": "transit",
+      "label": "空港チケット(RER Bでの空港往復)の運賃",
+      "short": "空港チケット(14€・割引7€)",
+      "claim": "空港チケット 14€(割引7€)",
+      "where": [{ "page": "airport.html", "anchor": "cdg-rer-b" }],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "service-public.gouv.fr「1月1日からの運賃」(掲載 2025年12月11日)",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18679?lang=en"
+      },
+      "finding": "2026年の空港チケットは14€(割引7€)。金額は本文と一致。本文の「2025年1月改定」という改定時期の記述までは確認できていない。",
+      "action": "改定時期の記述を残すなら、RATPの空港運賃ページ(https://www.ratp.fr/en/titres-et-tarifs/paris-aeroport)で確認する。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "transit-carnet-10",
+      "topic": "transit",
+      "label": "10回分のデジタル回数券の金額",
+      "short": "10回券の金額(17.35€)",
+      "claim": "10回分のデジタル回数券 17.35€",
+      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
+      "verified_on": null,
+      "source": null,
+      "finding": "公式の運賃ページ(Île-de-France Mobilités)は自動取得が403で読めず、service-public.gouv.fr の2026年運賃記事には10回券の金額の記載がない。第三者のサイトは17.35€としているが、根拠にしていない。",
+      "action": "IDFMの運賃ページ(https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026)をブラウザで開き、10回券の金額を確認して本文を直す。確認できないなら金額の表記を外す。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "paper-ticket-end",
+      "topic": "transit",
+      "label": "紙の切符の廃止時期",
+      "short": "紙の切符の廃止時期",
+      "claim": "紙の切符は2026年にバス・鉄道網とも順次終了",
+      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
+      "verified_on": null,
+      "source": null,
+      "finding": "IDFMの公式ページが読めず、廃止の時期を確認できていない。検索結果の要約には本文と違う時期の記載があったが、ページ本文を読めていないので根拠にしていない。古い記述の可能性がある。",
+      "action": "IDFMの「fin du ticket magnétique」のお知らせ(https://www.iledefrance-mobilites.fr/en/actualites/fin-ticket-magnetique)を開いて現状を確認し、本文を直す。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "navigo-easy-card-price",
+      "topic": "transit",
+      "label": "Navigo Easyカードの購入代金",
+      "short": "Navigo Easyカード代(2€)",
+      "claim": "Navigo Easyカード 2€",
+      "where": [{ "page": "guide.html", "anchor": "faq-metro" }],
+      "verified_on": null,
+      "source": null,
+      "finding": "公式ページが読めず確認できていない。",
+      "action": "IDFMまたはRATPのNavigo Easyのページで、カード代を確認する。",
+      "recheck_after_days": 120
+    },
+    {
+      "id": "airport-service-changes",
+      "topic": "transit",
+      "label": "空港交通の運行変更(ロワシーバス廃止・オルリーヴァルの特別措置・Noctilien)",
+      "short": "空港交通の運行変更",
+      "claim": "ロワシーバスは2026年2月末で廃止、オルリーヴァルの夏の特別措置、Noctilienの運行",
+      "where": [{ "page": "airport.html", "anchor": "cdg-rer-b" }],
+      "verified_on": null,
+      "source": null,
+      "finding": "時期が限られる記述。公式ページで確認できていない。",
+      "action": "RATP・Aéroports de Parisの公式ページで、運行の現状を確認する。期間限定の措置は期間が過ぎたら本文から外す。",
+      "recheck_after_days": 60
+    },
+    {
+      "id": "detaxe-conditions",
+      "topic": "tax",
+      "label": "免税(Détaxe / PABLO)の条件と手続き",
+      "short": "免税の条件・PABLOでの手続き",
+      "claim": "同一店舗・同一日の購入合計が100.01€以上、16歳以上、EU域外居住、滞在6か月未満、出国時に荷物を預ける前にPABLO端末で認証",
+      "where": [
+        { "page": "guide.html", "anchor": "detaxe-eligibility" },
+        { "page": "guide.html", "anchor": "detaxe-pablo" }
+      ],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "フランス税関(douane.gouv.fr)PABLOの案内(ページ表記 “Updated on 04/06/2026”)",
+        "url": "https://www.douane.gouv.fr/en/fiche/tax-exemption-france-tourists-pablo"
+      },
+      "finding": "公式ページは、税込100€超(同一店舗・同一日)、16歳以上、EU域外の居住者、滞在6か月未満、荷物の預け入れ前にPABLO端末で認証、と記載。本文の条件と一致。公式ページには認証の期限の記載もある(購入月から3か月後の月末まで。例: 1月に購入なら4月末)が、本文には書いていないため、掲載するかは運営者が決める。還付方法・手数料など、その他の記述は確認していない。",
+      "action": "免税の限度額・期限は制度改正で変わりうる。年1回、税関のページで見直す。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "emergency-numbers",
+      "topic": "emergency",
+      "label": "緊急電話番号(15・17・18・112)",
+      "short": "緊急電話番号(15・17・18・112)",
+      "claim": "15(SAMU)・17(警察)・18(消防)・112(EU共通)",
+      "where": [{ "page": "emergency.html", "anchor": null }],
+      "verified_on": "2026-09-21",
+      "source": {
+        "label": "service-public.gouv.fr「緊急時の番号」(ページ表記 “Verified 15 November 2024”)",
+        "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F33954?lang=en"
+      },
+      "finding": "15はSAMU、17は警察・憲兵隊、18は消防、112はEU共通番号。聴覚・発話に障害がある場合は114へSMS。緊急機関からの折り返しは0 800 112 112。公式ページの確認日は2024年11月15日。",
+      "action": "半年に1回、公式ページで番号が変わっていないか確認する。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "emergency-card-and-pharmacy-numbers",
+      "topic": "emergency",
+      "label": "カード利用停止の窓口(0892 705 705)・薬局の当番案内(3237)",
+      "short": "カード利用停止・薬局当番の番号",
+      "claim": "0892 705 705(カード利用停止)、3237(当番薬局)",
+      "where": [{ "page": "emergency.html", "anchor": null }],
+      "verified_on": null,
+      "source": null,
+      "finding": "公式ページで確認できていない。番号は変わりうる。",
+      "action": "公式ページ(銀行・薬剤師会など)で番号と対象を確認する。確認できるまで、本文は「カード裏面・発行銀行のアプリの連絡先を優先」の案内を維持する。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "emergency-embassy",
+      "topic": "emergency",
+      "label": "在フランス日本国大使館の電話番号・住所・受付時間",
+      "short": "大使館の電話・住所・受付時間",
+      "claim": "電話 01 4888 6200、7 Avenue Hoche、土日祝休館",
+      "where": [{ "page": "emergency.html", "anchor": null }],
+      "verified_on": null,
+      "source": null,
+      "finding": "大使館の公式ページが自動取得で403になり、確認できていない。",
+      "action": "在フランス日本国大使館の公式ページ(https://www.fr.emb-japan.go.jp/itpr_ja/ryoken.html)をブラウザで開いて確認する。",
+      "recheck_after_days": 180
+    },
+    {
+      "id": "shop-hours-and-prices",
+      "topic": "hours",
+      "label": "店ごとの営業時間・価格・予約",
+      "short": "店ごとの営業時間・価格",
+      "claim": "店ごとの営業時間・価格・予約可否は載せていない(data/place-facts.json は0件)",
+      "where": [],
+      "verified_on": null,
+      "source": null,
+      "finding": "載せていないので、誤りが出る心配はない。ただし souvenirs・supermarket・guide などの記事本文にある金額(€表記)は、店ごとの確認日を持たない。",
+      "action": "載せるときは data/place-facts.json に、店ごと・項目ごとの verified_on と source_url を付ける(確認していない項目は入れない)。本文の金額は、確認できたものから place-facts へ移す。",
+      "recheck_after_days": 120
+    }
+  ]
+}

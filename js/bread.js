@@ -1,8 +1,13 @@
 import { renderRankingGroups, buildShopWinCounts } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { showEmpty } from './ui-status.js';
+import { annotate } from './places.js';
 
-async function init() {
+runPage(async () => {
+  const groupsEl = document.getElementById('ranking-groups');
+  showEmpty(groupsEl, '読み込み中…');
   const [contests, results, shops] = await Promise.all([
     loadJson('data/contests.json'),
     loadJson('data/results.json'),
@@ -14,8 +19,6 @@ async function init() {
     .filter(Boolean);
   const winCounts = buildShopWinCounts(results);
 
-  document.getElementById('ranking-groups').innerHTML = renderRankingGroups(latestResults, shops, contests, winCounts);
-  setupNearbySearch(shops, { winCounts, linkToShop: true });
-}
-
-init();
+  groupsEl.innerHTML = renderRankingGroups(latestResults, shops, contests, winCounts);
+  setupNearbySearch(annotate(shops, 'shop'), { winCounts, linkToShop: true });
+});

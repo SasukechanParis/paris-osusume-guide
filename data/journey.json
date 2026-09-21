@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "note": "旅の流れ(出発前〜帰国)の入口。中身は既存の記事・機能へのリンクと、「確認すること」のチェック項目だけ。記事を複製しない(二重管理を避ける)。リンク先の存在は node --test が検証する。official は data/official-info.json のカードID。",
+  "stages": [
+    {
+      "id": "before",
+      "title": "出発前",
+      "lead": "日本にいるうちに、移動・お金・持ち物・入国関連の公式情報を確認しておくと、現地であわてません。",
+      "items": [
+        { "id": "before-hotel", "text": "宿泊先を決める", "links": [{ "href": "hotels.html", "label": "ホテル" }] },
+        { "id": "before-airport", "text": "空港から宿泊先までの行き方を決める", "links": [{ "href": "airport.html", "label": "空港アクセス" }] },
+        { "id": "before-money", "text": "カードの使い方・地下鉄アプリとチケットの買い方を確認する", "links": [{ "href": "guide.html#money-h", "label": "お得な支払い方法" }, { "href": "guide.html#faq-metro", "label": "地下鉄アプリとチケット" }] },
+        { "id": "before-items", "text": "持ち物を確認する(前撮りを予約している方)", "links": [{ "href": "shoot-day.html#items-h", "label": "当日の持ち物" }, { "href": "shoot-day.html#checklist-h", "label": "チェックリスト" }] },
+        { "id": "before-faq", "text": "旅行実務(チップ・水道水・スリ対策・定休日)を読んでおく", "links": [{ "href": "guide.html#faq-h", "label": "旅行実務FAQ" }] },
+        { "id": "before-entry", "text": "入国関連の公式情報(ETIAS・EES)を確認する", "official": ["etias", "ees"] }
+      ]
+    },
+    {
+      "id": "arrival",
+      "title": "パリ到着日",
+      "lead": "空港からホテルへ。着いた日の食事や、困ったときの入口も先に見つけておきましょう。",
+      "items": [
+        { "id": "arrival-transfer", "text": "空港からホテルまでの移動手段を確認する", "links": [{ "href": "airport.html", "label": "空港アクセス" }] },
+        { "id": "arrival-metro", "text": "地下鉄アプリとチケットの買い方を確認する", "links": [{ "href": "guide.html#faq-metro", "label": "地下鉄アプリとチケット" }] },
+        { "id": "arrival-pickpocket", "text": "スリ対策を確認する", "links": [{ "href": "guide.html#faq-pickpocket", "label": "スリ対策" }] },
+        { "id": "arrival-meal", "text": "ホテル周辺の食事・パン・トイレを探す(ホテルを保存しておくと毎回入力せずに探せます)", "links": [{ "href": "search.html", "label": "探す" }] },
+        { "id": "arrival-emergency", "text": "困ったときのページの場所を確認する(全ページの右上にあります)", "links": [{ "href": "emergency.html", "label": "困ったとき" }] }
+      ]
+    },
+    {
+      "id": "shoot",
+      "title": "撮影前日・当日",
+      "lead": "前撮りを予約している方向けです。前日の準備と当日の持ち物を確認し、撮影後の食事も決めておきましょう。",
+      "items": [
+        { "id": "shoot-before", "text": "前日の準備を確認する", "links": [{ "href": "shoot-day.html#before-h", "label": "前日の準備" }] },
+        { "id": "shoot-items", "text": "当日の持ち物を確認する", "links": [{ "href": "shoot-day.html#items-h", "label": "当日の持ち物" }] },
+        { "id": "shoot-crew", "text": "撮影のサポート体制を読んでおく", "links": [{ "href": "shoot-day.html#crew-h", "label": "サポート体制" }] },
+        { "id": "shoot-weather", "text": "天気と上着について確認する", "links": [{ "href": "shoot-day.html#weather-h", "label": "天気" }] },
+        { "id": "shoot-check", "text": "チェックリストで前日・出発前の確認をする", "links": [{ "href": "shoot-day.html#checklist-h", "label": "チェックリスト" }] },
+        { "id": "shoot-after", "text": "撮影後の食事・休憩の場所を決める", "links": [{ "href": "purpose.html?goal=after-shoot", "label": "撮影後の食事(近い順)" }, { "href": "restaurants.html", "label": "レストラン・カフェ" }] }
+      ]
+    },
+    {
+      "id": "free",
+      "title": "自由時間",
+      "lead": "食事・雨の日・お土産・トイレ。フランス語カードも用意しています。",
+      "items": [
+        { "id": "free-eat", "text": "食事・カフェ・パン・スイーツを探す", "links": [{ "href": "restaurants.html", "label": "レストラン・カフェ" }, { "href": "bakeries.html", "label": "パン屋さん" }, { "href": "chocolatiers.html", "label": "スイーツ" }] },
+        { "id": "free-rain", "text": "雨の日・短い空き時間の過ごし方を探す", "links": [{ "href": "purpose.html?goal=rain", "label": "雨の日の候補" }, { "href": "free-spots.html", "label": "無料スポット" }] },
+        { "id": "free-souvenir", "text": "お土産を選ぶ", "links": [{ "href": "souvenirs.html#souvenir-guide-h", "label": "お土産の選び方" }, { "href": "souvenirs.html", "label": "お土産" }] },
+        { "id": "free-toilet", "text": "近くのトイレを探す", "links": [{ "href": "toilets-map.html", "label": "トイレマップ" }] },
+        { "id": "free-closed", "text": "定休日・休館日を確認する", "links": [{ "href": "guide.html#faq-closed", "label": "定休日・休館日" }] },
+        { "id": "free-french", "text": "フランス語カードで、そのまま見せて伝える", "links": [{ "href": "french.html", "label": "フランス語カード" }] }
+      ]
+    },
+    {
+      "id": "return",
+      "title": "帰国前・帰国日",
+      "lead": "荷物・空港への移動・免税・食品の持ち込みを確認しましょう。",
+      "items": [
+        { "id": "return-luggage", "text": "荷物の預け先を決める", "links": [{ "href": "guide.html#luggage-h", "label": "荷物預かり" }] },
+        { "id": "return-airport", "text": "空港までの移動手段を確認する", "links": [{ "href": "airport.html", "label": "空港アクセス" }, { "href": "emergency.html#airport-rush", "label": "空港へ急ぐとき" }] },
+        { "id": "return-detaxe", "text": "免税の手続き(店頭・空港のPABLO端末)を確認する", "links": [{ "href": "guide.html#detaxe-h", "label": "免税" }] },
+        { "id": "return-food", "text": "食品を日本へ持ち込む前に、注意点を確認する", "links": [{ "href": "souvenirs.html#souvenir-customs", "label": "食品持ち込みの注意点" }] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "note": "モデルコース。steps は既存の場所ID(uid)だけを参照する。status が published のものだけが画面に出る。draft は運営者の確認・推薦が必要な下書きで、画面には出さず、入口も作らない。所要時間は書かない(区間ごとに経路画面へつなぐ)。公開コースの根拠(basis)は、既存の記事・データにある事実だけを書く。",
+  "courses": [
+    {
+      "id": "passages-three",
+      "status": "published",
+      "goals": ["rain"],
+      "title": "パッサージュ3つを、続けて歩く",
+      "lead": "屋根のあるアーケード街を、雨の日でも続けて歩けるコースです。",
+      "basis": "無料スポットのページに「Passage Jouffroy・Passage des Panoramas・Passage Verdeauは一直線につながっているので、まとめて歩くのがおすすめ」とある(さすけが実際に足を運んで確認した16軒の紹介より)。並びは、地図上の位置(南から北)の順。",
+      "steps": [
+        { "uid": "p.passage-des-panoramas" },
+        { "uid": "r.french-paradox", "optional": true, "note": "Passage des Panoramasにある、鴨料理とシャンパンのペアリング専門店。さすけが気になっているお店(未訪問)です。" },
+        { "uid": "p.passage-jouffroy" },
+        { "uid": "p.passage-verdeau" }
+      ],
+      "caveat": "パッサージュは、場所によって開閉時間や定休日が違います。時間帯によっては通れないことがあるため、行く前に確認してください。"
+    },
+    {
+      "id": "after-shoot-draft",
+      "status": "draft",
+      "goals": ["after-shoot"],
+      "title": "撮影のあとに、ゆっくり過ごすコース(下書き)",
+      "needs": "撮影を終えるエリアごとに、さすけが実際におすすめしたい店・休憩の組み合わせが必要です。運営者の推薦を待っています(こちらでは創作しません)。",
+      "steps": []
+    }
+  ]
+}

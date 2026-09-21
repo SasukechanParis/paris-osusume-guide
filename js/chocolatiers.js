@@ -1,44 +1,31 @@
-import { renderRecommendationList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { setupSourceTabs } from './source-tabs.js';
+import { sortByStatus, tagSource, renderGroup, showGroupsLoading, loadFacts, withFacts } from './recommendations.js';
+import { annotate } from './places.js';
 
-function sortByStatus(items) {
-  const order = { recommended: 0, curious: 1 };
-  return [...items].sort((a, b) => (order[a.status] ?? 2) - (order[b.status] ?? 2));
-}
-
-function renderGroup(items, listId, emptyId) {
-  document.getElementById(listId).innerHTML = renderRecommendationList(items);
-  document.getElementById(emptyId).hidden = items.length > 0;
-}
-
-async function init() {
-  const [recommendations, guestRecommendations] = await Promise.all([
+runPage(async () => {
+  showGroupsLoading(['sasuke-list-chocolatier', 'sasuke-list-patisserie', 'guest-list-chocolatier', 'guest-list-patisserie']);
+  const [recommendations, guestRecommendations, facts] = await Promise.all([
     loadJson('data/recommendations.json'),
-    loadJson('data/guest-recommendations.json')
+    loadJson('data/guest-recommendations.json'),
+    loadFacts()
   ]);
 
-  const sasukeChocolatier = sortByStatus(recommendations.filter((r) => r.category === 'chocolatier'));
-  const sasukePatisserie = sortByStatus(recommendations.filter((r) => r.category === 'patisserie'));
-  const guestChocolatier = guestRecommendations.filter((r) => r.category === 'chocolatier');
-  const guestPatisserie = guestRecommendations.filter((r) => r.category === 'patisserie');
+  const sasukeChocolatier = withFacts(annotate(sortByStatus(recommendations.filter((r) => r.category === 'chocolatier')), 'rec'), facts);
+  const sasukePatisserie = withFacts(annotate(sortByStatus(recommendations.filter((r) => r.category === 'patisserie')), 'rec'), facts);
+  const guestChocolatier = withFacts(annotate(guestRecommendations.filter((r) => r.category === 'chocolatier'), 'guest'), facts);
+  const guestPatisserie = withFacts(annotate(guestRecommendations.filter((r) => r.category === 'patisserie'), 'guest'), facts);
 
   renderGroup(sasukeChocolatier, 'sasuke-list-chocolatier', 'sasuke-empty-chocolatier');
   renderGroup(sasukePatisserie, 'sasuke-list-patisserie', 'sasuke-empty-patisserie');
   renderGroup(guestChocolatier, 'guest-list-chocolatier', 'guest-empty-chocolatier');
   renderGroup(guestPatisserie, 'guest-list-patisserie', 'guest-empty-patisserie');
+  setupSourceTabs();
 
-  document.getElementById('source-tabs').addEventListener('click', (event) => {
-    const btn = event.target.closest('.tab-btn');
-    if (!btn) return;
-    const source = btn.dataset.source;
-
-    document.querySelectorAll('#source-tabs .tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
-    document.getElementById('sasuke-panel').hidden = source !== 'sasuke';
-    document.getElementById('guest-panel').hidden = source !== 'guest';
-  });
-
-  setupNearbySearch([...sasukeChocolatier, ...sasukePatisserie, ...guestChocolatier, ...guestPatisserie]);
-}
-
-init();
+  setupNearbySearch([
+    ...tagSource([...sasukeChocolatier, ...sasukePatisserie], 'sasuke'),
+    ...tagSource([...guestChocolatier, ...guestPatisserie], 'guest')
+  ]);
+});

@@ -13,7 +13,8 @@ import {
   renderShopDetail,
   renderFleaMarketList,
   renderPassageList,
-  renderUpdatesList
+  renderUpdatesList,
+  renderCardActions
 } from '../js/render.js';
 
 const contests = [
@@ -450,4 +451,59 @@ test('renderUpdatesList sorts by date descending, links when a link is present, 
   assert.doesNotMatch(html, /古い更新/);
   assert.ok(html.indexOf('新しい更新') < html.indexOf('リンクなし更新'));
   assert.match(html, /<span class="updates-link">リンクなし更新<\/span>/);
+});
+
+test('renderCardActions separates 「Googleマップで見る」 from 「経路を見る」 and builds a dir url from name+address', () => {
+  const place = {
+    name: 'Le Petit Bistro',
+    address: '12 Rue Cadet, 75009 Paris',
+    google_maps_url: 'https://www.google.com/maps/search/?api=1&query=Le%20Petit%20Bistro'
+  };
+  const html = renderCardActions(place);
+  assert.match(html, /Googleマップで見る/);
+  assert.match(html, /経路を見る/);
+  const route = new URL(html.match(/href="([^"]*maps\/dir[^"]*)"/)[1].replaceAll('&amp;', '&'));
+  assert.equal(route.searchParams.get('destination'), 'Le Petit Bistro 12 Rue Cadet, 75009 Paris');
+  assert.equal(route.searchParams.has('origin'), false);
+});
+
+test('renderCardActions passes the chosen origin, but never a GPS position, to the route link', () => {
+  const place = { name: 'Le Petit Bistro', address: '12 Rue Cadet, 75009 Paris' };
+  const withSpot = renderCardActions(place, { origin: { lat: 48.8721, lng: 2.3323, kind: 'spot' } });
+  assert.match(withSpot, /origin=48\.8721%2C2\.3323/);
+  const withGps = renderCardActions(place, { origin: { lat: 48.8721, lng: 2.3323, kind: 'gps' } });
+  assert.doesNotMatch(withGps, /origin=/);
+});
+
+test('renderNearbyResults labels the distance as straight-line and shows where the pick came from', () => {
+  const sorted = [
+    {
+      shop: { name: 'Hôtel X', arrondissement: '2e', address: '1 Rue A, 75002 Paris', source: 'guest', google_maps_url: 'https://www.google.com/maps/search/?api=1&query=x' },
+      distanceKm: 0.35
+    }
+  ];
+  const html = renderNearbyResults(sorted);
+  assert.match(html, /直線距離/);
+  assert.match(html, /先輩カップル/);
+  assert.match(html, /350m/);
+});
+
+test('cards never render an empty image placeholder when there is no photo', () => {
+  const html = renderRecommendationList([{ name: 'A', address: 'x', arrondissement: '9e', google_maps_url: 'https://example.com', photo_url: null }]);
+  assert.doesNotMatch(html, /<img/);
+  assert.match(html, /経路を見る/);
+});
+
+test('renderRecommendationList shows confirmed facts and extra actions only when given (hotel compare button, budget/reservation)', () => {
+  const base = { name: 'A', address: 'x', arrondissement: '9e', google_maps_url: 'https://example.com', uid: 'r.a' };
+  const plain = renderRecommendationList([base]);
+  assert.doesNotMatch(plain, /fact-row|compare-btn/);
+  assert.match(plain, /id="place-r\.a"/);
+  const rich = renderRecommendationList(
+    [{ ...base, facts: { reservation: 'required', verified_on: '2026-09-01', source: '公式サイト' } }],
+    { extra: (item) => `<button class="compare-btn" data-compare="${item.uid}">比較に追加</button>` }
+  );
+  assert.match(rich, /予約: 必要/);
+  assert.match(rich, /2026-09-01確認・出典: 公式サイト/);
+  assert.match(rich, /data-compare="r\.a"/);
 });

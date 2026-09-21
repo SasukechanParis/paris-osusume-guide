@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>保存した場所 - パリおすすめデータベース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Zen+Old+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/search.css">
+<!-- shell:head -->
+<link rel="stylesheet" href="css/mobile.css">
+<script>(function(){var f,g={path:function(p){return String(p).split(/[?#]/)[0]||'/'},referrer:function(r){try{return new URL(r).origin===location.origin?'':r}catch(e){return ''}}};Object.defineProperty(g,'get_data',{configurable:true,enumerable:true,get:function(){return f},set:function(h){f=function(v){var d=h(v),m=/[?&]ref=([A-Za-z0-9_-]{1,40})(?:&|$)/.exec(d.q||'');d.q=m?'?ref='+m[1]:'';return d}}});window.goatcounter=g})();</script>
+<!-- /shell:head -->
+</head>
+<body class="jp">
+<div class="page page-search page-saved">
+  <div class="tricolore-rail"><span></span><span></span><span></span></div>
+  <!-- shell:top -->
+  <header class="app-bar">
+    <a class="app-bar-brand" href="index.html"><span class="app-bar-flag" aria-hidden="true"><i></i><i></i><i></i></span>パリおすすめ</a>
+    <a class="app-bar-sos" href="emergency.html">困ったとき</a>
+  </header>
+<!-- /shell:top -->
+  <main class="search-main">
+    <div class="search-head">
+      <h1 class="search-title">保存した場所</h1>
+      <div class="search-tools">
+        <p id="saved-count" class="saved-count" role="status" aria-live="polite"></p>
+        <div class="view-switch" role="group" aria-label="表示の切り替え">
+          <button id="view-list" type="button" class="view-btn" aria-pressed="true">一覧</button>
+          <button id="view-map" type="button" class="view-btn" aria-pressed="false">地図</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-status" class="page-status"></div>
+
+    <section id="list-view" class="list-view" aria-label="保存した場所の一覧">
+      <p id="storage-note" class="storage-note"></p>
+      <section id="import-preview" class="import-preview" aria-live="polite" hidden></section>
+      <div id="saved-filters" class="chip-row active-filters"></div>
+      <div id="saved-results"></div>
+
+      <section id="share-panel" class="share-panel" aria-labelledby="share-h" hidden>
+        <h2 id="share-h" class="list-title">パートナーに共有する</h2>
+        <p class="filter-note">共有されるのは、保存した場所の一覧(お店の公開情報の番号と順序)だけです。あなたの名前・宿泊先・メモ・位置情報は含まれません。リンクは<strong>共有した時点のコピー</strong>で、あとから変更しても相手には反映されません(共同編集ではありません)。</p>
+        <div class="card-actions">
+          <button id="share-native" type="button" class="btn" hidden>共有する</button>
+          <button id="share-link" type="button" class="btn btn-outline">リンクをコピー</button>
+          <button id="share-text" type="button" class="btn btn-outline">テキストをコピー</button>
+          <button id="share-file" type="button" class="btn btn-outline">ファイルに書き出す</button>
+        </div>
+        <p id="share-note" class="filter-note" role="status" aria-live="polite"></p>
+        <details class="share-fallback">
+          <summary>コピーできないときはここから</summary>
+          <label class="field-label" for="share-output">共有リンク(選択してコピー)</label>
+          <textarea id="share-output" class="share-output" rows="3" readonly></textarea>
+        </details>
+      </section>
+
+      <section id="import-panel" class="share-panel" aria-labelledby="import-h">
+        <h2 id="import-h" class="list-title">共有された場所を取り込む</h2>
+        <p class="filter-note">相手から届いた共有リンクや共有コードを貼り付けると、内容を確認してから、あなたの保存リストに追加できます。今の保存リストは置き換わりません。</p>
+        <label class="field-label" for="import-input">共有リンクまたは共有コード</label>
+        <textarea id="import-input" class="share-output" rows="2" placeholder="例: https://…/saved.html#s=v1~r.septime~…"></textarea>
+        <div class="card-actions"><button id="import-check" type="button" class="btn btn-outline">内容を確認する</button></div>
+      </section>
+    </section>
+
+    <section id="map-view" class="search-map-view" aria-label="保存した場所の地図" hidden>
+      <div id="search-map-wrap" class="search-map-wrap">
+        <div id="search-map"></div>
+        <div id="map-notice" class="map-empty" aria-live="polite"></div>
+        <div id="map-peek" class="map-peek" hidden></div>
+      </div>
+    </section>
+  </main>
+</div>
+<!-- shell:bottom -->
+<nav class="tab-bar" aria-label="メインメニュー">
+  <a class="tab" href="index.html" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>ホーム</span></a>
+  <a class="tab" href="search.html" data-tab="find"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>探す</span></a>
+  <a class="tab" href="map.html" data-tab="map"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>地図</span></a>
+  <a class="tab" href="saved.html" data-tab="saved" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span>保存</span><span class="tab-badge" data-saved-count hidden></span></a>
+  <a class="tab" href="menu.html" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>メニュー</span></a>
+</nav>
+<script type="module" src="js/shell.js"></script>
+<!-- /shell:bottom -->
+<script type="module" src="js/saved-page.js"></script>
+<script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

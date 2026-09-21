@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "note": "データセットをまたぐ同一店の対応表。住所などのデータ上の根拠が確認できるものだけを載せ、別支店は決してまとめない。検索・保存・共有はここを通して重複を1件にする。",
+  "same_place": [
+    { "canonical": "r.septime", "also": ["m.septime"], "basis": "同じ店名・同じ住所(80 Rue de Charonne, 75011)" },
+    { "canonical": "r.frenchie", "also": ["m.frenchie"], "basis": "同じ店名・同じ通り(Rue du Nil, 75002)、座標の差16m" },
+    { "canonical": "r.omar-dhiab", "also": ["m.omar-dhiab"], "basis": "同じ店名・同じ住所(23 Rue Hérold, 75001)" },
+    { "canonical": "r.restaurant-pages", "also": ["m.pages"], "basis": "同じ店名(Pages)・同じ住所(4 Rue Auguste Vacquerie, 75016)" },
+    { "canonical": "r.pantagruel", "also": ["m.pantagruel"], "basis": "同じ店名・同じ通り(Rue de Richelieu, 75001)、座標の差8m" },
+    { "canonical": "r.accents-table-bourse", "also": ["m.accents-table-bourse"], "basis": "同じ店名(ミシュランデータ側に住所なし。おすすめ側は24 Rue Feydeau, 75002)" },
+    { "canonical": "r.boulangerie-du-sentier", "also": ["s.boulangerie-du-sentier"], "basis": "同じ店名・同じ住所(47 rue du Caire, 75002)" },
+    { "canonical": "s.boulangerie-guyot-ferreira", "also": ["s.boulangerie-guyot"], "basis": "同じ住所・同じ座標(28 rue Monge, 75005)で、店名の表記のみ違う" }
+  ],
+  "keep_separate": [
+    { "ids": ["s.la-parisienne-fbg-poissonniere", "s.la-parisienne-rue-madame", "s.la-parisienne-st-dominique", "s.la-parisienne-coustou"], "basis": "同名の別支店(住所が異なる)" },
+    { "ids": ["s.maison-lohezic-courcelles", "s.maison-lohezic-demours"], "basis": "住所が異なる(別支店または移転)。確認できるまでまとめない" }
+  ]
+}

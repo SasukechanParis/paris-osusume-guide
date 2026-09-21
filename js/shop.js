@@ -1,7 +1,8 @@
 import { renderShopDetail } from './render.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
 
-async function init() {
+runPage(async () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
 
@@ -13,7 +14,8 @@ async function init() {
 
   const shop = shops.find((s) => s.id === id);
   if (!shop) {
-    document.getElementById('shop-detail').textContent = 'お店が見つかりませんでした。';
+    document.getElementById('shop-title').textContent = 'お店が見つかりませんでした';
+    document.getElementById('shop-meta').innerHTML = '<a class="ranking-source" href="bread.html">パンコンクールの一覧へ戻る</a>';
     return;
   }
 
@@ -26,6 +28,4 @@ async function init() {
   document.getElementById('shop-win-summary').hidden = !detail.winSummary;
   document.getElementById('shop-map-link').innerHTML = detail.mapLink;
   document.getElementById('shop-history').innerHTML = detail.rows;
-}
-
-init();
+});

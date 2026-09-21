@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "note": "ホテルの「確認できた項目」。ホテル比較(hotels.html)で使う。キーは uid(例: r.xxx / g.hotel-volney-opera)。値は true(あり) / false(なし) / 書かない(=未確認)。書けるのは prep_space(支度・着替えのスペース) / mirror(鏡) / natural_light(自然光) / luggage_storage(荷物預かり) / elevator(エレベーター)。いずれかを書くときは verified_on(確認日 YYYY-MM-DD)と source(確認方法・出典)が必須。宿泊日で変わる価格・部屋タイプで変わる設備・撮影のための外来の立ち入りの可否は、ここに書かない(保証にならないため)。",
+  "facts": {}
+}

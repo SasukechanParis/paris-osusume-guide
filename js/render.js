@@ -1,4 +1,8 @@
 import { formatDistance } from './distance.js';
+import { buildDirectionsUrl } from './maps-links.js';
+import { factsHtml } from './facts-view.js';
+import { escapeHtml } from './html.js';
+import { cardOptions } from './card-options.js';
 
 const ARRONDISSEMENT_JA = {
   '1er': '1区',
@@ -30,6 +34,37 @@ export function arrondissementLabel(arr) {
   return ARRONDISSEMENT_JA[arr] ?? arr;
 }
 
+// 「お店を見る」(Googleマップ検索)と「経路」(Googleマップ経路)は別のボタンにする。
+// 出典リンクなど追加要素は extra に渡す。写真がなくても成立するカードの操作行。
+export function renderSaveButton(uid) {
+  return `<button type="button" class="btn btn-outline save-btn" data-save="${uid}" aria-pressed="false"><svg class="save-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span class="save-label">保存</span></button>`;
+}
+
+// 「情報が違っていた」。押すと報告文をつくる画面が開く(送信はしない)。日本語版のシェルが有効にしたときだけ出す
+export function renderReportButton(place) {
+  return `<button type="button" class="report-btn" data-report="${escapeHtml(place.uid)}" data-report-name="${escapeHtml(place.name)}">情報が違っていた</button>`;
+}
+
+// place.uid がある(=保存できる)場所には「保存」ボタンを足す。save:false で省略できる(保存ページ自身)
+export function renderCardActions(place, { origin = null, extra = '', save = true, report = cardOptions.report } = {}) {
+  const view = place.google_maps_url
+    ? `<a class="btn btn-outline shop-map-link" href="${place.google_maps_url}" target="_blank" rel="noopener">Googleマップで見る</a>`
+    : '';
+  const routeUrl = buildDirectionsUrl(place, origin);
+  const route = routeUrl
+    ? `<a class="btn btn-outline route-link" href="${routeUrl}" target="_blank" rel="noopener" data-route>経路を見る</a>`
+    : '';
+  const saveButton = save && place.uid ? renderSaveButton(place.uid) : '';
+  const reportButton = report && place.uid ? renderReportButton(place) : '';
+  if (!view && !route && !extra && !saveButton && !reportButton) return '';
+  return `<div class="card-actions">${saveButton}${route}${view}${extra}${reportButton}</div>`;
+}
+
+const SOURCE_LABEL = {
+  sasuke: 'さすけ',
+  guest: '先輩カップル'
+};
+
 export function buildShopWinCounts(results) {
   const winCounts = new Map();
   for (const result of results) {
@@ -58,7 +93,7 @@ function rankingRowLabel(r, shopById, winCounts) {
       meta: arrondissementLabel(shop.arrondissement),
       note: shop.description ? `<p class="shop-note">${shop.description}</p>` : '',
       mapLink: shop.google_maps_url
-        ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>`
+        ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで見る</a>`
         : ''
     };
   }
@@ -122,15 +157,12 @@ export function renderTrending(trending) {
   return trending
     .map(
       (t) => `
-    <div class="trending-card">
+    <article class="trending-card place-card"${t.uid ? ` id="place-${t.uid}"` : ''}>
       <p class="trending-name">${t.name}</p>
       <p class="trending-meta">${arrondissementLabel(t.arrondissement)}</p>
-      <p class="trending-desc">${t.description}</p>
-      <div class="ranking-links">
-        <a class="btn btn-outline shop-map-link" href="${t.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
-        <a class="ranking-source" href="${t.source_url}">出典 ↗</a>
-      </div>
-    </div>`
+      <p class="trending-desc place-desc">${t.description}</p>
+      ${renderCardActions(t, { extra: `<a class="ranking-source" href="${t.source_url}">出典 ↗</a>` })}
+    </article>`
     )
     .join('');
 }
@@ -140,21 +172,23 @@ const RECOMMENDATION_STATUS_LABEL = {
   curious: '気になる(未訪問)'
 };
 
-export function renderRecommendationList(items) {
+// options.extra(item): カードの操作行に足すHTML(ホテルの「比較に追加」など)。item.facts があれば確認済みの条件も出す
+export function renderRecommendationList(items, { extra = () => '' } = {}) {
   return items
     .map(
       (item) => `
-    <div class="trending-card">
-      ${item.photo_url ? `<img class="trending-photo" src="${item.photo_url}" alt="${item.name}" loading="lazy">` : ''}
+    <article class="trending-card place-card"${item.uid ? ` id="place-${item.uid}"` : ''}>
+      ${item.photo_url ? `<img class="trending-photo" src="${item.photo_url}" alt="${item.name}" loading="lazy" decoding="async">` : ''}
       <div class="trending-name-row">
         <p class="trending-name">${item.name}</p>
         ${item.status ? `<span class="status-badge status-badge-${item.status}">${RECOMMENDATION_STATUS_LABEL[item.status] ?? item.status}</span>` : ''}
       </div>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
-      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.description ? `<p class="trending-desc place-desc">${item.description}</p>` : ''}
+      ${factsHtml(item)}
       ${item.submitted_by ? `<p class="trending-meta">投稿: ${item.submitted_by}さん</p>` : ''}
-      ${item.google_maps_url ? `<a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>` : ''}
-    </div>`
+      ${renderCardActions(item, { extra: extra(item) })}
+    </article>`
     )
     .join('');
 }
@@ -166,19 +200,16 @@ export function renderMichelinList(items) {
       const metaParts = [arrondissementLabel(item.arrondissement)];
       if (item.address) metaParts.push(item.address + (item.hotel ? ` (${item.hotel})` : ''));
       return `
-    <div class="trending-card">
+    <article class="trending-card place-card"${item.uid ? ` id="place-${item.uid}"` : ''}>
       <div class="trending-name-row">
         <p class="trending-name">${item.name}</p>
         <span class="status-badge status-badge-michelin">${'★'.repeat(item.stars)}</span>
         ${item.genre ? `<span class="status-badge status-badge-genre">${item.genre}</span>` : ''}
       </div>
       <p class="trending-meta">${metaParts.join(' ・ ')}</p>
-      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
-      <div class="ranking-links">
-        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
-        <a class="ranking-source" href="${item.source_url}">出典 ↗</a>
-      </div>
-    </div>`;
+      ${item.description ? `<p class="trending-desc place-desc">${item.description}</p>` : ''}
+      ${renderCardActions(item, { extra: `<a class="ranking-source" href="${item.source_url}">出典 ↗</a>` })}
+    </article>`;
     })
     .join('');
 }
@@ -187,18 +218,15 @@ export function renderFleaMarketList(items) {
   return items
     .map(
       (item) => `
-    <div class="trending-card">
+    <article class="trending-card place-card"${item.uid ? ` id="place-${item.uid}"` : ''}>
       <p class="trending-name">${item.name}</p>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address}</p>
       <p class="trending-meta">開催: ${item.hours}</p>
       <p class="trending-meta">アクセス: ${item.access}</p>
-      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.description ? `<p class="trending-desc place-desc">${item.description}</p>` : ''}
       ${item.caution ? `<p class="shop-note">⚠ ${item.caution}</p>` : ''}
-      <div class="ranking-links">
-        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
-        <a class="ranking-source" href="${item.source_url}">${item.source_label ?? '出典 ↗'}</a>
-      </div>
-    </div>`
+      ${renderCardActions(item, { extra: `<a class="ranking-source" href="${item.source_url}">${item.source_label ?? '出典 ↗'}</a>` })}
+    </article>`
     )
     .join('');
 }
@@ -207,21 +235,20 @@ export function renderPassageList(items) {
   return items
     .map(
       (item) => `
-    <div class="trending-card">
+    <article class="trending-card place-card"${item.uid ? ` id="place-${item.uid}"` : ''}>
       <p class="trending-name">${item.name}</p>
       <p class="trending-meta">${arrondissementLabel(item.arrondissement)} ・ ${item.address} ・ ${item.year}築</p>
-      ${item.description ? `<p class="trending-desc">${item.description}</p>` : ''}
+      ${item.description ? `<p class="trending-desc place-desc">${item.description}</p>` : ''}
       ${item.caution ? `<p class="shop-note">${item.caution}</p>` : ''}
-      <div class="ranking-links">
-        <a class="btn btn-outline shop-map-link" href="${item.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>
-      </div>
-    </div>`
+      ${renderCardActions(item)}
+    </article>`
     )
     .join('');
 }
 
+// origin: { lat, lng, kind } 利用者が選んだ検索の起点。経路ボタンのoriginに使う(GPSはURLに載せない)。
 export function renderNearbyResults(sorted, options = {}) {
-  const { winCounts, linkToShop = false } = options;
+  const { winCounts, linkToShop = false, origin = null } = options;
   return sorted
     .map(({ shop, distanceKm }) => {
       const nameHtml = linkToShop
@@ -230,18 +257,22 @@ export function renderNearbyResults(sorted, options = {}) {
       const statusBadge = shop.status
         ? `<span class="status-badge status-badge-${shop.status}">${RECOMMENDATION_STATUS_LABEL[shop.status] ?? shop.status}</span>`
         : '';
+      const sourceBadge = SOURCE_LABEL[shop.source]
+        ? `<span class="status-badge status-badge-source">${SOURCE_LABEL[shop.source]}</span>`
+        : '';
       const metaParts = [arrondissementLabel(shop.arrondissement)];
       if (shop.address) metaParts.push(shop.address);
       return `
-    <div class="nearby-card">
+    <article class="nearby-card place-card">
       <div>
-        <p class="nearby-card-name">${nameHtml} ${statusBadge}</p>
+        <p class="nearby-card-name">${nameHtml}</p>
+        <p class="nearby-card-badges">${statusBadge}${sourceBadge}</p>
         <p class="nearby-card-meta">${metaParts.join(' ・ ')}</p>
-        ${shop.description ? `<p class="shop-note">${shop.description}</p>` : ''}
+        ${shop.description ? `<p class="shop-note place-desc">${shop.description}</p>` : ''}
       </div>
-      <div class="nearby-distance">${formatDistance(distanceKm)}</div>
-      <a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで経路を見る</a>
-    </div>`;
+      <div class="nearby-distance"><span class="nearby-distance-value">${formatDistance(distanceKm)}</span><span class="nearby-distance-note">直線距離</span></div>
+      ${renderCardActions(shop, { origin })}
+    </article>`;
     })
     .join('');
 }
@@ -331,7 +362,7 @@ export function renderShopDetail(shop, results, contests) {
   const meta = `${arrondissementLabel(shop.arrondissement)} ・ ${shop.address}`;
   const note = shop.description ? `<p class="shop-note">${shop.description}</p>` : '';
   const mapLink = shop.google_maps_url
-    ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで開く</a>`
+    ? `<a class="btn btn-outline shop-map-link" href="${shop.google_maps_url}" target="_blank" rel="noopener">Googleマップで見る</a>`
     : '';
 
   return {

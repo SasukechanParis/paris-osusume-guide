@@ -1,3 +1,3 @@
 import { initCategoryPage } from './category-page.js';
 
-initCategoryPage('hotel');
+initCategoryPage('hotel', { compare: true });

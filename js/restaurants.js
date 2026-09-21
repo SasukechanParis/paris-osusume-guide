@@ -1,46 +1,34 @@
-import { renderRecommendationList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { setupSourceTabs } from './source-tabs.js';
+import { sortByStatus, tagSource, renderGroup, showGroupsLoading, loadFacts, withFacts } from './recommendations.js';
+import { annotate } from './places.js';
 
-function sortByStatus(items) {
-  const order = { recommended: 0, curious: 1 };
-  return [...items].sort((a, b) => (order[a.status] ?? 2) - (order[b.status] ?? 2));
-}
-
-function renderGroup(items, listId, emptyId) {
-  document.getElementById(listId).innerHTML = renderRecommendationList(items);
-  document.getElementById(emptyId).hidden = items.length > 0;
-}
-
-async function init() {
-  const [recommendations, guestRecommendations] = await Promise.all([
+runPage(async () => {
+  showGroupsLoading(['sasuke-list-restaurant', 'sasuke-list-japanese', 'sasuke-list-cafe', 'guest-list-restaurant', 'guest-list-cafe']);
+  const [recommendations, guestRecommendations, facts] = await Promise.all([
     loadJson('data/recommendations.json'),
-    loadJson('data/guest-recommendations.json')
+    loadJson('data/guest-recommendations.json'),
+    loadFacts()
   ]);
 
-  const sasukeRestaurantAll = sortByStatus(recommendations.filter((r) => r.category === 'restaurant'));
+  const sasukeRestaurantAll = withFacts(annotate(sortByStatus(recommendations.filter((r) => r.category === 'restaurant')), 'rec'), facts);
   const sasukeJapanese = sasukeRestaurantAll.filter((r) => r.group === 'japanese');
   const sasukeRestaurant = sasukeRestaurantAll.filter((r) => r.group !== 'japanese');
-  const sasukeCafe = sortByStatus(recommendations.filter((r) => r.category === 'cafe'));
-  const guestRestaurant = guestRecommendations.filter((r) => r.category === 'restaurant');
-  const guestCafe = guestRecommendations.filter((r) => r.category === 'cafe');
+  const sasukeCafe = withFacts(annotate(sortByStatus(recommendations.filter((r) => r.category === 'cafe')), 'rec'), facts);
+  const guestRestaurant = withFacts(annotate(guestRecommendations.filter((r) => r.category === 'restaurant'), 'guest'), facts);
+  const guestCafe = withFacts(annotate(guestRecommendations.filter((r) => r.category === 'cafe'), 'guest'), facts);
 
   renderGroup(sasukeRestaurant, 'sasuke-list-restaurant', 'sasuke-empty-restaurant');
   renderGroup(sasukeJapanese, 'sasuke-list-japanese', 'sasuke-empty-japanese');
   renderGroup(sasukeCafe, 'sasuke-list-cafe', 'sasuke-empty-cafe');
   renderGroup(guestRestaurant, 'guest-list-restaurant', 'guest-empty-restaurant');
   renderGroup(guestCafe, 'guest-list-cafe', 'guest-empty-cafe');
+  setupSourceTabs();
 
-  document.getElementById('source-tabs').addEventListener('click', (event) => {
-    const btn = event.target.closest('.tab-btn');
-    if (!btn) return;
-    const source = btn.dataset.source;
-    document.querySelectorAll('#source-tabs .tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
-    document.getElementById('sasuke-panel').hidden = source !== 'sasuke';
-    document.getElementById('guest-panel').hidden = source !== 'guest';
-  });
-
-  setupNearbySearch([...sasukeRestaurant, ...sasukeJapanese, ...sasukeCafe, ...guestRestaurant, ...guestCafe]);
-}
-
-init();
+  setupNearbySearch([
+    ...tagSource([...sasukeRestaurant, ...sasukeJapanese, ...sasukeCafe], 'sasuke'),
+    ...tagSource([...guestRestaurant, ...guestCafe], 'guest')
+  ]);
+});

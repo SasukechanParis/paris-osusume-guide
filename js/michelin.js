@@ -1,6 +1,8 @@
 import { renderMichelinList, arrondissementLabel } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { annotate } from './places.js';
 
 const ARRONDISSEMENT_ORDER = [
   '1er', '2e', '3e', '4e', '5e', '6e', '7e', '8e', '9e', '10e',
@@ -8,7 +10,7 @@ const ARRONDISSEMENT_ORDER = [
 ];
 
 async function init() {
-  const michelin = await loadJson('data/michelin.json');
+  const michelin = annotate(await loadJson('data/michelin.json'), 'michelin');
 
   const listEl = document.getElementById('michelin-list');
   const countEl = document.getElementById('michelin-count');
@@ -64,4 +66,4 @@ async function init() {
   setupNearbySearch(michelin);
 }
 
-init();
+runPage(init);

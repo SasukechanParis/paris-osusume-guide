@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>旅行ガイド - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,38 +11,41 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
+<!-- shell:head -->
+<link rel="stylesheet" href="css/mobile.css">
+<script>(function(){var f,g={path:function(p){return String(p).split(/[?#]/)[0]||'/'},referrer:function(r){try{return new URL(r).origin===location.origin?'':r}catch(e){return ''}}};Object.defineProperty(g,'get_data',{configurable:true,enumerable:true,get:function(){return f},set:function(h){f=function(v){var d=h(v),m=/[?&]ref=([A-Za-z0-9_-]{1,40})(?:&|$)/.exec(d.q||'');d.q=m?'?ref='+m[1]:'';return d}}});window.goatcounter=g})();</script>
+<!-- /shell:head -->
 </head>
-<body>
+<body class="jp">
 <div class="page">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
-  <nav class="site-nav">
-    <a href="index.html">トップ</a>
-    <a href="emergency.html">困ったら</a>
-    <a href="airport.html">空港</a>
-    <a href="shoot-day.html">撮影当日</a>
-    <a href="bread.html">パンコンクール</a>
-    <a href="michelin.html">ミシュラン</a>
-    <a href="restaurants.html">レストラン・カフェ</a>
-    <a href="chocolatiers.html">スイーツ</a>
-    <a href="bakeries.html">パン屋さん</a>
-    <a href="souvenirs.html">お土産</a>
-    <a href="supermarket.html">スーパーで買えるおすすめ</a>
-    <a href="hotels.html">ホテル</a>
-    <a href="flea-markets.html">市場</a>
-    <a href="free-spots.html">無料スポット</a>
-    <a href="guide.html" class="active">旅行ガイド</a>
-    <a href="map.html">地図</a>
-    <a href="post.html">投稿する</a>
-  </nav>
+  <!-- shell:top -->
+  <header class="app-bar">
+    <a class="app-bar-brand" href="index.html"><span class="app-bar-flag" aria-hidden="true"><i></i><i></i><i></i></span>パリおすすめ</a>
+    <a class="app-bar-sos" href="emergency.html">困ったとき</a>
+  </header>
+<!-- /shell:top -->
   <header class="hero">
     <h1 class="title">旅行<span class="accent">ガイド</span></h1>
     <p class="lede">建築さんぽ、パリ旅行で地味に気になる実務系の疑問、レストランの使い方、お得な支払い方法、免税・荷物預かりをまとめました。</p>
   </header>
 
+  <nav class="toc" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <div class="toc-chips">
+        <a href="#architecture-h">建築さんぽ</a>
+        <a href="#faq-h">旅行実務FAQ</a>
+        <a href="#restaurant-h">レストランの使い方</a>
+        <a href="#money-h">お得な支払い方法</a>
+        <a href="#detaxe-h">免税</a>
+        <a href="#luggage-h">荷物預かり</a>
+    </div>
+  </nav>
+
   <section aria-labelledby="architecture-h">
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="architecture-h">建築さんぽ</h2></div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="arch-haussmann">
       <p class="trending-name">オスマン建築(街並みがそろっている理由)</p>
       <p class="trending-desc">パリの街並みに多い、クリーム色の石造り・6階建て前後・急勾配の屋根(マンサード屋根)の建物は「オスマン様式」と呼ばれます。ナポレオン3世に任命された知事ジョルジュ・オスマン(Georges-Eugène Haussmann)が1853〜1870年の17年間で断行した都市大改造の産物で、建物の高さ(街路の幅に比例、当時は12〜20m程度)・外壁の石材(パリ近郊で採れるリュテシアン石灰岩というクリーム色の石)・屋根の勾配(45度)まで細かく規定が定められ、街全体に統一感が生まれました。現在も多くの建物がこの規定に沿って建てられているため、パリの街並みが「そろって見える」理由になっています。</p>
       <div class="ranking-links">
@@ -50,7 +53,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="arch-skyline">
       <p class="trending-name">なぜパリには高層ビルが少ないのか</p>
       <p class="trending-desc">パリ市内(中心部)に高層ビルがほとんど無いのは偶然ではありません。1973年に完成した210mの「モンパルナス・タワー」が景観を損なうと猛反発を受け、パリ市議会は1977年に市内の建物の高さを37m以下に制限する条例を制定しました。この制限は2010年に一度緩和されましたが、近年の環境政策(気候変動対策の都市計画)により再び高さ制限を強化する方向に戻っています。モンパルナス・タワーは今も「パリで最も嫌われている建物」と評されることがある一方、この一件のおかげで(?)パリの低層で均一な街並みが今も保たれているとも言えます。</p>
       <div class="ranking-links">
@@ -58,7 +61,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="arch-sacre-coeur">
       <p class="trending-name">サクレ・クール寺院が白いままの理由</p>
       <p class="trending-desc">モンマルトルの丘に建つサクレ・クール寺院の外壁は、100年以上経った今も真っ白なままです。これは使われている石材「シャトー・ランドン産トラバーチン」が、雨に濡れると石に含まれる方解石(カルサイト)が溶け出し、汚れを洗い流しながら表面を漂白する「自浄作用」を持っているためです。パリの他の建物が排気ガス等で徐々に黒ずんでいくのに対し、この寺院だけが白さを保ち続けている理由が、実は石材そのものの性質にあるという豆知識です。</p>
       <div class="ranking-links">
@@ -66,7 +69,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="arch-guimard">
       <p class="trending-name">エクトール・ギマールとアール・ヌーヴォーのメトロ入口</p>
       <p class="trending-desc">パリの街を歩いていて目にする、緑色の鉄枠に植物のようならせん装飾がついたメトロの入口。これは建築家<strong>エクトール・ギマール(Hector Guimard)</strong>が1900年前後にデザインしたアール・ヌーヴォー様式で、当時のパリでは「奇抜すぎる」と賛否を呼んだデザインでした。現在パリに残るギマール様式の入口のうち、ガラス屋根付きの「エディキュール」型が完全な形で残るのはPorte Dauphine駅など数駅のみで、写真映えする貴重な建築遺産です。ギマールが手がけた個人住宅「Hôtel Mezzara」(16区)は、2028年にギマール専門の美術館としてオープン予定と発表されています。</p>
       <div class="ranking-links">
@@ -74,7 +77,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="arch-cartier">
       <p class="trending-name">フォンダシオン・カルティエの移転(2025年10月)</p>
       <p class="trending-desc">現代美術館「フォンダシオン・カルティエ(Fondation Cartier)」は、長年あったラスパイユ大通りから、<strong>2025年10月25日にパレ・ロワイヤル広場2番地(旧ルーヴル・デ・ザンティケール)へ移転</strong>しました。建物は同館の元の建物と同じく建築家ジャン・ヌーヴェル(Jean Nouvel)の設計で、ルーヴル美術館のすぐそばという立地も新たな見どころです。ガイドブックによってはまだ旧住所(ラスパイユ大通り)のまま紹介されている場合があるので、訪問前に最新の場所を確認してください。</p>
       <div class="ranking-links">
@@ -85,8 +88,16 @@
 
   <section aria-labelledby="faq-h">
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="faq-h">旅行実務FAQ</h2></div>
+    <div class="toc-chips faq-chips" role="list" aria-label="質問から探す">
+      <a role="listitem" href="#faq-tip">チップは必要?</a>
+      <a role="listitem" href="#faq-water">水道水は飲める?</a>
+      <a role="listitem" href="#faq-pickpocket">スリ対策は?</a>
+      <a role="listitem" href="#faq-metro">地下鉄アプリとチケットの買い方は?</a>
+      <a role="listitem" href="#faq-closed">定休日・休館日で気をつけることは?</a>
+      <a role="listitem" href="#faq-japanese-food">日本食が恋しくなったら?</a>
+    </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-tip">
       <p class="trending-name">Q. チップは必要?</p>
       <p class="trending-desc">A. 不要です。フランスでは法律でサービス料15%が会計に含まれています(service compris)。義務のチップ文化はなく、特に良いサービスを受けたときに端数を切り上げたり数ユーロ置く程度で十分です。カードで支払う端末にはチップ入力欄が無いことが多いため、渡す場合は現金で。<br>なお前撮りでカフェの店内・テラスを使わせてもらう場合は、店側の厚意で撮影させてもらっている形になるため、5€程度のチップを現金で用意しておくと安心です。</p>
       <div class="ranking-links">
@@ -94,7 +105,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-water">
       <p class="trending-name">Q. 水道水は飲める?</p>
       <p class="trending-desc">A. 飲めます。パリの水道水(Eau de Paris)は基準を満たしており、直近の分析でも99.8%が仏・EU基準に適合しています。ただし硬水でミネラル分が多く、日本の水と味や口当たりが違うと感じる方もいます。</p>
       <div class="ranking-links">
@@ -102,7 +113,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-pickpocket">
       <p class="trending-name">Q. スリ対策は?</p>
       <p class="trending-desc">A. パリはスリ被害の報告件数がフランス国内で最多の都市です。特にメトロ1・4・6号線や、シャトレ・レ・アール駅、ノール駅などの乗り換え駅、モンマルトル(サクレクール周辺・テルトル広場)、エッフェル塔周辺は要注意とされています。バッグは体の前に抱え、貴重品は目の届く内ポケットに入れるのが基本です。<br>スマートフォンは特に狙われやすいため、スマホと体(バッグやベルト通し)をつなぐストラップ・チェーン付きのケースやコードを使うと、ひったくり対策としても写真・動画撮影中の落下防止としても安心です。<br>万が一に備えて、出発前にスマホのバックアップを取っておく(写真や連絡先が消えても復元できる)ことと、盗難時の対応(通信キャリアでの回線停止方法、Apple「探す」/Googleの「デバイスを探す」でのリモートロック・データ消去のやり方、現地警察への被害届の出し方)を事前に調べておくと、いざという時に慌てずに動けます。</p>
       <div class="ranking-links">
@@ -111,16 +122,17 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-metro">
       <p class="trending-name">Q. 地下鉄アプリとチケットの買い方は?</p>
       <p class="trending-desc">A. パリの地下鉄・バスを運行するRATP自体の公式アプリ「Bonjour RATP」もありますが、おすすめは域内の全交通機関(メトロ・バス・RER・郊外鉄道Transilien等)を横断でカバーする「Île-de-France Mobilités」(iPhone/Android、無料)です。旅行者からは「Île-de-France Mobilitésの方が画面が分かりやすい」という声が多く、チケット購入からNavigo Easy管理まで一つで完結します。<br>紙の切符は廃止が進んでおり(2026年にバス・鉄道網とも順次終了)、買い方は主に2通り: ①現地でNavigo Easyカード(2€)を券売機で購入し、アプリまたは券売機でチケットをチャージする(単発2.55€、10回分のデジタル回数券17.35€で割安)。②iPhone XS以降・Android 8以降のNFC対応機種なら、アプリで購入したチケットをスマホ自体にチャージしてそのまま改札にタッチする方法もあります(カード不要)。アプリの「購入」メニュー→「Navigo Easyパスに」を選び、パスをスマホの背面にかざして決済・チャージする流れです。</p>
+      <div class="fresh-note" data-fresh="transit-single-ticket transit-carnet-10 paper-ticket-end navigo-easy-card-price"></div>
       <div class="ranking-links">
         <a class="ranking-source" href="https://www.iledefrance-mobilites.fr/en/dossiers/validation-transports-telephone-android">Île-de-France Mobilités公式 ↗</a>
         <a class="ranking-source" href="https://www.ratp.fr/en/titres-et-tarifs/smartphone-tickets">RATP公式 ↗</a>
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-closed">
       <p class="trending-name">Q. 定休日・休館日で気をつけることは?</p>
       <p class="trending-desc">A. 「フランスは全部日曜休み」というのは過度な一般化で、業種によって違います。パン屋(ブーランジュリー)は日曜午前中まで営業する店が多い一方、専門店・ブティックの多くは日曜定休です。レストランは月曜定休や、ランチ(12:00頃〜14:30頃)とディナー(19:00頃〜)の間の「中休み」で入店できない時間帯があるのが一般的です。<br>美術館は施設ごとに休館日が異なります。例えばルーヴル美術館は火曜休館、オルセー美術館は月曜休館。国立の美術館・博物館は元日・5月1日・12月25日は基本的に全て休館します。なお、パリの現代美術の拠点だったポンピドゥー・センターは2025年9月22日から2030年まで大規模改修のため全館休館中(2026年時点で展示なし)なので、行き先リストから外しておいてください。祝日は2026年は元日(1/1)・イースター翌月曜(4/6)・メーデー(5/1)・第二次大戦欧州戦勝記念日(5/8)・キリスト昇天祭(5/14)・聖霊降臨祭翌月曜(5/25)・革命記念日(7/14)・聖母被昇天祭(8/15)・諸聖人の日(11/1)・休戦記念日(11/11)・クリスマス(12/25)の11日間です。</p>
       <div class="ranking-links">
@@ -130,7 +142,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="faq-japanese-food">
       <p class="trending-name">Q. 日本食が恋しくなったら?</p>
       <p class="trending-desc">A. スーパーのおにぎりは、正直に言うとあまりおすすめしません。酢飯に謎の具材が挟まっているようなものが多く、話のネタとして買うのはありですが、美味しさを求めるなら期待しない方がいいです。<br>オペラ座近く(1区、パレ・ロワイヤルのそば)には日本の「おむすび権米衛」パリ店があり、スーパーのおにぎりと同じくらいの価格帯(1個2€前後、セットは8.5〜11€ほど)で、ちゃんと美味しいおにぎりが食べられます。<br>うどん・ラーメンなど、他にも現地の人お墨付きの日本食のお店をレストランページにまとめています。</p>
       <div class="ranking-links">
@@ -143,27 +155,27 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="restaurant-h">レストランの使い方</h2></div>
     <p class="section-note">日本の飲食店とは作法が違う部分があるので、知っておくと戸惑わずに済むポイントをまとめました。フランス語が話せなくても、<strong>Bonjour(ボンジュール/Hello)・Merci(メルシー/Thank you)・S'il vous plaît(シルヴプレ/Please)</strong>の3つさえ言えれば、あとは指さしや英語混じりでほぼ問題なくやり取りできます。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="restaurant-enter">
       <p class="trending-name">入店・予約</p>
       <p class="trending-desc">人気店は予約(réservation)が無難ですが、カジュアルな店は予約なしでも入店できることが多いです。入店時は店員が来るまで入口で待ち、<strong>"Bonjour, une table pour deux, s'il vous plaît."</strong>(ボンジュール・ユンヌ・タブル・プール・ドゥ・シルヴプレ/Hello, a table for two, please.)のように人数を伝えます。自分で好きな席に座り込むのはマナー違反とされる店もあるので注意してください。予約サイトはフランス版の「TheFork(旧La Fourchette)」がよく使われ、割引プラン付きの予約もできます。予約をキャンセルする場合は、電話やアプリで一言連絡を入れるのがマナーです(無断キャンセルはノーショーとして次回以降の予約を断られることも)。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="restaurant-waiter">
       <p class="trending-name">店員の呼び方</p>
       <p class="trending-desc">注文したい時に「すみませーん」と大きな声を出したり手を挙げたりするのは、フランスではマナー違反とされています。ギャルソン(店員)にはその人のペースがあるので、それを尊重するのが基本です。注文したい時はメニューを閉じて待っていれば、店員の方から気づいて来てくれます。店員の視線をとらえるアイコンタクトも効果的です。<br>それでもあまりに待たされて仕方ない時は、大声を出すのではなく、軽く手をひらひらとさせてさりげなくアピールする程度に留めてください。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="restaurant-water">
       <p class="trending-name">水・パン</p>
       <p class="trending-desc">何も言わないと有料のミネラルウォーター(eau plate=普通の水、eau gazeuse=炭酸水)を聞かれることが多いです。無料の水道水でよければ<strong>"Une carafe d'eau, s'il vous plaît."</strong>(ユンヌ・キャラフ・ドー・シルヴプレ/Tap water, please.)と伝えます。パンはテーブルに自動的に置かれることが多く、多くの店で無料・おかわり自由です。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="restaurant-menu">
       <p class="trending-name">メニュー用語</p>
       <p class="trending-desc"><strong>formule(フォルミュル)</strong>: セットメニュー(前菜+メイン、またはメイン+デザート等の組み合わせ)。単品より割安なことが多い。<strong>entrée</strong>=前菜、<strong>plat</strong>=メイン、<strong>dessert</strong>=デザート、の順に並ぶのが基本構成です。<strong>café gourmand(カフェ・グルマン)</strong>は、コーヒーに小さなデザートの盛り合わせが付いてくる、軽く甘いものを楽しみたいときにおすすめのメニューです。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="restaurant-bill">
       <p class="trending-name">会計・チップ・テラス</p>
       <p class="trending-desc">会計は基本的にテーブル会計制で、レジに並ぶのではなく店員に<strong>"L'addition, s'il vous plaît."</strong>(ラディション・シルヴプレ/The bill, please.)と声をかけて持ってきてもらいます。チップについては上の「チップは必要?」を参照してください。テラス席は料金が同じ店がほとんどですが、天気の良い日は人気で予約推奨のことも。ドレスコードは高級店以外は基本的にカジュアルでよく、短パン・ビーチサンダル等でなければ問題になることは少ないです。営業時間はランチ12:00頃〜14:30頃、ディナー19:00頃〜が一般的で、その間は「中休み」で閉まる店が多い点は上の「定休日・休館日で気をつけることは?」も参照してください。</p>
     </div>
@@ -173,7 +185,7 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="money-h">お得な支払い方法(Wise・Revolut)</h2></div>
     <p class="section-note">日本発行のクレジットカードでそのまま海外決済すると、カード会社の為替レート+海外事務手数料(1.6〜3%程度)が上乗せされます。WiseやRevolutは、この上乗せをほぼゼロに近づけられる海外旅行向けのアプリ・カードです。どちらも日本在住のまま出発前にアプリで口座開設できます。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="money-wise">
       <p class="trending-name">Wise</p>
       <p class="trending-desc">なぜお得か: 為替手数料を上乗せしない「仲値(mid-market rate)」に近いレートで両替でき、土日祝も同じ条件。海外ATMでの引き出しも月25,000円相当まで手数料無料です。<br>使い方: ①アプリをダウンロードし日本在住のまま口座開設 ②自分の日本の銀行口座からWiseアカウントへ円を送金 ③アプリ内でユーロに両替 ④発行されたWiseデビットカード(Apple Pay対応)で現地決済、またはATMでユーロを引き出す。日本円建て残高の上限は原則100万円相当なので、旅行の都度必要な分だけ入金するのがおすすめです。</p>
       <div class="ranking-links">
@@ -181,7 +193,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="money-revolut">
       <p class="trending-name">Revolut</p>
       <p class="trending-desc">なぜお得か: 月間の上限額(プランにより異なる)まで為替手数料なしで両替でき、複数通貨をアプリ内で保有できます。平日はほぼ手数料なしですが、標準プランは土日の両替に1%程度の上乗せがある点はWiseと異なります。<br>使い方: ①アプリをダウンロードし、電話番号+SMS認証で口座開設(日本の関東財務局に資金移動業者として登録済み) ②日本の銀行やPayPayなどから入金 ③アプリ内でユーロに両替してカードで決済、またはATMで引き出す。平日中心の旅行ならRevolut、土日をまたぐ・為替タイミングを気にしたくないならWise、という使い分けが目安です。</p>
       <div class="ranking-links">
@@ -194,20 +206,21 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="detaxe-h">免税(Détaxe / PABLO)</h2></div>
     <p class="section-note">フランス国外(EU域外)に住んでいる旅行者は、フランスでの買い物にかかる消費税(TVA)の一部を出国時に還付してもらえます。以下はフランス税関(douane.gouv.fr)・経済省(economie.gouv.fr)の公式情報に基づく2026年時点の制度です。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="detaxe-eligibility">
       <p class="trending-name">対象者・条件</p>
       <p class="trending-desc">EU域外に住んでいること(日本在住なら対象)、16歳以上であること、フランスでの滞在が6ヶ月未満であることが条件です。同一店舗・同一日の購入合計が100.01€以上である必要があります。対象は「新品・未使用の商品」のみで、レストラン・ホテル・タクシーなどのサービス代金は対象外です。たばこ、武器・弾薬、文化財、石油製品、自家用車なども対象外です。</p>
+      <div class="fresh-note" data-fresh="detaxe-conditions"></div>
       <div class="ranking-links">
         <a class="ranking-source" href="https://www.economie.gouv.fr/particuliers/voyager-et-se-deplacer/touristes-comment-beneficier-de-la-detaxe-lors-dun-achat">economie.gouv.fr(公式) ↗</a>
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="detaxe-shop">
       <p class="trending-name">店頭ですること</p>
       <p class="trending-desc">会計時に<strong>"Je voudrais la détaxe, s'il vous plaît."</strong>(ジュ・ヴドレ・ラ・デタックス・シルヴプレ/I'd like the tax refund, please.)とパスポートを提示して伝えます。店側が免税書類(bordereau de détaxe)を電子発行し、メールアドレスを伝えておくと後で確認メールが届きます。還付額はTVA全額ではなく、店舗側の手数料(3〜5%程度)が差し引かれるため、実際の還付率は購入額の最大12%程度です。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="detaxe-pablo">
       <p class="trending-name">PABLO端末での手続き・タイミングが最重要</p>
       <p class="trending-desc">出国日、荷物を預ける前に空港の「PABLO」端末(税関のセルフ端末)で免税書類のバーコードをスキャンして電子認証を受けます。ここが一番間違えやすいポイントで、スーツケースを預けてしまってからでは商品の現物確認が必要になる場合に対応できません。免税対象の商品は必ず手荷物に入れておくか、預ける前にPABLO端末での手続きを終えてから預けてください。<br>EU域内の他国を経由してから帰国する場合は、フランスではなく「EU域内から出る最後の空港」でPABLO(またはその国の同等システム)の手続きをします。端末でうまく認証できない場合は近くの税関窓口へ。</p>
       <div class="ranking-links">
@@ -215,7 +228,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="detaxe-refund">
       <p class="trending-name">還付方法</p>
       <p class="trending-desc">PABLO端末での認証後、店舗が指定した方法(クレジットカードへの返金、または空港の現金還付カウンター)で還付されます。カード返金の場合は数週間かかることがあります。認証がうまくいかなかった場合、還付は行われないため、出国前の手続きは時間に余裕を持って行うことが重要です。</p>
     </div>
@@ -225,7 +238,7 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="luggage-h">荷物預かり</h2></div>
     <p class="section-note">前撮り当日やチェックアウト後の空き時間に、大きな荷物を身軽にしたいときの預け先です。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="luggage-lockers">
       <p class="trending-name">主要駅の自動ロッカー</p>
       <p class="trending-desc">Gare du Nord(北駅)は地下1階、3番線向かい・rue de Maubeuge出口付近に自動ロッカーがあり、6:00〜23:15(祝日含む)利用可能。Gare de Lyon(リヨン駅)はホール3・地下1階、rue de Bercy出口付近で6:15〜22:00(祝日含む)利用可能です。料金はロッカーのサイズにより異なり、小サイズ約5.50€・中サイズ約7.50€・大サイズ約9.50€(24時間ごと、延長は追加料金)が目安です。</p>
       <div class="ranking-links">
@@ -233,12 +246,12 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="luggage-cdg">
       <p class="trending-name">空港の荷物預かり(CDG)</p>
       <p class="trending-desc">シャルル・ド・ゴール空港には「Bagages du Monde」が運営する公式の荷物預かりサービスがあり、ターミナル2のTGV/RER駅レベル4(シェラトンホテルの向かい)にあります。営業時間は7:00〜21:00(季節により21:30まで)です。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="luggage-private">
       <p class="trending-name">民間の荷物預かりサービス</p>
       <p class="trending-desc">Nannybag・Stasher・Bounce等、カフェや店舗と提携して街中に預け場所を用意しているアプリ型サービスも利用できます。事前にアプリで予約し、提携店舗に荷物を預ける仕組みで、駅より営業時間の融通が利く場合があります。2026年時点でNannybagはBounceに買収されていますが、サービス自体は継続しています。料金・営業状況は利用直前にアプリで確認してください。</p>
       <div class="ranking-links">
@@ -252,6 +265,17 @@
     <p>本ページの情報は出典元の公開時点のものです。最新の状況は各出典先で改めてご確認ください。</p>
   </footer>
 </div>
+<!-- shell:bottom -->
+<nav class="tab-bar" aria-label="メインメニュー">
+  <a class="tab" href="index.html" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>ホーム</span></a>
+  <a class="tab" href="search.html" data-tab="find"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>探す</span></a>
+  <a class="tab" href="map.html" data-tab="map"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>地図</span></a>
+  <a class="tab" href="saved.html" data-tab="saved"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span>保存</span><span class="tab-badge" data-saved-count hidden></span></a>
+  <a class="tab" href="menu.html" data-tab="menu" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>メニュー</span></a>
+</nav>
+<script type="module" src="js/shell.js"></script>
+<!-- /shell:bottom -->
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="module" src="js/freshness-badge.js"></script>
 </body>
 </html>

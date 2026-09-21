@@ -1,13 +1,19 @@
 import { renderFleaMarketList, renderPassageList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { showGroupsLoading } from './recommendations.js';
+import { annotate } from './places.js';
 
-async function init() {
-  const [freeSpots, passages, toilets] = await Promise.all([
+runPage(async () => {
+  showGroupsLoading(['free-spot-list', 'passage-list-must-visit', 'passage-list-casual', 'passage-list-meh']);
+  const [freeRaw, passageRaw, toilets] = await Promise.all([
     loadJson('data/free-spots.json'),
     loadJson('data/passages.json'),
     loadJson('data/toilets.json')
   ]);
+  const freeSpots = annotate(freeRaw, 'free');
+  const passages = annotate(passageRaw, 'passage');
 
   document.getElementById('free-spot-list').innerHTML = renderFleaMarketList(freeSpots);
 
@@ -22,7 +28,5 @@ async function init() {
   );
 
   setupNearbySearch([...freeSpots, ...passages]);
-  setupNearbySearch(toilets, { idSuffix: '-toilets' });
-}
-
-init();
+  setupNearbySearch(annotate(toilets, 'toilet'), { idSuffix: '-toilets' });
+});

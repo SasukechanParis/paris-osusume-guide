@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "note": "入国関連などの公式情報カード。書いてよいのは、公式ページ(欧州委員会・EU・在外公館)で確認できたことだけ。各項目に確認日と出典を持つ。開始時期・費用・状況は変わりうるので、公開前・定期確認で必ず一次資料を見直す(data/freshness.json)。予定日が過ぎたからといって「申請必須」へ自動で切り替えない。申請は公式サイト・公式アプリだけで、このサイトでは受け付けず、旅券番号なども入力させない。",
+  "verified_on": "2026-09-21",
+  "cards": [
+    {
+      "id": "etias",
+      "title": "ETIAS(ヨーロッパ渡航認証)",
+      "check": "旅行の日程が決まったら、ETIASが始まっているか・自分が対象になるかを、公式ページで確認する",
+      "who": "ビザなしで短期滞在(90日以内)する旅行者向けの案内です。ビザや滞在許可をお持ちの方など、条件が異なる場合があります。日本からの渡航者向けには在日フランス大使館が案内しています。",
+      "summary": "ビザなしで欧州30か国に短期滞在する旅行者が、渡航前にオンラインで取る渡航認証です。2026年9月21日の確認時点では、まだ運用が始まっていません。",
+      "points": [
+        { "label": "今の状況", "text": "欧州委員会の公式ページ(2026年4月10日付)は、「ETIASは現在運用しておらず、渡航認証の申請は受け付けていない」としています。" },
+        { "label": "開始の時期", "text": "欧州委員会は2026年4月28日の案内で「2026年第4四半期に開始予定」としました。開始日は、開始の数か月前に公式に告知されるとされています。時期が変わる可能性があるため、出発前に公式ページで最新の状況を確認してください。" },
+        { "label": "費用", "text": "欧州委員会のページ(2025年10月6日更新)に20ユーロと記載があります。申請するときは、公式サイトで金額を確認してください。" },
+        { "label": "申請できる場所", "text": "公式サイトまたは公式アプリだけです。第三者のサイトは追加料金の請求や個人情報の悪用の恐れがあると、欧州委員会が注意しています。このサイトでは申請を受け付けず、旅券番号などの入力も求めません。" }
+      ],
+      "links": [
+        { "label": "ETIAS公式サイト(EU)", "url": "https://travel-europe.europa.eu/etias_en" },
+        { "label": "欧州委員会: ETIAS", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/european-travel-information-authorisation-system_en" },
+        { "label": "在日フランス大使館(日本語)", "url": "https://jp.diplomatie.gouv.fr/ja/ees-le-nouveau-systeme-europeen-de-gestion-des-frontieres-entre-en-service-le-10-avril-2026" }
+      ],
+      "sources": [
+        { "label": "欧州委員会 Smart borders(ページ日付 2026年4月10日)", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders_en" },
+        { "label": "欧州委員会 ニュース「EESとETIASの主な違い」(2026年4月28日)", "url": "https://home-affairs.ec.europa.eu/news/main-differences-between-ees-and-etias-what-travellers-need-know-2026-04-28_en" },
+        { "label": "欧州委員会 ETIAS(2025年10月6日更新)", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/european-travel-information-authorisation-system_en" },
+        { "label": "在日フランス大使館(2026年5月15日更新)", "url": "https://jp.diplomatie.gouv.fr/ja/ees-le-nouveau-systeme-europeen-de-gestion-des-frontieres-entre-en-service-le-10-avril-2026" }
+      ],
+      "verified_on": "2026-09-21"
+    },
+    {
+      "id": "ees",
+      "title": "EES(出入国システム)",
+      "check": "国境での顔写真・指紋の登録があることを知っておく(事前の申請は必要ありません)",
+      "who": "EU・シェンゲン圏に属さない国の国籍者が、短期滞在で入国・出国するときの制度です(在日フランス大使館の案内)。",
+      "summary": "国境で、氏名・旅行書類のデータ、顔写真と指紋、入国・出国の日時と場所が登録される制度です。2026年4月10日に、すべてのシェンゲン加盟国で全面運用が始まりました。",
+      "points": [
+        { "label": "今の状況", "text": "欧州委員会によると、2025年10月12日から段階的に始まり、2026年4月10日にすべてのシェンゲン加盟国で全面運用になりました。パスポートへのスタンプに代わる仕組みです。" },
+        { "label": "国境で登録されるもの", "text": "氏名・旅行書類のデータ、顔写真と指紋(12歳未満は指紋なし)、入国・出国の日時と場所です。" },
+        { "label": "事前の手続き", "text": "渡航前に必要な手続きはありません(在日フランス大使館)。国境で登録されるため、入国時に少し時間がかかる場合があります。" },
+        { "label": "ETIASとの違い", "text": "ETIASは渡航前にオンラインで取る認証、EESは国境での登録です。別の制度なので、混同しないようにしてください。" }
+      ],
+      "links": [
+        { "label": "欧州委員会: EES", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/entry-exit-system_en" },
+        { "label": "EU公式旅行サイト: EES", "url": "https://travel-europe.europa.eu/ees_en" },
+        { "label": "在日フランス大使館(日本語)", "url": "https://jp.diplomatie.gouv.fr/ja/ees-le-nouveau-systeme-europeen-de-gestion-des-frontieres-entre-en-service-le-10-avril-2026" }
+      ],
+      "sources": [
+        { "label": "欧州委員会 EES", "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/entry-exit-system_en" },
+        { "label": "欧州委員会 ニュース「EESとETIASの主な違い」(2026年4月28日)", "url": "https://home-affairs.ec.europa.eu/news/main-differences-between-ees-and-etias-what-travellers-need-know-2026-04-28_en" },
+        { "label": "在日フランス大使館(2026年5月15日更新)", "url": "https://jp.diplomatie.gouv.fr/ja/ees-le-nouveau-systeme-europeen-de-gestion-des-frontieres-entre-en-service-le-10-avril-2026" }
+      ],
+      "verified_on": "2026-09-21"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { renderContestDetail, renderYearPanel, buildShopWinCounts } from './render.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
 
 async function init() {
   const params = new URLSearchParams(window.location.search);
@@ -13,7 +14,8 @@ async function init() {
 
   const contest = contests.find((c) => c.id === id);
   if (!contest) {
-    document.getElementById('contest-detail').textContent = 'コンクールが見つかりませんでした。';
+    document.getElementById('contest-title').textContent = 'コンクールが見つかりませんでした';
+    document.getElementById('contest-meta').innerHTML = '<a class="ranking-source" href="bread.html">パンコンクールの一覧へ戻る</a>';
     return;
   }
 
@@ -39,4 +41,4 @@ async function init() {
   });
 }
 
-init();
+runPage(init);

@@ -1,36 +1,30 @@
-import { renderRecommendationList } from './render.js';
 import { setupNearbySearch } from './nearby-search.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { setupSourceTabs } from './source-tabs.js';
+import { sortByStatus, tagSource, renderGroup, showGroupsLoading, loadFacts, withFacts } from './recommendations.js';
+import { annotate } from './places.js';
+import { renderCompareButton, initHotelCompare } from './hotel-compare.js';
 
-function sortByStatus(items) {
-  const order = { recommended: 0, curious: 1 };
-  return [...items].sort((a, b) => (order[a.status] ?? 2) - (order[b.status] ?? 2));
-}
+// options.compare: ホテルページで「比較に追加」を出す
+export function initCategoryPage(category, { compare = false } = {}) {
+  return runPage(async () => {
+    showGroupsLoading(['sasuke-list', 'guest-list']);
+    const [recommendations, guestRecommendations, facts] = await Promise.all([
+      loadJson('data/recommendations.json'),
+      loadJson('data/guest-recommendations.json'),
+      loadFacts()
+    ]);
 
-export async function initCategoryPage(category) {
-  const [recommendations, guestRecommendations] = await Promise.all([
-    loadJson('data/recommendations.json'),
-    loadJson('data/guest-recommendations.json')
-  ]);
+    const sasuke = withFacts(annotate(sortByStatus(recommendations.filter((r) => r.category === category)), 'rec'), facts);
+    const guests = withFacts(annotate(guestRecommendations.filter((r) => r.category === category), 'guest'), facts);
 
-  const sasuke = sortByStatus(recommendations.filter((r) => r.category === category));
-  const guests = guestRecommendations.filter((r) => r.category === category);
-
-  document.getElementById('sasuke-list').innerHTML = renderRecommendationList(sasuke);
-  document.getElementById('sasuke-empty').hidden = sasuke.length > 0;
-
-  document.getElementById('guest-list').innerHTML = renderRecommendationList(guests);
-  document.getElementById('guest-empty').hidden = guests.length > 0;
-
-  document.getElementById('source-tabs').addEventListener('click', (event) => {
-    const btn = event.target.closest('.tab-btn');
-    if (!btn) return;
-    const source = btn.dataset.source;
-
-    document.querySelectorAll('#source-tabs .tab-btn').forEach((b) => b.classList.toggle('active', b === btn));
-    document.getElementById('sasuke-panel').hidden = source !== 'sasuke';
-    document.getElementById('guest-panel').hidden = source !== 'guest';
+    const renderOptions = compare ? { extra: (item) => renderCompareButton(item.uid) } : {};
+    renderGroup(sasuke, 'sasuke-list', 'sasuke-empty', renderOptions);
+    renderGroup(guests, 'guest-list', 'guest-empty', renderOptions);
+    setupSourceTabs();
+    const tagged = [...tagSource(sasuke, 'sasuke'), ...tagSource(guests, 'guest')];
+    setupNearbySearch(tagged);
+    if (compare) await initHotelCompare(tagged);
   });
-
-  setupNearbySearch([...sasuke, ...guests]);
 }

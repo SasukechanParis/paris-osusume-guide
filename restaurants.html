@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>レストラン・カフェ - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,34 +11,45 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
+<!-- shell:head -->
+<link rel="stylesheet" href="css/mobile.css">
+<script>(function(){var f,g={path:function(p){return String(p).split(/[?#]/)[0]||'/'},referrer:function(r){try{return new URL(r).origin===location.origin?'':r}catch(e){return ''}}};Object.defineProperty(g,'get_data',{configurable:true,enumerable:true,get:function(){return f},set:function(h){f=function(v){var d=h(v),m=/[?&]ref=([A-Za-z0-9_-]{1,40})(?:&|$)/.exec(d.q||'');d.q=m?'?ref='+m[1]:'';return d}}});window.goatcounter=g})();</script>
+<!-- /shell:head -->
 </head>
-<body>
+<body class="jp">
 <div class="page">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
-  <nav class="site-nav">
-    <a href="index.html">トップ</a>
-    <a href="emergency.html">困ったら</a>
-    <a href="airport.html">空港</a>
-    <a href="shoot-day.html">撮影当日</a>
-    <a href="bread.html">パンコンクール</a>
-    <a href="michelin.html">ミシュラン</a>
-    <a href="restaurants.html" class="active">レストラン・カフェ</a>
-    <a href="chocolatiers.html">スイーツ</a>
-    <a href="bakeries.html">パン屋さん</a>
-    <a href="souvenirs.html">お土産</a>
-    <a href="supermarket.html">スーパーで買えるおすすめ</a>
-    <a href="hotels.html">ホテル</a>
-    <a href="flea-markets.html">市場</a>
-    <a href="free-spots.html">無料スポット</a>
-    <a href="guide.html">旅行ガイド</a>
-    <a href="map.html">地図</a>
-    <a href="post.html">投稿する</a>
-  </nav>
+  <!-- shell:top -->
+  <header class="app-bar">
+    <a class="app-bar-brand" href="index.html"><span class="app-bar-flag" aria-hidden="true"><i></i><i></i><i></i></span>パリおすすめ</a>
+    <a class="app-bar-sos" href="emergency.html">困ったとき</a>
+  </header>
+<!-- /shell:top -->
   <header class="hero">
     <h1 class="title">レストラン・カフェ</h1>
     <p class="lede">パリで前撮りするおふたりのために、さすけが実際に行ったレストランと、先輩カップルから届いたおすすめをまとめました。あわせて休憩に使えるカフェ・サロン・ド・テも掲載しています。</p>
-    <img class="hero-image" src="assets/illustrations/restaurant.png" alt="印象派タッチで描かれたローストチキンのイラスト">
+    <picture>
+      <source type="image/webp" srcset="assets/illustrations/restaurant-800.webp 800w, assets/illustrations/restaurant-1400.webp 1400w" sizes="(min-width: 760px) 720px, 100vw">
+      <img class="hero-image" src="assets/illustrations/restaurant.png" width="1672" height="941" alt="印象派タッチで描かれたローストチキンのイラスト" loading="lazy" decoding="async">
+    </picture>
   </header>
+
+  <section aria-labelledby="nearby-h">
+    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くのレストラン・カフェを探す</h2></div>
+    <p class="section-note">現在地、またはホテル名・住所を入力すると、近いレストラン・カフェを距離順に表示します</p>
+
+    <div class="nearby-form">
+      <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
+      <div class="nearby-divider">または住所・ホテル名で検索</div>
+      <div class="nearby-row">
+        <input id="address-input" class="nearby-input" type="text" placeholder="例: Hôtel de la Paix, 9e arrondissement">
+        <button id="address-search-btn" class="btn btn-outline" type="button">検索</button>
+      </div>
+      <p id="nearby-status" class="section-note" style="margin:0;"></p>
+    </div>
+
+    <div id="nearby-results" class="nearby-results"></div>
+  </section>
 
   <section aria-labelledby="restaurants-h">
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="restaurants-h">レストラン・カフェ一覧</h2></div>
@@ -73,27 +84,21 @@
     </div>
   </section>
 
-  <section aria-labelledby="nearby-h">
-    <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="nearby-h">近くのレストラン・カフェを探す</h2></div>
-    <p class="section-note">現在地、またはホテル名・住所を入力すると、近いレストラン・カフェを距離順に表示します</p>
-
-    <div class="nearby-form">
-      <button id="gps-btn" class="btn gps-btn" type="button">現在地から探す</button>
-      <div class="nearby-divider">または住所・ホテル名で検索</div>
-      <div class="nearby-row">
-        <input id="address-input" class="nearby-input" type="text" placeholder="例: Hôtel de la Paix, 9e arrondissement">
-        <button id="address-search-btn" class="btn btn-outline" type="button">検索</button>
-      </div>
-      <p id="nearby-status" class="section-note" style="margin:0;"></p>
-    </div>
-
-    <div id="nearby-results" class="nearby-results"></div>
-  </section>
 
   <footer class="site-footer">
     <p>店舗の位置情報は住所から自動計算しており、実際の建物位置と数十m程度ずれる場合があります。正確な場所はGoogleマップ上で改めてご確認ください。</p>
   </footer>
 </div>
+<!-- shell:bottom -->
+<nav class="tab-bar" aria-label="メインメニュー">
+  <a class="tab" href="index.html" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>ホーム</span></a>
+  <a class="tab" href="search.html" data-tab="find" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>探す</span></a>
+  <a class="tab" href="map.html" data-tab="map"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>地図</span></a>
+  <a class="tab" href="saved.html" data-tab="saved"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span>保存</span><span class="tab-badge" data-saved-count hidden></span></a>
+  <a class="tab" href="menu.html" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>メニュー</span></a>
+</nav>
+<script type="module" src="js/shell.js"></script>
+<!-- /shell:bottom -->
 <script type="module" src="js/restaurants.js"></script>
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

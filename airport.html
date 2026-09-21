@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>空港アクセスガイド - パリおすすめデータベース</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,33 +11,33 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/style.css">
+<!-- shell:head -->
+<link rel="stylesheet" href="css/mobile.css">
+<script>(function(){var f,g={path:function(p){return String(p).split(/[?#]/)[0]||'/'},referrer:function(r){try{return new URL(r).origin===location.origin?'':r}catch(e){return ''}}};Object.defineProperty(g,'get_data',{configurable:true,enumerable:true,get:function(){return f},set:function(h){f=function(v){var d=h(v),m=/[?&]ref=([A-Za-z0-9_-]{1,40})(?:&|$)/.exec(d.q||'');d.q=m?'?ref='+m[1]:'';return d}}});window.goatcounter=g})();</script>
+<!-- /shell:head -->
 </head>
-<body>
+<body class="jp">
 <div class="page">
   <div class="tricolore-rail"><span></span><span></span><span></span></div>
-  <nav class="site-nav">
-    <a href="index.html">トップ</a>
-    <a href="emergency.html">困ったら</a>
-    <a href="airport.html" class="active">空港</a>
-    <a href="shoot-day.html">撮影当日</a>
-    <a href="bread.html">パンコンクール</a>
-    <a href="michelin.html">ミシュラン</a>
-    <a href="restaurants.html">レストラン・カフェ</a>
-    <a href="chocolatiers.html">スイーツ</a>
-    <a href="bakeries.html">パン屋さん</a>
-    <a href="souvenirs.html">お土産</a>
-    <a href="supermarket.html">スーパーで買えるおすすめ</a>
-    <a href="hotels.html">ホテル</a>
-    <a href="flea-markets.html">市場</a>
-    <a href="free-spots.html">無料スポット</a>
-    <a href="guide.html">旅行ガイド</a>
-    <a href="map.html">地図</a>
-    <a href="post.html">投稿する</a>
-  </nav>
+  <!-- shell:top -->
+  <header class="app-bar">
+    <a class="app-bar-brand" href="index.html"><span class="app-bar-flag" aria-hidden="true"><i></i><i></i><i></i></span>パリおすすめ</a>
+    <a class="app-bar-sos" href="emergency.html">困ったとき</a>
+  </header>
+<!-- /shell:top -->
   <header class="hero">
     <h1 class="title">空港<span class="accent">アクセスガイド</span></h1>
     <p class="lede">CDG(シャルル・ド・ゴール)・オルリー・ボーヴェの3空港について、交通手段ごとの所要時間・料金・向き不向きをまとめました。廃止済みのサービス(旧ロワシーバス・旧オルリーバス)は載せていません。</p>
   </header>
+
+  <nav class="toc" aria-label="このページの内容">
+    <p class="toc-title">このページの内容</p>
+    <div class="toc-chips">
+        <a href="#cdg-h">CDG(シャルル・ド・ゴール)</a>
+        <a href="#orly-h">オルリー</a>
+        <a href="#beauvais-h">ボーヴェ</a>
+    </div>
+  </nav>
 
   <section aria-label="空港を選ぶ">
     <nav class="emergency-nav">
@@ -51,16 +51,17 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="cdg-h">CDG(シャルル・ド・ゴール空港)</h2></div>
     <p class="section-note">パリ市街から北東に約25km。ターミナル1・2・3があり、RER Bの駅は「Aéroport CDG 1」(T1・T3用)と「Aéroport CDG 2」(T2・TGV駅用)の2つに分かれています。乗る前に自分の便がどのターミナルか確認しておきましょう。<br>目安: 荷物が少なく日中ならRER B、深夜・早朝の到着ならNoctilien夜間バス、荷物が多い・人数がいるならUber等のVTC(タクシーより先に検討を、理由は下記)。「CDG Express」という直通高速鉄道は建設中で、開業は2027年3月予定のため2026年時点ではまだ利用できません。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="cdg-rer-b">
       <p class="trending-name">RER B(鉄道)</p>
       <p class="trending-meta">所要時間の目安: Gare du Nordまで約35分、Châtelet-Les Hallesまで約35分</p>
       <p class="trending-desc">最も一般的な公共交通手段。5:00頃〜24:00頃まで6〜15分間隔で運行。運賃は「Titre Paris Région ⟷ Aéroports」で14€(割引運賃7€、2025年1月改定)。Navigo Semaine/Mois/Annuel(ゾーン1〜5)やParis Visiteパスでも乗車可。かつて運行していた直通バス「ロワシーバス」は2026年2月末で廃止され、現在はRER Bが公式な代替手段とされています。</p>
+      <div class="fresh-note" data-fresh="airport-ticket airport-service-changes"></div>
       <div class="ranking-links">
         <a class="ranking-source" href="https://www.ratp.fr/en/titres-et-tarifs/paris-aeroport">RATP(公式) ↗</a>
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="cdg-noctilien">
       <p class="trending-name">Noctilien(深夜バス)</p>
       <p class="trending-meta">所要時間の目安: N140で約80分、N143で約55分(いずれもGare de l'Est着)</p>
       <p class="trending-desc">RER Bが動いていない深夜・早朝(0:30頃〜5:00頃)は、N140・N143の夜行バスが年中無休で30〜60分間隔で運行しています。運賃は通常のバス・トラム用チケット1枚(2€)。深夜到着の便で公共交通を使いたい場合はこちらが選択肢になります。</p>
@@ -69,12 +70,12 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="cdg-vtc">
       <p class="trending-name">VTC(Uber等の配車サービス)(おすすめ)</p>
       <p class="trending-desc">タクシーより先にこちらを検討することをおすすめします。理由は下の「タクシーの注意点」を参照。需要に応じた変動料金ですが、乗車前にアプリ上で金額が確定表示されるため、後から金額を巡ってトラブルになることがありません。繁忙時間帯は割高になることがあります。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="cdg-taxi">
       <p class="trending-name">タクシー(定額運賃・ただし注意点あり)</p>
       <p class="trending-meta">パリ市内⇔CDG: 右岸(rive droite)56€ ・ 左岸(rive gauche)65€</p>
       <p class="trending-desc">2025年12月24日付の政令(arrêté、2026年適用)で定められた定額制。渋滞や人数(4人まで)・荷物量に関わらずこの金額のはずです(乗車地・目的地がパリ市内の場合。パリ郊外発着はメーター制または事前見積り)。夜間(22時〜6時)・日曜・祝日は+20%の割増が加算されます。<br><strong>注意</strong>: 定額制であるにもかかわらず、空港で客引きする非公式車両や、一部の運転手が「定額の対象外」等と偽って高額請求してくる事例が報告されています。必ず正規のタクシー乗り場(公式サインがある列)から乗り、乗車前に<strong>"C'est bien le forfait ?"</strong>(セ・ビヤン・ル・フォルフェ/Is it the fixed rate?)と確認し、乗車後は必ずレシートを受け取ってください。</p>
@@ -83,7 +84,7 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="cdg-scam">
       <p class="trending-name">ぼったくられた場合の対処法</p>
       <p class="trending-desc">その場で言い返して安全に返金させる確実な方法はありません(トラブルを大きくして時間を失うリスクの方が高いです)。その場では車両ナンバー・運転手の身分証番号(後部座席に掲示義務あり)・レシートを必ず控え、支払いはできるだけカードで行ってください(現金だと後の異議申し立てが難しくなります)。<br>帰国後の対処: ①カード払いの場合、発行会社に不正・不当請求として異議申し立て(chargeback)を相談する ②消費者庁の届出窓口「SignalConso」(無料・匿名可)に事業者名・車両ナンバー・金額・証拠を添えて通報する ③パリ警視庁(Préfecture de Police)には、タクシー・VTC運転手専用の苦情申立フォームが用意されています。いずれも必ず返金される保証はありませんが、悪質業者の取り締まりにはつながります。</p>
       <div class="ranking-links">
@@ -97,16 +98,17 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="orly-h">オルリー空港</h2></div>
     <p class="section-note">パリ市街から南に約13kmと、CDGより都心に近い空港です。2024年6月にメトロ14号線が延伸開業し、以降はこれが主要な公共交通手段になっています。以前あった直通バス「オルリーバス」は2025年3月に廃止済みです。<br>目安: 荷物が少なく日中ならメトロ14号線、南東方面(13区・14区寄り)からならトラムT7、深夜・早朝はNoctilien夜間バス。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-metro14">
       <p class="trending-name">メトロ14号線</p>
       <p class="trending-meta">所要時間の目安: Châtelet駅まで約25分</p>
       <p class="trending-desc">2024年6月24日に延伸開業した自動運転の地下鉄路線で、現在オルリー空港へのメイン公共交通手段です。運賃は通常の地下鉄チケット(2.55€、2026年時点)。乗り換えなしで市内中心部まで行けるため、以前のオルリーバスやオルリーヴァルより便利になりました。</p>
+      <div class="fresh-note" data-fresh="transit-single-ticket"></div>
       <div class="ranking-links">
         <a class="ranking-source" href="https://www.ratp.fr/en/extension-metro-line-14">RATP(公式) ↗</a>
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-orlyval">
       <p class="trending-name">オルリーヴァル+RER B(アントニー経由)</p>
       <p class="trending-meta">所要時間の目安: シャトル約8分+RER B</p>
       <p class="trending-desc">RER B「Antony」駅と空港を結ぶ自動運転シャトル「Orlyval」も、メトロ14号線開通後も引き続き運行しています。RER B沿線(南部)から向かう場合はこちらの方が便利な場合があります。2026年夏(7/25〜8/16予定)はRER B工事に伴いNavigo/Imagine R定期券保有者はOrlyval運賃が無料になる特別措置があります(時期は変更されうるので出発前に要確認)。</p>
@@ -115,13 +117,14 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-t7">
       <p class="trending-name">トラムT7</p>
       <p class="trending-meta">所要時間の目安: Villejuif-Louis Aragon(メトロ7号線)まで約30分</p>
-      <p class="trending-desc">南東部(13区・メトロ7号線沿線)からアクセスする場合に便利な路面電車です。運賃は通常の地下鉄・バスチケットと同じ(2.55€)。</p>
+      <p class="trending-desc">南東部(13区・メトロ7号線沿線)からアクセスする場合に便利な路面電車です。運賃はバス・トラム用のチケット(2.05€、2026年1月改定。メトロ・RER用は2.55€)です。</p>
+      <div class="fresh-note" data-fresh="transit-bus-tram-ticket"></div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-noctilien">
       <p class="trending-name">Noctilien(深夜バス)</p>
       <p class="trending-desc">深夜・早朝はN22・N31・N131・N144の夜行バスが利用できます。運賃は通常のバス・トラム用チケット1枚。</p>
       <div class="ranking-links">
@@ -129,12 +132,12 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-vtc">
       <p class="trending-name">VTC(Uber等の配車サービス)(おすすめ)</p>
       <p class="trending-desc">CDGと同様の理由で、タクシーより先に検討することをおすすめします(詳しくはCDGの項の「タクシーの注意点」「ぼったくられた場合の対処法」を参照、内容は共通です)。需要に応じた変動料金制ですが、事前にアプリで確定金額を確認できます。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="orly-taxi">
       <p class="trending-name">タクシー(定額運賃・ただし注意点あり)</p>
       <p class="trending-meta">パリ市内⇔オルリー: 右岸(rive droite)45€ ・ 左岸(rive gauche)36€</p>
       <p class="trending-desc">CDGと同じく2025年12月24日付政令による定額制。オルリーは市の南側にあるため、左岸の方が右岸より安くなっています。夜間・日曜・祝日は+20%割増。CDG同様、空港での客引き・不当な追加請求の事例が報告されているため、必ず正規の乗り場から乗り、乗車前に定額であることを確認し、レシートを受け取ってください。</p>
@@ -148,7 +151,7 @@
     <div class="section-head"><div class="flag-dot"><i></i><i></i><i></i></div><h2 id="beauvais-h">ボーヴェ空港(BVA)</h2></div>
     <p class="section-note">パリ市街から北に約85kmと大きく離れており、主にLCC(格安航空会社)が発着します。公共交通の直通路線はなく、公式シャトルバスの利用が基本です。距離があるため、フライト時間に対して余裕を持った移動計画が必須です。</p>
 
-    <div class="trending-card">
+    <div class="trending-card" id="bva-shuttle">
       <p class="trending-name">公式シャトルバス「Navette Aérobus」(推奨)</p>
       <p class="trending-meta">所要時間の目安: 1時間15分〜(交通状況により変動) / 運賃: オンライン片道17.90€・往復29.90€(現地窓口はやや割高、現地はカード払いのみ)</p>
       <p class="trending-desc">パリ・ポルト・マイヨー(Porte Maillot、バスターミナル「Pershing」)と空港を直通で結ぶ路線バスで、2026年時点で予約が必須です。パリ発は3:00〜19:30の間に15〜30分間隔で運行、フライト出発の3時間30分前のバスに乗ることが推奨されています。空港到着後は着陸の約20分後に合わせてバスが用意されます。オンライン予約は出発直前まで可能です。</p>
@@ -157,12 +160,12 @@
       </div>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="bva-budget">
       <p class="trending-name">節約ルート: 電車+ローカルバス</p>
       <p class="trending-desc">Paris Gare du NordからSNCFのTER(普通列車)でBeauvais駅まで約1時間15分(運賃10€前後〜)、そこからローカルバス「Corolis」6番線で空港まで約20分(1〜2€程度)という組み合わせもあります。公式シャトルより安くなることがありますが、乗り継ぎが必要で本数も限られるため、飛行機の時間に余裕がない場合は避けた方が無難です。</p>
     </div>
 
-    <div class="trending-card">
+    <div class="trending-card" id="bva-taxi">
       <p class="trending-name">タクシー</p>
       <p class="trending-desc">距離が85kmあるため、パリ市内からのタクシーは高額(150〜200€超が目安とされる)になります。人数が多い場合以外は基本的におすすめしません。</p>
     </div>
@@ -172,6 +175,17 @@
     <p>本ページの料金・所要時間・運行状況は出典元の公開時点(2026年9月)のものです。運賃改定・運行スケジュール変更が頻繁にあるため、出発前に各公式サイトで最新情報をご確認ください。</p>
   </footer>
 </div>
+<!-- shell:bottom -->
+<nav class="tab-bar" aria-label="メインメニュー">
+  <a class="tab" href="index.html" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>ホーム</span></a>
+  <a class="tab" href="search.html" data-tab="find"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>探す</span></a>
+  <a class="tab" href="map.html" data-tab="map"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>地図</span></a>
+  <a class="tab" href="saved.html" data-tab="saved"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4z"/></svg><span>保存</span><span class="tab-badge" data-saved-count hidden></span></a>
+  <a class="tab" href="menu.html" data-tab="menu" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>メニュー</span></a>
+</nav>
+<script type="module" src="js/shell.js"></script>
+<!-- /shell:bottom -->
 <script data-goatcounter="https://paris-osusume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="module" src="js/freshness-badge.js"></script>
 </body>
 </html>

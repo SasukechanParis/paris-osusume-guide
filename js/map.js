@@ -1,22 +1,13 @@
 import { arrondissementLabel } from './render.js';
-import { geocodeAddress } from './geocode.js';
 import { loadJson } from './data.js';
+import { runPage } from './page-init.js';
+import { CATEGORY_STYLE } from './category-style.js';
+import { leafletAvailable, showMapUnavailable, createBaseMap, pinIcon, popupHtml, setupMapChrome } from './map-shared.js';
 
+// 色・表示名は検索ページと共有(js/category-style.js)。トイレだけ件数が多いので初期非表示・遅延読み込み。
 const CATEGORIES = {
-  contest: { label: 'パンコンクール受賞店', color: '#c9972c' },
-  trending: { label: '今話題のこと', color: '#9b59b6' },
-  restaurant: { label: 'レストラン', color: '#e74c3c' },
-  cafe: { label: 'カフェ・サロン・ド・テ', color: '#8d6e63' },
-  chocolatier: { label: 'ショコラティエ', color: '#6b3e26' },
-  patisserie: { label: 'パティスリー', color: '#c88ea7' },
-  bakery: { label: 'パン屋さん', color: '#e67e22' },
-  souvenir: { label: 'お土産', color: '#e84393' },
-  supermarket: { label: 'スーパーで買えるおすすめ', color: '#27ae60' },
-  hotel: { label: 'ホテル', color: '#2980b9' },
-  michelin: { label: 'ミシュラン星付き', color: '#7f1d1d' },
-  flea_market: { label: '市場', color: '#16a085' },
-  free_spot: { label: '無料スポット', color: '#0e7490' },
-  toilet: { label: '公衆トイレ', color: '#7f8c8d', defaultVisible: false }
+  ...CATEGORY_STYLE,
+  toilet: { ...CATEGORY_STYLE.toilet, defaultVisible: false, lazy: true }
 };
 
 const ARRONDISSEMENT_ORDER = [
@@ -25,46 +16,55 @@ const ARRONDISSEMENT_ORDER = [
   'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne'
 ];
 
-function pinIcon(color) {
-  const svg = `
-    <svg width="27" height="38" viewBox="0 0 27 38" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13.5 0C6.04 0 0 6.04 0 13.5 0 23.63 13.5 38 13.5 38S27 23.63 27 13.5C27 6.04 20.96 0 13.5 0z"
-            fill="${color}" stroke="rgba(0,0,0,0.25)" stroke-width="0.5"/>
-      <circle cx="13.5" cy="13.5" r="5.5" fill="#ffffff"/>
-    </svg>`;
-  return L.divIcon({
-    className: 'map-pin',
-    html: svg,
-    iconSize: [27, 38],
-    iconAnchor: [13.5, 38],
-    popupAnchor: [0, -34]
-  });
+const PARIS_ARRONDISSEMENTS = new Set(ARRONDISSEMENT_ORDER.slice(0, 20));
+
+const SOURCES = {
+  shops: 'data/shops.json',
+  results: 'data/results.json',
+  recommendations: 'data/recommendations.json',
+  guestRecommendations: 'data/guest-recommendations.json',
+  trending: 'data/trending.json',
+  michelin: 'data/michelin.json',
+  fleaMarkets: 'data/flea-markets.json',
+  marches: 'data/marches.json',
+  freeSpots: 'data/free-spots.json',
+  passages: 'data/passages.json'
+};
+
+// 1つのJSONが失敗しても、読めた分の地図は表示する
+async function loadSources() {
+  const settled = await Promise.all(
+    Object.entries(SOURCES).map(async ([key, path]) => {
+      try {
+        return { key, data: await loadJson(path), failed: false };
+      } catch (err) {
+        console.error(err);
+        return { key, data: [], failed: true };
+      }
+    })
+  );
+  return {
+    data: Object.fromEntries(settled.map((s) => [s.key, s.data])),
+    failedCount: settled.filter((s) => s.failed).length
+  };
 }
 
-function youAreHereIcon() {
-  return L.divIcon({
-    className: 'map-you-marker',
-    html: '<div class="map-you-pulse"></div><div class="map-you-dot"></div>',
-    iconSize: [22, 22],
-    iconAnchor: [11, 11]
-  });
+function toiletPoints(toilets) {
+  return toilets.map((t) => ({
+    category: 'toilet',
+    arrondissement: t.arrondissement,
+    lat: t.lat,
+    lng: t.lng,
+    name: t.name,
+    address: t.address,
+    meta: `${arrondissementLabel(t.arrondissement)} ・ ${t.hours}`,
+    description: t.description,
+    mapUrl: t.google_maps_url,
+    sourceUrl: t.source_url
+  }));
 }
 
-function popupHtml({ name, meta, description, mapUrl, sourceUrl, categoryLabel }) {
-  return `
-    <div class="map-popup">
-      <p class="map-popup-category">${categoryLabel}</p>
-      <p class="map-popup-name">${name}</p>
-      ${meta ? `<p class="map-popup-meta">${meta}</p>` : ''}
-      ${description ? `<p class="map-popup-desc">${description}</p>` : ''}
-      <div class="map-popup-links">
-        ${mapUrl ? `<a class="btn btn-outline shop-map-link" href="${mapUrl}" target="_blank" rel="noopener">Googleマップで開く</a>` : ''}
-        ${sourceUrl ? `<a class="ranking-source" href="${sourceUrl}">出典 ↗</a>` : ''}
-      </div>
-    </div>`;
-}
-
-function buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, marches, freeSpots, passages, toilets) {
+function buildPoints({ shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, marches, freeSpots, passages }) {
   const points = [];
 
   const shopById = new Map(shops.map((s) => [s.id, s]));
@@ -86,6 +86,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
         lat: shop.lat,
         lng: shop.lng,
         name: shop.name,
+        address: shop.address,
         meta: arrondissementLabel(shop.arrondissement),
         description: shop.description,
         mapUrl: shop.google_maps_url,
@@ -102,6 +103,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: item.lat,
       lng: item.lng,
       name: item.name,
+      address: item.address,
       meta: `${arrondissementLabel(item.arrondissement)} ・ ${item.address}`,
       description: item.description,
       mapUrl: item.google_maps_url,
@@ -116,6 +118,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: t.lat,
       lng: t.lng,
       name: t.name,
+      address: t.address,
       meta: arrondissementLabel(t.arrondissement),
       description: t.description,
       mapUrl: t.google_maps_url,
@@ -133,6 +136,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: m.lat,
       lng: m.lng,
       name: `${m.name} ${'★'.repeat(m.stars)}`,
+      address: m.address,
       meta: metaParts.join(' ・ '),
       description: m.description,
       mapUrl: m.google_maps_url,
@@ -147,6 +151,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: f.lat,
       lng: f.lng,
       name: f.name,
+      address: f.address,
       meta: `${arrondissementLabel(f.arrondissement)} ・ ${f.hours}`,
       description: f.description,
       mapUrl: f.google_maps_url,
@@ -161,6 +166,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: f.lat,
       lng: f.lng,
       name: f.name,
+      address: f.address,
       meta: `${arrondissementLabel(f.arrondissement)} ・ ${f.hours}`,
       description: f.description,
       mapUrl: f.google_maps_url,
@@ -175,6 +181,7 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
       lat: p.lat,
       lng: p.lng,
       name: p.name,
+      address: p.address,
       meta: arrondissementLabel(p.arrondissement),
       description: p.description,
       mapUrl: p.google_maps_url,
@@ -182,66 +189,31 @@ function buildPoints(shops, results, recommendations, guestRecommendations, tren
     });
   }
 
-  for (const t of toilets) {
-    points.push({
-      category: 'toilet',
-      arrondissement: t.arrondissement,
-      lat: t.lat,
-      lng: t.lng,
-      name: t.name,
-      meta: `${arrondissementLabel(t.arrondissement)} ・ ${t.hours}`,
-      description: t.description,
-      mapUrl: t.google_maps_url,
-      sourceUrl: t.source_url
-    });
-  }
-
   return points;
 }
 
 async function init() {
-  const [shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, marches, freeSpots, passages, toilets] = await Promise.all([
-    loadJson('data/shops.json'),
-    loadJson('data/results.json'),
-    loadJson('data/recommendations.json'),
-    loadJson('data/guest-recommendations.json'),
-    loadJson('data/trending.json'),
-    loadJson('data/michelin.json'),
-    loadJson('data/flea-markets.json'),
-    loadJson('data/marches.json'),
-    loadJson('data/free-spots.json'),
-    loadJson('data/passages.json'),
-    loadJson('data/toilets.json')
-  ]);
-
-  const points = buildPoints(shops, results, recommendations, guestRecommendations, trending, michelin, fleaMarkets, marches, freeSpots, passages, toilets);
-
-  const map = L.map('map-canvas', { zoomControl: false }).setView([48.8613, 2.3324], 13);
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  const entries = [];
-  for (const point of points) {
-    const config = CATEGORIES[point.category];
-    if (!config) continue;
-    const marker = L.marker([point.lat, point.lng], { icon: pinIcon(config.color) });
-    marker.bindPopup(
-      popupHtml({
-        name: point.name,
-        meta: point.meta,
-        description: point.description,
-        mapUrl: point.mapUrl,
-        sourceUrl: point.sourceUrl,
-        categoryLabel: config.label
-      })
-    );
-    entries.push({ marker, category: point.category, arrondissement: point.arrondissement });
-    marker.addTo(map);
+  const canvas = document.getElementById('map-canvas');
+  const noticeEl = document.getElementById('map-notice');
+  if (!leafletAvailable()) {
+    showMapUnavailable(noticeEl);
+    return;
   }
+
+  const map = createBaseMap('map-canvas');
+  const { data, failedCount } = await loadSources();
+  const entries = [];
+
+  function addEntries(points) {
+    for (const point of points) {
+      const config = CATEGORIES[point.category];
+      if (!config) continue;
+      const marker = L.marker([point.lat, point.lng], { icon: pinIcon(config.color) });
+      marker.bindPopup(popupHtml({ ...point, categoryLabel: config.label }), { maxWidth: 280 });
+      entries.push({ marker, category: point.category, arrondissement: point.arrondissement });
+    }
+  }
+  addEntries(buildPoints(data));
 
   const selectedCategories = new Set(
     Object.entries(CATEGORIES)
@@ -249,8 +221,10 @@ async function init() {
       .map(([key]) => key)
   );
   let selectedArrondissement = 'all';
+  const countEl = document.getElementById('map-count');
 
   function applyFilters() {
+    let visible = 0;
     for (const entry of entries) {
       const matches =
         selectedCategories.has(entry.category) &&
@@ -258,158 +232,104 @@ async function init() {
       const onMap = map.hasLayer(entry.marker);
       if (matches && !onMap) entry.marker.addTo(map);
       if (!matches && onMap) map.removeLayer(entry.marker);
+      if (matches) visible += 1;
     }
+    countEl.textContent = `表示中 ${visible}件`;
+    noticeEl.innerHTML =
+      visible === 0
+        ? '<div class="state-box is-empty" role="status">条件に合う場所がありません。「絞り込み」でカテゴリやエリアを変えてください。</div>'
+        : failedCount > 0
+          ? '<div class="state-box is-error" role="alert"><p class="state-message">一部のデータを読み込めなかったため、表示されていない場所があります。</p><button type="button" class="btn btn-outline state-retry">もう一度読み込む</button></div>'
+          : '';
+    noticeEl.querySelector('.state-retry')?.addEventListener('click', () => location.reload());
   }
 
-  applyFilters();
-
-  const legendEl = document.getElementById('map-legend');
-  const presentArrondissements = ARRONDISSEMENT_ORDER.filter((a) => entries.some((e) => e.arrondissement === a));
-  const arrondissementOptions = presentArrondissements
-    .map((a) => `<option value="${a}">${arrondissementLabel(a)}</option>`)
-    .join('');
-
-  legendEl.innerHTML = `
-    <div class="map-legend-header">
-      <span class="map-legend-title">絞り込み</span>
-      <button id="map-legend-toggle" class="map-legend-toggle" type="button" aria-controls="map-legend-body">▾</button>
+  // --- 絞り込みシート ---
+  const sheetEl = document.getElementById('map-sheet');
+  // パリ20区は常に選べる(トイレは後から読み込むため)。郊外の県はデータがあるものだけ
+  const presentArrondissements = ARRONDISSEMENT_ORDER.filter(
+    (a) => PARIS_ARRONDISSEMENTS.has(a) || entries.some((e) => e.arrondissement === a)
+  );
+  sheetEl.innerHTML = `
+    <div class="map-sheet-head">
+      <h2 class="map-sheet-title">絞り込み</h2>
+      <button type="button" class="map-sheet-close">閉じる</button>
     </div>
-    <div id="map-legend-body" class="map-legend-body">
-      <div class="map-search-box">
-        <input id="map-address-input" class="map-search-input" type="text" placeholder="住所・ホテル名で検索">
-        <button id="map-address-btn" class="map-search-btn" type="button">検索</button>
-      </div>
-      <p id="map-search-status" class="map-search-status"></p>
-      <div class="map-legend-filter">
-        <label for="map-arrondissement-select">エリアで絞り込み</label>
-        <select id="map-arrondissement-select">
-          <option value="all">すべてのエリア</option>
-          ${arrondissementOptions}
-        </select>
-      </div>
-    </div>`;
-
-  const categoryLegendEl = document.getElementById('map-category-legend');
-  categoryLegendEl.innerHTML = `
-    <p class="map-category-legend-title">表示するカテゴリ</p>
-    <div class="map-legend-categories">
+    <label class="field-label" for="map-arrondissement-select">エリア</label>
+    <select id="map-arrondissement-select">
+      <option value="all">すべてのエリア</option>
+      ${presentArrondissements.map((a) => `<option value="${a}">${arrondissementLabel(a)}</option>`).join('')}
+    </select>
+    <p class="field-label">表示するカテゴリ</p>
+    <div class="map-category-grid">
       ${Object.entries(CATEGORIES)
         .map(
           ([key, config]) => `
-          <label class="map-legend-item">
-            <input type="checkbox" data-category="${key}" ${config.defaultVisible === false ? '' : 'checked'}>
-            <span class="map-legend-dot" style="background:${config.color}"></span>
-            ${config.label}
-          </label>`
+        <label class="map-category-item">
+          <input type="checkbox" data-category="${key}" ${config.defaultVisible === false ? '' : 'checked'}>
+          <span class="map-legend-dot" style="background:${config.color}"></span>
+          <span>${config.label}${config.defaultVisible === false ? '(件数が多いため初期は非表示)' : ''}</span>
+        </label>`
         )
         .join('')}
-    </div>`;
+    </div>
+    <p class="field-label" id="map-sheet-status" role="status" aria-live="polite"></p>`;
+  const sheetStatusEl = document.getElementById('map-sheet-status');
 
-  const legendToggle = document.getElementById('map-legend-toggle');
-  const legendBody = document.getElementById('map-legend-body');
-
-  function setLegendExpanded(expanded) {
-    legendBody.hidden = !expanded;
-    legendToggle.setAttribute('aria-expanded', String(expanded));
-    legendToggle.textContent = expanded ? '▴' : '▾';
-  }
-
-  setLegendExpanded(!window.matchMedia('(max-width: 479px)').matches);
-  legendToggle.addEventListener('click', () => {
-    setLegendExpanded(legendToggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  let searchMarker = null;
-  let locateMarker = null;
-  const searchStatusEl = document.getElementById('map-search-status');
-
-  function setSearchMarker(lat, lng, label) {
-    if (searchMarker) map.removeLayer(searchMarker);
-    searchMarker = L.marker([lat, lng], { icon: pinIcon('#1a1a2e'), zIndexOffset: 1000 }).addTo(map);
-    if (label) searchMarker.bindPopup(`<div class="map-popup"><p class="map-popup-name">${label}</p></div>`).openPopup();
-    map.setView([lat, lng], 15);
-  }
-
-  const addressInput = document.getElementById('map-address-input');
-  const addressBtn = document.getElementById('map-address-btn');
-
-  async function runAddressSearch() {
-    const query = addressInput.value.trim();
-    if (!query) return;
-    searchStatusEl.textContent = '検索しています…';
+  // 件数の多いトイレは、チェックされて初めてJSONを取得してピンを作る
+  let toiletsState = 'idle'; // idle | loading | loaded
+  async function ensureToilets() {
+    if (toiletsState !== 'idle') return true;
+    toiletsState = 'loading';
+    sheetStatusEl.textContent = 'トイレのデータを読み込んでいます…';
     try {
-      const matches = await geocodeAddress(query);
-      if (matches.length === 0) {
-        searchStatusEl.textContent = '住所が見つかりませんでした。表記を変えて試してください。';
-        return;
-      }
-      setSearchMarker(matches[0].lat, matches[0].lng, matches[0].label);
-      searchStatusEl.textContent = '';
+      const toilets = await loadJson('data/toilets.json');
+      addEntries(toiletPoints(toilets.filter((t) => t.lat !== null)));
+      toiletsState = 'loaded';
+      sheetStatusEl.textContent = '';
+      return true;
     } catch (err) {
-      searchStatusEl.textContent = '検索中にエラーが発生しました。しばらくしてから再度お試しください。';
+      console.error(err);
+      toiletsState = 'idle';
+      sheetStatusEl.textContent = 'トイレのデータを読み込めませんでした。通信状況を確認して、もう一度お試しください。';
+      return false;
     }
   }
 
-  addressBtn.addEventListener('click', runAddressSearch);
-  addressInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') runAddressSearch();
-  });
-
-  const LocateControl = L.Control.extend({
-    options: { position: 'bottomright' },
-    onAdd() {
-      const container = L.DomUtil.create('div', 'leaflet-bar map-locate-control');
-      const button = L.DomUtil.create('a', 'map-locate-btn', container);
-      button.href = '#';
-      button.title = '現在地を表示';
-      button.setAttribute('role', 'button');
-      button.setAttribute('aria-label', '現在地を表示');
-      L.DomEvent.disableClickPropagation(container);
-      L.DomEvent.on(button, 'click', (event) => {
-        L.DomEvent.preventDefault(event);
-        locateMe();
-      });
-      return container;
-    }
-  });
-  map.addControl(new LocateControl());
-
-  function locateMe() {
-    if (!navigator.geolocation) {
-      searchStatusEl.textContent = 'この端末は現在地取得に対応していません。住所で検索してください。';
+  sheetEl.addEventListener('change', async (event) => {
+    const checkbox = event.target.closest('input[data-category]');
+    if (checkbox) {
+      const key = checkbox.dataset.category;
+      if (checkbox.checked) {
+        if (CATEGORIES[key].lazy && !(await ensureToilets())) {
+          checkbox.checked = false;
+          return;
+        }
+        selectedCategories.add(key);
+      } else {
+        selectedCategories.delete(key);
+      }
+      applyFilters();
       return;
     }
-    searchStatusEl.textContent = '現在地を取得しています…';
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude } = pos.coords;
-        if (locateMarker) map.removeLayer(locateMarker);
-        locateMarker = L.marker([latitude, longitude], { icon: youAreHereIcon(), zIndexOffset: 2000 }).addTo(map);
-        map.setView([latitude, longitude], 15);
-        searchStatusEl.textContent = '';
-      },
-      () => { searchStatusEl.textContent = '現在地を取得できませんでした。住所で検索してください。'; }
-    );
-  }
-
-  categoryLegendEl.addEventListener('change', (event) => {
-    const checkbox = event.target.closest('input[data-category]');
-    if (!checkbox) return;
-    if (checkbox.checked) {
-      selectedCategories.add(checkbox.dataset.category);
-    } else {
-      selectedCategories.delete(checkbox.dataset.category);
-    }
-    applyFilters();
-  });
-
-  legendEl.addEventListener('change', (event) => {
-    const select = event.target.closest('#map-arrondissement-select');
-    if (select) {
-      selectedArrondissement = select.value;
+    if (event.target.id === 'map-arrondissement-select') {
+      selectedArrondissement = event.target.value;
       applyFilters();
     }
   });
+
+  setupMapChrome({
+    map,
+    sheetEl,
+    toggleBtn: document.getElementById('map-filter-toggle'),
+    searchInput: document.getElementById('map-address-input'),
+    searchBtn: document.getElementById('map-address-btn'),
+    statusEl: document.getElementById('map-search-status'),
+    candidatesEl: document.getElementById('map-candidates')
+  });
+
+  applyFilters();
+  canvas.dataset.ready = '1';
 }
 
-init();
+runPage(init);
