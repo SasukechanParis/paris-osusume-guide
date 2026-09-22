@@ -20,6 +20,14 @@ test('the most prominent home action is the travel-flow checklist, not nearby fo
   assert.ok(html.indexOf('id="journey-h"') < html.indexOf('id="find-h"'), 'journey section comes before the nearby-search section');
 });
 
+test('the search box placeholder does not hold up ramen as the example search (2026-09-22: fixed to croissant)', () => {
+  for (const file of ['index.html', 'search.html']) {
+    const html = read(file);
+    assert.doesNotMatch(html, /placeholder="[^"]*ラーメン[^"]*"/, file);
+    assert.match(html, /placeholder="店名・クロワッサン・免税など"/, file);
+  }
+});
+
 test('search keyword suggestions lead with "need to know" terms, not food cravings', () => {
   const source = read('js/search-page.js');
   const list = JSON.parse(source.match(/const KEYWORD_SUGGESTIONS = (\[[^\]]+\]);/)[1].replace(/'/g, '"'));
