@@ -26,7 +26,8 @@ import { createSearchTracker } from './search-metrics.js';
 
 const searchTracker = createSearchTracker();
 const PAGE_SIZE = 20;
-const KEYWORD_SUGGESTIONS = ['ラーメン', 'クロワッサン', 'トイレ', '免税', '日曜日', '日本食', 'ミシュラン', 'お土産'];
+// 知らないと困る系(免税・トイレ・定休日など)を先に、気が向いたら系(ラーメン・クロワッサンなど)を後ろにする
+const KEYWORD_SUGGESTIONS = ['免税', 'トイレ', '日曜日', '日本食', 'ミシュラン', 'お土産', 'ラーメン', 'クロワッサン'];
 const TOILET_TERMS = new Set(['トイレ', 'toilet', 'toilets', 'toilettes', 'wc', 'お手洗い', '化粧室', 'sanisette'].map(normalizeText));
 const CORE_SOURCES = {
   recommendations: 'data/recommendations.json',
