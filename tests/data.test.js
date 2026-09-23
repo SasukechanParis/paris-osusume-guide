@@ -58,6 +58,9 @@ test('trending.json entries have coordinates, source, and matching google maps l
     assert.equal(typeof t.lat, 'number');
     assert.equal(typeof t.lng, 'number');
     assertPlaceSearchUrl(t.google_maps_url, t.name, t.address);
+    if ('archived' in t) {
+      assert.equal(typeof t.archived, 'boolean', `${t.id} archived flag must be boolean`);
+    }
   }
 });
 

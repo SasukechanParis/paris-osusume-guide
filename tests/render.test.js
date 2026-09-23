@@ -7,6 +7,7 @@ import {
   renderYearTabs,
   renderYearPanel,
   renderTrending,
+  splitTrending,
   renderRecommendationList,
   renderMichelinList,
   buildShopWinCounts,
@@ -175,6 +176,18 @@ test('renderTrending shows name, arrondissement in Japanese, description, map li
   assert.match(html, /1300万人超/);
   assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=48\.8679572,2\.3331957"/);
   assert.match(html, /href="https:\/\/numero\.jp\/yuriyamano-83\/"/);
+});
+
+test('splitTrending separates archived entries from current ones without mutating the input', () => {
+  const trending = [
+    { id: 'current-shop', name: 'Current Shop' },
+    { id: 'archived-shop', name: 'Archived Shop', archived: true },
+    { id: 'not-archived-shop', name: 'Explicitly Not Archived', archived: false }
+  ];
+  const { current, archived } = splitTrending(trending);
+  assert.deepEqual(current.map((t) => t.id), ['current-shop', 'not-archived-shop']);
+  assert.deepEqual(archived.map((t) => t.id), ['archived-shop']);
+  assert.equal(trending.length, 3, 'splitTrending must not mutate the input array');
 });
 
 test('renderRecommendationList shows name, address, description, status badge, and map link when present', () => {

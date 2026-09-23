@@ -153,6 +153,14 @@ export function renderUpdatesList(updates, limit = 5) {
     .join('');
 }
 
+// 「今話題」と「過去に話題になったお店」を分ける。archived: true が付いたものだけ後者へ
+export function splitTrending(trending) {
+  return {
+    current: trending.filter((t) => !t.archived),
+    archived: trending.filter((t) => t.archived)
+  };
+}
+
 export function renderTrending(trending) {
   return trending
     .map(

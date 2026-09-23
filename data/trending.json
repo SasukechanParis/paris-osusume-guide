@@ -37,5 +37,44 @@
     "source_url": "https://www.euronews.com/culture/2026/09/14/butter-late-than-never-paris-gets-its-first-boutique-entirely-dedicated-to-butter",
     "added_date": "2026-09-17",
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Butter%20Shop%205%20Rue%20Bouchut%2C%2075015%20Paris"
+  },
+  {
+    "id": "eskal",
+    "name": "Eskal",
+    "category": "restaurant",
+    "arrondissement": "8e",
+    "address": "47 Rue des Mathurins, 75008 Paris",
+    "lat": 48.8733209,
+    "lng": 2.3233937,
+    "description": "シェフAlexandre Chambatの初の自店。フランス産食材にこだわった旅情感あふれるガストロノミー料理でグルメ界が沸いており、Le Figaro紙はミシュラン獲得を予想。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/344722-eskal-alexandre-chambat-s-gastronomic-and-travel-loving-table-that-has-gourmets-buzzing",
+    "added_date": "2026-09-23",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Eskal%2047%20Rue%20des%20Mathurins%2C%2075008%20Paris"
+  },
+  {
+    "id": "utopic",
+    "name": "Utopic",
+    "category": "other",
+    "arrondissement": "1er",
+    "address": "1 Rue de Marengo, 75001 Paris",
+    "lat": 48.8618461,
+    "lng": 2.3391411,
+    "description": "三つ星シェフAnne-Sophie Picがフォンダシオン・カルティエ内にオープンしたカクテルバー。料理技法「浸潤(imprégnation)」をカクテルに応用した点がメディアで注目されている。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/325762-utopic-anne-sophie-pic-s-cocktail-bar-at-the-cartier-foundation-and-her-gastronomic-restaurant",
+    "added_date": "2026-09-23",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Utopic%201%20Rue%20de%20Marengo%2C%2075001%20Paris"
+  },
+  {
+    "id": "tramette",
+    "name": "Trâmette",
+    "category": "restaurant",
+    "arrondissement": "11e",
+    "address": "128 Rue Saint-Maur, 75011 Paris",
+    "lat": 48.8678614,
+    "lng": 2.3755598,
+    "description": "シェフPriscilla Trâmの2軒目。昼はカンティーヌ、夜は居酒屋風バー・レストランに変わる二毛作コンセプトが話題。",
+    "source_url": "https://www.lessentiel.fr/paris/bonnes-adresses/2026-07-23/une-2e-adresse-dans-le-11e-pour-la-cheffe-priscilla-tram-26310",
+    "added_date": "2026-09-23",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Tr%C3%A2mette%20128%20Rue%20Saint-Maur%2C%2075011%20Paris"
   }
 ]
