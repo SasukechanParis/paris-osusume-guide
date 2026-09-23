@@ -591,7 +591,7 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 さすけからURL(https://www.monsieurcadet.com/)だけ渡され、「おすすめホテルに加えておいて」との依頼。ホテルの推薦はさすけのみ(先輩カップルのホテル投稿は既存分以外受け付けない)という方針どおり、`data/recommendations.json`の`category: "hotel"`・`status: "recommended"`に追加した。
 
 - **事実の根拠**: 公式ページの本文を内蔵ブラウザで直接読んで確認(正式名称「Monsieur Cadet Hôtel & Spa」・4つ星、住所4 Rue Cadet 75009 Paris、全29室(屋根裏のスイート2室を含む)、アール・デコ調、スパ&ハンマム(Le Tigre)・ピアノバー・カクテルバー、Collection Vesper系列、フロント24時間)。座標はNominatimで住所から取得し、同じCadet通りのMadame Cadet(7 Rue Cadet)から約47mで整合
-- **説明文は事実のみ**: さすけからコメントは無かったため、感想・評価は書かず、公式ページで確認できた内容だけにした(さすけのコメントが来たら差し替える枠)。Madame Cadetと同じCollection Vesper系列・同じ通りである点は、利用者が比べやすいので記載
+- **説明文**: 最初はコメントが無かったため、公式ページで確認できた事実だけの説明にしていたが、同日にさすけから「立地が良くて部屋が綺麗/受付の人も親切/このホテルがある通りはコンクールで第二位を獲ったパン屋さんもある」というコメントが届いたため、言葉どおりに差し替えた(3文目も原文のまま)。3文目は、サイトの受賞データで裏取り済み: 同じ通り(12 rue Cadet)のBoulangerie Victoireが、2024年グラン・パリ最優秀クロワッサン・トロフィーで第2位(`data/results.json`、主催団体の公式結果ページが出典)
 - **並び順**: 系列・同じ通りの`madame-cadet-vesper`の直後に配置
 - `data/updates.json`に新規追加として1件(客向けの文言)。`js/data.js`と`sw.js`のVERSIONを`2026-09-23-1`に揃えて更新
 - `node --test` 239件全通過、`node scripts/check-site.mjs --freshness` エラー0・警告0。スマホ幅(375px)でhotels.htmlのカード表示・地図リンク・横スクロールなしを確認。内蔵ブラウザでService Workerの登録エラーが出るが、無関係なページでも同じで`sw.js`自体は200・構文OK(変更はVERSIONの文字列のみ)のため、今回の変更とは無関係と判断
