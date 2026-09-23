@@ -760,6 +760,19 @@
     "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Madame%20Cadet%20by%20Collection%20Vesper%207%20Rue%20Cadet%2C%2075009%20Paris"
   },
   {
+    "id": "monsieur-cadet-vesper",
+    "category": "hotel",
+    "status": "recommended",
+    "name": "Monsieur Cadet Hôtel & Spa",
+    "address": "4 Rue Cadet, 75009 Paris",
+    "arrondissement": "9e",
+    "lat": 48.8743143,
+    "lng": 2.3425777,
+    "description": "アール・デコ調の4つ星ホテル。全29室で、スパ&ハンマム・ピアノバー・カクテルバーがある。Madame Cadetと同じCollection Vesper系列で、同じCadet通り",
+    "photo_url": null,
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Monsieur%20Cadet%20H%C3%B4tel%20%26%20Spa%204%20Rue%20Cadet%2C%2075009%20Paris"
+  },
+  {
     "id": "la-maison-favart",
     "category": "hotel",
     "status": "recommended",

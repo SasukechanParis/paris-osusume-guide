@@ -585,3 +585,13 @@ LOG: 実行日時・チェックしたURL・検出した差分の有無を記録
 - **セクション冒頭の解釈**: 原文の「どうしても日本食が食べたくなったら無理をしない方が良い」は、直後の「ハズレを引くと悲しい」との流れから「我慢しなくていい」の意味と解釈して書いた(要確認)
 - **guide.html**: 同名のFAQ「日本食が恋しくなったら?」に、新セクションへの案内ボタン(`restaurants.html#japanese-h`)を追加。小さなテキストリンクだと見つけにくかった反省から、`btn btn-outline`のボタン形式にした
 - テスト: 先に`recommendations.json japanese-food group ...`(6件の順序・category=restaurant・status=recommended・group値の限定)を追加してRED(49/50)を確認してから実装し、50件全通過。VERSIONを`2026-09-21-1`に更新。ブラウザでrestaurants.htmlの新セクション(6カード・バッジ・住所・地図リンク・一般一覧への混入なし)とguide.htmlのボタンリンク、コンソールエラーなしを確認済み
+
+## ホテルに「Monsieur Cadet Hôtel & Spa」を追加(2026-09-23 追加)
+
+さすけからURL(https://www.monsieurcadet.com/)だけ渡され、「おすすめホテルに加えておいて」との依頼。ホテルの推薦はさすけのみ(先輩カップルのホテル投稿は既存分以外受け付けない)という方針どおり、`data/recommendations.json`の`category: "hotel"`・`status: "recommended"`に追加した。
+
+- **事実の根拠**: 公式ページの本文を内蔵ブラウザで直接読んで確認(正式名称「Monsieur Cadet Hôtel & Spa」・4つ星、住所4 Rue Cadet 75009 Paris、全29室(屋根裏のスイート2室を含む)、アール・デコ調、スパ&ハンマム(Le Tigre)・ピアノバー・カクテルバー、Collection Vesper系列、フロント24時間)。座標はNominatimで住所から取得し、同じCadet通りのMadame Cadet(7 Rue Cadet)から約47mで整合
+- **説明文は事実のみ**: さすけからコメントは無かったため、感想・評価は書かず、公式ページで確認できた内容だけにした(さすけのコメントが来たら差し替える枠)。Madame Cadetと同じCollection Vesper系列・同じ通りである点は、利用者が比べやすいので記載
+- **並び順**: 系列・同じ通りの`madame-cadet-vesper`の直後に配置
+- `data/updates.json`に新規追加として1件(客向けの文言)。`js/data.js`と`sw.js`のVERSIONを`2026-09-23-1`に揃えて更新
+- `node --test` 239件全通過、`node scripts/check-site.mjs --freshness` エラー0・警告0。スマホ幅(375px)でhotels.htmlのカード表示・地図リンク・横スクロールなしを確認。内蔵ブラウザでService Workerの登録エラーが出るが、無関係なページでも同じで`sw.js`自体は200・構文OK(変更はVERSIONの文字列のみ)のため、今回の変更とは無関係と判断
