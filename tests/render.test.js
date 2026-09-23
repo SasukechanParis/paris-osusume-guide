@@ -178,16 +178,27 @@ test('renderTrending shows name, arrondissement in Japanese, description, map li
   assert.match(html, /href="https:\/\/numero\.jp\/yuriyamano-83\/"/);
 });
 
-test('splitTrending separates archived entries from current ones without mutating the input', () => {
+test('splitTrending auto-archives everything past currentCount, newest added_date first, without mutating the input', () => {
   const trending = [
-    { id: 'current-shop', name: 'Current Shop' },
-    { id: 'archived-shop', name: 'Archived Shop', archived: true },
-    { id: 'not-archived-shop', name: 'Explicitly Not Archived', archived: false }
+    { id: 'oldest', name: 'Oldest', added_date: '2026-09-01' },
+    { id: 'mid', name: 'Mid', added_date: '2026-09-10' },
+    { id: 'newest', name: 'Newest', added_date: '2026-09-20' },
+    { id: 'newer-still', name: 'Newer Still', added_date: '2026-09-21' }
   ];
-  const { current, archived } = splitTrending(trending);
-  assert.deepEqual(current.map((t) => t.id), ['current-shop', 'not-archived-shop']);
-  assert.deepEqual(archived.map((t) => t.id), ['archived-shop']);
-  assert.equal(trending.length, 3, 'splitTrending must not mutate the input array');
+  const { current, archived } = splitTrending(trending, { currentCount: 3 });
+  assert.deepEqual(current.map((t) => t.id), ['newer-still', 'newest', 'mid']);
+  assert.deepEqual(archived.map((t) => t.id), ['oldest']);
+  assert.equal(trending.length, 4, 'splitTrending must not mutate the input array');
+});
+
+test('splitTrending keeps a manually archived: true entry out of "current" even if it is the newest', () => {
+  const trending = [
+    { id: 'old-but-current', name: 'Old But Current', added_date: '2026-09-01' },
+    { id: 'forced-archived', name: 'Forced Archived', added_date: '2026-09-20', archived: true }
+  ];
+  const { current, archived } = splitTrending(trending, { currentCount: 3 });
+  assert.deepEqual(current.map((t) => t.id), ['old-but-current']);
+  assert.deepEqual(archived.map((t) => t.id), ['forced-archived']);
 });
 
 test('renderRecommendationList shows name, address, description, status badge, and map link when present', () => {

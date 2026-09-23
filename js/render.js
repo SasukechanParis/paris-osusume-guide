@@ -153,12 +153,20 @@ export function renderUpdatesList(updates, limit = 5) {
     .join('');
 }
 
-// 「今話題」と「過去に話題になったお店」を分ける。archived: true が付いたものだけ後者へ
-export function splitTrending(trending) {
-  return {
-    current: trending.filter((t) => !t.archived),
-    archived: trending.filter((t) => t.archived)
-  };
+// 「今話題」と「過去に話題になったお店」を自動で分ける。追加日が新しい順に上位 currentCount 件だけ「今話題」に残し、
+// それ以外は自動でアーカイブへ(手動で archived: true を付けた項目は件数に関係なく常にアーカイブ)
+export function splitTrending(trending, { currentCount = 3 } = {}) {
+  const sorted = [...trending].sort((a, b) => (b.added_date ?? '').localeCompare(a.added_date ?? ''));
+  const current = [];
+  const archived = [];
+  for (const t of sorted) {
+    if (t.archived || current.length >= currentCount) {
+      archived.push(t);
+    } else {
+      current.push(t);
+    }
+  }
+  return { current, archived };
 }
 
 export function renderTrending(trending) {
