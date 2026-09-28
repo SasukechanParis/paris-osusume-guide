@@ -1,5 +1,44 @@
 [
   {
+    "id": "anne-sophie-pic-paris",
+    "name": "Anne-Sophie Pic Paris",
+    "category": "restaurant",
+    "arrondissement": "1er",
+    "address": "164 rue de Rivoli, 75001 Paris",
+    "lat": 48.861809,
+    "lng": 2.3384955,
+    "description": "世界で最も多くミシュランの星を持つ女性シェフ、アンヌ＝ソフィー・ピックの新店。ジャン・ヌーヴェル設計のカルティエ財団新館内にあるガストロノミーレストランとバーで、2026年秋に開業。展示チケットとは別入口・要予約。",
+    "source_url": "https://www.fondationcartier.com/informations-pratiques/espaces/le-restaurant",
+    "added_date": "2026-09-28",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Anne-Sophie%20Pic%20Paris%20164%20rue%20de%20Rivoli%2C%2075001%20Paris"
+  },
+  {
+    "id": "salon-du-chocolat-2026",
+    "name": "Salon du Chocolat et de la Pâtisserie 2026",
+    "category": "other",
+    "arrondissement": "15e",
+    "address": "1 Place de la Porte de Versailles, 75015 Paris",
+    "lat": 48.8324616,
+    "lng": 2.2878537,
+    "description": "有名ショコラティエやパティシエが集まる年1回のチョコレートとお菓子の見本市。2026年10月28日〜11月1日(10:00〜19:00)、Paris Expo Porte de Versailles 5号館。実演・試食・ワークショップなど。",
+    "source_url": "https://www.salon-du-chocolat.com/en/paris/practical-info/dates-access-map",
+    "added_date": "2026-09-28",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Salon%20du%20Chocolat%20et%20de%20la%20P%C3%A2tisserie%202026%201%20Place%20de%20la%20Porte%20de%20Versailles%2C%2075015%20Paris"
+  },
+  {
+    "id": "shwi",
+    "name": "Shwi",
+    "category": "restaurant",
+    "arrondissement": "10e",
+    "address": "60 Rue de Lancry, 75010 Paris",
+    "lat": 48.872678,
+    "lng": 2.3635031,
+    "description": "サン・マルタン運河沿いのレバノン式グリルチキン専門店。24時間マリネした鶏を特注グリルで焼き、手でほぐして出す。1/4羽€10、1羽€29。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/346538-shwi-the-new-lebanese-restaurant-dedicated-to-grilled-chicken-along-the-canal-saint-martin",
+    "added_date": "2026-09-28",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shwi%2060%20Rue%20de%20Lancry%2C%2075010%20Paris"
+  },
+  {
     "id": "cafe-kodomo",
     "name": "Café Kodomo",
     "category": "other",
