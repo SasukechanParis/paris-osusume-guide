@@ -1,5 +1,31 @@
 [
   {
+    "id": "benoit-castel-le-6",
+    "name": "Le 6 Benoît Castel",
+    "category": "bakery",
+    "arrondissement": "11e",
+    "address": "6 Rue Paul Bert, 75011 Paris",
+    "lat": 48.8513485,
+    "lng": 2.3846064,
+    "description": "2026年に「世界最優秀パティシエ」に選ばれたブノワ・カステルの新店で、2026年9月オープン。朝はヴィエノワズリーとスペシャルティコーヒー、昼は作りたてのサンドイッチと季節の日替わり料理、午後はフランやレモンメレンゲタルトなどのケーキが楽しめる「パン屋のテーブル」。",
+    "source_url": "https://benoitcastel.com/pages/nos-adresses",
+    "added_date": "2026-10-05",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Le%206%20Beno%C3%AEt%20Castel%206%20Rue%20Paul%20Bert%2C%2075011%20Paris"
+  },
+  {
+    "id": "pleincoeur",
+    "name": "Pleincœur",
+    "category": "bakery",
+    "arrondissement": "17e",
+    "address": "64 Rue des Batignolles, 75017 Paris",
+    "lat": 48.8864345,
+    "lng": 2.3186593,
+    "description": "2025年に「世界最優秀パティシエ」に選ばれたマキシム・フレデリックのパン屋兼パティスリー。2026年秋は桃・アプリコット・いちじくのアントルメやチョコレートのフランなどの新作が登場(1個€9.50〜10.50)。ケーキは季節ごとに入れ替わる。",
+    "source_url": "https://www.sortiraparis.com/hotel-restaurant/cafe-tea-time/articles/351695-ces-patisseries-de-la-rentree-2026-a-paris-vont-vous-faire-craquer",
+    "added_date": "2026-10-05",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pleinc%C5%93ur%2064%20Rue%20des%20Batignolles%2C%2075017%20Paris"
+  },
+  {
     "id": "anne-sophie-pic-paris",
     "name": "Anne-Sophie Pic Paris",
     "category": "restaurant",
