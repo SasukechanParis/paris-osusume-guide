@@ -1,5 +1,44 @@
 [
   {
+    "id": "sheesh-danny-khezzar",
+    "name": "Sheesh by Danny Khezzar",
+    "category": "restaurant",
+    "arrondissement": "2e",
+    "address": "91 Rue Réaumur, 75002 Paris",
+    "lat": 48.8673958,
+    "lng": 2.3467383,
+    "description": "Top Chef決勝進出で、ジュネーブのBayviewで星を持つシェフ、ダニー・ケザールのパリ1号店。日本の「サンド」を再解釈したサンドイッチ店で、2026年9月27日オープン。スパイシーなフライドチキンやエビとキムチのサンドなど。12席で、持ち帰りもできる。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/352804-sheesh-by-danny-khezzar-the-new-street-food-spot-opens-in-paris-this-sunday",
+    "added_date": "2026-10-19",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Sheesh%20by%20Danny%20Khezzar%2091%20Rue%20R%C3%A9aumur%2C%2075002%20Paris"
+  },
+  {
+    "id": "fat-belly",
+    "name": "Fat Belly",
+    "category": "restaurant",
+    "arrondissement": "3e",
+    "address": "57 Rue Charlot, 75003 Paris",
+    "lat": 48.863483,
+    "lng": 2.3632025,
+    "description": "マレ地区の新しいアジア系ロティスリー。広東風ダック、タイのガイヤーン、塩釜で焼いた豚バラなどのロースト肉と、自家製の麺が楽しめる。パンや麺、ソースもすべて自家製。開店以来混み合っていて、昼は予約がおすすめ。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/352849-fat-belly-the-crispy-asian-rotisserie-that-has-the-marais-drooling",
+    "added_date": "2026-10-19",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Fat%20Belly%2057%20Rue%20Charlot%2C%2075003%20Paris"
+  },
+  {
+    "id": "maison-ghibli-popup-2026",
+    "name": "Maison Ghibli ポップアップストア",
+    "category": "other",
+    "arrondissement": "1er",
+    "address": "15 Rue des Halles, 75001 Paris",
+    "lat": 48.8601644,
+    "lng": 2.3462058,
+    "description": "スタジオジブリ公式のポップアップストアが、今年はレ・アール地区で開催。2026年10月17日〜2027年1月3日。グッズは1000点以上で、店舗限定のジジのオルゴールもある。クリスマス前は混み合い、限定品は売り切れることも。",
+    "source_url": "https://www.sortiraparis.com/en/what-to-do-in-paris/shopping-fashion/articles/127395-ghibli-house-pop-up-store-2026-at-les-halles-hours-and-new-arrivals",
+    "added_date": "2026-10-19",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Maison%20Ghibli%20%E3%83%9D%E3%83%83%E3%83%97%E3%82%A2%E3%83%83%E3%83%97%E3%82%B9%E3%83%88%E3%82%A2%2015%20Rue%20des%20Halles%2C%2075001%20Paris"
+  },
+  {
     "id": "benoit-castel-le-6",
     "name": "Le 6 Benoît Castel",
     "category": "bakery",
