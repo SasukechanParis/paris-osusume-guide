@@ -1,5 +1,31 @@
 [
   {
+    "id": "fritkot-140-mallory-gabsi",
+    "name": "140° (Mallory Gabsi)",
+    "category": "restaurant",
+    "arrondissement": "2e",
+    "address": "6 Rue des Petits Carreaux, 75002 Paris",
+    "lat": 48.8665309,
+    "lng": 2.3472693,
+    "description": "Top Chef出身で、17区の自店でミシュランの星を持つベルギー人シェフ、マロリー・ガブシのフライドポテト店(ベルギーでいうフリットコット)。2026年6月27日にモントルグイユ地区でオープン。二度揚げの自家製フリットのほか、小エビのクロケットやフリカデルなど。カウンター4席の小さな店。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/restaurant/articles/347240-mallory-gabsi-opens-140-la-friterie-the-belgian-fritkot-in-paris",
+    "added_date": "2026-10-26",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=140%C2%B0%20%28Mallory%20Gabsi%29%206%20Rue%20des%20Petits%20Carreaux%2C%2075002%20Paris"
+  },
+  {
+    "id": "christmas-food-market-grande-epicerie-2026",
+    "name": "Christmas Food Market(ル・ボン・マルシェ食品館前)",
+    "category": "other",
+    "arrondissement": "7e",
+    "address": "38 Rue de Sèvres, 75007 Paris",
+    "lat": 48.8499722,
+    "lng": 2.3232975,
+    "description": "Le Food MarketとLa Grande Épicerie de Parisが開く、クリスマス版の屋外フードマーケット。2026年11月14日(土)の1日だけ、12:00〜19:00頃。グランド・エピスリー前のバック通りに長テーブルが並び、バーガーやガレット、ナンなどの屋台と、グランド・エピスリーのヴォロヴァンが楽しめる。入場無料。最寄りはSèvres-Babylone駅。時間は変わることがあるので行く前に確認を。",
+    "source_url": "https://www.sortiraparis.com/en/where-to-eat-in-paris/food-events/articles/353246-the-food-market-and-la-grande-epicerie-de-paris-host-a-christmas-food-market-on-rue-du-bac",
+    "added_date": "2026-10-26",
+    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Christmas%20Food%20Market%28%E3%83%AB%E3%83%BB%E3%83%9C%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%AB%E3%82%B7%E3%82%A7%E9%A3%9F%E5%93%81%E9%A4%A8%E5%89%8D%29%2038%20Rue%20de%20S%C3%A8vres%2C%2075007%20Paris"
+  },
+  {
     "id": "sheesh-danny-khezzar",
     "name": "Sheesh by Danny Khezzar",
     "category": "restaurant",
